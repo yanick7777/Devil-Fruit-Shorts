@@ -1,9 +1,12 @@
-import { drawPerson, mug, OL } from './art.js';
+import { drawPerson, mug, figPoint, POSES, OL } from './art.js';
 export function sheet(c) {
-  c.width = 2400; c.height = 1500; const x = c.getContext('2d'); x.fillStyle = '#e9f1f6'; x.fillRect(0, 0, c.width, c.height);
-  const row = (who, exprs, y) => exprs.forEach((e, i) => { x.drawImage(drawPerson({ who, expr: e }), 20 + i * 400, y, 380, 510); x.font = '34px "Lilita One"'; x.fillStyle = OL; x.fillText(`${who}: ${e}`, 60 + i * 400, y + 540); });
-  row('host', ['calm', 'smug', 'shock', 'grin', 'sad', 'worried'], 0);
-  mug(x, 2320, 330, 0.8, 0.5);
-  row('enemy', ['smug', 'worried', 'hit'], 740); [['ace','smug'],['sabo','grin']].forEach(([w,e],i)=>{ x.drawImage(drawPerson({who:w,expr:e}), 1220+i*400, 740, 380, 510); x.font='34px "Lilita One"'; x.fillStyle=OL; x.fillText(w, 1360+i*400, 1280); });
-  x.fillStyle = '#e9f1f6'; x.fillRect(0, 0, 0, 0);
+  c.width = 2600; c.height = 2000; const x = c.getContext('2d'); x.fillStyle = '#e9f1f6'; x.fillRect(0, 0, c.width, c.height);
+  const cell = (k, who, expr, pose, row) => {
+    const s = 0.48, cx = 160 + k * 320, fy = 920 + row * 980;
+    const im = drawPerson({ who, expr, pose }); x.drawImage(im, cx - 500 * s, fy - 1745 * s, 1000 * s, 1900 * s);
+    if (pose === 'hold' || pose === 'sip') { const [hx, hy] = figPoint(...POSES[pose].R[1], cx, fy, s); mug(x, hx + 20 * s, hy - 10 * s, 0.9 * s / 0.7, 0.4, true, false); }
+    x.font = '30px "Lilita One"'; x.fillStyle = OL; x.textAlign = 'center'; x.fillText(`${who} ${expr} / ${pose}`, cx, fy + 60);
+  };
+  [['host', 'calm', 'idle'], ['host', 'smug', 'hold'], ['host', 'calm', 'sip'], ['host', 'grin', 'raise'], ['host', 'shout', 'cheer'], ['host', 'worried', 'shrug'], ['host', 'yuck', 'holdUp'], ['host', 'shock', 'punch']].forEach((a, k) => cell(k, ...a, 0));
+  [['enemy', 'smug', 'idle'], ['enemy', 'worried', 'shrug'], ['enemy', 'hit', 'punch'], ['ace', 'smug', 'idle'], ['ace', 'grin', 'cheer'], ['sabo', 'grin', 'idle'], ['sabo', 'grin', 'cheer']].forEach((a, k) => cell(k, ...a, 1));
 }

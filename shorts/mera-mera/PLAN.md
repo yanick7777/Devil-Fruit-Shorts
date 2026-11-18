@@ -22,7 +22,7 @@ this session, so the text was read through a mirror of the same article:
 | Style | Thick navy outline `#1b1530`, flat fills, one white highlight arc upper-left and a small glint | – |
 | Forbidden | No face, eyes, mouth, arms, legs or expression. It is a plain object in every shot (drop, bite, reveal, trophy, reborn) | – |
 
-Still: `build/v2/fruit_sheet.png` (front, three turns, prop size). The bite uses the same drawing with a bite cut out.
+Still: `review/fruit_sheet.png` (front, three turns, prop size). The bite uses the same drawing with a bite cut out.
 The anime and manga both show it orange; no colour difference is noted on the wiki.
 
 ## 2. Script (your version) and fact check
@@ -50,9 +50,12 @@ The script only names this one fruit. Other fruits appear only as dark, nameless
 
 ## 3. Cast
 
-- **Host (original):** same face build as the reference style (big round head, thick navy outline, white rim light, glinting eyes with heavy lids and tan eye bags). Messy black hair, small round glasses, no stubble, teal hoodie over a white tee, pink steaming mug. Expressions: calm, smug, shock, grin, sad, worried, yuck. Test sheet: `build/v2/cast_sheet.png`.
-- **Enemy (original):** bearded pirate, purple polka-dot bandana, navy/white striped shirt, red sash. Expressions: smug, worried, shock, hit.
-- **Portgas D. Ace / Sabo:** drawn from their series looks (orange hat with beads and freckles; top hat with goggles, blue coat, cravat, scar) in the same art style.
+Every character is a **full-body** figure (head, torso, posable arms and hands, legs and shoes), with poses idle, hold, sip, raise, punch, cheer, shrug and hold-up. Props (mug, fruit, fireballs) attach to the hands. Standing shots show the whole figure; only the desk room hides the legs behind the desk. Test sheet: `review/cast_sheet.png`.
+
+
+- **Host (original):** same face build as the reference style (big round head, thick navy outline, white rim light, glinting eyes with heavy lids and tan eye bags). Messy black hair, small round glasses, no stubble, teal hoodie over a white tee, pink steaming mug, dark-blue jeans, white sneakers. Expressions: calm, smug, shock, grin, sad, worried, yuck.
+- **Enemy (original):** bearded pirate, purple polka-dot bandana, navy/white striped shirt, red sash, brown trousers, black boots. Expressions: smug, worried, shock, hit.
+- **Portgas D. Ace / Sabo:** drawn from their series looks (orange hat with beads, freckles, bare chest, black shorts and boots; top hat with goggles, long blue coat, cravat, scar, boots) in the same art style.
 
 ## 4. Effects and sound (applies to every shot)
 
@@ -83,7 +86,7 @@ Frames are at 30 fps. "Picture and effects" lists who and what is on screen.
 |---|---|---|---|---|---|---|---|
 | 1 | 0–48 | You | desk | wide, push-in 1.00→1.07 | Hook (desk room): host sips coffee, the fruit drops onto the plate, wide-eyed shock with !? |  | fall, shock, sip, thunk |
 | 2 | 49–113 | take a bite of a weird orange fruit. | desk | close-up, push-in 1.40→1.50 | The bite (desk close-up): 2-frame dip, bite, disgusted face, light flash; pink YOUR FRUIT banner | YOUR FRUIT (pink) | crunch, yuck |
-| 3 | 114–197 | Don't panic, that's just a Devil Fruit. | plain | medium, push-in 1.20→1.28 | Don't panic (close-up on a plain lavender backdrop): host calms down, holds the bitten fruit |  | whoosh |
+| 3 | 114–197 | Don't panic, that's just a Devil Fruit. | plain | wide, push-in 1.06→1.12 | Don't panic (close-up on a plain lavender backdrop): host calms down, holds the bitten fruit |  | whoosh |
 | 4 | 198–261 | Out of every fruit in the sea, you got the | rays:orange | wide, push-in 1.00→1.10, roll 2° | Out of every fruit: orange rays, pink ゴ marks, spinning globe, dark unnamed fruit silhouettes |  | rumble, whoosh |
 | 5 | 262–328 | Flame-Flame Fruit, | pinkDots | medium, push-in 1.05→1.16 | Fruit reveal: the Mera Mera no Mi slowly rotating on pink with shimmer; pink FLAME-FLAME FRUIT banner | FLAME-FLAME FRUIT (pink) | ding, shimmer, whoosh |
 | 6 | 329–393 | a Logia that allows you to turn into fire and | stage | wide, push-in 1.00→1.06 | Pedestal stage (wide): FORM 1-4 on purple pedestals, dark progress bar starts filling yellow |  | pop, whoosh |
@@ -95,7 +98,7 @@ Frames are at 30 fps. "Picture and effects" lists who and what is on screen.
 | 12 | 757–827 | punch through a bunch of ships. | sea | close-up, push-in 1.30→1.38, roll -3° | Form 2 impact (closer on the ships): the flame punches through a row of ships, impact stars, 7-frame shake |  | impact |
 | 13 | 828–903 | You can even make little fireballs float | harbor | wide, push-in 1.00→1.08 | Form 3 evolve (sunset harbor): fist becomes little fireballs floating from the host's hand; magnifier shows the tiny pirate inside a swirl | FORM 3 (gold) | evolve, twinkle, whoosh |
 | 14 | 904–936 | around your enemy, | harbor | close-up, push-in 1.30→1.38, roll 2° | Form 3 close (same harbor): fireballs float around the pirate, shown in the magnifier circle |  | twinkle |
-| 15 | 937–998 | then send them all in at once. | cliff | medium, pull-back 1.20→1.10 | Form 3 hit (island cliff): all the fireballs fly in at once and explode on the pirate; red impact star, 7-frame shake, !? |  | impact, pops, whoosh |
+| 15 | 937–998 | then send them all in at once. | cliff | medium, pull-back 1.16→1.08 | Form 3 hit (island cliff): all the fireballs fly in at once and explode on the pirate; red impact star, 7-frame shake, !? |  | impact, pops, whoosh |
 | 16 | 999–1054 | Your strongest attack is a | darkHalo | wide, push-in 1.00→1.08 | Form 4 peak (dark backdrop): evolve into a giant sun-like fireball with a gold halo; gold FORM 4 banner; host tiny below | FORM 4 (gold) | evolve, rumble, whoosh |
 | 17 | 1055–1137 | giant fireball that looks like a sun. | darkHalo | medium, pull-back 1.25→1.12 | Form 4 low angle (same backdrop): the sun swells to full size above the tiny host, shine lines | FORM 4 (gold) | boom |
 | 18 | 1138–1202 | And this fire never goes out. | rays:red | medium, push-in 1.00→1.28, roll 4° **twist** | Twist (red rays): an eternal flame that never goes out; music stops, low hit, push-in with roll; red NEVER GOES OUT banner | NEVER GOES OUT (red) | fireloop, sting |

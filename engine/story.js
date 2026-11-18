@@ -17,20 +17,31 @@ export const pop = (T, t0) => (T < t0 ? 0 : 0.55 + 0.45 * ease.outBack(prog(T, t
 
 const memo = new Map();
 const cached = (k, fn) => { if (!memo.has(k)) memo.set(k, fn()); return memo.get(k); };
+// full-body figures are big canvases: keep a small LRU of them
+const figs = new Map();
+function figure(key, fn) {
+  if (figs.has(key)) { const v = figs.get(key); figs.delete(key); figs.set(key, v); return v; }
+  const v = fn(); figs.set(key, v); if (figs.size > 48) figs.delete(figs.keys().next().value); return v;
+}
 
 // --------------------------------------------------------------------------------------
-export function person(x, S, who, expr, cx, cy, s = 1, o = {}) {
-  const p = o.pop != null ? pop(S.T, o.pop) : 1; if (p <= 0) return;
+// Full-body character with its feet at (cx, fy). Returns head and hand positions for props and marks.
+export function person(x, S, who, expr, cx, fy, s = 1, o = {}) {
+  const pose = o.pose || 'idle', flip = !!o.flip, P = A.POSES[pose];
+  const info = { head: A.figPoint(...A.FIG.HEAD, cx, fy, s, flip), hand: { L: A.figPoint(...P.L[1], cx, fy, s, flip), R: A.figPoint(...P.R[1], cx, fy, s, flip) }, s };
+  const p = o.pop != null ? pop(S.T, o.pop) : 1; if (p <= 0) return info;
   const seed = o.seed || 0, blink = ((S.T + seed) % 3.3) < 0.11;
   let mouth = 0;
   if (o.talk && S.speaking) { const m = Math.abs(Math.sin(S.T * 13.5)) * (0.55 + 0.45 * Math.sin(S.T * 5.3 + 1)); mouth = m > 0.5 ? 1 : m > 0.18 ? 0.5 : 0; }
-  const c = cached(`p:${who}|${expr}|${mouth}|${blink}`, () => A.drawPerson({ who, expr, mouth, blink }));
-  const br = 1 + Math.sin(S.T * 2.4 + seed) * 0.012;
-  x.save(); x.globalAlpha = o.alpha ?? 1; x.translate(cx, cy + 300 * s); x.rotate((o.rot || 0) + Math.sin(S.T * 1.1 + seed) * 0.015);
-  x.scale(s * p, s * p * br); x.drawImage(c, -380, -810); x.restore();
+  const c = figure(`p:${who}|${expr}|${mouth}|${blink}|${pose}`, () => A.drawPerson({ who, expr, mouth, blink, pose }));
+  const br = 1 + Math.sin(S.T * 2.4 + seed) * 0.01;
+  x.save(); x.globalAlpha = o.alpha ?? 1; x.translate(cx, fy); x.rotate((o.rot || 0) + Math.sin(S.T * 1.1 + seed) * 0.012);
+  x.scale(s * p * (flip ? -1 : 1), s * p * br); x.drawImage(c, -A.FIG.W / 2, -A.FIG.FEET); x.restore();
+  return info;
 }
-// head position helper for marks: (cx, cy) of person drawn at (cx, cy, s)
-const headOf = (cx, cy, s) => [cx, cy - 70 * s];
+// where a figure's head will be (for marks drawn before or without the figure)
+const headAt = (cx, fy, s) => A.figPoint(...A.FIG.HEAD, cx, fy, s);
+function rowboat(x, cx, cy, s) { x.save(); x.translate(cx, cy); x.scale(s, s); x.beginPath(); x.moveTo(-260, -40); x.lineTo(260, -40); x.quadraticCurveTo(230, 90, 0, 100); x.quadraticCurveTo(-230, 90, -260, -40); A.fs(x, '#a26d45', 12); x.strokeStyle = 'rgba(60,30,15,0.5)'; x.lineWidth = 6; x.beginPath(); x.moveTo(-230, 10); x.lineTo(230, 10); x.stroke(); x.restore(); }
 
 function deskFront(x, S, { plate = true } = {}) {
   x.fillStyle = '#ecebf3'; x.fillRect(-100, 1380, 1300, 120); x.fillStyle = '#c9c3d8'; x.fillRect(-100, 1500, 1300, 50);
@@ -66,9 +77,12 @@ function enemyShip(x, cx, cy, s, t, smoke = 0) {
   for (let i = 0; i < 6 * smoke; i++) { const ph = (t * 0.6 + i / 6) % 1; x.globalAlpha = (1 - ph) * 0.8; x.beginPath(); x.arc(-40 + Math.sin(i) * 60, -60 - ph * 300, 30 + ph * 50, 0, 7); x.fillStyle = '#5a5566'; x.fill(); }
   x.restore();
 }
-function fireBody(x, S, cx, cy, s, amt) { // flames hugging a host bust
-  A.glow(x, cx, cy - 60 * s, 520 * s * amt, '255,140,40', 0.55);
-  for (let i = 0; i <= 10; i++) { const a = Math.PI * (1.02 + i * 0.096); A.flame(x, cx + Math.cos(a) * 255 * s, cy - 70 * s + Math.sin(a) * 270 * s + 40 * s, 95 * s * amt, 190 * s * amt, S.T, i); }
+function fireBody(x, S, cx, fy, s, amt) { // flames hugging a full-body figure (feet at fy)
+  if (amt <= 0) return;
+  const [hx, hy] = headAt(cx, fy, s);
+  A.glow(x, cx, fy - 760 * s, 1050 * s * amt, '255,140,40', 0.5);
+  for (let i = 0; i <= 10; i++) { const a = Math.PI * (1.02 + i * 0.096); A.flame(x, hx + Math.cos(a) * 250 * s, hy + Math.sin(a) * 260 * s + 60 * s, 110 * s * amt, 220 * s * amt, S.T, i); }
+  for (let k = 0; k < 6; k++) for (const sd of [-1, 1]) A.flame(x, cx + sd * (215 - k * 6) * s, fy - (1000 - k * 170) * s, 120 * s * amt, 230 * s * amt, S.T, k * 2 + (sd > 0 ? 1 : 0) + 20);
 }
 
 // fruit with a bite taken out of it
@@ -84,13 +98,6 @@ function bittenFruit(x, cx, cy, R, rot, bitten) {
   }
   x.drawImage(c, cx - S2 / 2, cy - S2 / 2 - R * 0.1);
 }
-function holdFruit(x, S, cx, cy, R, bitten) {
-  bittenFruit(x, cx, cy, R, S.T * 0.4, bitten);
-  x.save(); x.translate(cx, cy + R * 0.85); x.beginPath(); x.ellipse(0, 0, R * 0.75, R * 0.42, 0, 0, 7); A.fs(x, '#f6c690', 10);
-  x.lineWidth = 6; x.strokeStyle = A.OL; for (const dx of [-0.35, 0, 0.35]) { x.beginPath(); x.moveTo(dx * R, -R * 0.38); x.lineTo(dx * R, -R * 0.15); x.stroke(); } x.restore();
-  rrectSleeve(x, cx, cy + R * 1.2, R);
-}
-function rrectSleeve(x, cx, cy, R) { A.rrect(x, cx - R * 0.55, cy, R * 1.1, R * 2, R * 0.3); A.fs(x, '#22a99a', 10); }
 function eternalFlame(x, cx, by, s, t) {
   A.glow(x, cx, by - 300 * s, 520 * s, '255,140,40', 0.7);
   for (let i = 0; i < 5; i++) A.flame(x, cx + (i - 2) * 70 * s, by - Math.abs(i - 2) * 20 * s, 230 * s - Math.abs(i - 2) * 40 * s, (560 - Math.abs(i - 2) * 130) * s, t, i + 70);
@@ -116,35 +123,36 @@ export function buildShots(TL) {
     cam: [[1.0, 540, 980, 0], [1.07, 540, 950, 0]],
     sfx: [[0.15, 'sip'], [tDrop - 0.25, 'fall'], [tDrop + 0.3, 'thunk'], [tShock, 'shock']],
     draw(x, S) {
-      person(x, S, 'host', S.t < tShock ? 'calm' : 'shock', 540, 1000, 1);
-      const sip = Math.sin(Math.PI * prog(S.t, 0.05, 0.75));
-      A.mug(x, lerp(800, 600, sip), lerp(1300, 1000, sip), 0.9, S.T, true);
+      const sipping = S.t > 0.05 && S.t < 0.7;
+      const h = person(x, S, 'host', S.t < tShock ? 'calm' : 'shock', 540, 1900, 0.8, { pose: sipping ? 'sip' : 'hold' });
+      A.mug(x, h.hand.R[0] + 16, h.hand.R[1] - 8, 1.03, S.T, true, false);
       deskFront(x, S);
       const k = prog(S.t, tDrop - 0.3, tDrop + 0.3);
       drawFruit(x, 290, lerp(-200, 1340, ease.outBounce(k)), 95, S.T * 0.6, { shadow: false });
       if (S.t > tDrop + 0.3 && S.t < tDrop + 0.3 + 7 * F) S.shake = 0.6;
-      if (S.t > tShock) { const [hx, hy] = headOf(540, 1000, 1); A.mark(x, '!?', hx + 270, hy - 230, pop(S.T, tShock)); }
+      if (S.t > tShock) A.mark(x, '!?', h.head[0] + 230, h.head[1] - 230, pop(S.T, tShock));
     } });
   add({ name: 'The bite (desk close-up): 2-frame dip, bite, disgusted face, light flash; pink YOUR FRUIT banner', t0: s2, t1: end('hook'), bg: 'desk',
     cam: [[1.4, 500, 1010, 0.02], [1.5, 490, 1000, 0.035]], banners: [['YOUR FRUIT', 'pink', W('hook', /^fruit/) - 0.1, end('hook')]],
     sfx: [[tBite - s2, 'crunch'], [W('hook', /^weird/) - s2, 'yuck']],
     draw(x, S) {
       const bt = tBite - s2, bitten = S.t >= bt;
-      person(x, S, 'host', bitten ? 'yuck' : 'calm', 540, 1000, 1);
-      const dip = S.t > bt - 2 * F && S.t < bt ? 18 : 0, lift = ease.outCubic(prog(S.t, 0, bt - 0.05)) * (1 - 0.6 * prog(S.t, bt + 0.2, bt + 0.6));
-      holdFruit(x, S, lerp(330, 470, lift), lerp(1250, 1040, lift) + dip, 85, bitten);
+      const atMouth = S.t > bt - 0.4 && S.t < bt + 0.45, dip = S.t > bt - 2 * F && S.t < bt ? 16 : 0;
+      const h = person(x, S, 'host', bitten ? 'yuck' : 'calm', 540, 1900, 0.8, { pose: atMouth ? 'sip' : 'hold' });
       deskFront(x, S, { plate: true });
+      A.mug(x, 830, 1330, 0.75, S.T, true, false);
+      bittenFruit(x, h.hand.R[0] - 18, h.hand.R[1] - 48 + dip, 62, S.T * 0.4, bitten);
       S.flash = Math.max(S.flash, 0.45 * (1 - prog(S.t, bt, bt + 0.25)) * (bitten ? 1 : 0));
       if (bitten) A.mark(x, '!?', 820, 560, pop(S.T, tBite + 0.1));
     } });
   add({ name: 'Don\'t panic (close-up on a plain lavender backdrop): host calms down, holds the bitten fruit', t0: st('calm'), t1: end('calm'), bg: 'plain',
-    cam: [[1.2, 540, 900, -0.02], [1.28, 540, 890, 0]], sfx: [[0, 'whoosh'], [W('calm', /^Devil/), 'shimmer']],
+    cam: [[1.06, 540, 1000, -0.02], [1.12, 540, 990, 0]], sfx: [[0, 'whoosh'], [W('calm', /^Devil/), 'shimmer']],
     draw(x, S) {
       const tj = W('calm', /^just/) - S.t0;
-      person(x, S, 'host', S.t < tj ? 'worried' : 'calm', 540, 1050, 1, { talk: true, seed: 1 });
-      if (S.t < tj) A.sweat(x, 760, 820, pop(S.T, S.t0 + 0.3));
-      holdFruit(x, S, 830, 1240, 80, true);
-      const td = W('calm', /^Devil/) - S.t0; A.sparkle(x, 790, 1150, 36 * Math.sin(Math.PI * prog(S.t, td, td + 0.6)));
+      const h = person(x, S, 'host', S.t < tj ? 'worried' : 'calm', 520, 1760, 0.8, { talk: true, seed: 1, pose: 'holdUp' });
+      if (S.t < tj) A.sweat(x, h.head[0] + 190, h.head[1] - 60, pop(S.T, S.t0 + 0.3));
+      bittenFruit(x, h.hand.R[0] + 20, h.hand.R[1] - 70, 66, S.T * 0.4, true);
+      const td = W('calm', /^Devil/) - S.t0; A.sparkle(x, h.hand.R[0] - 20, h.hand.R[1] - 140, 36 * Math.sin(Math.PI * prog(S.t, td, td + 0.6)));
       for (let i = 0; i < 4; i++) A.sparkle(x, 150 + i * 260, 420 + (i % 2) * 120, 22 * pop(S.T, S.t0 + 0.4 + i * 0.4));
     } });
 
@@ -192,10 +200,10 @@ export function buildShots(TL) {
     cam: [[1.15, 540, 1000, -0.03], [1.25, 540, 980, -0.01]], sfx: [[0.1, 'ignite'], [0.3, 'fireloop']],
     draw(x, S) {
       const f = ease.outCubic(prog(S.t, 0.2, 1.4));
-      fireBody(x, S, 540, 1080, 1.0, f);
-      person(x, S, 'host', 'shock', 540, 1080, 1.0, { seed: 2 });
-      for (let i = 0; i < 8; i++) A.flame(x, 180 + i * 100, 1640, 150, (180 + (i % 3) * 50) * f + 30, S.T, i + 40);
-      A.shineLines(x, 540, 900, 380, 560, S.T, 12);
+      fireBody(x, S, 540, 1760, 0.8, f);
+      person(x, S, 'host', 'shock', 540, 1760, 0.8, { seed: 2, pose: 'cheer' });
+      for (let i = 0; i < 7; i++) A.flame(x, 300 + i * 80, 1790, 110, (130 + (i % 3) * 40) * f + 30, S.T, i + 40);
+      A.shineLines(x, 540, 1000, 430, 620, S.T, 12);
     },
     hud(x, S) { const p = pop(S.T, S.t0 + 0.6); if (p <= 0) return; x.save(); x.translate(860, 600); x.scale(p, p);
       A.scopeOverlay(x, 0, 0, 160, S.T, (c) => { for (let i = 0; i < 4; i++) A.flame(c, -60 + i * 40, 90, 70, 190, S.T, i); });
@@ -205,12 +213,13 @@ export function buildShots(TL) {
     cam: [[1.05, 600, 980, 0.02], [1.14, 620, 960, 0.03]], sfx: [[0, 'whoosh'], [tPunch - tSo + 0.1, 'swish'], [tBul - tSo + 0.1, 'bullets'], [tBul - tSo + 0.8, 'shock']],
     draw(x, S) {
       const pp = Math.sin(Math.PI * prog(S.T, tPunch, tPunch + 0.7));
-      person(x, S, 'enemy', S.T > tBul + 0.7 ? 'shock' : 'smug', 840, 1080, 0.85, { pop: S.t0 + 0.05, seed: 3 });
-      fireBody(x, S, 320, 1110, 0.95, 0.9);
-      person(x, S, 'host', 'smug', 320, 1110, 0.95, { seed: 1, alpha: 0.85 });
-      if (pp > 0) { A.fist(x, lerp(700, 330, pp), 1330, 0.8, '#ffffff', Math.PI); A.speedLines(x, lerp(700, 330, pp) + 150, 1330, S.T, 8, 160, Math.PI); }
-      for (let i = 0; i < 3; i++) { const bp = prog(S.T, tBul + 0.1 + i * 0.1, tBul + 0.5 + i * 0.1); if (bp > 0 && bp < 1) A.bullet(x, lerp(1150, -150, bp), 980 + i * 80, -1.2); }
-      if (S.T > tBul + 0.7) { const [hx, hy] = headOf(840, 1080, 0.85); A.mark(x, '!?', hx + 220, hy - 230, pop(S.T, tBul + 0.7)); }
+      fireBody(x, S, 310, 1760, 0.7, 0.9);
+      person(x, S, 'host', 'smug', 310, 1760, 0.7, { seed: 1, alpha: 0.85, pose: 'shrug' });
+      const punching = pp > 0.15;
+      const e = person(x, S, 'enemy', S.T > tBul + 0.7 ? 'shock' : 'smug', lerp(760, 700, pp), 1760, 0.72, { pop: S.t0 + 0.05, seed: 3, flip: true, pose: punching ? 'punch' : 'idle' });
+      if (punching) { A.speedLines(x, e.hand.R[0] + 120, e.hand.R[1], S.T, 8, 160, Math.PI); A.sparkle(x, e.hand.R[0] - 30, e.hand.R[1] - 30, 30 * pp); }
+      for (let i = 0; i < 3; i++) { const bp = prog(S.T, tBul + 0.1 + i * 0.1, tBul + 0.5 + i * 0.1); if (bp > 0 && bp < 1) A.bullet(x, lerp(1150, -150, bp), 1050 + i * 110, -1.2); }
+      if (S.T > tBul + 0.7) A.mark(x, '!?', e.head[0] - 200, e.head[1] - 230, pop(S.T, tBul + 0.7));
     } });
 
   // ---------------- FORM 2: Fire Fist ----------------
@@ -239,7 +248,7 @@ export function buildShots(TL) {
       shipRow(x, S, shipHits, 1130);
       blast(x, S, S.t0 + 0.05);
       if (S.t < 7 * F + 0.05) S.shake = 1;
-      person(x, S, 'enemy', 'worried', 860, 1420, 0.62, { pop: S.t0 + 0.3, seed: 5 }); A.sweat(x, 960, 1170, pop(S.T, S.t0 + 0.9));
+      const e = person(x, S, 'enemy', 'worried', 860, 1860, 0.5, { pop: S.t0 + 0.3, seed: 5, pose: 'shrug' }); rowboat(x, 860, 1700, 0.95); A.sweat(x, e.head[0] + 130, e.head[1] - 40, pop(S.T, S.t0 + 0.9));
     },
     hud(x, S) { const p = pop(S.T, S.t0 + 0.15); if (p <= 0) return; x.save(); x.translate(70, 520); x.scale(p, p); A.meterOverlay(x, 0, 0, 380, ease.outCubic(prog(S.t, 0.15, 2.2)), 'HEAT'); x.restore(); } });
   add({ name: 'Form 2 impact (closer on the ships): the flame punches through a row of ships, impact stars, 7-frame shake', t0: tPunchThru, t1: end('form2'), bg: 'sea',
@@ -248,7 +257,7 @@ export function buildShots(TL) {
       shipRow(x, S, shipHits, 1130);
       blast(x, S, S.t0 - 3);
       if (shipHits.some((t) => S.T > t && S.T < t + 7 * F)) S.shake = 1;
-      person(x, S, 'enemy', 'shock', 860, 1420, 0.62, { seed: 5 }); A.mark(x, '!?', 1000, 1080, pop(S.T, shipHits[1]));
+      const e = person(x, S, 'enemy', 'shock', 860, 1860, 0.5, { seed: 5, pose: 'shrug' }); rowboat(x, 860, 1700, 0.95); A.mark(x, '!?', e.head[0] - 170, e.head[1] - 170, pop(S.T, shipHits[1]));
     },
     hud(x, S) { x.save(); x.translate(70, 520); A.meterOverlay(x, 0, 0, 380, 1, 'HEAT'); x.restore(); } });
 
@@ -259,26 +268,26 @@ export function buildShots(TL) {
     sfx: [[0, 'evolve'], [0.35, 'whoosh'], [0.6, 'twinkle']],
     draw(x, S) {
       evolve(x, S, 2, 3, 540, 760, 1.4);
-      person(x, S, 'host', 'grin', 720, 1180, 0.82, { pop: S.t0 + 0.35, seed: 2 });
-      A.openHand(x, 420, 1130, 0.75 * pop(S.T, S.t0 + 0.45)); A.shineLines(x, 420, 1100, 110, 230, S.T, 8);
+      const h = person(x, S, 'host', 'grin', 640, 1780, 0.74, { pop: S.t0 + 0.35, seed: 2, pose: 'raise' });
+      const [px, py] = h.hand.L; A.shineLines(x, px, py, 90, 210, S.T, 8);
       for (let i = 0; i < 12; i++) { const born = 0.5 + i * 0.12; if (S.t < born) continue; const ph = Math.min(1, (S.t - born) / 1.2), a = i * 2.1 + S.T * 0.8;
-        A.firefly(x, 420 + Math.cos(a) * 60 * ph + (i % 2 ? 1 : -1) * ph * 200 * A.hash(i), 1080 - ph * (300 + A.hash(i + 2) * 300), 0.9, S.T, i); }
+        A.firefly(x, px + Math.cos(a) * 60 * ph + (i % 2 ? 1 : -1) * ph * 220 * A.hash(i), py - 40 - ph * (200 + A.hash(i + 2) * 260), 0.9, S.T, i); }
     },
     hud(x, S) { const p = pop(S.T, tAround - 0.1); if (p <= 0) return; x.save(); x.translate(250, 640); x.scale(p, p);
-      A.magnifier(x, 0, 0, 175, S.T, (c) => { person(c, S, 'enemy', 'worried', 0, 30, 0.28, { seed: 4 }); for (let i = 0; i < 6; i++) { const a = i / 6 * 6.283 + S.T * 2; A.firefly(c, Math.cos(a) * 115, Math.sin(a) * 95, 0.5, S.T, i); } }); x.restore(); } };
+      A.magnifier(x, 0, 0, 175, S.T, (c) => { person(c, S, 'enemy', 'worried', 0, 150, 0.17, { seed: 4, pose: 'shrug' }); for (let i = 0; i < 6; i++) { const a = i / 6 * 6.283 + S.T * 2; A.firefly(c, Math.cos(a) * 115, Math.sin(a) * 95, 0.5, S.T, i); } }); x.restore(); } };
   add(f3);
   add({ ...f3, name: 'Form 3 close (same harbor): fireballs float around the pirate, shown in the magnifier circle', t0: tAround - 0.1, t1: tThen, cam: [[1.3, 420, 900, 0.03], [1.38, 400, 880, 0.04]], banners: [['FORM 3', 'gold', st('form3') + 0.3, tThen, 'slide']], sfx: [[0, 'twinkle']] });
   add({ name: 'Form 3 hit (island cliff): all the fireballs fly in at once and explode on the pirate; red impact star, 7-frame shake, !?', t0: tThen, t1: end('form3'), bg: 'cliff',
-    cam: [[1.2, 540, 940, 0.04], [1.1, 540, 960, 0.02]], sfx: [[0.1, 'whoosh'], [0.75, 'pops'], [0.78, 'impact']],
+    cam: [[1.16, 540, 1010, 0.04], [1.08, 540, 1000, 0.02]], sfx: [[0.1, 'whoosh'], [0.75, 'pops'], [0.78, 'impact']],
     draw(x, S) {
       const ti = 0.75, hit = S.t > ti;
-      person(x, S, 'enemy', hit ? 'hit' : 'worried', 540, 1080, 0.95, { seed: 6, rot: hit ? Math.sin(S.T * 20) * 0.03 * (1 - prog(S.t, ti, ti + 0.8)) : 0 });
+      const e = person(x, S, 'enemy', hit ? 'hit' : 'worried', 540, 1760, 0.78, { seed: 6, pose: 'shrug', rot: hit ? Math.sin(S.T * 20) * 0.03 * (1 - prog(S.t, ti, ti + 0.8)) : 0 });
       for (let i = 0; i < 12; i++) { const a = i / 12 * 6.283 + S.T * 0.6, r = lerp(430, 110, ease.smoother(prog(S.t, 0.1, ti))), e = prog(S.t, ti + i * 0.03, ti + 0.5 + i * 0.03);
-        const px = 540 + Math.cos(a) * r, py = 920 + Math.sin(a) * r * 0.8;
+        const px = 540 + Math.cos(a) * r, py = 1080 + Math.sin(a) * r * 0.8;
         if (e <= 0) A.firefly(x, px, py, 0.9, S.T, i); else if (e < 1) { A.glow(x, px, py, 180 * e + 30, '255,150,40', 1 - e); A.flame(x, px, py + 50, 100, 170 * Math.sin(e * Math.PI) + 20, S.T, i); } }
-      A.impactStar(x, 600, 860, 240 * pop(S.T, S.t0 + ti) * (1 - prog(S.t, ti + 0.5, ti + 0.9)), S.T);
+      A.impactStar(x, 600, 1000, 240 * pop(S.T, S.t0 + ti) * (1 - prog(S.t, ti + 0.5, ti + 0.9)), S.T);
       if (S.t > ti && S.t < ti + 7 * F) S.shake = 1;
-      const [hx, hy] = headOf(540, 1080, 0.95); A.mark(x, '!?', hx + 260, hy - 250, pop(S.T, S.t0 + ti + 0.3));
+      A.mark(x, '!?', e.head[0] + 230, e.head[1] - 230, pop(S.T, S.t0 + ti + 0.3));
     } });
 
   // ---------------- FORM 4: Flame Emperor (peak) ----------------
@@ -291,7 +300,7 @@ export function buildShots(TL) {
       const g = ease.outCubic(prog(S.t, 0.4, 3.0)), ts = W('form4', /^sun/) - S.t0;
       if (S.t < 0.45) evolve(x, S, 3, 4, 540, 800, 1.6); else { evolve(x, S, 3, 4, 540, 800, 0); A.sun(x, 540, 800, 140 + 170 * g + 30 * pop(S.T, S.t0 + ts), S.T); }
       A.shineLines(x, 540, 800, 340, 540, S.T, 14);
-      person(x, S, 'host', 'shout', 540, 1330, 0.55, { pop: S.t0 + 0.6, seed: 7 });
+      person(x, S, 'host', 'shout', 540, 1820, 0.4, { pop: S.t0 + 0.6, seed: 7, pose: 'cheer' });
       S.shake = Math.max(S.shake, 0.15 * g, S.t > ts && S.t < ts + 7 * F ? 1 : 0);
       S.flash = Math.max(S.flash, 0.5 * (1 - prog(S.t, ts, ts + 0.3)) * (S.t > ts ? 1 : 0)); S.flashCol = '255,246,200';
     } };
@@ -329,11 +338,11 @@ export function buildShots(TL) {
   const tSabo = W('sabo', /^Sabo/) - 0.1, tTour = W('sabo', /^tournament/);
   add({ name: 'After Ace died (night-blue backdrop): Portgas D. Ace\'s ghostly portrait with a fire aura fades out', t0: st('sabo'), t1: tSabo, bg: 'night',
     cam: [[1.15, 540, 940, -0.02], [1.2, 540, 930, -0.03]], sfx: [[0, 'whoosh']],
-    draw(x, S) { const a = 1 - prog(S.t, 0.35, S.dur); fireBody(x, S, 540, 1080, 1.0, 0.8 * a); person(x, S, 'ace', 'smug', 540, 1080, 1.0, { alpha: a, seed: 8 }); } });
+    draw(x, S) { const a = 1 - prog(S.t, 0.35, S.dur); fireBody(x, S, 540, 1760, 0.8, 0.8 * a); person(x, S, 'ace', 'smug', 540, 1760, 0.8, { alpha: a, seed: 8 }); } });
   add({ name: 'Colosseum: Sabo pops in and wins the tournament trophy with the fruit on top', t0: tSabo, t1: end('sabo'), bg: 'colosseum',
     cam: [[1.0, 560, 980, -0.02], [1.1, 520, 980, 0.01]], sfx: [[0, 'whoosh'], [0.1, 'pop'], [tTour - tSabo, 'fanfare']],
     draw(x, S) {
-      person(x, S, 'sabo', 'grin', 360, 1100, 0.9, { pop: S.t0 + 0.08, seed: 9 });
+      person(x, S, 'sabo', 'grin', 320, 1760, 0.74, { pop: S.t0 + 0.08, seed: 9, pose: S.T > tTour ? 'cheer' : 'idle' });
       const tp = pop(S.T, tTour - 0.2); if (tp > 0) { A.glow(x, 820, 1080, 300, '255,230,120', 0.7); A.trophy(x, 820, 1090, 0.75 * tp); drawFruit(x, 820, 930 + Math.sin(S.T * 4) * 6, 80 * tp, S.T, { shadow: false }); A.shineLines(x, 820, 1000, 180, 320, S.T, 10); }
       for (let i = 0; i < 10; i++) { const ph = (S.T * 0.7 + A.hash(i)) % 1; x.fillStyle = ['#ff6f91', '#ffd23f', '#5fe07a', '#4fb3ff'][i % 4]; x.fillRect(A.hash(i + 2) * 1080, 300 + ph * 1100, 18, 28); }
     } });
@@ -345,8 +354,8 @@ export function buildShots(TL) {
     draw(x, S) {
       A.glow(x, 540, 1000, 560, '255,170,60', 0.55);
       for (let i = 0; i < 7; i++) A.flame(x, 260 + i * 95, 1500, 110, 180 + (i % 2) * 60, S.T, i + 90, 0.9);
-      person(x, S, 'host', S.T > W('joke', /^heating/) ? 'smug' : 'calm', 540, 1060, 0.95, { pop: S.t0 + 0.05, seed: 11, talk: true });
-      A.mug(x, 820, 1280, 0.8, S.T, true);
+      const h = person(x, S, 'host', S.T > W('joke', /^heating/) ? 'smug' : 'calm', 540, 1780, 0.78, { pop: S.t0 + 0.05, seed: 11, talk: true, pose: 'hold' });
+      A.mug(x, h.hand.R[0] + 16, h.hand.R[1] - 8, 1.0, S.T, true, false);
       for (let i = 0; i < 30; i++) { const ph = (S.T * 0.25 + A.hash(i)) % 1; x.fillStyle = '#fff'; x.beginPath(); x.arc((A.hash(i + 1) * 1080 + Math.sin(S.T + i) * 30), ph * 1920, 5 + A.hash(i + 2) * 6, 0, 7); x.fill(); }
     } });
 
@@ -357,16 +366,15 @@ export function buildShots(TL) {
     sfx: [[0, 'whoosh'], [0.3, 'pop'], [0.8, 'pop'], [1.4, 'pop']],
     draw(x, S) {
       A.gogo(x, 90, 300, S.T, 0.8 * pop(S.T, S.t0 + 0.2));
-      person(x, S, 'host', 'smug', 540, 1060, 1.0, { pop: S.t0 + 0.05, talk: true, seed: 12 });
+      person(x, S, 'host', 'smug', 540, 1760, 0.8, { pop: S.t0 + 0.05, talk: true, seed: 12, pose: 'shrug' });
       A.mark(x, '?', 200, 640, 1.3 * pop(S.T, S.t0 + 0.8), -0.2); A.mark(x, '?', 880, 600, 1.1 * pop(S.T, S.t0 + 1.4), 0.25);
       drawFruit(x, 860, 1200 + Math.sin(S.T * 2) * 14, 75 * pop(S.T, S.t0 + 2.0), S.T, { shadow: false });
     } });
   add({ name: 'Back in the desk room: host sips coffee, steam rising', t0: tDesk, t1: TL.duration, bg: 'desk',
     cam: [[1.12, 540, 1000, 0], [1.18, 540, 990, 0]], sfx: [[0.2, 'sip']],
     draw(x, S) {
-      person(x, S, 'host', 'calm', 540, 1000, 1, { seed: 13 });
-      const sip = Math.sin(Math.PI * prog(S.t, 0.2, 1.6));
-      A.mug(x, lerp(800, 600, sip), lerp(1300, 1000, sip), 0.9, S.T, true);
+      const h = person(x, S, 'host', 'calm', 540, 1900, 0.8, { seed: 13, pose: S.t > 0.25 && S.t < 1.5 ? 'sip' : 'hold' });
+      A.mug(x, h.hand.R[0] + 16, h.hand.R[1] - 8, 1.03, S.T, true, false);
       deskFront(x, S, { plate: true });
     } });
 
