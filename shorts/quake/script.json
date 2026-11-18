@@ -1,0 +1,127 @@
+{
+  "title": "Gura Gura no Mi",
+  "format": "9:16",
+  "story": "/shorts/quake/story.js",
+  "voice": {
+    "name": "mb-us2",
+    "speed": 158,
+    "pitch": 48
+  },
+  "voice_override_dir": "shorts/quake/vo",
+  "voice_fx": {
+    "tempo": 1.15,
+    "pitch_semitones": 3,
+    "excited": true
+  },
+  "music": false,
+  "facts": [
+    "Appearance (main One Piece Wiki, via search): a blue pear with a 'cracked' lower part; an official design was published in October 2025 (not viewable from here, so the drawing is unconfirmed)",
+    "Paramecia, English name Tremor-Tremor Fruit: the user creates vibrations / shockwaves ('quakes')",
+    "Whitebeard wraps his fist in a bubble-like shockwave and cracks the air like glass (Marineford)",
+    "At Marineford, Whitebeard's quakes split the island in two and raised two giant tidal waves",
+    "Whitebeard grabbed the air and tilted the sea around Marineford (Marineford arc)",
+    "Fleet Admiral Sengoku said the power could destroy the world",
+    "After Whitebeard died at Marineford, Blackbeard took the fruit's power from him (method unexplained)",
+    "'Never need a massage chair' is a joke line"
+  ],
+  "lines": [
+    {
+      "id": "hook",
+      "lead": 1.6,
+      "tail": 0.25,
+      "text": "You take a bite#red of a weird blue#blue fruit.",
+      "say": "You take a bite, of a weird blue fruit."
+    },
+    {
+      "id": "calm",
+      "lead": 0.1,
+      "tail": 0.35,
+      "text": "Don't panic,#red that's just a Devil#purple Fruit.#purple",
+      "say": "Don't panic. That's just a devil fruit."
+    },
+    {
+      "id": "sea",
+      "lead": 0.1,
+      "tail": 0.25,
+      "text": "Out of every fruit in the sea,#blue",
+      "say": "Out of every fruit in the sea,"
+    },
+    {
+      "id": "name",
+      "lead": 0.05,
+      "tail": 0.9,
+      "text": "you got the Tremor-Tremor#pink Fruit,#pink",
+      "say": "you got the tremor, tremor fruit."
+    },
+    {
+      "id": "type",
+      "lead": 0.1,
+      "tail": 0.9,
+      "text": "a Paramecia#orange that lets you shake#red anything and gives you a whole list of quake powers.#gold",
+      "say": "A paramecia, that lets you shake anything, and gives you a whole list of quake powers."
+    },
+    {
+      "id": "form1",
+      "lead": 0.3,
+      "tail": 0.4,
+      "text": "First, you wrap your fist in a bubble#blue of shockwaves, and one punch cracks the air#red like glass.",
+      "say": "First, you wrap your fist in a bubble of shockwaves, and one punch cracks the air, like glass."
+    },
+    {
+      "id": "form2",
+      "lead": 0.55,
+      "tail": 0.4,
+      "text": "Then you punch the ground#orange and the whole island splits#red in two.",
+      "say": "Then you punch the ground, and the whole island splits in two."
+    },
+    {
+      "id": "form3",
+      "lead": 0.55,
+      "tail": 0.4,
+      "text": "You can even shake#green the sea and send giant tsunamis#blue crashing in.",
+      "say": "You can even shake the sea, and send giant tsunamis crashing in."
+    },
+    {
+      "id": "form4",
+      "lead": 0.55,
+      "tail": 0.6,
+      "text": "Your strongest#gold move grabs the air and tilts the whole sea sideways.#orange",
+      "say": "Your strongest move, grabs the air, and tilts the whole sea sideways."
+    },
+    {
+      "id": "twist",
+      "lead": 0.25,
+      "tail": 0.4,
+      "text": "But here's the scary#red part.#red",
+      "say": "But here's the scary part."
+    },
+    {
+      "id": "truth",
+      "lead": 0.1,
+      "tail": 0.4,
+      "text": "This power is said to be strong enough to destroy#red the whole world.#purple",
+      "say": "This power is said to be strong enough, to destroy the whole world."
+    },
+    {
+      "id": "users",
+      "lead": 0.1,
+      "tail": 0.4,
+      "text": "It belonged to Whitebeard,#gold and right after he died,#purple Blackbeard#purple stole it.",
+      "say": "It belonged to Whitebeard. And right after he died, Blackbeard stole it."
+    },
+    {
+      "id": "joke",
+      "lead": 0.2,
+      "tail": 0.9,
+      "text": "Users of this fruit never need a massage#green chair.#green",
+      "say": "Users of this fruit, never need a massage chair."
+    },
+    {
+      "id": "outro",
+      "lead": 0.2,
+      "tail": 2.4,
+      "text": "Which fruit#pink do you want next?#gold Follow for more.",
+      "say": "Which fruit do you want next? Follow for more."
+    }
+  ]
+}

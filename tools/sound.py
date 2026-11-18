@@ -89,6 +89,15 @@ FX.update({
   'stamp':    lambda: norm(thump(160, 0.35) + 0.4 * np.pad(hp(noise(0.03), 1000) * env(int(0.03 * SR), 0.001, 0.01), (0, int(0.32 * SR)))),
   'waves':    lambda: norm(lp(noise(2.0), 600) * (0.4 + 0.6 * np.sin(np.pi * T(2.0) / 2.0) ** 2)),
 })
+FX.update({
+  'quake':   lambda: norm(lp(noise(1.4), 120, 4) * env(int(1.4 * SR), 0.02, 0.6) * (1 + 0.6 * np.sin(2 * np.pi * 9 * T(1.4))) + np.pad(thump(70, 1.0), (0, int(0.4 * SR)))),
+  'charge':  lambda: norm(sweep(80, 600, 0.8) * np.linspace(0.2, 1, int(0.8 * SR)) + 0.3 * hp(noise(0.8), 3000) * np.linspace(0, 1, int(0.8 * SR))),
+  'hum':     lambda: norm(sum(np.sin(2 * np.pi * f * T(1.0)) for f in (110, 165, 220)) * (0.6 + 0.4 * np.sin(2 * np.pi * 6 * T(1.0))) * env(int(1.0 * SR), 0.1, 0.6)),
+  'glass':   lambda: norm(seq([(rng.uniform(0, 0.25), sum(np.sin(2 * np.pi * rng.uniform(2500, 7000) * T(0.25)) for _ in range(3)) * env(int(0.25 * SR), 0.001, 0.05)) for _ in range(14)], 0.6) + hp(noise(0.6), 2000) * env(int(0.6 * SR), 0.001, 0.12)),
+  'crumble': lambda: norm(seq([(rng.uniform(0, 0.9), lp(noise(0.15), 800) * env(int(0.15 * SR), 0.002, 0.05)) for _ in range(24)], 1.2)),
+  'splash':  lambda: norm(bp(noise(0.9), 400, 6000) * env(int(0.9 * SR), 0.004, 0.25) + 0.5 * np.pad(thump(90, 0.4), (0, int(0.5 * SR)))),
+  'siren':   lambda: norm(np.sin(2 * np.pi * np.cumsum(700 + 250 * np.sin(2 * np.pi * 2.5 * T(1.4))) / SR) * env(int(1.4 * SR), 0.02, 0.8)),
+})
 GAIN = {'fireloop': 0.45, 'rumble': 0.7, 'blast': 1.0, 'boom': 1.0, 'sting': 1.2, 'whoosh': 0.6, 'swish': 0.7, 'pop': 0.55, 'ding': 0.5, 'twinkle': 0.5,
         'shimmer': 0.55, 'pops': 0.8, 'sip': 0.6, 'levelup': 0.6, 'fanfare': 0.6, 'crunch': 0.9, 'yuck': 0.6, 'impact': 1.0, 'jokesting': 0.9}
 

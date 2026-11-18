@@ -48,8 +48,10 @@ export function frame(T) {
   M.bg.material.map = bgTex(shot.bg); M.bg.material.needsUpdate = true;
   // ---- stage ----
   const x = M.stageC.getContext('2d'); x.clearRect(0, 0, W, H);
-  S.wobble = 0;
+  S.wobble = 0; S.bgRoll = 0;
   shot.draw(x, S);
+  M.bg.rotation.z = S.bgRoll || 0;   // tilt only the world behind the characters
+  { const kb = (DIST + 420) / DIST * (1 + Math.abs(S.bgRoll || 0) * 1.4); M.bg.scale.set(kb, kb, 1); }
   // cartoon wobble: bend the background mesh (Gear 5 style)
   { const pos = M.bg.geometry.attributes.position, r = M.bgRest, w = S.wobble || 0;
     if (w > 0 || M.bgWobbled) { for (let i = 0; i < pos.count; i++) { const px = r[i * 3], py = r[i * 3 + 1];
