@@ -158,6 +158,7 @@ export function buildShots(TL) {
 
   // ---------------- OUT OF EVERY FRUIT ----------------
   const tName = W('name', /^Flame-Flame/) - 0.15;
+  const tStage = W('logia', /^that/) - 0.1;
   add({ name: 'Out of every fruit: orange rays, pink ゴ marks, spinning globe, dark unnamed fruit silhouettes', t0: st('sea'), t1: tName, bg: 'rays:orange',
     cam: [[1.0, 540, 900, 0], [1.1, 540, 880, 0.04]], sfx: [[0, 'whoosh'], [0.1, 'rumble']],
     draw(x, S) {
@@ -165,8 +166,8 @@ export function buildShots(TL) {
       for (let i = 0; i < 6; i++) { const a = i / 6 * 6.283 + S.T * 0.5, p = pop(S.T, S.t0 + 0.15 + i * 0.22); if (p > 0) A.fruitSilhouette(x, 540 + Math.cos(a) * 380, 860 + Math.sin(a) * 300, 70 * p, i); }
       A.gogo(x, 110, 330, S.T, pop(S.T, S.t0 + 0.1)); A.gogo(x, 800, 1020, S.T + 1, 0.7 * pop(S.T, S.t0 + 0.8));
     } });
-  add({ name: 'Fruit reveal: the Mera Mera no Mi slowly rotating on pink with shimmer; pink FLAME-FLAME FRUIT banner', t0: tName, t1: end('name'), bg: 'pinkDots',
-    cam: [[1.05, 540, 900, -0.02], [1.16, 540, 880, 0]], banners: [['FLAME-FLAME FRUIT', 'pink', tName + 0.1, end('name')]],
+  add({ name: 'Fruit reveal: the Mera Mera no Mi slowly rotating on pink with shimmer; pink FLAME-FLAME FRUIT banner', t0: tName, t1: tStage, bg: 'pinkDots',
+    cam: [[1.05, 540, 900, -0.02], [1.16, 540, 880, 0]], banners: [['FLAME-FLAME FRUIT', 'pink', tName + 0.1, tStage]],
     sfx: [[0, 'whoosh'], [0.1, 'ding'], [0.3, 'shimmer']],
     draw(x, S) {
       halo(x, 540, 880, 470, '255,120,180', S.T);
@@ -189,8 +190,8 @@ export function buildShots(TL) {
       else { x.font = `110px ${A.FONT}`; x.textAlign = 'center'; x.fillStyle = 'rgba(255,255,255,0.25)'; x.fillText('?', px, 900); }
     });
   };
-  add({ name: 'Pedestal stage (wide): FORM 1-4 on purple pedestals, dark progress bar starts filling yellow', t0: st('logia'), t1: stageSplit, bg: 'stage',
-    cam: [[1.0, 540, 980, 0], [1.06, 530, 960, 0]], sfx: [[0, 'whoosh'], [pw[0] - st('logia'), 'pop']], draw: stageDraw });
+  add({ name: 'Pedestal stage (wide): FORM 1-4 on purple pedestals, dark progress bar starts filling yellow', t0: tStage, t1: stageSplit, bg: 'stage',
+    cam: [[1.0, 540, 980, 0], [1.06, 530, 960, 0]], sfx: [[0, 'whoosh'], [pw[0] - tStage, 'pop']], draw: stageDraw });
   add({ name: 'Pedestal stage (close): forms 2-4 pop in, bar fills, LEVEL UP, gold halo on FORM 4', t0: stageSplit, t1: end('logia'), bg: 'stage',
     cam: [[1.28, 640, 860, 0.03], [1.36, 700, 840, 0.045]], sfx: [[pw[1] - stageSplit, 'pop'], [pw[2] - stageSplit, 'pop'], [pw[3] - stageSplit, 'pop'], [lvl - stageSplit, 'levelup']], draw: stageDraw });
 
