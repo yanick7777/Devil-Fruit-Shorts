@@ -8,11 +8,7 @@
     "pitch": 48
   },
   "voice_override_dir": "shorts/gum-gum/vo",
-  "voice_fx": {
-    "tempo": 1.15,
-    "pitch_semitones": 3,
-    "excited": true
-  },
+  "voice_fx": {},
   "music": false,
   "facts": [
     "Appearance (One Piece Wiki): a violet, spherical fruit similar to a cantaloupe, with a stem sprouting out of the top and swirls in a curly 'S'-like pattern; it greatly resembles a Yubari King melon",
