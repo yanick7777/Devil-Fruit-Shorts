@@ -36,7 +36,7 @@ export const BG = {
     return finish(c);
   },
   rays(hue) { // radial light rays in one hue
-    const [c, x] = canvas(); const H = { orange: ['#ffb24d', '#ff9a2e'], purple: ['#a77ee8', '#8d5fd6'], pink: ['#ff9cc6', '#ff7fb4'], red: ['#ff7a5c', '#e8402e'], blue: ['#7cc8ff', '#4a9fe8'], green: ['#9be37a', '#5cc45a'], yellow: ['#ffe680', '#ffcf3a'] }[hue];
+    const [c, x] = canvas(); const H = { orange: ['#ffb24d', '#ff9a2e'], purple: ['#a77ee8', '#8d5fd6'], pink: ['#ff9cc6', '#ff7fb4'], red: ['#ff7a5c', '#e8402e'], blue: ['#7cc8ff', '#4a9fe8'], green: ['#9be37a', '#5cc45a'], yellow: ['#ffe680', '#ffcf3a'], teal: ['#7fe6d8', '#3fc4b4'] }[hue];
     x.fillStyle = H[1]; x.fillRect(-OX, -OY, BW, BH);
     x.fillStyle = H[0]; for (let i = 0; i < 24; i++) { const a = i / 24 * Math.PI * 2; x.beginPath(); x.moveTo(540, 820); x.arc(540, 820, 2200, a, a + Math.PI / 24); x.closePath(); x.fill(); }
     const g = x.createRadialGradient(540, 820, 50, 540, 820, 700); g.addColorStop(0, 'rgba(255,255,255,0.55)'); g.addColorStop(1, 'rgba(255,255,255,0)'); x.fillStyle = g; x.fillRect(-OX, -OY, BW, BH);
@@ -505,6 +505,104 @@ export const BG = {
     x.fillStyle = '#e8a35a'; x.fillRect(-OX, 1240, BW, 1000); x.lineWidth = 10; x.beginPath(); x.moveTo(-OX, 1240); x.lineTo(BW, 1240); x.stroke();
     return finish(c);
   },
+
+  // ======================= sets added for the String-String short =======================
+  yarn() { // cosy pink with balls of yarn
+    const [c, x] = canvas(); fill(x, '#ffe0ec', '#ffc7da');
+    for (let i = 0; i < 9; i++) { const cx = hash(i) * 1080, cy = hash(i + 1) * 1920, r = 60 + hash(i + 2) * 50; x.beginPath(); x.arc(cx, cy, r, 0, 7); fs(x, ['#ff8fb3', '#b07cff', '#7fd6ff'][i % 3], 8); x.lineWidth = 4; x.strokeStyle = 'rgba(255,255,255,0.6)'; for (let k = -2; k <= 2; k++) { x.beginPath(); x.ellipse(cx, cy, r * 0.9, r * 0.3, k * 0.6, 0, 7); x.stroke(); } }
+    return finish(c, 10);
+  },
+  web() { // dark purple with a silver string web
+    const [c, x] = canvas(); fill(x, '#2a1d40', '#140c22');
+    x.strokeStyle = 'rgba(230,220,255,0.35)'; x.lineWidth = 3;
+    for (let i = 0; i < 16; i++) { const a = i / 16 * Math.PI * 2; x.beginPath(); x.moveTo(540, 880); x.lineTo(540 + Math.cos(a) * 1600, 880 + Math.sin(a) * 1600); x.stroke(); }
+    for (let r = 120; r < 1400; r += 120) { x.beginPath(); for (let i = 0; i <= 16; i++) { const a = i / 16 * Math.PI * 2; x.lineTo(540 + Math.cos(a) * r, 880 + Math.sin(a) * r); } x.stroke(); }
+    return finish(c, 6);
+  },
+  ruins() { // sunlit stone ruins with cleanly sliced columns
+    const [c, x] = canvas(); fill(x, '#9ed8ff', '#f4f0e0', -OY, 1000); sunDisk(x, 860, 260, 80);
+    for (let i = 0; i < 5; i++) { const px = 60 + i * 230, h = 500 + hash(i) * 300; x.beginPath(); x.rect(px, 1250 - h, 110, h); fs(x, '#e0d6c0', 10);
+      const cy = 1250 - h * 0.55; x.beginPath(); x.moveTo(px - 10, cy + 20); x.lineTo(px + 120, cy - 20); x.lineWidth = 8; x.strokeStyle = OL; x.stroke(); }
+    x.fillStyle = '#d9c9a0'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
+    return finish(c);
+  },
+  theater() { // puppet theatre stage with red curtains
+    const [c, x] = canvas(); fill(x, '#2a1420', '#170a12');
+    for (const sd of [-1, 1]) { x.beginPath(); x.moveTo(540 + sd * 700, -OY); x.lineTo(540 + sd * 360, -OY); x.quadraticCurveTo(540 + sd * 420, 600, 540 + sd * 560, 1250); x.lineTo(540 + sd * 700, 1250); x.closePath(); fs(x, '#b5223a', 10);
+      x.strokeStyle = 'rgba(80,10,20,0.45)'; x.lineWidth = 8; for (let k = 0; k < 5; k++) { x.beginPath(); x.moveTo(540 + sd * (400 + k * 60), -OY); x.quadraticCurveTo(540 + sd * (440 + k * 60), 600, 540 + sd * (580 + k * 30), 1250); x.stroke(); } }
+    x.beginPath(); x.moveTo(-OX, -OY); x.lineTo(BW, -OY); x.lineTo(BW, 120); x.quadraticCurveTo(540, 260, -OX, 120); x.closePath(); fs(x, '#9a1c30', 10);
+    x.fillStyle = '#7a4a2a'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
+    return finish(c);
+  },
+  skyHigh() { // high sky full of clouds
+    const [c, x] = canvas(); fill(x, '#3fa8ff', '#bfe6ff');
+    for (let i = 0; i < 9; i++) cloud(x, hash(i + 60) * 1100, 150 + hash(i + 61) * 1600, 0.9 + hash(i + 62) * 1.1);
+    return finish(c);
+  },
+  windmill() { // green hills with a windmill
+    const [c, x] = canvas(); fill(x, '#8fd8ff', '#e6f6ff', -OY, 1100); cloud(x, 300, 300, 1);
+    x.beginPath(); x.moveTo(-OX, 1150); x.quadraticCurveTo(300, 1000, 640, 1120); x.quadraticCurveTo(900, 1200, BW, 1080); x.lineTo(BW, BH); x.lineTo(-OX, BH); fs(x, '#7fd36a', 11);
+    x.beginPath(); x.moveTo(800, 1120); x.lineTo(830, 700); x.lineTo(910, 700); x.lineTo(940, 1120); fs(x, '#f4ead2', 10);
+    for (let i = 0; i < 4; i++) { x.save(); x.translate(870, 700); x.rotate(i * Math.PI / 2 + 0.4); A_blade(x); x.restore(); }
+    return finish(c);
+  },
+  circus() { // circus tent stripes
+    const [c, x] = canvas(); fill(x, '#ffe9b0', '#ffd27a');
+    for (let i = -6; i < 7; i++) { x.beginPath(); x.moveTo(540, -OY); x.lineTo(540 + i * 200, 1300); x.lineTo(540 + (i + 1) * 200, 1300); x.closePath(); x.fillStyle = i % 2 ? '#e8302e' : '#fff3e0'; x.fill(); }
+    x.fillStyle = '#7a4a2a'; x.fillRect(-OX, 1300, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1300); x.lineTo(BW, 1300); x.stroke();
+    return finish(c, 8);
+  },
+  mirrorHall() { // hall of mirrors
+    const [c, x] = canvas(); fill(x, '#3a2a55', '#20163a');
+    for (let i = 0; i < 4; i++) { const mx = 40 + i * 270; rrect(x, mx, 260, 220, 820, 110); fs(x, '#c9b07a', 12); rrect(x, mx + 18, 278, 184, 784, 92); const g = x.createLinearGradient(mx, 260, mx + 220, 1080); g.addColorStop(0, '#d9ecff'); g.addColorStop(1, '#8fb6e0'); x.fillStyle = g; x.fill(); x.lineWidth = 8; x.strokeStyle = 'rgba(255,255,255,0.6)'; x.beginPath(); x.moveTo(mx + 50, 360); x.lineTo(mx + 120, 300); x.stroke(); }
+    x.fillStyle = '#5a3d86'; x.fillRect(-OX, 1240, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1240); x.lineTo(BW, 1240); x.stroke();
+    return finish(c);
+  },
+  palace() { // sunny plaza with colourful tiles and arches
+    const [c, x] = canvas(); fill(x, '#8fd8ff', '#ffefcf', -OY, 900); sunDisk(x, 200, 240, 80);
+    x.beginPath(); x.rect(-OX, 520, BW, 700); fs(x, '#f2c27a', 10); for (let i = 0; i < 5; i++) { x.beginPath(); const ax = 20 + i * 220; x.moveTo(ax, 1220); x.lineTo(ax, 760); x.arc(ax + 80, 760, 80, Math.PI, 0); x.lineTo(ax + 160, 1220); x.closePath(); fs(x, '#c9653f', 8); }
+    for (let r = 0; r < 10; r++) for (let k = 0; k < 11; k++) { x.fillStyle = (r + k) % 2 ? '#4fb3a6' : '#ffd23f'; x.fillRect(-60 + k * 110, 1220 + r * 90, 110, 90); }
+    x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1220); x.lineTo(BW, 1220); x.stroke();
+    return finish(c);
+  },
+  nightIsland() { // island at night under a dark sky
+    const [c, x] = canvas(); fill(x, '#0f1430', '#26305e', -OY, 1200);
+    for (let i = 0; i < 80; i++) { x.fillStyle = `rgba(255,255,255,${0.3 + hash(i) * 0.6})`; x.beginPath(); x.arc(hash(i + 1) * 1080, hash(i + 2) * 1000, 2 + hash(i + 3) * 3, 0, 7); x.fill(); }
+    x.fillStyle = '#1a2f5a'; x.fillRect(-OX, 1150, BW, 1200);
+    x.beginPath(); x.moveTo(60, 1180); x.quadraticCurveTo(540, 880, 1020, 1180); x.closePath(); fs(x, '#2f4a3a', 10);
+    for (let i = 0; i < 8; i++) { const hx = 240 + i * 80, hy = 1100 - Math.sin(i / 7 * Math.PI) * 140; x.beginPath(); x.rect(hx, hy, 60, 80); fs(x, '#5b4a6a', 6); x.fillStyle = '#ffd77a'; x.fillRect(hx + 20, hy + 25, 20, 20); }
+    return finish(c);
+  },
+  throne() { // royal throne room
+    const [c, x] = canvas(); fill(x, '#5a1f3a', '#2e0f20');
+    for (let i = 0; i < 4; i++) { x.beginPath(); x.rect(60 + i * 300, 200, 70, 1100); fs(x, '#c9a64a', 9); }
+    x.beginPath(); x.moveTo(380, 1280); x.lineTo(380, 520); x.quadraticCurveTo(540, 380, 700, 520); x.lineTo(700, 1280); x.closePath(); fs(x, '#ff6fb0', 11);
+    x.fillStyle = '#b5223a'; x.fillRect(440, 1240, 200, 1100); x.fillStyle = '#8a5a3c'; x.fillRect(-OX, 1280, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1280); x.lineTo(BW, 1280); x.stroke();
+    return finish(c);
+  },
+  battleRuins() { // dusty, broken battlefield at dusk
+    const [c, x] = canvas(); fill(x, '#ff9a6b', '#5a3a6a', -OY, 1300);
+    for (let i = 0; i < 6; i++) { const bx = -40 + i * 200, h = 300 + hash(i) * 400; x.beginPath(); x.moveTo(bx, 1250); x.lineTo(bx, 1250 - h); x.lineTo(bx + 60, 1250 - h + 60); x.lineTo(bx + 110, 1250 - h - 30); x.lineTo(bx + 160, 1250); x.closePath(); fs(x, '#4a3a4a', 9); }
+    x.fillStyle = '#6b5040'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
+    x.fillStyle = 'rgba(80,60,60,0.4)'; for (let i = 0; i < 12; i++) { x.beginPath(); x.arc(hash(i + 5) * 1080, 400 + hash(i + 6) * 800, 80 + hash(i + 7) * 80, 0, 7); x.fill(); }
+    return finish(c);
+  },
+  cozyRoom() { // warm living room with a rug
+    const [c, x] = canvas(); fill(x, '#ffe2b8', '#ffd09a');
+    for (let i = -1; i < 12; i++) { x.fillStyle = i % 2 ? 'rgba(255,255,255,0.25)' : 'rgba(255,255,255,0.08)'; x.fillRect(i * 100, -OY, 100, 1400); }
+    rrect(x, 640, 300, 300, 260, 16); fs(x, '#9ed8ff', 10); x.beginPath(); x.moveTo(790, 300); x.lineTo(790, 560); x.moveTo(640, 430); x.lineTo(940, 430); x.lineWidth = 8; x.strokeStyle = OL; x.stroke();
+    x.fillStyle = '#c99b6d'; x.fillRect(-OX, 1260, BW, 1000); x.beginPath(); x.ellipse(540, 1500, 460, 140, 0, 0, 7); fs(x, '#e8506f', 9);
+    x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1260); x.lineTo(BW, 1260); x.stroke();
+    return finish(c);
+  },
+  islandAerial() { // an island seen from high above, surrounded by sea
+    const [c, x] = canvas(); fill(x, '#2f8fd6', '#1f6fb5');
+    waves(x, 200, 'rgba(255,255,255,0.35)', 18, 12); waves(x, 1500, 'rgba(255,255,255,0.35)', 18, 12);
+    x.beginPath(); x.ellipse(540, 980, 420, 300, 0, 0, 7); fs(x, '#e8d6a0', 11); x.beginPath(); x.ellipse(540, 960, 370, 250, 0, 0, 7); fs(x, '#7fd36a', 0);
+    for (let i = 0; i < 30; i++) { const a = hash(i) * 6.28, r = hash(i + 1) * 220; x.beginPath(); x.rect(540 + Math.cos(a) * r * 1.3, 960 + Math.sin(a) * r * 0.85, 26, 26); fs(x, ['#e86a5a', '#f2b04d', '#7d6fd6', '#4fb3a6'][i % 4], 3); }
+    return finish(c);
+  },
 };
 function A_leaf(x) { fs(x, '#3fb85a', 7); }
 function A_pan(x) { fs(x, '#3a3346', 8); }
+function A_blade(x) { x.beginPath(); x.moveTo(0, 0); x.lineTo(30, -230); x.lineTo(-30, -230); x.closePath(); fs(x, '#f4ead2', 8); }

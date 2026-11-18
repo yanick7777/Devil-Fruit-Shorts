@@ -1,0 +1,129 @@
+{
+  "title": "Ito Ito no Mi",
+  "format": "9:16",
+  "story": "/shorts/string/story.js",
+  "voice": {
+    "name": "mb-us2",
+    "speed": 158,
+    "pitch": 48
+  },
+  "voice_override_dir": "shorts/string/vo",
+  "voice_fx": {
+    "tempo": 1.15,
+    "pitch_semitones": 3,
+    "excited": true
+  },
+  "music": false,
+  "structure": "3 base powers + awakening (the fruit has no numbered stages)",
+  "facts": [
+    "Appearance (fan wiki via search): a gourd-shaped, lilac-colored fruit with a twirly stem",
+    "Paramecia, English name String-String Fruit: the user creates and controls strings (a 'String Human'); the strings cut through stone and buildings",
+    "Doflamingo attaches strings to clouds to move through the sky (search did not confirm this; it is from the Dressrosa / Marineford scenes)",
+    "Parasite: strings attached to people let him control their bodies like puppets",
+    "String clone: a copy made of strings that feels no pain and passes none back to him",
+    "Awakening: turns his surroundings (ground, buildings) into strings; the first awakening shown in the series (Dressrosa)",
+    "Birdcage: a cage of strings over Dressrosa that slowly closes in, slicing everything inside",
+    "He uses strings to stitch his wounds and internal organs; Trebol gave him the fruit",
+    "'Never lose at cat's cradle' is a joke line"
+  ],
+  "lines": [
+    {
+      "id": "hook",
+      "lead": 1.6,
+      "tail": 0.25,
+      "text": "You take a bite#red of a weird lilac#purple fruit.",
+      "say": "You take a bite, of a weird lilac fruit."
+    },
+    {
+      "id": "calm",
+      "lead": 0.1,
+      "tail": 0.35,
+      "text": "Don't panic,#red that's just a Devil#purple Fruit.#purple",
+      "say": "Don't panic. That's just a devil fruit."
+    },
+    {
+      "id": "sea",
+      "lead": 0.1,
+      "tail": 0.25,
+      "text": "Out of every fruit in the sea,#blue",
+      "say": "Out of every fruit in the sea,"
+    },
+    {
+      "id": "name",
+      "lead": 0.05,
+      "tail": 0.9,
+      "text": "you got the String-String#pink Fruit,#pink",
+      "say": "you got the string, string fruit."
+    },
+    {
+      "id": "type",
+      "lead": 0.1,
+      "tail": 0.9,
+      "text": "a Paramecia#orange that shoots strings sharp enough to slice stone,#red and comes with a whole set of tricks.#gold",
+      "say": "A paramecia, that shoots strings sharp enough to slice stone, and comes with a whole set of tricks."
+    },
+    {
+      "id": "power1",
+      "lead": 0.3,
+      "tail": 0.4,
+      "text": "First, you hook your strings onto the clouds#blue and walk#green right across the sky.",
+      "say": "First, you hook your strings onto the clouds, and walk right across the sky."
+    },
+    {
+      "id": "power2",
+      "lead": 0.55,
+      "tail": 0.4,
+      "text": "Then you tie invisible#purple strings onto people#orange and control them like puppets.#purple",
+      "say": "Then you tie invisible strings onto people, and control them like puppets."
+    },
+    {
+      "id": "power3",
+      "lead": 0.55,
+      "tail": 0.4,
+      "text": "You can even make a clone#green of yourself out of string that can't feel any pain.#red",
+      "say": "You can even make a clone of yourself out of string, that can't feel any pain."
+    },
+    {
+      "id": "awaken",
+      "lead": 0.55,
+      "tail": 0.6,
+      "text": "And once you awaken#gold it, the ground#orange and buildings around you turn into strings too.#orange",
+      "say": "And once you awaken it, the ground and buildings around you, turn into strings too."
+    },
+    {
+      "id": "twist",
+      "lead": 0.25,
+      "tail": 0.4,
+      "text": "But its scariest#purple trick is called the Birdcage.#red",
+      "say": "But its scariest trick, is called the birdcage."
+    },
+    {
+      "id": "truth",
+      "lead": 0.1,
+      "tail": 0.4,
+      "text": "A cage#red of strings drops over a whole island#blue and slowly closes in, slicing everything inside.#red",
+      "say": "A cage of strings drops over a whole island, and slowly closes in, slicing everything inside."
+    },
+    {
+      "id": "users",
+      "lead": 0.1,
+      "tail": 0.4,
+      "text": "Doflamingo#pink got it from Trebol,#green and he even stitches his own wounds#red shut with it.",
+      "say": "Doflamingo got it from Trebol, and he even stitches his own wounds shut with it."
+    },
+    {
+      "id": "joke",
+      "lead": 0.2,
+      "tail": 0.9,
+      "text": "Users of this fruit never lose#green at cat's#gold cradle.#gold",
+      "say": "Users of this fruit, never lose at cat's cradle."
+    },
+    {
+      "id": "outro",
+      "lead": 0.2,
+      "tail": 2.4,
+      "text": "Which fruit#pink do you want next?#gold Follow for more.",
+      "say": "Which fruit do you want next? Follow for more."
+    }
+  ]
+}

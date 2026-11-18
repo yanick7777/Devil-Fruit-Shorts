@@ -66,3 +66,24 @@ Which fruit do you want next? Follow for more.
 ```
 
 152 words, about 42 seconds at a fast, excited pace.
+
+## String-String Fruit (Ito Ito no Mi)
+
+```
+You take a bite of a weird lilac fruit.
+Don't panic, that's just a Devil Fruit.
+Out of every fruit in the sea,
+you got the String-String Fruit,
+a Paramecia that shoots strings sharp enough to slice stone, and comes with a whole set of tricks.
+First, you hook your strings onto the clouds and walk right across the sky.
+Then you tie invisible strings onto people and control them like puppets.
+You can even make a clone of yourself out of string that can't feel any pain.
+And once you awaken it, the ground and buildings around you turn into strings too.
+But its scariest trick is called the Birdcage.
+A cage of strings drops over a whole island and slowly closes in, slicing everything inside.
+Doflamingo got it from Trebol, and he even stitches his own wounds shut with it.
+Users of this fruit never lose at cat's cradle.
+Which fruit do you want next? Follow for more.
+```
+
+160 words. Pronunciation: Paramecia = pa-ra-MEE-see-ya, Doflamingo = doe-fla-MING-go, Trebol = TREH-bol.
