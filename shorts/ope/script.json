@@ -8,11 +8,7 @@
     "pitch": 48
   },
   "voice_override_dir": "shorts/ope/vo",
-  "voice_fx": {
-    "tempo": 1.15,
-    "pitch_semitones": 3,
-    "excited": true
-  },
+  "voice_fx": {},
   "music": false,
   "facts": [
     "Appearance (fan wikis, via search): a red, heart-shaped fruit that resembles a strawberry, swirl-patterned surface, stem with a swirling end pointing upwards",
