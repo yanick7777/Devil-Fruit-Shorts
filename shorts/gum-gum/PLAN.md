@@ -1,6 +1,8 @@
 # PLAN: Gomu Gomu no Mi (Gum-Gum Fruit)
 
 9:16, 1080×1920, 30 fps, **about 54 s** with the placeholder voice (same faster, higher, excited settings as the Mera Mera short, no background music).
+**Structure:** Gear 2, Gear 3, Gear 4, then the AWAKENING (Gear 5) as the peak. The stage pedestals read GEAR 2, GEAR 3, GEAR 4, AWAKENED, and the peak gets a white awakening flash and a gold AWAKENED: GEAR 5 banner.
+
 Record the lines and drop them into `shorts/gum-gum/vo/` (one file per line id, or one take I split at the pauses); every shot re-times to your voice.
 
 ## 1. Fruit design sheet

@@ -5,7 +5,7 @@
   "Out of every fruit in the sea, you got the …," / type line / power lines / peak / twist + truth / users / joke /
   "Which fruit do you want next? Follow for more."
 - **Do not force four forms.** Match the stage structure to the fruit's real progression:
-  - fruits with real stages (e.g. Gears) → one block per stage;
+  - fruits with real stages (e.g. Gears) → one block per stage, and if the last stage is the awakening (Gear 5) label it AWAKENED;
   - fruits with an **awakening** → base powers, then AWAKENING as the peak (pedestals labelled e.g. POWER 1-3 + AWAKENED);
   - otherwise → as many technique blocks as the fruit really has (3 is fine).
 - New scenes and sets for every short; only the desk room (start/end) and the purple outro rays repeat.

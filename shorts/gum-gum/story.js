@@ -164,11 +164,11 @@ export function buildShots(TL) {
   const stageDraw = (x, S) => {
     const xs = [165, 415, 665, 915], lit = pw.filter((t) => S.T >= t).length;
     const fill = lit === 0 ? 0 : (lit - 1) / 4 + 0.25 * ease.outCubic(prog(S.T, pw[lit - 1], pw[lit - 1] + 0.3));
-    A.progressBar(x, 540, 560, 900, fill, S.T > lvl ? 'LEVEL UP!' : 'GEARS');
+    A.progressBar(x, 540, 560, 900, fill, S.T > lvl ? 'LEVEL UP!' : 'GEARS + AWAKENING');
     if (S.T > lvl) A.shineLines(x, 540, 560, 470, 620, S.T, 12);
     xs.forEach((px, i) => {
       if (i === lit - 1) halo(x, px, 860, 210, i === 3 ? '255,220,90' : '120,230,255', S.T);
-      A.pedestal(x, px, 990, `GEAR ${i + 2}`, i < lit);
+      A.pedestal(x, px, 990, i === 3 ? 'AWAKENED' : `GEAR ${i + 2}`, i < lit);
       const p = pop(S.T, pw[i]); if (p > 0) gearIcon(x, i + 2, px, 860 + Math.sin(S.T * 2 + i) * 10, 0.62 * p, S.T);
       else { x.font = `110px ${A.FONT}`; x.textAlign = 'center'; x.fillStyle = 'rgba(255,255,255,0.25)'; x.fillText('?', px, 900); }
     });
@@ -254,17 +254,19 @@ export function buildShots(TL) {
 
   // ---------------- GEAR 5 (peak) ----------------
   const tBend = W('gear5', /^bend/) - 0.15, tWhite = W('gear5', /^white/);
-  add({ name: 'Gear 5 peak (white-gold toon world): evolve into Gear 5, hair and clothes turn white, cloud collar, gold halo; gold GEAR 5 banner; the world starts to wobble', t0: st('gear5'), t1: tBend, bg: 'cartoon',
-    cam: [[1.0, 540, 980, 0], [1.12, 540, 900, 0.05]], banners: [['GEAR 5', 'gold', st('gear5') + 0.3, tBend, 'slide']],
+  add({ name: 'AWAKENING, Gear 5 (white-gold toon world): white awakening flash, evolve into Gear 5, hair and clothes turn white, cloud collar, gold halo; gold GEAR 5 banner; the world starts to wobble', t0: st('gear5'), t1: tBend, bg: 'cartoon',
+    cam: [[1.0, 540, 980, 0], [1.12, 540, 900, 0.05]], banners: [['AWAKENED: GEAR 5', 'gold', st('gear5') + 0.3, tBend, 'slide']],
     sfx: [[0, 'evolve'], [0.35, 'whoosh'], [0.5, 'drums'], [tWhite - st('gear5'), 'shimmer']],
     draw(x, S) {
       halo(x, 540, 900, 620, '255,215,90', S.T);
+      A.glowRing(x, 540, 900, 200 + 700 * ease.outCubic(prog(S.t, 0.2, 1.0)), 1 - prog(S.t, 0.3, 1.0), '255,240,200');
       if (S.t < 0.45) evolve(x, S, 4, 5, 540, 820, 1.6, 0.45, gearIcon);
       else { const white = S.T > tWhite - 0.1;
         const h = person(x, S, white ? 'host_g5' : 'host', 'grin', 540, 1760, 0.8, { pop: S.t0 + 0.45, seed: 7, pose: 'cheer' });
         if (white) { cloudCollar(x, h.head[0], h.head[1] + 300, 0.8, S.T); S.flash = Math.max(S.flash, 0.6 * (1 - prog(S.T, tWhite - 0.1, tWhite + 0.2))); }
         A.shineLines(x, h.head[0], h.head[1] + 200, 430, 640, S.T, 14); }
       S.wobble = 0.35 * prog(S.t, 0.5, 2.0);
+      S.flash = Math.max(S.flash, 0.95 * (1 - prog(S.t, 0.1, 0.5))); S.flashCol = '255,255,255';
     } });
   add({ name: 'Gear 5 cartoon physics (above the clouds): the gunslinger squashes and stretches like rubber, eyes popping; the host laughs; the world bends', t0: tBend, t1: end('gear5'), bg: 'clouds',
     cam: [[1.05, 540, 980, -0.04], [1.15, 520, 960, -0.02]], sfx: [[0, 'boing'], [0.5, 'boing'], [1.0, 'boing'], [0.2, 'drums']],
