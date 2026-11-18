@@ -7,6 +7,12 @@
     "pitch": 48
   },
   "voice_override_dir": "shorts/mera-mera/vo",
+  "voice_fx": {
+    "tempo": 1.15,
+    "pitch_semitones": 3,
+    "excited": true
+  },
+  "music": false,
   "facts": [
     "Appearance (One Piece Wiki): a round orange fruit, composed of many flame-shaped components with swirl patterns on each one, with a swirled stem on top",
     "Logia-type Devil Fruit, English name Flame-Flame Fruit: the user can create, control and become fire",

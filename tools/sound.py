@@ -136,9 +136,10 @@ drone_t = T((i1 - i0) / SR); drone = lp(sum(np.sin(2 * np.pi * note(m) * drone_t
 drone = norm(drone) * vrms * 0.6 * np.minimum(1, np.minimum(drone_t / 0.4, (drone_t[-1] - drone_t) / 0.3))
 dr = np.zeros(N); dr[i0:i0 + len(drone)] = drone
 fade = np.minimum(1, np.minimum(T(N / SR) / 0.3, (N / SR - T(N / SR)) / 1.0))
+if not tl.get("music", True): mus[:] = 0; dr[:] = 0   # background music switched off in script.json
 mix = vo + mus * gate * fade + dr + fxbus
 mix = mix / max(1.0, np.max(np.abs(mix)) / 0.98)
 st = np.stack([mix, mix], 1)
 with wave.open(sys.argv[3], 'w') as w:
     w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR); w.writeframes((np.clip(st, -1, 1) * 32767).astype(np.int16).tobytes())
-print(f"mixed {sys.argv[3]}  {N / SR:.2f}s  music stops {tw:.2f}s -> back {tj:.2f}s")
+print(f"mixed {sys.argv[3]}  {N / SR:.2f}s  " + (f"music stops {tw:.2f}s -> back {tj:.2f}s" if tl.get("music", True) else "no music"))
