@@ -8,11 +8,7 @@
     "pitch": 48
   },
   "voice_override_dir": "shorts/quake/vo",
-  "voice_fx": {
-    "tempo": 1.15,
-    "pitch_semitones": 3,
-    "excited": true
-  },
+  "voice_fx": {},
   "music": false,
   "facts": [
     "Appearance (main One Piece Wiki, via search): a blue pear with a 'cracked' lower part; an official design was published in October 2025 (not viewable from here, so the drawing is unconfirmed)",
