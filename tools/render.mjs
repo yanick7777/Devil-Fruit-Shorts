@@ -24,6 +24,7 @@ page.on('pageerror', (e) => console.error('[pageerror]', e));
 await page.goto(`http://127.0.0.1:${port}/engine/index.html`);
 await page.waitForFunction(() => window.__ready);
 await page.evaluate((t) => window.__init(t), tl);
+fs.writeFileSync(path.join(path.dirname(tlPath), 'cues.json'), JSON.stringify(await page.evaluate(() => window.__cues()), null, 1));
 
 if (only) {
   for (const t of only.split(',').map(Number)) {

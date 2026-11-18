@@ -1,36 +1,120 @@
 {
   "title": "Mera Mera no Mi",
   "format": "9:16",
-  "voice": { "name": "mb-us2", "speed": 158, "pitch": 48 },
+  "voice": {
+    "name": "mb-us2",
+    "speed": 158,
+    "pitch": 48
+  },
+  "voice_override_dir": "shorts/mera-mera/vo",
   "facts": [
-    "Logia-type Devil Fruit, English name Flame-Flame Fruit",
-    "User can create, control and become fire; Logia bodies let ordinary attacks pass through, Haki can hit them",
-    "Techniques: Hiken (Fire Fist), Hotarubi Hidaruma (Fire Flies), Dai Enkai Entei (Flame Emperor)",
-    "Known users: Portgas D. Ace ('Fire Fist Ace'); after his death the fruit reappeared as the Corrida Colosseum prize, won and eaten by his sworn brother Sabo",
-    "Like all Devil Fruit users, the user cannot swim"
+    "Appearance (One Piece Wiki): a round orange fruit, composed of many flame-shaped components with swirl patterns on each one, with a swirled stem on top",
+    "Logia-type Devil Fruit, English name Flame-Flame Fruit: the user can create, control and become fire",
+    "Logia intangibility: ordinary punches and bullets pass through the user (Haki can hit, not mentioned in this script)",
+    "Hiken (Fire Fist): a column of flame; Ace destroyed five Baroque Works ships with one Hiken in the Alabasta arc",
+    "Hotarubi Hidaruma (Fire Flies): small firefly-like flames float around the target, then ignite on it all at once",
+    "Dai Enkai Entei (Flame Emperor): a giant sun-like fireball, Ace's strongest attack shown",
+    "When a user dies, the Devil Fruit power reappears in a nearby fruit; after Ace died at Marineford, the Mera Mera no Mi was the Corrida Colosseum prize, and Sabo won it",
+    "'This fire never goes out' and 'never pay a heating bill' are figurative and a joke, not fruit rules"
   ],
-  "scenes": [
-    { "id": "hook", "banner": "YOUR FRUIT", "text": "Imagine you eat the *Mera* *Mera* no Mi.", "say": "Imagine you eat the, Mehra Mehra no Mee.",
-      "char": "you", "expr": "smug", "cam": [[1.0, 540, 960, 0], [1.12, 470, 900, -0.01]], "sfx": [[0, "pop"], [0.35, "drop"]] },
-    { "id": "type", "banner": "FRUIT TYPE", "text": "It's a *Logia* type Devil Fruit, the *Flame-Flame* Fruit.", "say": "It's a Lohgia type devil fruit. The flame, flame fruit.",
-      "char": "you", "expr": "grin", "cam": [[1.15, 600, 860, 0.02], [1.05, 560, 920, 0]], "sfx": [[0, "whoosh"], [0.5, "pop"], [1.9, "pop"]] },
-    { "id": "power", "banner": "THE POWER", "text": "Your body can *create,* *control* and *become* *fire.*", "say": "Your body can create, control, and become fire.",
-      "char": "you", "expr": "shock", "fire": true, "cam": [[1.0, 540, 960, 0], [1.25, 400, 860, 0.015]], "sfx": [[0, "ignite"], [0.1, "fireloop"]] },
-    { "id": "intangible", "banner": "INTANGIBLE", "text": "Swords and bullets pass right *through* you, unless they use *Haki.*", "say": "Swords and bullets pass right through you. Unless they use, Hah-kee.",
-      "char": "you", "expr": "smug", "fire": true, "cam": [[1.2, 420, 860, -0.02], [1.05, 520, 940, 0]], "sfx": [[0.3, "swish"], [1.1, "swish"], [2.6, "stamp"]] },
-    { "id": "fist", "banner": "ATTACK #1", "text": "*Fire* *Fist!* Blast a huge column of flame from your fist.", "say": "Fire fist! Blast a huge column of flame from your fist.",
-      "char": "you", "expr": "shout", "cam": [[1.3, 520, 860, 0.03], [1.0, 560, 960, 0]], "sfx": [[0, "whoosh"], [0.25, "blast"]] },
-    { "id": "flies", "banner": "ATTACK #2", "text": "*Fire* *Flies!* Glowing fireballs that *explode* on contact.", "say": "Fire flies! Glowing fireballs, that explode on contact.",
-      "char": "you", "expr": "grin", "cam": [[1.0, 540, 960, 0], [1.15, 560, 900, -0.02]], "sfx": [[0, "twinkle"], [2.2, "pops"]] },
-    { "id": "emperor", "banner": "ATTACK #3", "text": "*Flame* *Emperor!* A giant *sun* of fire you hurl at your enemies.", "say": "Flame emperor! A giant sun of fire, you hurl at your enemies.",
-      "char": "you", "expr": "shout", "cam": [[1.0, 540, 1000, 0], [1.2, 540, 700, 0.02]], "sfx": [[0, "rumble"], [-0.45, "boom"]] },
-    { "id": "ace", "banner": "PAST USER", "text": "Its famous user was *Portgas* *D.* *Ace,* known as *Fire* *Fist* Ace.", "say": "Its famous user was, Portgas Dee Ace. Known as, fire fist Ace.",
-      "char": "ace", "expr": "smug", "cam": [[1.2, 450, 820, -0.02], [1.05, 520, 920, 0]], "sfx": [[0, "whoosh"], [0.1, "ding"]] },
-    { "id": "sabo", "banner": "NEW USER", "text": "After Ace died, his brother *Sabo* won it at the *Colosseum* and ate it.", "say": "After Ace died, his brother, Sah-bo, won it at the colosseum, and ate it.",
-      "char": "sabo", "expr": "grin", "cam": [[1.0, 540, 960, 0], [1.18, 470, 860, 0.015]], "sfx": [[0, "whoosh"], [1.6, "fanfare"]] },
-    { "id": "weakness", "banner": "THE CATCH", "text": "The catch? Like every Devil Fruit user, you can *never* *swim* again.", "say": "The catch? Like every devil fruit user, you can never swim again.",
-      "char": "you", "expr": "sad", "cam": [[1.1, 540, 900, 0], [1.25, 450, 980, -0.02]], "sfx": [[0, "sad"], [0.4, "splash"], [1.0, "bubbles"]] },
-    { "id": "outro", "banner": "YOUR FRUIT?", "text": "So... would *you* eat the *Mera* *Mera* no Mi?", "say": "So. Would you eat the, Mehra Mehra no Mee?",
-      "char": "you", "expr": "smug", "cam": [[1.25, 470, 880, 0.02], [1.08, 520, 920, 0]], "sfx": [[0, "pop"], [0.2, "ding"]] }
+  "lines": [
+    {
+      "id": "hook",
+      "lead": 1.6,
+      "tail": 0.25,
+      "text": "You take a bite#red of a weird orange#orange fruit.",
+      "say": "You take a bite, of a weird orange fruit."
+    },
+    {
+      "id": "calm",
+      "lead": 0.1,
+      "tail": 0.35,
+      "text": "Don't panic,#red that's just a Devil#purple Fruit.#purple",
+      "say": "Don't panic. That's just a devil fruit."
+    },
+    {
+      "id": "sea",
+      "lead": 0.1,
+      "tail": 0.25,
+      "text": "Out of every fruit in the sea,#blue",
+      "say": "Out of every fruit in the sea,"
+    },
+    {
+      "id": "name",
+      "lead": 0.05,
+      "tail": 0.9,
+      "text": "you got the Flame-Flame#pink Fruit,#pink",
+      "say": "you got the flame, flame fruit."
+    },
+    {
+      "id": "logia",
+      "lead": 0.1,
+      "tail": 0.9,
+      "text": "a Logia#orange that allows you to turn into fire#red and use a whole list of fire powers.",
+      "say": "A Lohgia, that allows you to turn into fire, and use a whole list of fire powers."
+    },
+    {
+      "id": "form1",
+      "lead": 0.3,
+      "tail": 0.4,
+      "text": "First, your whole body turns into fire,#orange so punches#red and bullets go right through#blue you.",
+      "say": "First, your whole body turns into fire, so punches and bullets go right through you."
+    },
+    {
+      "id": "form2",
+      "lead": 0.55,
+      "tail": 0.4,
+      "text": "Then your fist catches fire#red and shoots a column#orange of flame strong enough to punch through a bunch of ships.#blue",
+      "say": "Then your fist catches fire, and shoots a column of flame, strong enough to punch through a bunch of ships."
+    },
+    {
+      "id": "form3",
+      "lead": 0.55,
+      "tail": 0.4,
+      "text": "You can even make little fireballs#orange float around your enemy,#purple then send them all in at once.#red",
+      "say": "You can even make little fireballs float around your enemy, then send them all in, at once."
+    },
+    {
+      "id": "form4",
+      "lead": 0.55,
+      "tail": 0.6,
+      "text": "Your strongest#gold attack is a giant fireball that looks like a sun.#orange",
+      "say": "Your strongest attack, is a giant fireball that looks like a sun."
+    },
+    {
+      "id": "never",
+      "lead": 0.25,
+      "tail": 0.4,
+      "text": "And this fire#orange never goes out.#red",
+      "say": "And this fire, never goes out."
+    },
+    {
+      "id": "reborn",
+      "lead": 0.1,
+      "tail": 0.4,
+      "text": "When you die,#purple the fruit comes back#green and finds a new#pink user.#pink",
+      "say": "When you die, the fruit comes back, and finds a new user."
+    },
+    {
+      "id": "sabo",
+      "lead": 0.1,
+      "tail": 0.4,
+      "text": "After Ace#red died, Sabo#blue won it in a tournament.#gold",
+      "say": "After Ace died, Sah-bo won it, in a tournament."
+    },
+    {
+      "id": "joke",
+      "lead": 0.2,
+      "tail": 0.9,
+      "text": "Users of this fruit#pink never pay a heating#gold bill.#gold",
+      "say": "Users of this fruit, never pay a heating bill."
+    },
+    {
+      "id": "outro",
+      "lead": 0.2,
+      "tail": 2.4,
+      "text": "Which fruit#pink do you want next?#gold Follow for more.",
+      "say": "Which fruit do you want next? Follow for more."
+    }
   ]
 }
