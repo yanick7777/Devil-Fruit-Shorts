@@ -1,7 +1,7 @@
 # PLAN: Mera Mera no Mi (Flame-Flame Fruit)
 
-9:16, 1080×1920, 30 fps, **55.5 s (1,665 frames)**. Structure copies the reference template, scaled to this script.
-The voice is a placeholder TTS track until you record. Drop takes into `shorts/mera-mera/vo/<line id>.wav`
+9:16, 1080×1920, 30 fps, **55.7 s (1,671 frames)**. Structure copies the reference template, scaled to this script.
+Voice: your recording (`vo/source_take_full.mp3`) cut into 13 lines; the outro is still the placeholder voice until you record it. Drop takes into `shorts/mera-mera/vo/<line id>.wav`
 (`hook`, `calm`, `sea`, `name`, `logia`, `form1`, `form2`, `form3`, `form4`, `never`, `reborn`, `sabo`, `joke`, `outro`),
 rerun `./make.sh`, and every shot re-times itself to your recording.
 
@@ -84,28 +84,28 @@ Frames are at 30 fps. "Picture and effects" lists who and what is on screen.
 
 | # | Frames | Narration | Background | Camera | Picture and effects | Banner | SFX |
 |---|---|---|---|---|---|---|---|
-| 1 | 0–48 | You | desk | wide, push-in 1.00→1.07 | Hook (desk room): host sips coffee, the fruit drops onto the plate, wide-eyed shock with !? |  | fall, shock, sip, thunk |
-| 2 | 49–113 | take a bite of a weird orange fruit. | desk | close-up, push-in 1.40→1.50 | The bite (desk close-up): 2-frame dip, bite, disgusted face, light flash; pink YOUR FRUIT banner | YOUR FRUIT (pink) | crunch, yuck |
-| 3 | 114–197 | Don't panic, that's just a Devil Fruit. | plain | wide, push-in 1.06→1.12 | Don't panic (close-up on a plain lavender backdrop): host calms down, holds the bitten fruit |  | whoosh |
-| 4 | 198–261 | Out of every fruit in the sea, you got the | rays:orange | wide, push-in 1.00→1.10, roll 2° | Out of every fruit: orange rays, pink ゴ marks, spinning globe, dark unnamed fruit silhouettes |  | rumble, whoosh |
-| 5 | 262–328 | Flame-Flame Fruit, | pinkDots | medium, push-in 1.05→1.16 | Fruit reveal: the Mera Mera no Mi slowly rotating on pink with shimmer; pink FLAME-FLAME FRUIT banner | FLAME-FLAME FRUIT (pink) | ding, shimmer, whoosh |
-| 6 | 329–393 | a Logia that allows you to turn into fire and | stage | wide, push-in 1.00→1.06 | Pedestal stage (wide): FORM 1-4 on purple pedestals, dark progress bar starts filling yellow |  | pop, whoosh |
-| 7 | 394–473 | use a whole list of fire powers. | stage | close-up, push-in 1.28→1.36, roll 3° | Pedestal stage (close): forms 2-4 pop in, bar fills, LEVEL UP, gold halo on FORM 4 |  | levelup, pop |
-| 8 | 474–543 | First, your whole body turns into fire, | beach | medium, push-in 1.15→1.25 | Form 1 close-up (bright beach): the host's body turns into fire, yellow shine lines; scope overlay |  | fireloop, ignite |
-| 9 | 544–626 | so punches and bullets go right through you. | deck | wide, push-in 1.05→1.14 | Form 1 reaction (ship deck): the pirate's punch and bullets go right through the fire body; pirate shocked !? |  | bullets, shock, swish, whoosh |
-| 10 | 627–690 | Then your fist catches fire and | grid | wide, push-in 1.00→1.10 | Form 2 evolve (dark gold grid): ghost of form 1 dissolves into the flaming fist, flash + glow ring; gold FORM 2 banner slides in | FORM 2 (gold) | evolve, ignite, whoosh |
-| 11 | 691–756 | shoots a column of flame strong enough to | sea | medium, push-in 1.08→1.14, roll 2° | Form 2 blast (open sea): a column of flame shoots from the fist; pirate in the foreground worried; heat meter rises |  | blast |
-| 12 | 757–827 | punch through a bunch of ships. | sea | close-up, push-in 1.30→1.38, roll -3° | Form 2 impact (closer on the ships): the flame punches through a row of ships, impact stars, 7-frame shake |  | impact |
-| 13 | 828–903 | You can even make little fireballs float | harbor | wide, push-in 1.00→1.08 | Form 3 evolve (sunset harbor): fist becomes little fireballs floating from the host's hand; magnifier shows the tiny pirate inside a swirl | FORM 3 (gold) | evolve, twinkle, whoosh |
-| 14 | 904–936 | around your enemy, | harbor | close-up, push-in 1.30→1.38, roll 2° | Form 3 close (same harbor): fireballs float around the pirate, shown in the magnifier circle |  | twinkle |
-| 15 | 937–998 | then send them all in at once. | cliff | medium, pull-back 1.16→1.08 | Form 3 hit (island cliff): all the fireballs fly in at once and explode on the pirate; red impact star, 7-frame shake, !? |  | impact, pops, whoosh |
-| 16 | 999–1054 | Your strongest attack is a | darkHalo | wide, push-in 1.00→1.08 | Form 4 peak (dark backdrop): evolve into a giant sun-like fireball with a gold halo; gold FORM 4 banner; host tiny below | FORM 4 (gold) | evolve, rumble, whoosh |
-| 17 | 1055–1137 | giant fireball that looks like a sun. | darkHalo | medium, pull-back 1.25→1.12 | Form 4 low angle (same backdrop): the sun swells to full size above the tiny host, shine lines | FORM 4 (gold) | boom |
-| 18 | 1138–1202 | And this fire never goes out. | rays:red | medium, push-in 1.00→1.28, roll 4° **twist** | Twist (red rays): an eternal flame that never goes out; music stops, low hit, push-in with roll; red NEVER GOES OUT banner | NEVER GOES OUT (red) | fireloop, sting |
-| 19 | 1203–1241 | When you die, the fruit | navyGrid | medium, push-in 1.10→1.16 | When you die (navy grid, circle overlay): the fruit fades away inside the circle |  | fade, whoosh |
-| 20 | 1242–1312 | comes back and finds a new user. | navyGrid | close-up, push-in 1.30→1.38, roll -2° | It comes back (closer, same grid): the fruit reappears with sparkles, a ? silhouette of a new user pops in; green IT COMES BACK banner | IT COMES BACK (green) | pop, shimmer |
-| 21 | 1313–1340 | After Ace died, | night | medium, push-in 1.15→1.20 | After Ace died (night-blue backdrop): Portgas D. Ace's ghostly portrait with a fire aura fades out |  | whoosh |
-| 22 | 1341–1404 | Sabo won it in a tournament. | colosseum | wide, push-in 1.00→1.10 | Colosseum: Sabo pops in and wins the tournament trophy with the fruit on top |  | fanfare, pop, whoosh |
-| 23 | 1405–1504 | Users of this fruit never pay a heating bill. | snow | medium, push-in 1.08→1.16 | Joke (snowy cabin): host warm in a hoodie with a cozy fire glow while snow falls; gold HEATING BILL: $0 banner | HEATING BILL: $0 (gold) | jokesting, whoosh |
-| 24 | 1505–1602 | Which fruit do you want next? Follow for more. | rays:purple | wide, push-in 1.00→1.10 | Outro (purple rays): host with big ? marks, pink NEXT? banner | NEXT? (pink) | pop, whoosh |
-| 25 | 1603–1664 | (no voice) | desk | medium, push-in 1.12→1.18 | Back in the desk room: host sips coffee, steam rising |  | sip |
+| 1 | 0–50 | You | desk | wide, push-in 1.00→1.07 | Hook (desk room): host sips coffee, the fruit drops onto the plate, wide-eyed shock with !? |  | fall, shock, sip, thunk |
+| 2 | 51–119 | take a bite of a weird orange fruit. | desk | close-up, push-in 1.40→1.50 | The bite (desk close-up): 2-frame dip, bite, disgusted face, light flash; pink YOUR FRUIT banner | YOUR FRUIT (pink) | crunch, yuck |
+| 3 | 120–210 | Don't panic, that's just a Devil Fruit. | plain | wide, push-in 1.06→1.12 | Don't panic (close-up on a plain lavender backdrop): host calms down, holds the bitten fruit |  | whoosh |
+| 4 | 211–278 | Out of every fruit in the sea, you got the | rays:orange | wide, push-in 1.00→1.10, roll 2° | Out of every fruit: orange rays, pink ゴ marks, spinning globe, dark unnamed fruit silhouettes |  | rumble, whoosh |
+| 5 | 279–355 | Flame-Flame Fruit, a Logia | pinkDots | medium, push-in 1.05→1.16 | Fruit reveal: the Mera Mera no Mi slowly rotating on pink with shimmer; pink FLAME-FLAME FRUIT banner | FLAME-FLAME FRUIT (pink) | ding, shimmer, whoosh |
+| 6 | 356–415 | that allows you to turn into fire and | stage | wide, push-in 1.00→1.06 | Pedestal stage (wide): FORM 1-4 on purple pedestals, dark progress bar starts filling yellow |  | pop, whoosh |
+| 7 | 416–504 | use a whole list of fire powers. | stage | close-up, push-in 1.28→1.36, roll 3° | Pedestal stage (close): forms 2-4 pop in, bar fills, LEVEL UP, gold halo on FORM 4 |  | levelup, pop |
+| 8 | 505–577 | First, your whole body turns into fire, | beach | medium, push-in 1.15→1.25 | Form 1 close-up (bright beach): the host's body turns into fire, yellow shine lines; scope overlay |  | fireloop, ignite |
+| 9 | 578–662 | so punches and bullets go right through you. | deck | wide, push-in 1.05→1.14 | Form 1 reaction (ship deck): the pirate's punch and bullets go right through the fire body; pirate shocked !? |  | bullets, shock, swish, whoosh |
+| 10 | 663–718 | Then your fist catches fire and | grid | wide, push-in 1.00→1.10 | Form 2 evolve (dark gold grid): ghost of form 1 dissolves into the flaming fist, flash + glow ring; gold FORM 2 banner slides in | FORM 2 (gold) | evolve, ignite, whoosh |
+| 11 | 719–775 | shoots a column of flame strong enough to | sea | medium, push-in 1.08→1.14, roll 2° | Form 2 blast (open sea): a column of flame shoots from the fist; pirate in the foreground worried; heat meter rises |  | blast |
+| 12 | 776–837 | punch through a bunch of ships. | sea | close-up, push-in 1.30→1.38, roll -3° | Form 2 impact (closer on the ships): the flame punches through a row of ships, impact stars, 7-frame shake |  | impact |
+| 13 | 838–909 | You can even make little fireballs float | harbor | wide, push-in 1.00→1.08 | Form 3 evolve (sunset harbor): fist becomes little fireballs floating from the host's hand; magnifier shows the tiny pirate inside a swirl | FORM 3 (gold) | evolve, twinkle, whoosh |
+| 14 | 910–940 | around your enemy, | harbor | close-up, push-in 1.30→1.38, roll 2° | Form 3 close (same harbor): fireballs float around the pirate, shown in the magnifier circle |  | twinkle |
+| 15 | 941–1000 | then send them all in at once. | cliff | medium, pull-back 1.16→1.08 | Form 3 hit (island cliff): all the fireballs fly in at once and explode on the pirate; red impact star, 7-frame shake, !? |  | impact, pops, whoosh |
+| 16 | 1001–1056 | Your strongest attack is a | darkHalo | wide, push-in 1.00→1.08 | Form 4 peak (dark backdrop): evolve into a giant sun-like fireball with a gold halo; gold FORM 4 banner; host tiny below | FORM 4 (gold) | evolve, rumble, whoosh |
+| 17 | 1057–1139 | giant fireball that looks like a sun. | darkHalo | medium, pull-back 1.25→1.12 | Form 4 low angle (same backdrop): the sun swells to full size above the tiny host, shine lines | FORM 4 (gold) | boom |
+| 18 | 1140–1209 | And this fire never goes out. | rays:red | medium, push-in 1.00→1.28, roll 4° **twist** | Twist (red rays): an eternal flame that never goes out; music stops, low hit, push-in with roll; red NEVER GOES OUT banner | NEVER GOES OUT (red) | fireloop, sting |
+| 19 | 1210–1245 | When you die, the fruit | navyGrid | medium, push-in 1.10→1.16 | When you die (navy grid, circle overlay): the fruit fades away inside the circle |  | fade, whoosh |
+| 20 | 1246–1314 | comes back and finds a new user. | navyGrid | close-up, push-in 1.30→1.38, roll -2° | It comes back (closer, same grid): the fruit reappears with sparkles, a ? silhouette of a new user pops in; green IT COMES BACK banner | IT COMES BACK (green) | pop, shimmer |
+| 21 | 1315–1343 | After Ace died, | night | medium, push-in 1.15→1.20 | After Ace died (night-blue backdrop): Portgas D. Ace's ghostly portrait with a fire aura fades out |  | whoosh |
+| 22 | 1344–1408 | Sabo won it in a tournament. | colosseum | wide, push-in 1.00→1.10 | Colosseum: Sabo pops in and wins the tournament trophy with the fruit on top |  | fanfare, pop, whoosh |
+| 23 | 1409–1510 | Users of this fruit never pay a heating bill. | snow | medium, push-in 1.08→1.16 | Joke (snowy cabin): host warm in a hoodie with a cozy fire glow while snow falls; gold HEATING BILL: $0 banner | HEATING BILL: $0 (gold) | jokesting, whoosh |
+| 24 | 1511–1608 | Which fruit do you want next? Follow for more. | rays:purple | wide, push-in 1.00→1.10 | Outro (purple rays): host with big ? marks, pink NEXT? banner | NEXT? (pink) | pop, whoosh |
+| 25 | 1609–1670 | (no voice) | desk | medium, push-in 1.12→1.18 | Back in the desk room: host sips coffee, steam rising |  | sip |
