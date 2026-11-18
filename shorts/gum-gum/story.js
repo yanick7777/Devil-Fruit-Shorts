@@ -68,12 +68,67 @@ function nika(x, S, cx, fy, s) { // glowing sun-god silhouette (no identifiable 
 }
 function cloudCollar(x, cx, cy, s, t) { for (let i = 0; i < 7; i++) { const a = Math.PI * (0.05 + i * 0.15) , r = 190 * s; x.beginPath(); x.arc(cx + Math.cos(a + Math.PI) * r * -1, cy + Math.sin(a) * r * 0.35 + Math.sin(t * 3 + i) * 6, (46 + (i % 2) * 14) * s, 0, 7); A.fs(x, '#ffffff', 7 * s); } }
 function hakiArms(x, h, s) { for (const k of ['L', 'R']) { const [hx, hy] = h.hand[k]; A.glow(x, hx, hy, 140 * s, '120,60,200', 0.6); x.beginPath(); x.arc(hx, hy, 70 * s, 0, 7); A.fs(x, '#1c1530', 9 * s); x.beginPath(); x.arc(hx - 18 * s, hy - 20 * s, 14 * s, 0, 7); x.fillStyle = 'rgba(255,255,255,0.6)'; x.fill(); } }
+
+// ---------------- Gear 4 "Boundman" (anime look) ----------------
+const HAKI = '#1c1530';
+function flameBand(x, x0, x1, y, h, seed) { // black Haki markings with flame-shaped tips pointing up
+  x.beginPath(); x.moveTo(x0, y + 400);
+  const n = Math.max(3, Math.round((x1 - x0) / 60));
+  for (let i = 0; i <= n; i++) { const px = x0 + (x1 - x0) * i / n, tip = h * (0.55 + 0.45 * A.hash(seed + i)); x.lineTo(px - (x1 - x0) / n * 0.5, y); x.quadraticCurveTo(px - (x1 - x0) / n * 0.15, y - tip * 0.6, px, y - tip); }
+  x.lineTo(x1, y + 400); x.closePath();
+}
+function g4Head(who, expr) { // the host's head cropped from the full figure
+  return cached(`g4h:${who}|${expr}`, () => { const im = A.drawPerson({ who, expr, pose: 'idle' }), c = A.mk(820, 700); c.getContext('2d').drawImage(im, 90, 0, 820, 700, 0, 0, 820, 700); return c; });
+}
+function gear4(x, S, cx, fy, s, o = {}) {
+  const b = o.bounce || 0, sq = 1 - 0.14 * (1 - b), punch = !!o.punch, expr = o.expr || 'shout';
+  x.save(); x.translate(cx, fy); x.scale(s / sq * (o.flip ? -1 : 1), s * sq);
+  // short Haki-coated legs
+  for (const sd of [-1, 1]) { A.rrect(x, sd * 95 - 60, -330, 120, 330, 50); A.fs(x, HAKI, 12); x.beginPath(); x.ellipse(sd * 105, -10, 100, 40, 0, 0, 7); A.fs(x, HAKI, 12); }
+  // hood bunched behind the neck (the hoodie burst open)
+  x.beginPath(); x.ellipse(0, -1060, 260, 90, 0, 0, 7); A.fs(x, '#178274', 12);
+  // the inflated chest
+  const chest = () => { x.beginPath(); x.ellipse(0, -700, 400, 380, 0, 0, 7); };
+  chest(); A.fs(x, '#f6c690', 14);
+  x.save(); chest(); x.clip();
+  x.lineWidth = 12; x.strokeStyle = '#d99a6a'; x.beginPath(); x.moveTo(-250, -820); x.quadraticCurveTo(-120, -740, 0, -800); x.quadraticCurveTo(120, -740, 250, -820); x.stroke();
+  for (const yy of [-660, -590]) { x.beginPath(); x.moveTo(-90, yy); x.lineTo(90, yy); x.stroke(); } x.beginPath(); x.moveTo(0, -790); x.lineTo(0, -520); x.stroke();
+  flameBand(x, -420, 420, -380, 170, 3); x.fillStyle = HAKI; x.fill();               // flame markings licking up from the waist
+  for (const sd of [-1, 1]) for (let i = 0; i < 4; i++) { // flame tongues spreading from the arms onto the chest
+    const y0 = -990 + i * 75, len = 150 - i * 18, bx = sd * 430;
+    x.beginPath(); x.moveTo(bx, y0 - 34); x.quadraticCurveTo(bx - sd * len * 0.5, y0 - 50, bx - sd * len, y0 - 10 - Math.sin(S.T * 6 + i) * 8); x.quadraticCurveTo(bx - sd * len * 0.45, y0 + 10, bx, y0 + 34); x.closePath(); x.fillStyle = HAKI; x.fill(); }
+  // open hoodie edges down the sides
+  for (const sd of [-1, 1]) { x.beginPath(); x.moveTo(sd * 330, -1000); x.quadraticCurveTo(sd * 430, -700, sd * 330, -360); x.lineTo(sd * 440, -360); x.lineTo(sd * 440, -1000); x.closePath(); A.fs(x, '#22a99a', 10); }
+  x.restore();
+  chest(); x.lineWidth = 14; x.strokeStyle = A.OL; x.stroke();
+  x.beginPath(); x.ellipse(0, -1000, 210, 70, 0, Math.PI * 1.05, Math.PI * 1.95); x.lineWidth = 10; x.strokeStyle = 'rgba(255,255,255,0.85)'; x.stroke(); // rim light
+  // huge arms: skin upper arm with flame-edged Haki, giant black forearms and fists
+  for (const sd of [-1, 1]) {
+    const throwing = punch && sd === 1;
+    const ex = sd * (throwing ? 640 : 560), ey = throwing ? -820 : -640, hx = sd * (throwing ? 900 : 590), hy = throwing ? -860 : -380;
+    x.beginPath(); x.ellipse(sd * 440, -880, 150, 170, sd * 0.4, 0, 7); A.fs(x, '#f6c690', 12);
+    x.save(); x.beginPath(); x.ellipse(sd * 440, -880, 150, 170, sd * 0.4, 0, 7); x.clip(); x.translate(sd * 440, -760); flameBand(x, -170, 170, 0, 90, 20 + sd); x.fillStyle = HAKI; x.fill(); x.restore();
+    x.beginPath(); x.moveTo(sd * 460, -820); x.lineTo(ex, ey); x.lineTo(hx, hy); x.lineWidth = 220; x.strokeStyle = A.OL; x.lineCap = 'round'; x.stroke(); x.lineWidth = 196; x.strokeStyle = HAKI; x.stroke();
+    x.beginPath(); x.ellipse(hx, hy, 160, 150, 0, 0, 7); A.fs(x, HAKI, 12);
+    x.lineWidth = 9; x.strokeStyle = '#4a3f6a'; for (const k of [-60, 0, 60]) { x.beginPath(); x.moveTo(hx + sd * 80, hy + k - 30); x.quadraticCurveTo(hx + sd * 150, hy + k, hx + sd * 80, hy + k + 30); x.stroke(); }
+    x.beginPath(); x.arc(hx - sd * 50, hy - 70, 26, 0, 7); x.fillStyle = 'rgba(255,255,255,0.55)'; x.fill();
+  }
+  x.restore();
+  // head on top, a little small for the body (as in the anime)
+  const hc = g4Head('host', expr), hs = s * 0.85;
+  x.drawImage(hc, cx - 410 * hs, fy - (1140 + 600) * s * sq, 820 * hs, 700 * hs);
+  // steam rising around the neck and shoulders
+  for (let i = 0; i < 9; i++) { const ph = (S.T * 0.8 + A.hash(i)) % 1, a = Math.PI * (1.1 + i * 0.1); x.globalAlpha = 0.85 * (1 - ph);
+    x.beginPath(); x.arc(cx + Math.cos(a) * 330 * s, fy + (-1060 + Math.sin(a) * 120 - ph * 240) * s * sq, (40 + ph * 50) * s, 0, 7); x.fillStyle = '#ffffff'; x.fill(); x.lineWidth = 5; x.strokeStyle = 'rgba(27,21,48,0.3)'; x.stroke(); }
+  x.globalAlpha = 1;
+  return { fist: [cx + (punch ? 900 : 590) * s * (o.flip ? -1 : 1) / sq, fy + (punch ? -860 : -380) * s * sq], head: [cx, fy - 1350 * s * sq] };
+}
 // gear icons for the pedestals and the evolve cross-dissolves (2..5)
 export function gearIcon(x, k, cx, cy, s, t) {
   x.save(); x.translate(cx, cy); x.scale(s, s);
   if (k === 2) { A.glow(x, 0, 0, 170, '255,140,160', 0.6); A.fist(x, 0, 10, 0.5, '#22a99a'); steam(x, 0, 0, 0.45, t, 6); x.save(); x.translate(0, 10); x.scale(0.5, 0.5); x.beginPath(); x.ellipse(0, 0, 98, 84, 0, 0, 7); x.fillStyle = 'rgba(255,120,130,0.45)'; x.fill(); x.restore(); }
   else if (k === 3) { bigFist(x, 0, 0, 0.42, t); }
-  else if (k === 4) { A.glow(x, 0, 0, 180, '150,80,220', 0.6); x.beginPath(); x.arc(0, 0, 110, 0, 7); A.fs(x, '#22a99a', 12); x.lineWidth = 16; x.strokeStyle = '#1c1530'; x.beginPath(); x.arc(0, 0, 80, 0.4, 2.6); x.stroke(); for (const sd of [-1, 1]) { x.beginPath(); x.arc(sd * 120, -20, 46, 0, 7); A.fs(x, '#1c1530', 9); } }
+  else if (k === 4) { A.glow(x, 0, 0, 180, '150,80,220', 0.6); gear4(x, { T: t }, 0, 150, 0.2, { bounce: Math.abs(Math.sin(t * 5)), expr: 'shout' }); }
   else { A.glow(x, 0, 0, 200, '255,230,150', 0.8); A.sun(x, 0, 0, 70, t); for (let i = 0; i < 6; i++) { const a = i / 6 * 6.283 + t; x.beginPath(); x.arc(Math.cos(a) * 120, Math.sin(a) * 120, 34, 0, 7); A.fs(x, '#ffffff', 7); } }
   x.restore();
 }
@@ -232,9 +287,9 @@ export function buildShots(TL) {
     sfx: [[0, 'evolve'], [0.35, 'whoosh'], [0.6, 'inflate'], [W('gear4', /^Haki/) - st('gear4'), 'haki']],
     draw(x, S) {
       if (S.t < 0.5) evolve(x, S, 3, 4, 540, 820, 1.4, 0.45, gearIcon);
-      else { const b = Math.abs(Math.sin(S.T * 5)), sq = 1 - 0.12 * (1 - b);
-        const h = person(x, S, 'host', 'shout', 540, 1700 - b * 160, 0.78, { seed: 5, pose: 'cheer', sx: 1.3 / sq, sy: 0.95 * sq, pop: S.t0 + 0.5 });
-        hakiArms(x, h, 0.78); steam(x, 540, 1100 - b * 160, 0.7, S.T, 6); }
+      else { const b = Math.abs(Math.sin(S.T * 5)), p = pop(S.T, S.t0 + 0.5);
+        x.beginPath(); x.ellipse(540, 1790, 300 * (1.2 - 0.4 * b), 40, 0, 0, 7); x.fillStyle = 'rgba(20,10,40,0.3)'; x.fill();
+        gear4(x, S, 540, 1780 - b * 180, 0.72 * p, { bounce: b, expr: 'shout' }); }
     },
     hud(x, S) { const p = pop(S.T, S.t0 + 0.8); if (p <= 0) return; x.save(); x.translate(870, 600); x.scale(p, p);
       A.scopeOverlay(x, 0, 0, 160, S.T, (c) => gearIcon(c, 4, 0, Math.abs(Math.sin(S.T * 5)) * -40 + 20, 0.7, S.T));
@@ -245,8 +300,8 @@ export function buildShots(TL) {
       const ti = 0.85, hit = S.t > ti;
       const e = person(x, S, 'gunner', hit ? 'hit' : 'worried', 730, 1780, 0.72, { seed: 6, pose: 'shrug', rot: hit ? 0.25 * prog(S.t, ti, ti + 0.3) : 0 });
       const u = prog(S.t, 0, ti), bx = lerp(-150, 580, u), by = 1150 - Math.abs(Math.sin(u * Math.PI * 2.5)) * 420;
-      if (!hit) { x.save(); x.translate(bx, by); x.rotate(S.t * 8); gearIcon(x, 4, 0, 0, 1.0, S.T); x.restore(); A.speedLines(x, bx - 160, by, S.T, 8, 200); }
-      else { const h = person(x, S, 'host', 'grin', 340, 1780, 0.7, { seed: 5, pose: 'punch', sx: 1.25, sy: 0.96 }); hakiArms(x, h, 0.7); }
+      if (!hit) { gear4(x, S, bx, by + 560, 0.42, { bounce: Math.abs(Math.sin(u * Math.PI * 2.5)), expr: 'shout' }); A.speedLines(x, bx - 260, by + 200, S.T, 8, 200); }
+      else gear4(x, S, 230, 1780, 0.5, { punch: true, expr: 'grin' });
       A.impactStar(x, e.head[0] - 40, e.head[1] + 120, 260 * pop(S.T, S.t0 + ti) * (1 - prog(S.t, ti + 0.5, ti + 0.9)), 0.3);
       if (hit && S.t < ti + 7 * F) S.shake = 1.2;
       if (hit) A.mark(x, '!?', e.head[0] + 200, e.head[1] - 240, pop(S.T, S.t0 + ti + 0.25));
