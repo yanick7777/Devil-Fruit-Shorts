@@ -1,0 +1,128 @@
+{
+  "title": "Ope Ope no Mi",
+  "format": "9:16",
+  "story": "/shorts/ope/story.js",
+  "voice": {
+    "name": "mb-us2",
+    "speed": 158,
+    "pitch": 48
+  },
+  "voice_override_dir": "shorts/ope/vo",
+  "voice_fx": {
+    "tempo": 1.15,
+    "pitch_semitones": 3,
+    "excited": true
+  },
+  "music": false,
+  "facts": [
+    "Appearance (fan wikis, via search): a red, heart-shaped fruit that resembles a strawberry, swirl-patterned surface, stem with a swirling end pointing upwards",
+    "Paramecia, English name Op-Op Fruit: the user creates a spherical 'Room' and acts like a surgeon inside it",
+    "Inside a Room the user can cut anything apart without killing it (Room / Amputate)",
+    "Shambles swaps the positions of things inside the Room, including people",
+    "Mes removes a person's heart in a cube; the person stays alive",
+    "Gamma Knife destroys a body's insides without an outer wound",
+    "Perennial Youth Operation grants eternal youth at the cost of the user's life",
+    "Corazon (Donquixote Rosinante) stole the fruit (worth 5 billion berries) to save young Law, and it cured Law's Amber Lead Syndrome",
+    "'Always win at musical chairs' is a joke line (Shambles)"
+  ],
+  "lines": [
+    {
+      "id": "hook",
+      "lead": 1.6,
+      "tail": 0.25,
+      "text": "You take a bite#red of a weird heart-shaped#pink fruit.",
+      "say": "You take a bite, of a weird heart shaped fruit."
+    },
+    {
+      "id": "calm",
+      "lead": 0.1,
+      "tail": 0.35,
+      "text": "Don't panic,#red that's just a Devil#purple Fruit.#purple",
+      "say": "Don't panic. That's just a devil fruit."
+    },
+    {
+      "id": "sea",
+      "lead": 0.1,
+      "tail": 0.25,
+      "text": "Out of every fruit in the sea,#blue",
+      "say": "Out of every fruit in the sea,"
+    },
+    {
+      "id": "name",
+      "lead": 0.05,
+      "tail": 0.9,
+      "text": "you got the Op-Op#pink Fruit,#pink",
+      "say": "you got the op, op fruit."
+    },
+    {
+      "id": "type",
+      "lead": 0.1,
+      "tail": 0.9,
+      "text": "a Paramecia#orange that turns you into a surgeon#green with a whole list of operations.#gold",
+      "say": "A paramecia, that turns you into a surgeon, with a whole list of operations."
+    },
+    {
+      "id": "form1",
+      "lead": 0.3,
+      "tail": 0.4,
+      "text": "First, you open a blue Room,#blue and inside it you can slice#red anything apart#orange without killing it.",
+      "say": "First, you open a blue room, and inside it, you can slice anything apart, without killing it."
+    },
+    {
+      "id": "form2",
+      "lead": 0.55,
+      "tail": 0.4,
+      "text": "Then you swap#gold the places#purple of anything in the Room, even people.#orange",
+      "say": "Then you swap the places of anything in the room. Even people."
+    },
+    {
+      "id": "form3",
+      "lead": 0.55,
+      "tail": 0.4,
+      "text": "You can even pull out someone's heart,#red and they stay alive.#green",
+      "say": "You can even pull out someone's heart, and they stay alive."
+    },
+    {
+      "id": "form4",
+      "lead": 0.55,
+      "tail": 0.6,
+      "text": "Your strongest#gold attack is Gamma Knife,#blue which wrecks the inside of a body without a single cut.#red",
+      "say": "Your strongest attack is gamma knife, which wrecks the inside of a body, without a single cut."
+    },
+    {
+      "id": "twist",
+      "lead": 0.25,
+      "tail": 0.4,
+      "text": "But its ultimate operation has a terrible#red price.#red",
+      "say": "But its ultimate operation, has a terrible price."
+    },
+    {
+      "id": "truth",
+      "lead": 0.1,
+      "tail": 0.4,
+      "text": "It can give someone eternal youth,#green but it costs the user their own life.#purple",
+      "say": "It can give someone eternal youth, but it costs the user, their own life."
+    },
+    {
+      "id": "users",
+      "lead": 0.1,
+      "tail": 0.4,
+      "text": "Corazon#pink stole it to save little Law,#orange and it cured his deadly disease.#green",
+      "say": "Cora-zon stole it to save little Law, and it cured his deadly disease."
+    },
+    {
+      "id": "joke",
+      "lead": 0.2,
+      "tail": 0.9,
+      "text": "Users of this fruit always win at musical#gold chairs.#gold",
+      "say": "Users of this fruit, always win at musical chairs."
+    },
+    {
+      "id": "outro",
+      "lead": 0.2,
+      "tail": 2.4,
+      "text": "Which fruit#pink do you want next?#gold Follow for more.",
+      "say": "Which fruit do you want next? Follow for more."
+    }
+  ]
+}

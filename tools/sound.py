@@ -98,6 +98,12 @@ FX.update({
   'splash':  lambda: norm(bp(noise(0.9), 400, 6000) * env(int(0.9 * SR), 0.004, 0.25) + 0.5 * np.pad(thump(90, 0.4), (0, int(0.5 * SR)))),
   'siren':   lambda: norm(np.sin(2 * np.pi * np.cumsum(700 + 250 * np.sin(2 * np.pi * 2.5 * T(1.4))) / SR) * env(int(1.4 * SR), 0.02, 0.8)),
 })
+FX.update({
+  'heartbeat': lambda: norm(seq([(t, thump(70, 0.18) + 0.3 * lp(noise(0.18), 200) * env(int(0.18 * SR), 0.002, 0.05)) for t in (0, 0.22, 0.8, 1.02)], 1.3)),
+  'room':      lambda: norm(sweep(200, 900, 1.0) * env(int(1.0 * SR), 0.05, 0.6) * 0.6 + sum(np.sin(2 * np.pi * f * T(1.0)) for f in (220, 330)) * env(int(1.0 * SR), 0.2, 0.7) * 0.4),
+  'zap':       lambda: norm(signal.square(2 * np.pi * np.cumsum(1800 - 1400 * T(0.4) / 0.4) / SR) * env(int(0.4 * SR), 0.002, 0.15) * 0.5 + hp(noise(0.4), 3000) * env(int(0.4 * SR), 0.002, 0.1)),
+  'tick':      lambda: norm(seq([(i * 0.5, hp(noise(0.02), 3000) * env(int(0.02 * SR), 0.001, 0.005)) for i in range(5)], 2.5)),
+})
 GAIN = {'fireloop': 0.45, 'rumble': 0.7, 'blast': 1.0, 'boom': 1.0, 'sting': 1.2, 'whoosh': 0.6, 'swish': 0.7, 'pop': 0.55, 'ding': 0.5, 'twinkle': 0.5,
         'shimmer': 0.55, 'pops': 0.8, 'sip': 0.6, 'levelup': 0.6, 'fanfare': 0.6, 'crunch': 0.9, 'yuck': 0.6, 'impact': 1.0, 'jokesting': 0.9}
 
