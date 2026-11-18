@@ -277,9 +277,9 @@ export function buildShots(TL) {
   add({ name: 'Corazon (snowy northern town at night): Corazon holds up the stolen fruit next to little Law, who has white patches from his disease', t0: st('users'), t1: tCured, bg: 'snowNight',
     cam: [[1.05, 540, 1000, 0.02], [1.12, 540, 980, 0]], sfx: [[0, 'whoosh'], [0.2, 'ding']],
     draw(x, S) {
-      const c = person(x, S, 'corazon', 'grin', 380, 1800, 0.8, { pop: S.t0 + 0.05, seed: 8, pose: 'holdUp' });
+      const c = person(x, S, 'corazon', 'grin', 380, 1830, 0.92, { pop: S.t0 + 0.05, seed: 8, pose: 'holdUp' });
       drawOpe(x, c.hand.R[0] + 20, c.hand.R[1] - 70, 62, S.T, { shadow: false });
-      person(x, S, 'lawKid', 'sad', 780, 1800, 0.6, { pop: S.t0 + 0.25, seed: 9, pose: 'idle' });
+      person(x, S, 'lawKid', 'sad', 800, 1830, 0.55, { pop: S.t0 + 0.25, seed: 9, pose: 'idle' });
     } });
   add({ name: 'Cured (pink hearts): little Law\'s white patches fade away in sparkles and he grins', t0: tCured, t1: end('users'), bg: 'hearts',
     cam: [[1.15, 540, 1080, -0.02], [1.22, 540, 1060, 0.01]], sfx: [[0.2, 'shimmer'], [0.6, 'levelup']],

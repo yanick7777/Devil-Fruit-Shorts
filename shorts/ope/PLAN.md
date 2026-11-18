@@ -39,7 +39,7 @@ Still: `review/fruit_sheet.png`.
 
 - **Host:** same as before, plus a surgical mask and scalpel in the surgeon shot.
 - **Enemy (new, original):** pirate chef with a tall chef hat, curled moustache, red neck scarf and white apron.
-- **Corazon:** black feather hood and long black coat, heart-print shirt, painted clown smile and eye lines.
+- **Corazon:** very tall; black hood with blond hair framing his face, black triangle eye makeup, red painted clown smile, cigarette, black feather mantle and long black coat, white shirt with red hearts, striped pants.
 - **Little Law:** fluffy white spotted hat, white patches on his skin (Amber Lead Syndrome), which fade when he's cured.
 
 Test sheet: `review/cast_sheet.png`.
