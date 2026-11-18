@@ -75,6 +75,20 @@ FX = {
   'fanfare':  lambda: norm(seq([(i * 0.15, lp(sum(signal.sawtooth(2 * np.pi * note(m + o) * T(d)) for o in (0, 0.08)), 2600) * env(int(d * SR), 0.01, d * 0.9)) for i, (m, d) in enumerate([(60, .14), (64, .14), (67, .14), (72, .6)])], 1.6)),
   'jokesting': lambda: norm(seq([(0, thump(180, 0.14)), (0.16, thump(150, 0.16)), (0.34, hp(noise(0.5), 5000) * env(int(0.5 * SR), 0.002, 0.15))], 0.9)),
 }
+FX.update({
+  'stretch':  lambda: norm(sweep(180, 620, 0.5, 'saw') * env(int(0.5 * SR), 0.02, 0.3) * 0.6 + lp(noise(0.5), 900) * 0.2),
+  'snap':     lambda: norm(seq([(0, sweep(900, 160, 0.12) * env(int(0.12 * SR), 0.001, 0.04)), (0.03, hp(noise(0.05), 2000) * env(int(0.05 * SR), 0.001, 0.01))], 0.25)),
+  'boing':    lambda: norm(np.sin(2 * np.pi * np.cumsum(220 + 160 * np.sin(2 * np.pi * 12 * T(0.5)) * np.exp(-T(0.5) * 4)) / SR) * env(int(0.5 * SR), 0.003, 0.2)),
+  'ricochet': lambda: norm(seq([(i * 0.09, sweep(3200, 1400, 0.22) * env(int(0.22 * SR), 0.001, 0.08)) for i in range(3)], 0.5)),
+  'steam':    lambda: norm(hp(noise(0.9), 3000) * env(int(0.9 * SR), 0.05, 0.4)),
+  'zip':      lambda: norm(bp(noise(0.25), 1500, 6000) * np.sin(np.pi * T(0.25) / 0.25) ** 2 + 0.4 * sweep(500, 2500, 0.25) * env(int(0.25 * SR), 0.01, 0.1)),
+  'inflate':  lambda: norm(lp(noise(0.8), 1200) * np.linspace(0.2, 1, int(0.8 * SR)) + 0.5 * sweep(120, 420, 0.8) * env(int(0.8 * SR), 0.05, 0.6)),
+  'haki':     lambda: norm(lp(sum(signal.sawtooth(2 * np.pi * note(m) * T(0.7)) for m in (36, 43)), 500) * env(int(0.7 * SR), 0.03, 0.3) + np.pad(thump(110, 0.4), (0, int(0.3 * SR)))),
+  'drums':    lambda: norm(seq([(t, thump(90, 0.25) + 0.4 * bp(noise(0.25), 150, 600) * env(int(0.25 * SR), 0.002, 0.06)) for t in (0, 0.18, 0.5, 0.68, 1.0)], 1.4)),
+  'slash':    lambda: norm(hp(noise(0.3), 2500) * np.sin(np.pi * T(0.3) / 0.3) ** 4 + 0.3 * sweep(2000, 600, 0.3)),
+  'stamp':    lambda: norm(thump(160, 0.35) + 0.4 * np.pad(hp(noise(0.03), 1000) * env(int(0.03 * SR), 0.001, 0.01), (0, int(0.32 * SR)))),
+  'waves':    lambda: norm(lp(noise(2.0), 600) * (0.4 + 0.6 * np.sin(np.pi * T(2.0) / 2.0) ** 2)),
+})
 GAIN = {'fireloop': 0.45, 'rumble': 0.7, 'blast': 1.0, 'boom': 1.0, 'sting': 1.2, 'whoosh': 0.6, 'swish': 0.7, 'pop': 0.55, 'ding': 0.5, 'twinkle': 0.5,
         'shimmer': 0.55, 'pops': 0.8, 'sip': 0.6, 'levelup': 0.6, 'fanfare': 0.6, 'crunch': 0.9, 'yuck': 0.6, 'impact': 1.0, 'jokesting': 0.9}
 
@@ -83,7 +97,7 @@ def waves(d):
     t = T(d); return lp(noise(d), 700) * (0.55 + 0.45 * np.sin(2 * np.pi * t / 3.2) ** 2)
 def gull(): t = T(0.45); f = 1500 + 600 * np.sin(np.pi * t / 0.45); return np.sin(2 * np.pi * np.cumsum(f) / SR) * env(len(t), 0.03, 0.15) * 0.6
 def wind(d): t = T(d); return bp(noise(d), 200, 900) * (0.6 + 0.4 * np.sin(2 * np.pi * t / 2.3))
-AMB = {'beach': 'sea', 'deck': 'sea', 'sea': 'sea', 'harbor': 'sea', 'cliff': 'wind', 'snow': 'wind'}
+AMB = {'beach': 'sea', 'deck': 'sea', 'sea': 'sea', 'harbor': 'sea', 'nightSea': 'sea', 'cliff': 'wind', 'snow': 'wind', 'mountain': 'wind', 'storm': 'wind', 'rooftops': 'wind'}
 
 # ---------------- music ----------------
 def music(n):

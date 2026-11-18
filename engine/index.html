@@ -8,7 +8,7 @@ canvas { display: block; width: 1080px; height: 1920px; }
 <script type="importmap">{ "imports": { "three": "/node_modules/three/build/three.module.js" } }</script>
 </head><body><canvas id="c" width="1080" height="1920"></canvas>
 <script type="module">
-import { init, frame, cues } from './main.js';
+import { init, frame, cues } from '/engine/main.js';
 window.__init = async (tl) => init(tl); window.__cues = () => cues();
 window.__frame = (t) => { frame(t); return document.getElementById('c').toDataURL('image/jpeg', 0.93); };
 window.__ready = true;

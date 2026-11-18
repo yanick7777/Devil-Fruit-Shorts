@@ -11,8 +11,13 @@ export const hash = (n) => { const s = Math.sin(n * 127.1 + 311.7) * 43758.5453;
 
 // ======================= characters =======================
 export const LOOKS = {
+  luffyKid: { skin: '#f3c08a', skinD: '#dca06a', hair: '#1d1a22', hairL: '#3d3443', hairStyle: 'messy', hat: 'straw', eyeScar: true,
+          top: 'tee', cloth: '#d8342c', clothD: '#a92620', inner: '#d8342c', pants: '#3f6fb5', shorts: true, shoe: '#c9934f', boots: false, sleeveSkin: true },
+  gunner: { skin: '#c98d64', skinD: '#ab7049', hair: '#2a1d18', hairL: '#4d362c', hairStyle: 'bald', shades: true, goatee: true,
+          top: 'vest', cloth: '#4f7a3a', clothD: '#3a5c2a', inner: '#8e8e99', pants: '#5a4a3a', shoe: '#2a2026', boots: true, arm: '#8e8e99', sleeveSkin: true },
   host: { skin: '#f6c690', skinD: '#e2a673', hair: '#1d1a26', hairL: '#4a4560', hairStyle: 'messy', glasses: true,
           top: 'hoodie', cloth: '#22a99a', clothD: '#178274', inner: '#ffffff', innerD: '#d9dde6', pants: '#3b4f7a', shoe: '#e9e6f0', cuff: '#178274' },
+  host_g2: null, host_g5: null,
   enemy: { skin: '#d9a27a', skinD: '#bb8460', hair: '#2a1d18', hairL: '#4d362c', hairStyle: 'bandana', beard: true,
            top: 'stripes', cloth: '#ffffff', clothD: '#2c3e78', inner: '#c0392b', innerD: '#962a1f', pants: '#7a5236', shoe: '#2a2026', boots: true, arm: '#ffffff', sleeveSkin: true },
   ace: { skin: '#f3bd85', skinD: '#dc9d66', hair: '#1f1a22', hairL: '#3d3443', hairStyle: 'wavy', freckles: true, hat: 'cowboy', top: 'bare', beads: true, pants: '#2a2730', shorts: true, shoe: '#2a2026', boots: true, arm: '#f3bd85' },
@@ -68,6 +73,16 @@ function drawTorso(x, L) {
     for (const sd of [-1, 1]) { x.beginPath(); x.moveTo(380 - sd * 62, 640); x.lineTo(380 - sd * 110, 700); x.lineTo(380 - sd * 70, 760); x.lineTo(380 - sd * 52, 1080); x.lineTo(380 - sd * 62, 1080); x.closePath(); fs(x, L.clothD, 10); }
     x.lineWidth = 7; x.strokeStyle = L.clothD; x.beginPath(); x.moveTo(240, 1200); x.lineTo(260, 1320); x.moveTo(520, 1200); x.lineTo(500, 1320); x.stroke();
     if (L.cravat) { x.beginPath(); x.moveTo(350, 648); x.lineTo(410, 648); x.lineTo(395, 720); x.lineTo(380, 760); x.lineTo(365, 720); x.closePath(); fs(x, '#f7f4ee', 8); }
+  } else if (L.top === 'tee') {
+    torso(); fs(x, L.cloth, 12);
+    x.beginPath(); x.moveTo(318, 640); x.quadraticCurveTo(380, 700, 442, 640); x.lineWidth = 10; x.strokeStyle = OL; x.stroke();
+    x.lineWidth = 7; x.strokeStyle = L.clothD; x.beginPath(); x.moveTo(280, 900); x.quadraticCurveTo(300, 980, 290, 1060); x.moveTo(480, 900); x.quadraticCurveTo(460, 980, 470, 1060); x.stroke();
+    rrect(x, 228, 1040, 304, 52, 14); fs(x, '#8a5a3c', 11);
+  } else if (L.top === 'vest') {
+    torso(); fs(x, L.inner, 12);
+    for (const sd of [-1, 1]) { x.beginPath(); x.moveTo(380 + sd * 150, 650); x.lineTo(380 + sd * 60, 650); x.lineTo(380 + sd * 40, 1090); x.lineTo(380 + sd * 146, 1090); x.closePath(); fs(x, L.cloth, 11); }
+    x.fillStyle = L.clothD; for (const yy of [760, 860]) for (const sd of [-1, 1]) { rrect(x, 380 + sd * 95 - 26, yy, 52, 40, 8); fs(x, L.clothD, 7); }
+    rrect(x, 228, 1040, 304, 52, 14); fs(x, '#3a2a20', 11); x.beginPath(); x.arc(560, 1080, 1, 0, 7);
   } else { // bare chest
     torso(); fs(x, L.skin, 12);
     x.lineWidth = 6; x.strokeStyle = L.skinD; x.beginPath(); x.moveTo(380, 760); x.lineTo(380, 1000); x.moveTo(290, 790); x.quadraticCurveTo(330, 815, 370, 790); x.moveTo(390, 790); x.quadraticCurveTo(430, 815, 470, 790); x.stroke();
@@ -135,6 +150,10 @@ export function drawPerson({ who = 'host', expr = 'calm', mouth = 0, blink = fal
     x.save(); x.translate(ex, ey + by); x.rotate(tilt);
     x.beginPath(); x.moveTo(-64, 6); x.quadraticCurveTo(0, -14, 64, 2); x.lineWidth = 24; x.strokeStyle = who === 'sabo' ? '#b88a2c' : OL; x.stroke(); x.restore();
   });
+  if (L.goatee) { x.beginPath(); x.moveTo(330, 520); x.quadraticCurveTo(380, 610, 430, 520); x.quadraticCurveTo(380, 545, 330, 520); fs(x, L.hair, 9); }
+  if (L.eyeScar) { x.lineWidth = 6; x.strokeStyle = '#a5523e'; x.beginPath(); x.moveTo(440, 418); x.quadraticCurveTo(478, 430, 512, 418); x.stroke(); for (const k of [455, 478, 500]) { x.beginPath(); x.moveTo(k, 410); x.lineTo(k + 4, 430); x.stroke(); } }
+  if (L.shades) { for (const ex of [285, 475]) { rrect(x, ex - 74, 316, 148, 92, 34); fs(x, '#1c1a26', 10); x.beginPath(); x.moveTo(ex - 50, 336); x.lineTo(ex - 20, 336); x.lineWidth = 7; x.strokeStyle = 'rgba(255,255,255,0.75)'; x.stroke(); }
+    x.beginPath(); x.moveTo(359, 350); x.lineTo(401, 350); x.lineWidth = 10; x.strokeStyle = OL; x.stroke(); }
   if (L.scar) { x.beginPath(); x.moveTo(430, 290); x.bezierCurveTo(560, 270, 580, 380, 545, 440); x.bezierCurveTo(500, 450, 440, 420, 430, 380); x.closePath(); x.fillStyle = 'rgba(214,120,110,0.45)'; x.fill(); }
   if (L.glasses) { // small round glasses
     x.lineWidth = 8; x.strokeStyle = OL;
@@ -180,17 +199,24 @@ export function drawPerson({ who = 'host', expr = 'calm', mouth = 0, blink = fal
   } else if (L.hairStyle === 'curly') {
     x.moveTo(140, 380); x.bezierCurveTo(100, 70, 660, 70, 620, 380); x.quadraticCurveTo(600, 300, 560, 250);
     x.quadraticCurveTo(450, 250, 380, 225); x.quadraticCurveTo(300, 255, 210, 250); x.quadraticCurveTo(170, 300, 140, 380); x.closePath();
+  } else if (L.hairStyle === 'bald') { x.moveTo(380, 330);
   } else { // bandana
     x.moveTo(160, 300); x.bezierCurveTo(150, 100, 610, 100, 600, 300); x.quadraticCurveTo(380, 250, 160, 300); x.closePath();
   }
   fs(x, L.hairStyle === 'bandana' ? '#7b3fb5' : L.hair, 12);
+  if (L.hairStyle === 'bald') { x.beginPath(); x.arc(300, 190, 40, Math.PI * 1.1, Math.PI * 1.6); x.lineWidth = 12; x.strokeStyle = 'rgba(255,255,255,0.8)'; x.stroke(); }
   if (L.hairStyle === 'bandana') { x.fillStyle = '#fff'; for (let i = 0; i < 9; i++) { x.beginPath(); x.arc(220 + (i % 5) * 80 + (i > 4 ? 40 : 0), 190 + (i > 4 ? 45 : 0), 9, 0, 7); x.fill(); }
     x.beginPath(); x.moveTo(600, 260); x.lineTo(690, 230); x.lineTo(670, 300); x.closePath(); fs(x, '#7b3fb5', 10); }
   x.lineWidth = 8; x.strokeStyle = L.hairL;
-  if (L.hairStyle !== 'bandana') { x.beginPath(); x.moveTo(250, 150); x.quadraticCurveTo(330, 110, 420, 125); x.stroke(); x.beginPath(); x.moveTo(470, 140); x.quadraticCurveTo(530, 160, 560, 210); x.stroke(); }
+  if (L.hairStyle !== 'bandana' && L.hairStyle !== 'bald') { x.beginPath(); x.moveTo(250, 150); x.quadraticCurveTo(330, 110, 420, 125); x.stroke(); x.beginPath(); x.moveTo(470, 140); x.quadraticCurveTo(530, 160, 560, 210); x.stroke(); }
   // thin white rim light along the upper-left edge
   if (!L.hat) { x.beginPath(); x.ellipse(380, 330, 226, 215, 0, Math.PI * 1.06, Math.PI * 1.48); x.lineWidth = 9; x.strokeStyle = '#fff'; x.stroke(); }
-  if (L.hat === 'cowboy') {
+  if (L.hat === 'straw') {
+    x.beginPath(); x.ellipse(380, 190, 320, 64, -0.04, 0, 7); fs(x, '#f2c94c', 12);
+    x.beginPath(); x.moveTo(236, 192); x.bezierCurveTo(236, 50, 524, 50, 524, 192); x.quadraticCurveTo(380, 214, 236, 192); fs(x, '#f6d466', 12);
+    x.beginPath(); x.moveTo(242, 168); x.quadraticCurveTo(380, 196, 518, 168); x.lineWidth = 26; x.strokeStyle = '#c0392b'; x.stroke();
+    x.lineWidth = 4; x.strokeStyle = 'rgba(150,110,30,0.5)'; for (let k = 0; k < 6; k++) { x.beginPath(); x.ellipse(380, 190, 300 - k * 40, 58 - k * 7, -0.04, 0.2, 2.9); x.stroke(); }
+  } else if (L.hat === 'cowboy') {
     x.beginPath(); x.ellipse(380, 175, 330, 60, -0.05, 0, 7); fs(x, '#e8822e', 12);
     x.beginPath(); x.moveTo(230, 175); x.bezierCurveTo(230, 20, 530, 20, 530, 175); x.quadraticCurveTo(380, 200, 230, 175); fs(x, '#f19a3f', 12);
     x.beginPath(); x.moveTo(236, 150); x.quadraticCurveTo(380, 175, 524, 150); x.lineWidth = 22; x.strokeStyle = '#c0392b'; x.stroke();
@@ -446,3 +472,6 @@ export function progressBar(x, cx, cy, w, pct, label) {
   if (pct > 0) { rrect(x, cx - w / 2 + 12, cy - 26, (w - 24) * pct, 52, 26); x.fillStyle = '#ffd23f'; x.fill(); x.fillStyle = 'rgba(255,255,255,0.45)'; rrect(x, cx - w / 2 + 22, cy - 20, Math.max(0, (w - 44) * pct), 12, 6); x.fill(); }
   if (label) { x.font = `56px ${FONT}`; x.textAlign = 'center'; x.textBaseline = 'middle'; x.lineJoin = 'round'; x.lineWidth = 14; x.strokeStyle = OL; x.strokeText(label, cx, cy + 4); x.fillStyle = '#fff'; x.fillText(label, cx, cy + 4); }
 }
+// host gear variants (same character, different colours)
+LOOKS.host_g2 = { ...LOOKS.host, skin: '#ff9a96', skinD: '#e2716d' };
+LOOKS.host_g5 = { ...LOOKS.host, hair: '#ffffff', hairL: '#d9e0ff', cloth: '#f4f4f8', clothD: '#cfd0dc', inner: '#ffffff', pants: '#e3e3ec', cuff: '#cfd0dc', shoe: '#ffffff' };

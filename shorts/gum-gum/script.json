@@ -1,0 +1,128 @@
+{
+  "title": "Gomu Gomu no Mi",
+  "format": "9:16",
+  "story": "/shorts/gum-gum/story.js",
+  "voice": {
+    "name": "mb-us2",
+    "speed": 158,
+    "pitch": 48
+  },
+  "voice_override_dir": "shorts/gum-gum/vo",
+  "voice_fx": {
+    "tempo": 1.15,
+    "pitch_semitones": 3,
+    "excited": true
+  },
+  "music": false,
+  "facts": [
+    "Appearance (One Piece Wiki): a violet, spherical fruit similar to a cantaloupe, with a stem sprouting out of the top and swirls in a curly 'S'-like pattern; it greatly resembles a Yubari King melon",
+    "Officially classified as a Paramecia: the body becomes rubber (stretches; blunt hits and bullets bounce off; lightning can't hurt it)",
+    "Gear Second: pumps blood faster, the skin turns pink and steams, huge speed",
+    "Gear Third: blows air into the bones to make giant limbs (a giant fist)",
+    "Gear Fourth: inflates the muscles and coats them in Armament Haki; Boundman bounces around",
+    "Gear Fifth (awakening): hair and clothes turn white, cartoon-like freedom, can turn the surroundings into rubber",
+    "True name: Hito Hito no Mi, Model: Nika (Human-Human Fruit, Model: Nika); the World Government renamed it Gomu Gomu no Mi to hide it (Wano arc spoiler)",
+    "The Red-Haired Pirates attacked a World Government ship carrying the fruit; young Luffy ate it by accident as dessert at Partys Bar in Foosha Village (chapter 1 / Egghead flashback)",
+    "'Never need a ladder' is a joke line"
+  ],
+  "lines": [
+    {
+      "id": "hook",
+      "lead": 1.6,
+      "tail": 0.25,
+      "text": "You take a bite#red of a weird purple#purple fruit.",
+      "say": "You take a bite, of a weird purple fruit."
+    },
+    {
+      "id": "calm",
+      "lead": 0.1,
+      "tail": 0.35,
+      "text": "Don't panic,#red that's just a Devil#purple Fruit.#purple",
+      "say": "Don't panic. That's just a devil fruit."
+    },
+    {
+      "id": "sea",
+      "lead": 0.1,
+      "tail": 0.25,
+      "text": "Out of every fruit in the sea,#blue",
+      "say": "Out of every fruit in the sea,"
+    },
+    {
+      "id": "name",
+      "lead": 0.05,
+      "tail": 0.9,
+      "text": "you got the Gum-Gum#pink Fruit,#pink",
+      "say": "you got the gum, gum fruit."
+    },
+    {
+      "id": "type",
+      "lead": 0.1,
+      "tail": 0.9,
+      "text": "a Paramecia#orange that turns your body into rubber#red and unlocks a whole list of gears.#gold",
+      "say": "A paramecia, that turns your body into rubber, and unlocks a whole list of gears."
+    },
+    {
+      "id": "gear2",
+      "lead": 0.3,
+      "tail": 0.4,
+      "text": "First, Gear#gold Two#gold pumps your blood so fast you steam#red and move in a blur.#blue",
+      "say": "First, gear two pumps your blood so fast, you steam, and move in a blur."
+    },
+    {
+      "id": "gear3",
+      "lead": 0.55,
+      "tail": 0.4,
+      "text": "Then Gear#gold Three#gold blows air#blue into your bones for a fist the size of a house.#orange",
+      "say": "Then gear three blows air into your bones, for a fist the size of a house."
+    },
+    {
+      "id": "gear4",
+      "lead": 0.55,
+      "tail": 0.4,
+      "text": "Gear#gold Four#gold fills your muscles with air and Haki,#purple so you bounce#orange around like a giant rubber ball.",
+      "say": "Gear four fills your muscles with air and hah-kee, so you bounce around like a giant rubber ball."
+    },
+    {
+      "id": "gear5",
+      "lead": 0.55,
+      "tail": 0.6,
+      "text": "Your strongest form is Gear#gold Five:#gold your hair turns white#blue and you bend the world#green like a cartoon.",
+      "say": "Your strongest form is gear five. Your hair turns white, and you bend the world, like a cartoon."
+    },
+    {
+      "id": "twist",
+      "lead": 0.25,
+      "tail": 0.4,
+      "text": "But Gum-Gum was never its real#red name.#red",
+      "say": "But gum gum, was never its real name."
+    },
+    {
+      "id": "truth",
+      "lead": 0.1,
+      "tail": 0.4,
+      "text": "It's secretly the Human-Human Fruit,#pink Model: Nika,#gold and the government renamed it to hide#purple it.",
+      "say": "It's secretly the human, human fruit, model, Nee-ka. And the government renamed it, to hide it."
+    },
+    {
+      "id": "users",
+      "lead": 0.1,
+      "tail": 0.4,
+      "text": "Shanks's crew stole#red it from a government#purple ship, and little Luffy#orange ate it by accident.",
+      "say": "Shanks's crew stole it from a government ship, and little Luffy ate it, by accident."
+    },
+    {
+      "id": "joke",
+      "lead": 0.2,
+      "tail": 0.9,
+      "text": "Users of this fruit never need a ladder.#green",
+      "say": "Users of this fruit, never need a ladder."
+    },
+    {
+      "id": "outro",
+      "lead": 0.2,
+      "tail": 2.4,
+      "text": "Which fruit#pink do you want next?#gold Follow for more.",
+      "say": "Which fruit do you want next? Follow for more."
+    }
+  ]
+}

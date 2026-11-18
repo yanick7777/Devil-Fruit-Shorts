@@ -1,6 +1,7 @@
 {
   "title": "Mera Mera no Mi",
   "format": "9:16",
+  "story": "/shorts/mera-mera/story.js",
   "voice": {
     "name": "mb-us2",
     "speed": 158,

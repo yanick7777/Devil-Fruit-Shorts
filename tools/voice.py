@@ -39,6 +39,6 @@ for i, ln in enumerate(S["lines"]):
     lines.append({**ln, "start": round(t, 3), "dur": round(dur, 3), "vo": wav, "voStart": ln["lead"], "voDur": round(vdur, 3), "words": wt, "source": source})
     t += dur
 
-json.dump({"title": S["title"], "music": S.get("music", True), "duration": round(t, 3), "lines": lines}, open(f"{out}/timeline.json", "w"), indent=1)
+json.dump({"title": S["title"], "story": S.get("story", "/shorts/mera-mera/story.js"), "music": S.get("music", True), "duration": round(t, 3), "lines": lines}, open(f"{out}/timeline.json", "w"), indent=1)
 print(f"total {t:.2f}s")
 for l in lines: print(f"  {l['id']:6s} {l['start']:6.2f}  dur {l['dur']:.2f}  vo {l['voDur']:.2f}  ({l['source']})")

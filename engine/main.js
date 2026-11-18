@@ -3,7 +3,7 @@
 import * as THREE from 'three';
 import * as A from './art.js';
 import { BG, BW, BH } from './bgs.js';
-import { buildShots, ease, prog, clamp01, pop } from './story.js';
+import { ease, prog, clamp01, pop } from './kit.js';
 
 const W = 1080, H = 1920, FOV = 30, DIST = (H / 2) / Math.tan(THREE.MathUtils.degToRad(FOV / 2)), F = 1 / 30;
 let renderer, scene, cam, hud, hudCam, TL, SHOTS, M = {};
@@ -21,13 +21,14 @@ function bgTex(key) {
 export async function init(timeline) {
   TL = timeline;
   await document.fonts.load('100px "Lilita One"');
-  SHOTS = buildShots(TL);
+  SHOTS = (await import(TL.story || '/shorts/mera-mera/story.js')).buildShots(TL);
   renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('c'), antialias: true, preserveDrawingBuffer: true });
   renderer.setPixelRatio(1); renderer.setSize(W, H, false); renderer.outputColorSpace = THREE.SRGBColorSpace; renderer.autoClear = false;
   scene = new THREE.Scene(); scene.background = new THREE.Color('#222');
   cam = new THREE.PerspectiveCamera(FOV, W / H, 10, 20000);
   hud = new THREE.Scene(); hudCam = new THREE.OrthographicCamera(-W / 2, W / 2, H / 2, -H / 2, -10, 10);
-  M.bg = plane(BW, BH, 0); placeAt(M.bg, -420); scene.add(M.bg);
+  M.bg = new THREE.Mesh(new THREE.PlaneGeometry(BW, BH, 24, 40), new THREE.MeshBasicMaterial({ transparent: true, depthTest: false, depthWrite: false })); M.bg.renderOrder = 0;
+  M.bgRest = M.bg.geometry.attributes.position.array.slice(); placeAt(M.bg, -420); scene.add(M.bg);
   M.stageC = A.mk(W, H); M.stage = plane(W, H, 1); M.stage.material.map = tex(M.stageC); placeAt(M.stage, 0); scene.add(M.stage);
   M.hudC = A.mk(W, H); M.hud = plane(W, H, 2); M.hud.material.map = tex(M.hudC); hud.add(M.hud);
   // captions: 1-2 words, broken after punctuation
@@ -47,7 +48,13 @@ export function frame(T) {
   M.bg.material.map = bgTex(shot.bg); M.bg.material.needsUpdate = true;
   // ---- stage ----
   const x = M.stageC.getContext('2d'); x.clearRect(0, 0, W, H);
+  S.wobble = 0;
   shot.draw(x, S);
+  // cartoon wobble: bend the background mesh (Gear 5 style)
+  { const pos = M.bg.geometry.attributes.position, r = M.bgRest, w = S.wobble || 0;
+    if (w > 0 || M.bgWobbled) { for (let i = 0; i < pos.count; i++) { const px = r[i * 3], py = r[i * 3 + 1];
+        pos.array[i * 3] = px + Math.sin(py * 0.006 + T * 5) * 45 * w; pos.array[i * 3 + 1] = py + Math.sin(px * 0.008 + T * 4) * 35 * w; }
+      pos.needsUpdate = true; M.bgWobbled = w > 0; } }
   A.dust(x, W, H, T, 22, shot.bg === 'underwater' ? '200,240,255' : '255,255,255');
   M.stage.material.map.needsUpdate = true;
   // ---- camera: smootherstep glide + slow push-in, a punch on every cut, 7-frame shakes ----
