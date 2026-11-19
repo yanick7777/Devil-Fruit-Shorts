@@ -364,3 +364,551 @@ Doctor Vegapunk ate it, and his six satellite copies all share that brain.
 Users of this fruit never fail a test.
 Which fruit do you want next? Follow for more.
 ```
+
+---
+
+# Batch 3 (30 new fruits)
+
+Already made, so not repeated here: Bara Bara (Chop), Gomu Gomu (Gum), Gura Gura (Tremor), Hobi Hobi (Toy), Ito Ito (String), Mera Mera (Flame), Neko Neko Leopard, Ope Ope, Tori Tori Phoenix.
+"Hito Hito no Mi" below is Chopper's Human-Human Fruit (the Nika version is the Gum-Gum short).
+Same rules: one take each, about half a second of pause between lines.
+
+## 1. Bubble-Bubble Fruit (Awa Awa no Mi)
+```
+You take a bite of a weird swirly fruit.
+Don't panic, that's just a Devil Fruit.
+Out of every fruit in the sea,
+you got the Bubble-Bubble Fruit,
+a Paramecia that makes soap bubbles come out of your body.
+First, your bubbles clean anything spotless in seconds.
+Then the bubbles wash away people's strength, so they go weak and slippery.
+You can even make the ground so slippery that nobody can stand up.
+Your strongest move is Golden Awa: a giant wave of bubbles that cleans an enemy right out of power.
+But there's a catch.
+Once the bubbles wash off, the strength comes right back.
+Kalifa, the CP9 secretary, used it against Nami at Enies Lobby.
+Users of this fruit never need a bath.
+Which fruit do you want next? Follow for more.
+```
+
+## 2. Munch-Munch Fruit (Baku Baku no Mi)
+```
+You take a bite of a weird swirly fruit.
+Don't panic, that's just a Devil Fruit.
+Out of every fruit in the sea,
+you got the Munch-Munch Fruit,
+a Paramecia that lets you eat anything, even metal and stone.
+First, your mouth opens huge and you chomp through cannons and walls.
+Then whatever you eat becomes part of your body, so you can turn your arm into a cannon.
+You can even eat your own crew and fuse into one weird soldier.
+Your strongest trick is Munch-Munch Factory: you eat a whole house and become one.
+But here's the funny part.
+The user ran away from his own island when pirates showed up.
+Wapol, the old king of Drum Island, got blasted into the sky by Luffy.
+Users of this fruit never do the dishes.
+Which fruit do you want next? Follow for more.
+```
+
+## 3. Bomb-Bomb Fruit (Bomu Bomu no Mi)
+```
+You take a bite of a weird swirly fruit.
+Don't panic, that's just a Devil Fruit.
+Out of every fruit in the sea,
+you got the Bomb-Bomb Fruit,
+a Paramecia that turns your whole body into a bomb.
+First, any part of your body explodes when you touch something.
+Then you can even make your breath explode.
+And you can flick tiny bombs at people from far away.
+Best of all, explosions can't hurt you, not even your own.
+But this power has a weak spot.
+The user lost to a giant sling of a shot from Usopp, with no explosion big enough to stop it.
+Mr. 5 of Baroque Works used it in Alabasta.
+Users of this fruit can't play hot potato.
+Which fruit do you want next? Follow for more.
+```
+
+## 4. Wax-Wax Fruit (Doru Doru no Mi)
+```
+You take a bite of a weird swirly fruit.
+Don't panic, that's just a Devil Fruit.
+Out of every fruit in the sea,
+you got the Wax-Wax Fruit,
+a Paramecia that lets you make wax as hard as steel.
+First, you shape wax into walls, swords and shields.
+Then you trap people's feet in wax so they can't move.
+You can even make a giant wax suit and fight from inside it.
+Your strongest trick is the Candle Service Set: a cake that slowly turns people into wax statues.
+But wax has one big weakness.
+Fire melts it right away.
+Mr. 3 of Baroque Works used it, until Usopp lit his wax on fire.
+Users of this fruit never run out of candles.
+Which fruit do you want next? Follow for more.
+```
+
+## 5. Brush-Brush Fruit (Fude Fude no Mi)
+```
+You take a bite of a weird swirly fruit.
+Don't panic, that's just a Devil Fruit.
+Out of every fruit in the sea,
+you got the Brush-Brush Fruit,
+a Paramecia that makes everything you draw come to life.
+First, you draw an animal and it jumps right off the paper.
+Then you draw weapons and fighters to battle for you.
+You can even draw a giant monster as big as a building.
+Your strongest trick is drawing a fake copy of yourself, so you can fool anyone.
+But there's a funny catch.
+The user is really bad at drawing, so his creations look terrible.
+Kurozumi Kanjuro used it to spy on the Wano samurai for twenty years.
+Users of this fruit never fail art class.
+Which fruit do you want next? Follow for more.
+```
+
+## 6. Rumble-Rumble Fruit (Goro Goro no Mi)
+```
+You take a bite of a weird yellow fruit.
+Don't panic, that's just a Devil Fruit.
+Out of every fruit in the sea,
+you got the Rumble-Rumble Fruit,
+a Logia that turns your whole body into lightning.
+First, attacks pass right through you, and you move at the speed of lightning.
+Then you shoot giant lightning bolts from your hands.
+You can even make a thundercloud that wipes out a whole island.
+Your strongest attack is Amaru: a thunder god form with two hundred million volts.
+But it has one huge weakness.
+Rubber doesn't conduct electricity.
+Enel called himself a god on Skypiea, until Luffy punched him out.
+Users of this fruit never need a phone charger.
+Which fruit do you want next? Follow for more.
+```
+
+## 7. Flower-Flower Fruit (Hana Hana no Mi)
+```
+You take a bite of a weird swirly fruit.
+Don't panic, that's just a Devil Fruit.
+Out of every fruit in the sea,
+you got the Flower-Flower Fruit,
+a Paramecia that lets you sprout copies of your body parts anywhere.
+First, arms grow out of walls and floors to grab your enemies.
+Then you sprout eyes and ears far away to spy on everything.
+You can even grow giant arms as big as a tower.
+Your strongest form is Demonio Fleur: a giant demon version of yourself.
+But there's a painful catch.
+If someone hurts one of the copies, you feel it too.
+Nico Robin, the Straw Hats' archaeologist, has it.
+Users of this fruit can clap with one hand.
+Which fruit do you want next? Follow for more.
+```
+
+## 8. Snake-Snake Fruit, Model: Yamata no Orochi (Hebi Hebi no Mi)
+```
+You take a bite of a weird swirly fruit.
+Don't panic, that's just a Devil Fruit.
+Out of every fruit in the sea,
+you got the Snake-Snake Fruit, Model: Yamata no Orochi,
+a Mythical Zoan that turns you into a giant eight-headed snake.
+First, you turn into a huge dragon-like serpent with eight heads.
+Then each head can bite and attack on its own.
+You can even lose a head and keep going.
+Your scariest trick is surviving things that would kill anyone else.
+But here's the shocking part.
+When Kaido cut off his head, he survived because of the extra heads.
+Kurozumi Orochi used it as the cruel shogun of Wano.
+Users of this fruit need eight hats.
+Which fruit do you want next? Follow for more.
+```
+
+## 9. Human-Human Fruit (Hito Hito no Mi, Chopper)
+```
+You take a bite of a weird swirly fruit.
+Don't panic, that's just a Devil Fruit.
+Out of every fruit in the sea,
+you got the Human-Human Fruit,
+a Zoan that lets an animal turn into a human.
+First, a little reindeer becomes able to talk and walk like a person.
+Then you switch between a cute small form and a giant strong form.
+With a Rumble Ball, you unlock even more forms for three minutes.
+Your strongest form is Monster Point: a giant beast with huge power.
+But there's a scary catch.
+If you lose control, you can't tell friends from enemies.
+Tony Tony Chopper, the Straw Hats' doctor, ate it as a little reindeer.
+Users of this fruit are not a raccoon.
+Which fruit do you want next? Follow for more.
+```
+
+## 10. Hollow-Hollow Fruit (Horo Horo no Mi)
+```
+You take a bite of a weird swirly fruit.
+Don't panic, that's just a Devil Fruit.
+Out of every fruit in the sea,
+you got the Hollow-Hollow Fruit,
+a Paramecia that lets you make ghosts.
+First, Negative Hollows fly through people and make them super sad.
+Then mini ghosts explode like little bombs.
+You can even leave your body as a ghost and float through walls.
+Your strongest trick makes even the toughest fighters fall to their knees and cry.
+But it has one funny weakness.
+It doesn't work on someone who's already negative.
+Perona, the ghost princess of Thriller Bark, lost to Usopp.
+Users of this fruit never feel lonely.
+Which fruit do you want next? Follow for more.
+```
+
+## 11. Dog-Dog Fruit, Model: Okuchi no Makami (Inu Inu no Mi)
+```
+You take a bite of a weird swirly fruit.
+Don't panic, that's just a Devil Fruit.
+Out of every fruit in the sea,
+you got the Dog-Dog Fruit, Model: Okuchi no Makami,
+a Mythical Zoan that turns you into a holy wolf guardian.
+First, you turn into a giant white wolf.
+Then you can freeze anything with icy cold power.
+You can even make barriers to protect the people around you.
+Your strongest attack mixes the wolf's power with Conqueror's Haki.
+But here's the surprising part.
+This fruit is a guardian deity of Wano, a protector, not a destroyer.
+Yamato, Kaido's child, used it to protect Wano from Kaido.
+Users of this fruit never need air conditioning.
+Which fruit do you want next? Follow for more.
+```
+
+## 12. Magnet-Magnet Fruit (Jiki Jiki no Mi), with awakening
+```
+You take a bite of a weird swirly fruit.
+Don't panic, that's just a Devil Fruit.
+Out of every fruit in the sea,
+you got the Magnet-Magnet Fruit,
+a Paramecia that lets you control magnetism, and it can even awaken.
+First, you pull metal toward you from everywhere.
+Then you build a giant arm out of scrap metal.
+You can even push metal away and fire it like bullets.
+And once you awaken it, you can make anything magnetic, even people.
+But there's a catch.
+The power only works on metal unless it's awakened.
+Eustass Kid used it to take down Big Mom with Law in Wano.
+Users of this fruit never lose their keys.
+Which fruit do you want next? Follow for more.
+```
+
+## 13. Shadow-Shadow Fruit (Kage Kage no Mi)
+```
+You take a bite of a weird swirly fruit.
+Don't panic, that's just a Devil Fruit.
+Out of every fruit in the sea,
+you got the Shadow-Shadow Fruit,
+a Paramecia that lets you control shadows, even other people's.
+First, you cut off someone's shadow with giant scissors.
+Then you put the shadow into a dead body and make a zombie soldier.
+You can even swap places with your own shadow.
+Your strongest move is Shadow's Asgard: you absorb a thousand shadows and become a giant.
+But there's a scary twist.
+People without a shadow vanish if they touch sunlight.
+Gecko Moria used it on Thriller Bark, until Luffy beat him.
+Users of this fruit are never alone.
+Which fruit do you want next? Follow for more.
+```
+
+## 14. Kilo-Kilo Fruit (Kiro Kiro no Mi)
+```
+You take a bite of a weird swirly fruit.
+Don't panic, that's just a Devil Fruit.
+Out of every fruit in the sea,
+you got the Kilo-Kilo Fruit,
+a Paramecia that changes how heavy you are.
+First, you become as light as a feather and float on an umbrella.
+Then you drop on enemies at ten thousand kilos.
+You can switch your weight instantly, anywhere between one and ten thousand kilos.
+Your strongest move is a ten thousand kilo crush from the sky.
+But there's a catch.
+If your enemy just steps aside, you hit nothing but the ground.
+Miss Valentine of Baroque Works lost to Nami with it.
+Users of this fruit never worry about the scale.
+Which fruit do you want next? Follow for more.
+```
+
+## 15. Clone-Clone Fruit (Mane Mane no Mi)
+```
+You take a bite of a weird swirly fruit.
+Don't panic, that's just a Devil Fruit.
+Out of every fruit in the sea,
+you got the Clone-Clone Fruit,
+a Paramecia that lets you copy anyone's face.
+First, you touch someone's face and become their twin.
+Then you copy their whole body, not just their face.
+You can save faces in memory and switch between them anytime.
+Your best trick is fooling enemies into fighting each other.
+But there's a catch.
+You only copy how people look, not their powers.
+Mr. 2 Bon Clay used it to help Luffy break into Impel Down.
+Users of this fruit never need a mirror.
+Which fruit do you want next? Follow for more.
+```
+
+## 16. Love-Love Fruit (Mero Mero no Mi)
+```
+You take a bite of a weird swirly fruit.
+Don't panic, that's just a Devil Fruit.
+Out of every fruit in the sea,
+you got the Love-Love Fruit,
+a Paramecia that turns anyone who falls for you into stone.
+First, you make a heart with your hands and shoot a love beam.
+Then you fire stone arrows that petrify anyone they hit.
+You can even blow a kiss that turns into a bullet.
+Your strongest trick petrifies a whole army at once.
+But there's a catch.
+If someone has no impure thoughts, the power does nothing.
+Boa Hancock, the Pirate Empress, found out Luffy was immune.
+Users of this fruit never get compliments, just statues.
+Which fruit do you want next? Follow for more.
+```
+
+## 17. Mochi-Mochi Fruit (Mochi Mochi no Mi), with awakening
+```
+You take a bite of a weird swirly fruit.
+Don't panic, that's just a Devil Fruit.
+Out of every fruit in the sea,
+you got the Mochi-Mochi Fruit,
+a special Paramecia that turns your body into sticky mochi, and it can even awaken.
+First, attacks go right through your soft body.
+Then you shape mochi into fists and a giant spear.
+You can even trap enemies in sticky mochi so they can't move.
+And once you awaken it, the whole area around you turns into mochi.
+But there's a sticky secret.
+Its user hid his mouth his whole life because people laughed at it.
+Charlotte Katakuri, Big Mom's strongest son, fought Luffy on Whole Cake Island.
+Users of this fruit never run out of snacks.
+Which fruit do you want next? Follow for more.
+```
+
+## 18. Smoke-Smoke Fruit (Moku Moku no Mi)
+```
+You take a bite of a weird swirly fruit.
+Don't panic, that's just a Devil Fruit.
+Out of every fruit in the sea,
+you got the Smoke-Smoke Fruit,
+a Logia that turns your body into smoke.
+First, attacks pass right through you.
+Then you shoot smoke arms that grab and hold enemies.
+You can even fly by turning your legs into smoke.
+Your strongest trick is a huge smoke cloud that swallows a whole crowd.
+But there's a catch.
+Smoke can't do much damage on its own.
+Smoker, the Marine who chased Luffy, uses it with a seastone weapon.
+Users of this fruit always look cool when they walk in.
+Which fruit do you want next? Follow for more.
+```
+
+## 19. Paw-Paw Fruit (Nikyu Nikyu no Mi)
+```
+You take a bite of a weird swirly fruit.
+Don't panic, that's just a Devil Fruit.
+Out of every fruit in the sea,
+you got the Paw-Paw Fruit,
+a Paramecia that puts paw pads on your hands that push away anything.
+First, you push away attacks, even air and light.
+Then you send people flying across the world for days.
+You can even push the pain and tiredness out of someone's body.
+Your strongest move is Ursus Shock: a giant ball of compressed air that explodes.
+But here's the sad part.
+He sent away all his own memories and pain to save his daughter.
+Bartholomew Kuma used it to save the Straw Hats at Sabaody.
+Users of this fruit always get the best vacations.
+Which fruit do you want next? Follow for more.
+```
+
+## 20. Stitch-Stitch Fruit (Nui Nui no Mi)
+```
+You take a bite of a weird swirly fruit.
+Don't panic, that's just a Devil Fruit.
+Out of every fruit in the sea,
+you got the Stitch-Stitch Fruit,
+a Paramecia that lets you sew anything together.
+First, you stitch enemies to the ground so they can't move.
+Then you sew whole groups of people into one big pile.
+You can even stitch ships together.
+And only you can undo the stitches.
+But here's the funny part.
+Its user is tiny, about the size of your hand.
+Leo, of the Tontatta tribe, used it in Dressrosa.
+Users of this fruit never lose a button.
+Which fruit do you want next? Follow for more.
+```
+
+## 21. Dragon-Dragon Fruit, Model: Nidhoggr (Ryu Ryu no Mi)
+```
+You take a bite of a weird swirly fruit.
+Don't panic, that's just a Devil Fruit.
+Out of every fruit in the sea,
+you got the Dragon-Dragon Fruit, Model: Nidhoggr,
+a Mythical Zoan that turns you into a huge dragon from legend.
+First, you turn into a giant black dragon.
+Then the size of the dragon grows with the size of your body.
+So if a giant eats it, the dragon becomes enormous.
+Your strongest power is a dragon form big enough to tower over an island.
+But here's the wild part.
+It once belonged to Elbaph's legendary God of War.
+Loki, the cursed prince of Elbaph, has it now.
+Users of this fruit never need a plane ticket.
+Which fruit do you want next? Follow for more.
+```
+
+## 22. Salamander-Salamander Fruit, Model: Axolotl (Sara Sara no Mi)
+```
+You take a bite of a weird swirly fruit.
+Don't panic, that's just a Devil Fruit.
+Out of every fruit in the sea,
+you got the Salamander-Salamander Fruit, Model: Axolotl,
+a Zoan that turns you into an axolotl.
+First, you can turn into a giant axolotl or half-human, half-axolotl.
+Then, like every Devil Fruit, it makes you sink in water, even though axolotls live in water.
+And it was fed to a blob of poison gas, not a person.
+That gas blob became a giant axolotl named Smiley.
+But here's the scary part.
+When Smiley died, it exploded into deadly poison gas.
+Caesar Clown created Smiley on Punk Hazard.
+Users of this fruit always smile.
+Which fruit do you want next? Follow for more.
+```
+
+## 23. Slip-Slip Fruit (Sube Sube no Mi)
+```
+You take a bite of a weird swirly fruit.
+Don't panic, that's just a Devil Fruit.
+Out of every fruit in the sea,
+you got the Slip-Slip Fruit,
+a Paramecia that makes your skin perfectly slippery.
+First, punches and kicks slide right off you.
+Then even bullets and swords slip away.
+And it makes your body smooth, so you look totally different.
+Your best trick is that almost no attack can land.
+But there's a catch.
+Rubber stretches around you, so Luffy can still hit you.
+Alvida, the pirate captain from the very first episode, ate it.
+Users of this fruit never need lotion.
+Which fruit do you want next? Follow for more.
+```
+
+## 24. Sand-Sand Fruit (Suna Suna no Mi)
+```
+You take a bite of a weird swirly fruit.
+Don't panic, that's just a Devil Fruit.
+Out of every fruit in the sea,
+you got the Sand-Sand Fruit,
+a Logia that turns your body into sand.
+First, attacks pass through your sandy body.
+Then you dry out anything you touch with your right hand, even people.
+You can even make giant sandstorms that destroy towns.
+Your strongest attack is Desert Spada: a blade of sand that splits the ground.
+But it has a big weakness.
+Water turns your sand to mud, so you can be hit.
+Crocodile, the Warlord, used it in Alabasta, until Luffy beat him.
+Users of this fruit never go to the beach.
+Which fruit do you want next? Follow for more.
+```
+
+## 25. Dice-Dice Fruit (Supa Supa no Mi)
+```
+You take a bite of a weird swirly fruit.
+Don't panic, that's just a Devil Fruit.
+Out of every fruit in the sea,
+you got the Dice-Dice Fruit,
+a Paramecia that turns your body into steel blades.
+First, blades come out of any part of your body.
+Then your skin turns as hard as steel, so swords can't cut you.
+You can even spin like a giant blender of blades.
+Your strongest move is a slash that cuts through stone like paper.
+But there's a catch.
+Someone who learns to cut steel can still cut you.
+Mr. 1, Daz Bones, lost to Zoro in Alabasta.
+Users of this fruit never need a knife.
+Which fruit do you want next? Follow for more.
+```
+
+## 26. Fish-Fish Fruit, Model: Azure Dragon (Uo Uo no Mi)
+```
+You take a bite of a weird swirly fruit.
+Don't panic, that's just a Devil Fruit.
+Out of every fruit in the sea,
+you got the Fish-Fish Fruit, Model: Azure Dragon,
+a Mythical Zoan that turns you into a giant blue dragon.
+First, you become a huge blue dragon and fly on clouds.
+Then you breathe giant blasts of fire.
+You can even make tornadoes and wind blades.
+Your strongest form is a half-human, half-dragon warrior.
+But here's the twist.
+It's called a fish fruit, even though it's a dragon.
+Kaido, the strongest creature in the world, ate it.
+Users of this fruit never need an umbrella in a storm.
+Which fruit do you want next? Follow for more.
+```
+
+## 27. Ox-Ox Fruit, Model: Bison (Ushi Ushi no Mi)
+```
+You take a bite of a weird swirly fruit.
+Don't panic, that's just a Devil Fruit.
+Out of every fruit in the sea,
+you got the Ox-Ox Fruit, Model: Bison,
+a Zoan that turns you into a bison.
+First, you turn into a powerful full bison.
+Then you go half-human, half-bison, and fight with huge strength.
+You can even charge through enemies with your horns.
+Your best trick is using a giant blade in half-bison form.
+But here's the heartwarming part.
+Its user protected Drum Island when the king ran away.
+Dalton later became the leader of the island.
+Users of this fruit always win at tug-of-war.
+Which fruit do you want next? Follow for more.
+```
+
+## 28. Ox-Ox Fruit, Model: Giraffe (Ushi Ushi no Mi)
+```
+You take a bite of a weird swirly fruit.
+Don't panic, that's just a Devil Fruit.
+Out of every fruit in the sea,
+you got the Ox-Ox Fruit, Model: Giraffe,
+a Zoan that turns you into a giraffe.
+First, you turn into a full giraffe.
+Then you go half-human, half-giraffe, with a super long neck.
+You can swing your long neck like a giant hammer.
+Mix it with the Six Powers and you can shoot air slashes from your legs.
+But here's the funny part.
+Your nose turns into a perfect square.
+Kaku of CP9 fought Zoro with it at Enies Lobby.
+Users of this fruit never need a ladder.
+Which fruit do you want next? Follow for more.
+```
+
+## 29. Dark-Dark Fruit (Yami Yami no Mi)
+```
+You take a bite of a weird swirly fruit.
+Don't panic, that's just a Devil Fruit.
+Out of every fruit in the sea,
+you got the Dark-Dark Fruit,
+a Logia that turns your body into darkness.
+First, your darkness pulls in everything like a black hole.
+Then you crush what you pulled in and throw it back out.
+You can even cancel other Devil Fruit powers just by touching people.
+Your strongest move swallows a whole town into darkness.
+But there's a catch.
+Unlike other Logias, you can't dodge attacks, you feel all the pain.
+Blackbeard killed a crewmate to get it, and later stole a second fruit.
+Users of this fruit never need sunglasses.
+Which fruit do you want next? Follow for more.
+```
+
+## 30. Revive-Revive Fruit (Yomi Yomi no Mi)
+```
+You take a bite of a weird swirly fruit.
+Don't panic, that's just a Devil Fruit.
+Out of every fruit in the sea,
+you got the Revive-Revive Fruit,
+a Paramecia that brings you back to life after you die.
+First, when you die, your soul comes back to your body.
+Then your soul can leave your body and float around.
+You can even use your soul's cold to freeze your sword.
+Your strongest attack is a slash so fast enemies don't see it.
+But there's a catch.
+If your body is gone when you come back, you're just a skeleton.
+Brook, the Straw Hats' musician, came back as a skeleton after fifty years.
+Users of this fruit can't show you their underwear, because they're a skeleton.
+Which fruit do you want next? Follow for more.
+```
