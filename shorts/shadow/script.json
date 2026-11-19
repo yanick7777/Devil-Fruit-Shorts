@@ -1,0 +1,124 @@
+{
+ "title": "13. Shadow-Shadow Fruit (Kage Kage no Mi)",
+ "format": "9:16",
+ "story": "/shorts/shadow/story.js",
+ "voice": {
+  "name": "mb-us2",
+  "speed": 158,
+  "pitch": 48
+ },
+ "voice_override_dir": "shorts/shadow/vo",
+ "voice_fx": {},
+ "music": false,
+ "structure": "techniques + peak (no forced forms)",
+ "facts": [
+  "Fruit look from the user's oparchive screenshots (refs/batch3/DESIGNS.md)"
+ ],
+ "plan": {
+  "english": "13. Shadow-Shadow Fruit (Kage Kage no Mi)",
+  "labels": "",
+  "fruit": "Drawn from the design you sent (refs/batch3).",
+  "cast": [],
+  "sets": ""
+ },
+ "lines": [
+  {
+   "id": "hook",
+   "lead": 1.6,
+   "tail": 0.25,
+   "text": "You take a bite#red of a weird black#purple fruit.",
+   "say": "You take a bite of a weird black fruit."
+  },
+  {
+   "id": "calm",
+   "lead": 0.1,
+   "tail": 0.35,
+   "text": "Don't panic,#red that's just a Devil#purple Fruit.#purple",
+   "say": "Don't panic, that's just a Devil Fruit."
+  },
+  {
+   "id": "sea",
+   "lead": 0.1,
+   "tail": 0.25,
+   "text": "Out of every fruit in the sea,#blue",
+   "say": "Out of every fruit in the sea,"
+  },
+  {
+   "id": "name",
+   "lead": 0.05,
+   "tail": 0.9,
+   "text": "you got the Shadow-Shadow#pink Fruit,#pink",
+   "say": "you got the Shadow-Shadow Fruit,"
+  },
+  {
+   "id": "type",
+   "lead": 0.1,
+   "tail": 0.9,
+   "text": "a Paramecia#orange that lets you control#blue shadows, even other people's.",
+   "say": "a Paramecia that lets you control shadows, even other people's."
+  },
+  {
+   "id": "power1",
+   "lead": 0.3,
+   "tail": 0.4,
+   "text": "First, you cut off someone's#blue shadow with giant scissors.#purple",
+   "say": "First, you cut off someone's shadow with giant scissors."
+  },
+  {
+   "id": "power2",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "Then you put the shadow#green into a dead body and make a zombie soldier.#orange",
+   "say": "Then you put the shadow into a dead body and make a zombie soldier."
+  },
+  {
+   "id": "power3",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "You can even swap places#pink with your own shadow.#red",
+   "say": "You can even swap places with your own shadow."
+  },
+  {
+   "id": "peak",
+   "lead": 0.55,
+   "tail": 0.6,
+   "text": "Your strongest#blue move is Shadow's Asgard: you absorb a thousand#green shadows and become a giant.",
+   "say": "Your strongest move is Shadow's Asgard: you absorb a thousand shadows and become a giant."
+  },
+  {
+   "id": "twist",
+   "lead": 0.25,
+   "tail": 0.4,
+   "text": "But there's#green a scary#orange twist.",
+   "say": "But there's a scary twist."
+  },
+  {
+   "id": "truth",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "People without#pink a shadow vanish if they touch sunlight.#pink",
+   "say": "People without a shadow vanish if they touch sunlight."
+  },
+  {
+   "id": "users",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "Gecko#pink Moria used it on Thriller#blue Bark, until Luffy beat him.",
+   "say": "Gecko Moria used it on Thriller Bark, until Luffy beat him."
+  },
+  {
+   "id": "joke",
+   "lead": 0.2,
+   "tail": 0.9,
+   "text": "Users of this fruit are never alone.#pink",
+   "say": "Users of this fruit are never alone."
+  },
+  {
+   "id": "outro",
+   "lead": 0.2,
+   "tail": 2.4,
+   "text": "Which fruit#pink do you want next?#gold Follow for more.",
+   "say": "Which fruit do you want next? Follow for more."
+  }
+ ]
+}

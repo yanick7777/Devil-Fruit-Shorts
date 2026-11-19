@@ -1,0 +1,124 @@
+{
+ "title": "12. Magnet-Magnet Fruit (Jiki Jiki no Mi), with awakening",
+ "format": "9:16",
+ "story": "/shorts/magnet/story.js",
+ "voice": {
+  "name": "mb-us2",
+  "speed": 158,
+  "pitch": 48
+ },
+ "voice_override_dir": "shorts/magnet/vo",
+ "voice_fx": {},
+ "music": false,
+ "structure": "base powers + AWAKENED",
+ "facts": [
+  "Fruit look from the user's oparchive screenshots (refs/batch3/DESIGNS.md)"
+ ],
+ "plan": {
+  "english": "12. Magnet-Magnet Fruit (Jiki Jiki no Mi), with awakening",
+  "labels": "",
+  "fruit": "Drawn from the design you sent (refs/batch3).",
+  "cast": [],
+  "sets": ""
+ },
+ "lines": [
+  {
+   "id": "hook",
+   "lead": 1.6,
+   "tail": 0.25,
+   "text": "You take a bite#red of a weird ring-wrapped blue#purple fruit.",
+   "say": "You take a bite of a weird ring-wrapped blue fruit."
+  },
+  {
+   "id": "calm",
+   "lead": 0.1,
+   "tail": 0.35,
+   "text": "Don't panic,#red that's just a Devil#purple Fruit.#purple",
+   "say": "Don't panic, that's just a Devil Fruit."
+  },
+  {
+   "id": "sea",
+   "lead": 0.1,
+   "tail": 0.25,
+   "text": "Out of every fruit in the sea,#blue",
+   "say": "Out of every fruit in the sea,"
+  },
+  {
+   "id": "name",
+   "lead": 0.05,
+   "tail": 0.9,
+   "text": "you got the Magnet-Magnet#pink Fruit,#pink",
+   "say": "you got the Magnet-Magnet Fruit,"
+  },
+  {
+   "id": "type",
+   "lead": 0.1,
+   "tail": 0.9,
+   "text": "a Paramecia#orange that lets you control magnetism,#green and it can even awaken.",
+   "say": "a Paramecia that lets you control magnetism, and it can even awaken."
+  },
+  {
+   "id": "power1",
+   "lead": 0.3,
+   "tail": 0.4,
+   "text": "First, you pull metal toward#blue you from everywhere.#orange",
+   "say": "First, you pull metal toward you from everywhere."
+  },
+  {
+   "id": "power2",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "Then you build#red a giant#green arm out of scrap metal.",
+   "say": "Then you build a giant arm out of scrap metal."
+  },
+  {
+   "id": "power3",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "You can even push metal#pink away and fire it like bullets.#green",
+   "say": "You can even push metal away and fire it like bullets."
+  },
+  {
+   "id": "awaken",
+   "lead": 0.55,
+   "tail": 0.6,
+   "text": "And once you awaken it, you can make anything#blue magnetic,#green even people.",
+   "say": "And once you awaken it, you can make anything magnetic, even people."
+  },
+  {
+   "id": "twist",
+   "lead": 0.25,
+   "tail": 0.4,
+   "text": "But there's#green a catch.#orange",
+   "say": "But there's a catch."
+  },
+  {
+   "id": "truth",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "The power only works on metal unless#blue it's awakened.#pink",
+   "say": "The power only works on metal unless it's awakened."
+  },
+  {
+   "id": "users",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "Eustass#pink Kid used it to take#blue down Big Mom with Law in Wano.",
+   "say": "Eustass Kid used it to take down Big Mom with Law in Wano."
+  },
+  {
+   "id": "joke",
+   "lead": 0.2,
+   "tail": 0.9,
+   "text": "Users of this fruit never lose#green their keys.#orange",
+   "say": "Users of this fruit never lose their keys."
+  },
+  {
+   "id": "outro",
+   "lead": 0.2,
+   "tail": 2.4,
+   "text": "Which fruit#pink do you want next?#gold Follow for more.",
+   "say": "Which fruit do you want next? Follow for more."
+  }
+ ]
+}

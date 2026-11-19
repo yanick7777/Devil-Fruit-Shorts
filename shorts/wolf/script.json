@@ -1,0 +1,124 @@
+{
+ "title": "11. Dog-Dog Fruit, Model: Okuchi no Makami (Inu Inu no Mi)",
+ "format": "9:16",
+ "story": "/shorts/wolf/story.js",
+ "voice": {
+  "name": "mb-us2",
+  "speed": 158,
+  "pitch": 48
+ },
+ "voice_override_dir": "shorts/wolf/vo",
+ "voice_fx": {},
+ "music": false,
+ "structure": "techniques + peak (no forced forms)",
+ "facts": [
+  "Fruit look from the user's oparchive screenshots (refs/batch3/DESIGNS.md)"
+ ],
+ "plan": {
+  "english": "11. Dog-Dog Fruit, Model: Okuchi no Makami (Inu Inu no Mi)",
+  "labels": "",
+  "fruit": "Drawn from the design you sent (refs/batch3).",
+  "cast": [],
+  "sets": ""
+ },
+ "lines": [
+  {
+   "id": "hook",
+   "lead": 1.6,
+   "tail": 0.25,
+   "text": "You take a bite#red of a weird orange#purple fruit.",
+   "say": "You take a bite of a weird orange fruit."
+  },
+  {
+   "id": "calm",
+   "lead": 0.1,
+   "tail": 0.35,
+   "text": "Don't panic,#red that's just a Devil#purple Fruit.#purple",
+   "say": "Don't panic, that's just a Devil Fruit."
+  },
+  {
+   "id": "sea",
+   "lead": 0.1,
+   "tail": 0.25,
+   "text": "Out of every fruit in the sea,#blue",
+   "say": "Out of every fruit in the sea,"
+  },
+  {
+   "id": "name",
+   "lead": 0.05,
+   "tail": 0.9,
+   "text": "you got the Dog-Dog#pink Fruit,#pink Model:#pink Okuchi#pink no#pink Makami,#pink",
+   "say": "you got the Dog-Dog Fruit, Model: Okuchi no Makami,"
+  },
+  {
+   "id": "type",
+   "lead": 0.1,
+   "tail": 0.9,
+   "text": "a Mythical#orange Zoan that turns you into a holy wolf guardian.#gold",
+   "say": "a Mythical Zoan that turns you into a holy wolf guardian."
+  },
+  {
+   "id": "power1",
+   "lead": 0.3,
+   "tail": 0.4,
+   "text": "First, you turn into a giant#green white#pink wolf.",
+   "say": "First, you turn into a giant white wolf."
+  },
+  {
+   "id": "power2",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "Then you can freeze#blue anything#green with icy cold power.",
+   "say": "Then you can freeze anything with icy cold power."
+  },
+  {
+   "id": "power3",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "You can even make barriers#pink to protect#purple the people around you.",
+   "say": "You can even make barriers to protect the people around you."
+  },
+  {
+   "id": "peak",
+   "lead": 0.55,
+   "tail": 0.6,
+   "text": "Your strongest#blue attack mixes the wolf's power with Conqueror's#blue Haki.",
+   "say": "Your strongest attack mixes the wolf's power with Conqueror's Haki."
+  },
+  {
+   "id": "twist",
+   "lead": 0.25,
+   "tail": 0.4,
+   "text": "But here's#green the surprising#orange part.",
+   "say": "But here's the surprising part."
+  },
+  {
+   "id": "truth",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "This fruit is a guardian deity of Wano, a protector,#orange not a destroyer.#red",
+   "say": "This fruit is a guardian deity of Wano, a protector, not a destroyer."
+  },
+  {
+   "id": "users",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "Yamato,#pink Kaido's child, used it to protect#green Wano from Kaido.",
+   "say": "Yamato, Kaido's child, used it to protect Wano from Kaido."
+  },
+  {
+   "id": "joke",
+   "lead": 0.2,
+   "tail": 0.9,
+   "text": "Users of this fruit never need air conditioning.#orange",
+   "say": "Users of this fruit never need air conditioning."
+  },
+  {
+   "id": "outro",
+   "lead": 0.2,
+   "tail": 2.4,
+   "text": "Which fruit#pink do you want next?#gold Follow for more.",
+   "say": "Which fruit do you want next? Follow for more."
+  }
+ ]
+}
