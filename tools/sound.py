@@ -48,6 +48,10 @@ def whoosh(d=0.45):
     return norm(out)
 def thump(f0=150, d=0.3): return sweep(f0, 45, d) * env(int(d * SR), 0.001, d / 3)
 FX = {
+  'zap':      lambda: norm(hp(crackle(0.35), 1500) * env(int(0.35 * SR), 0.001, 0.12) + 0.5 * sweep(2400, 300, 0.35) * env(int(0.35 * SR), 0.001, 0.1)),
+  'storm':    lambda: norm(lp(noise(2.0), 220, 3) * (0.4 + 0.6 * (T(2.0) / 2.0)) + 0.6 * hp(crackle(2.0), 1200) * (T(2.0) > 0.6)),
+  'tick':     lambda: norm(hp(noise(0.03), 3000) * env(int(0.03 * SR), 0.001, 0.008) * 0.8),
+  'splash':   lambda: norm(bp(noise(0.6), 400, 4000) * env(int(0.6 * SR), 0.005, 0.2)),
   'pop':      lambda: norm(sweep(500, 1400, 0.09) * env(int(0.09 * SR), 0.002, 0.03)),
   'whoosh':   lambda: whoosh(0.45),
   'swish':    lambda: norm(hp(noise(0.22), 1800) * np.sin(np.pi * T(0.22) / 0.22) ** 3),
