@@ -39,8 +39,8 @@ Facts used (One Piece Wiki via search):
 
 - **Host:** same as before.
 - **Enemy (new, original):** a knight in silver armour with a red-plumed helmet.
-- **Manmayer Gunko:** I couldn't find a reliable description of her look, so she is shown in a white-and-gold hooded Holy Knight robe with her face in shadow. **Send a reference picture and I'll draw her exactly.**
-- **Arrows:** flat pink arrow strips with arrowheads.
+- **Manmayer Gunko (matched to your reference):** black cap with gold goggles, short blue hair, white face mask, high black collar, pink cape with a red lining, short black double-breasted coat with gold buttons, bandaged legs, tall purple platform boots.
+- **Arrows:** flat white arrow strips with a light-blue underside, like in your reference.
 - Sheet: `review/cast_sheet.png`.
 
 ## 4. Sets (all new)

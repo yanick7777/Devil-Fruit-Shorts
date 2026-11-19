@@ -85,8 +85,8 @@ export const LOOKS = {
           top: 'coat', cloth: '#5a3a6a', clothD: '#3f2a4a', inner: '#f0d0b0', innerD: '#d6b090', pants: '#3a3a46', shoe: '#2a2026', boots: true, cuff: '#d9c8a8', feathers: false },
   luchador: { skin: '#d9a27a', skinD: '#bb8460', hair: '#1d1a22', hairL: '#3d3443', hairStyle: 'bald', hat: 'luchador',
           top: 'tank', cloth: '#3f6fb5', clothD: '#2a4f8a', pants: '#3f6fb5', shoe: '#e8402e', boots: true, arm: '#d9a27a' },
-  gunko: { skin: '#f6dcc8', skinD: '#dcbaa4', hair: '#f2e2c8', hairL: '#fff4e0', hairStyle: 'bald', hat: 'holyHood',
-          top: 'coat', cloth: '#f4f0e6', clothD: '#d9d0bc', inner: '#d9b44a', innerD: '#b8942a', pants: '#f4f0e6', shoe: '#d9b44a', boots: true, cuff: '#d9b44a' },
+  gunko: { skin: '#f8dcc8', skinD: '#dcbca8', hair: '#4a9ae8', hairL: '#8ac0ff', hairStyle: 'bob', hat: 'goggleCap', faceMask: true,
+          top: 'peacoat', cloth: '#22202e', clothD: '#14121a', cloakCol: '#f4b0b8', cloakLining: '#c8484a', pants: '#f8dcc8', bandages: true, shoe: '#3a2e5a', boots: true, tallBoots: true, arm: '#22202e', glove: '#22202e', cuff: null },
   knight: { skin: '#e8b48a', skinD: '#cc9670', hair: '#3a2a20', hairL: '#5b4434', hairStyle: 'bald', hat: 'knightHelm',
           top: 'coat', cloth: '#b8bcc8', clothD: '#8a8e9a', inner: '#e8402e', innerD: '#b52a1f', pants: '#8a8e9a', shoe: '#5a5e6a', boots: true, cuff: '#8a8e9a', arm: '#b8bcc8' },
   buggy: { skin: '#f8e8dc', skinD: '#e0c8b8', hair: '#5ab8e8', hairL: '#9ad8ff', hairStyle: 'long', hat: 'tricorn', clownNose: true, lips: true, grinWide: true,
@@ -167,7 +167,8 @@ function drawLegs(x, L) {
   for (const [x0, x1] of [[262, 372], [388, 498]]) {
     x.beginPath(); x.moveTo(x0, 1060); x.lineTo(x1, 1060); x.lineTo(x1 - 6, 1580); x.lineTo(x0 + 6, 1580); x.closePath(); fs(x, pants, 12);
     if (L.shorts) { x.beginPath(); x.rect(x0 + 10, 1330, x1 - x0 - 20, 250); fs(x, L.skin, 10); x.beginPath(); x.moveTo(x0, 1330); x.lineTo(x1, 1330); x.lineWidth = 12; x.strokeStyle = OL; x.stroke(); }
-    if (L.boots) { x.beginPath(); x.rect(x0 + 4, 1440, x1 - x0 - 8, 145); fs(x, shoe, 11); }
+    if (L.bandages) { x.strokeStyle = '#f4f4f8'; x.lineWidth = 14; for (let k = 0; k < 4; k++) { x.beginPath(); x.moveTo(x0 + 6, 1230 + k * 22); x.lineTo(x1 - 6, 1238 + k * 22); x.stroke(); } }
+    if (L.boots) { const by = L.tallBoots ? 1320 : 1440; x.beginPath(); x.rect(x0 + 4, by, x1 - x0 - 8, 1585 - by); fs(x, shoe, 11); if (L.tallBoots) { rrect(x, x0 - 10, 1500, x1 - x0 + 20, 40, 10); fs(x, '#6a5a8a', 8); } }
     x.beginPath(); x.ellipse((x0 + x1) / 2 + (x0 < 380 ? -14 : 14), 1600, 76, 36, 0, 0, 7); fs(x, shoe, 12);
     if (!L.boots) { x.beginPath(); x.ellipse((x0 + x1) / 2 + (x0 < 380 ? -14 : 14), 1622, 74, 14, 0, 0, Math.PI); x.lineWidth = 12; x.strokeStyle = '#f4f4f4'; x.stroke(); }
   }
@@ -272,6 +273,10 @@ function drawTorso(x, L) {
   } else if (L.top === 'pinstripe') { // pinstripe suit jacket with a green cravat
     torso(); fs(x, L.cloth, 12); x.save(); torso(); x.clip(); x.strokeStyle = '#f4f4f8'; x.lineWidth = 7; for (let k = 245; k < 530; k += 30) { x.beginPath(); x.moveTo(k, 640); x.lineTo(k, 1100); x.stroke(); } x.restore(); torso(); x.lineWidth = 12; x.strokeStyle = OL; x.stroke();
     x.beginPath(); x.moveTo(330, 640); x.quadraticCurveTo(290, 740, 340, 820); x.lineTo(380, 780); x.lineTo(420, 820); x.quadraticCurveTo(470, 740, 430, 640); x.closePath(); fs(x, '#7fc85a', 9);
+  } else if (L.top === 'peacoat') { // short double-breasted coat with gold buttons and a high collar
+    x.beginPath(); x.moveTo(232, 720); x.quadraticCurveTo(236, 650, 300, 638); x.lineTo(460, 638); x.quadraticCurveTo(524, 650, 528, 720); x.lineTo(540, 1130); x.lineTo(220, 1130); x.closePath(); fs(x, L.cloth, 12);
+    x.fillStyle = '#e8b52e'; for (let r = 0; r < 3; r++) for (const sd of [-1, 1]) { x.beginPath(); x.arc(380 + sd * 55, 760 + r * 110, 16, 0, 7); x.fill(); }
+    rrect(x, 300, 560, 160, 110, 20); fs(x, L.cloth, 10);
   } else if (L.top === 'dress') { // short dress with a flared skirt
     x.beginPath(); x.moveTo(232, 720); x.quadraticCurveTo(236, 650, 300, 638); x.lineTo(460, 638); x.quadraticCurveTo(524, 650, 528, 720); x.lineTo(530, 960); x.lineTo(620, 1300); x.quadraticCurveTo(380, 1350, 140, 1300); x.lineTo(230, 960); x.closePath(); fs(x, L.cloth, 12);
     if (L.dots) { x.save(); x.clip(); x.fillStyle = L.dots; for (let yy = 700; yy < 1340; yy += 70) for (let xx = 160 + (yy / 70 % 2) * 35; xx < 620; xx += 70) { x.beginPath(); x.arc(xx, yy, 13, 0, 7); x.fill(); } x.restore(); }
@@ -497,6 +502,7 @@ export function drawPerson({ who = 'host', expr = 'calm', mouth = 0, blink = fal
   if (L.blueMouth) { x.beginPath(); x.ellipse(385, 480, 120, 80, 0, 0, 7); x.fillStyle = 'rgba(120,170,210,0.45)'; x.fill(); x.fillStyle = 'rgba(60,90,130,0.5)'; for (let i = 0; i < 18; i++) { x.beginPath(); x.arc(300 + (i * 37) % 170, 430 + (i * 23) % 100, 4, 0, 7); x.fill(); } }
   if (L.pinkNose) { x.beginPath(); x.arc(390, 420, 48, 0, 7); fs(x, '#f49ab0', 8); }
   if (L.cigar) { x.save(); x.translate(440, 500); x.rotate(0.2); rrect(x, 0, -14, 130, 28, 10); fs(x, '#8a5a3c', 6); x.fillStyle = '#d9b44a'; x.fillRect(10, -14, 16, 28); x.restore(); x.lineWidth = 10; x.strokeStyle = 'rgba(240,240,250,0.85)'; x.beginPath(); x.moveTo(580, 510); x.quadraticCurveTo(620, 420, 590, 360); x.quadraticCurveTo(560, 300, 610, 240); x.stroke(); }
+  if (L.faceMask) { x.beginPath(); x.moveTo(200, 410); x.quadraticCurveTo(385, 380, 570, 410); x.bezierCurveTo(560, 540, 480, 580, 385, 584); x.bezierCurveTo(290, 580, 210, 540, 200, 410); x.closePath(); fs(x, '#f4f4f8', 9); x.strokeStyle = 'rgba(120,120,140,0.6)'; x.lineWidth = 5; for (const yy of [450, 490, 530]) { x.beginPath(); x.moveTo(250, yy); x.lineTo(520, yy); x.stroke(); } }
   if (L.lips) { x.beginPath(); x.ellipse(385, 488, 34, 12, 0, 0, 7); x.fillStyle = '#d6303e'; x.fill(); }
   if (L.hat === 'killerMask') { // round striped mask covering the whole face, with breathing holes
     x.beginPath(); x.ellipse(380, 330, 225, 240, 0, 0, 7); fs(x, '#f4f4f8', 12); x.save(); x.clip(); x.fillStyle = '#3f6fb5'; for (let k = -3; k < 4; k++) x.fillRect(360 + k * 90, 60, 44, 600); x.restore();
@@ -520,6 +526,8 @@ export function drawPerson({ who = 'host', expr = 'calm', mouth = 0, blink = fal
   if (L.hat === 'headset') { x.beginPath(); x.arc(380, 300, 250, Math.PI * 1.05, Math.PI * 1.95); x.lineWidth = 30; x.strokeStyle = '#d9dce6'; x.stroke(); x.lineWidth = 6; x.strokeStyle = OL; x.stroke(); for (const sd of [-1, 1]) { x.beginPath(); x.ellipse(380 + sd * 240, 330, 40, 70, 0, 0, 7); fs(x, '#ffcf3a', 9); } x.beginPath(); x.arc(380, 40, 26, 0, 7); fs(x, '#5affe0', 7); }
   if (L.hat === 'fedora') { x.beginPath(); x.ellipse(380, 170, 300, 56, 0, 0, 7); fs(x, '#1b1820', 12); x.beginPath(); x.moveTo(230, 175); x.bezierCurveTo(230, -10, 530, -10, 530, 175); x.closePath(); fs(x, '#1f1c26', 12); x.beginPath(); x.moveTo(380, 30); x.lineTo(380, 90); x.lineWidth = 10; x.strokeStyle = '#14121a'; x.stroke(); }
   if (L.appleHat) { const top = L.tallDome ? -175 : 60; x.beginPath(); x.moveTo(380, top); x.lineTo(380, top - 150); x.lineWidth = 16; x.strokeStyle = '#8a5a3c'; x.stroke(); x.beginPath(); x.moveTo(230, top - 150); x.bezierCurveTo(200, top - 320, 330, top - 330, 380, top - 270); x.bezierCurveTo(430, top - 330, 560, top - 320, 530, top - 150); x.closePath(); fs(x, '#d8343a', 10); x.beginPath(); x.ellipse(380, top - 150, 140, 22, 0, 0, 7); fs(x, '#a8242a', 8); x.beginPath(); x.ellipse(460, top - 310, 40, 18, -0.4, 0, 7); fs(x, '#7fc85a', 6); x.beginPath(); x.ellipse(300, top - 260, 30, 16, -0.5, 0, 7); x.fillStyle = 'rgba(255,255,255,0.6)'; x.fill(); }
+  if (L.hat === 'goggleCap') { x.beginPath(); x.moveTo(170, 250); x.bezierCurveTo(150, 20, 610, 20, 590, 250); x.closePath(); fs(x, '#22202e', 12); x.beginPath(); x.moveTo(250, 250); x.quadraticCurveTo(380, 330, 520, 250); x.lineTo(500, 230); x.quadraticCurveTo(380, 280, 270, 230); x.closePath(); fs(x, '#14121a', 8);
+    for (const gx of [320, 440]) { x.beginPath(); x.arc(gx, 170, 46, 0, 7); fs(x, '#d9b44a', 9); x.beginPath(); x.arc(gx, 170, 30, 0, 7); fs(x, '#a8e8f0', 5); } x.beginPath(); x.moveTo(366, 170); x.lineTo(394, 170); x.lineWidth = 10; x.strokeStyle = OL; x.stroke(); }
   if (L.hat === 'beanie') {
     x.beginPath(); x.moveTo(180, 300); x.bezierCurveTo(170, 60, 590, 60, 580, 300); x.closePath(); fs(x, '#c0392b', 12); rrect(x, 165, 250, 430, 70, 24); fs(x, '#962a1f', 11); x.beginPath(); x.arc(380, 70, 40, 0, 7); fs(x, '#f4f4f8', 9);
   } else if (L.hat === 'chef') {

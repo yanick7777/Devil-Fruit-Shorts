@@ -11,7 +11,7 @@ const fruit = (x, cx, cy, R, rot, o = {}) => drawSwirlFruit(x, cx, cy, R, rot, {
 export function arrow(x, x0, y0, a, len, w = 34) {
   if (len <= 0) return; x.save(); x.translate(x0, y0); x.rotate(a);
   x.beginPath(); x.moveTo(0, -w / 2); x.lineTo(len - w, -w / 2); x.lineTo(len - w, -w); x.lineTo(len + w * 0.4, 0); x.lineTo(len - w, w); x.lineTo(len - w, w / 2); x.lineTo(0, w / 2); x.closePath();
-  A.fs(x, '#ff6fb0', Math.max(4, w * 0.2)); x.beginPath(); x.moveTo(6, -w / 4); x.lineTo(len - w, -w / 4); x.lineWidth = Math.max(2, w * 0.15); x.strokeStyle = 'rgba(255,255,255,0.7)'; x.stroke(); x.restore();
+  A.fs(x, '#f8fbff', Math.max(4, w * 0.2)); x.beginPath(); x.moveTo(6, w / 4); x.lineTo(len - w, w / 4); x.lineWidth = Math.max(2, w * 0.2); x.strokeStyle = '#8ab8e8'; x.stroke(); x.restore();
 }
 function arrowFan(x, cx, cy, k, n, len, a0 = 0, spread = Math.PI * 2) { for (let i = 0; i < n; i++) { const a = a0 + (n > 1 ? (i / n) * spread : 0); arrow(x, cx + Math.cos(a) * 40, cy + Math.sin(a) * 40, a, len * k, 28); } }
 function knife(x, cx, cy, s, rot) { x.save(); x.translate(cx, cy); x.rotate(rot); x.scale(s, s); A.rrect(x, -110, -16, 90, 32, 8); A.fs(x, '#3a2a20', 6); x.beginPath(); x.moveTo(-20, -22); x.lineTo(160, -6); x.lineTo(170, 10); x.lineTo(-20, 22); x.closePath(); A.fs(x, '#d9dce6', 6); x.restore(); }
@@ -97,7 +97,7 @@ export function buildShots(TL) {
   add({ name: 'Peak 2 (same rail yard, closer): arrows wrap around the knight and tie him up', t0: tTie, t1: tRedir, bg: 'railYard',
     cam: [[1.2, 760, 1100, 0.02], [1.28, 770, 1090, 0.035]], sfx: [[0.1, 'swish'], [0.4, 'thunk']],
     draw(x, S) { const e = person(x, S, 'knight', 'worried', 760, 1780, 0.62, { seed: 3, pose: 'idle', flip: true }); const k = ease.outCubic(prog(S.t, 0.05, 0.5));
-      for (let i = 0; i < 3; i++) { const y = e.head[1] + 300 + i * 150; x.save(); x.beginPath(); x.ellipse(760, y, 200 * k, 40, 0, 0, 7); x.lineWidth = 34; x.strokeStyle = A.OL; x.stroke(); x.lineWidth = 24; x.strokeStyle = '#ff6fb0'; x.stroke(); x.restore(); } A.mark(x, '?', e.head[0] + 140, e.head[1] - 200, pop(S.T, S.t0 + 0.4), 0.2); } });
+      for (let i = 0; i < 3; i++) { const y = e.head[1] + 300 + i * 150; x.save(); x.beginPath(); x.ellipse(760, y, 200 * k, 40, 0, 0, 7); x.lineWidth = 34; x.strokeStyle = A.OL; x.stroke(); x.lineWidth = 24; x.strokeStyle = '#f8fbff'; x.stroke(); x.restore(); } A.mark(x, '?', e.head[0] + 140, e.head[1] - 200, pop(S.T, S.t0 + 0.4), 0.2); } });
   add({ name: 'Peak 3 (same rail yard, wide): the knight hurls a spear, an arrow latches on and swings it right back around at him; 7-frame shake', t0: tRedir, t1: end('peak'), bg: 'railYard',
     cam: [[1.0, 540, 980, -0.02], [1.06, 540, 970, -0.04]], sfx: [[0.1, 'whoosh'], [0.6, 'impact']],
     draw(x, S) { const u = ease.smoother(prog(S.t, 0, 0.6)), sx = 540 + Math.cos(u * Math.PI) * -300, sy = 1100 - Math.sin(u * Math.PI) * 300;
@@ -106,10 +106,10 @@ export function buildShots(TL) {
       if (S.t > 0.6) { A.impactStar(x, e.head[0], e.head[1] + 150, 180 * (1 - prog(S.t, 0.8, 1.2)), 0.3); if (S.t < 0.6 + 7 * F) S.shake = 0.9; } } });
 
   // ---------------- TWIST + TRUTH ----------------
-  add({ name: 'Twist (dark cathedral): a hooded figure in white and gold appears under the stained glass; push-in with roll, low sting; red SCARY PART banner', t0: st('twist'), t1: end('twist'), bg: 'cathedral', twist: true,
+  add({ name: 'Twist (dark cathedral): Gunko appears (goggle cap, mask, pink cape) under the stained glass; push-in with roll, low sting; red SCARY PART banner', t0: st('twist'), t1: end('twist'), bg: 'cathedral', twist: true,
     cam: [[1.0, 540, 960, 0], [1.28, 540, 1000, 0.07]], banners: [['THE SCARY PART', 'red', st('twist') + 0.3, end('twist')]], sfx: [[0, 'sting']],
     draw(x, S) { person(x, S, 'gunko', 'calm', 540, 1800, 0.8, { seed: 5, alpha: prog(S.t, 0, 0.6), pose: 'idle' }); } });
-  add({ name: 'The Holy Knights (white-and-gold palace above the clouds): three hooded knights in a row, the middle one with pink arrows circling; gold HOLY KNIGHTS banner', t0: st('truth'), t1: end('truth'), bg: 'holyPalace',
+  add({ name: 'The Holy Knights (white-and-gold palace above the clouds): Gunko in the middle, two faded Holy Knights behind her, arrows circling; gold HOLY KNIGHTS banner', t0: st('truth'), t1: end('truth'), bg: 'holyPalace',
     cam: [[1.05, 540, 1000, -0.02], [1.15, 540, 990, -0.04]], banners: [['HOLY KNIGHTS', 'gold', W('truth', /^Holy/) - 0.1, end('truth')]], sfx: [[0, 'whoosh'], [W('truth', /^Holy/) - st('truth'), 'charge']],
     draw(x, S) { for (const [kx, s] of [[200, 0.55], [880, 0.55]]) person(x, S, 'gunko', 'calm', kx, 1760, s, { seed: kx, alpha: 0.75 }); const g = person(x, S, 'gunko', 'smug', 540, 1800, 0.7, { seed: 5, pose: 'raise' });
       for (let i = 0; i < 5; i++) { const a = i / 5 * 6.283 + S.T; arrow(x, g.head[0] + Math.cos(a) * 260, g.head[1] + 200 + Math.sin(a) * 140, a + Math.PI / 2, 110, 24); } } });
