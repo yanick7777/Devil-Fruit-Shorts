@@ -845,7 +845,7 @@ export function glowRing(x, cx, cy, r, a, col = '255,240,170') {
 export function mark(x, kind, cx, cy, s = 1, rot = 0) {
   if (s <= 0) return;
   x.save(); x.translate(cx, cy); x.rotate(rot); x.scale(s, s); x.font = `150px ${FONT}`; x.textAlign = 'center'; x.textBaseline = 'middle'; x.lineJoin = 'round';
-  const glyphs = kind === '!?' ? [['!', -34, '#ff3b3b'], ['?', 34, '#ffd23f']] : [['?', 0, '#b07cff']];
+  const glyphs = kind === '!?' ? [['!', -34, '#ff3b3b'], ['?', 34, '#ffd23f']] : kind === '?' ? [['?', 0, '#b07cff']] : kind === '!' ? [['!', 0, '#ff3b3b']] : [[kind, 0, '#7cc8ff']];
   for (const [g, dx, col] of glyphs) { x.lineWidth = 22; x.strokeStyle = OL; x.strokeText(g, dx, 0); x.fillStyle = col; x.fillText(g, dx, 0); }
   x.restore();
 }

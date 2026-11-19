@@ -32,7 +32,7 @@ function speech(x, cx, cy, text) { A.rrect(x, cx - 150, cy - 60, 300, 110, 30); 
 export function hitoIcon(x, k, cx, cy, s, t) {
   x.save(); x.translate(cx, cy); x.scale(s, s);
   if (k === 1) { reindeer(x, -40, 160, 0.5, t); speech(x, 40, -100, 'HI!'); }
-  else if (k === 2) { A.mark(x, '⇄', 0, -120, 1); reindeer(x, 0, 160, 0.4, t); }
+  else if (k === 2) { A.mark(x, '!', -60, -120, 0.8); A.mark(x, '?', 60, -120, 0.8); reindeer(x, 0, 160, 0.4, t); }
   else if (k === 3) rumbleBall(x, 0, 0, 3.2);
   else { A.glow(x, 0, 0, 200, '255,120,60', 0.6); A.impactStar(x, 0, 0, 120, t); }
   x.restore();
