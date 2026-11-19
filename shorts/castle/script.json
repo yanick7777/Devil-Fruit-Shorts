@@ -1,0 +1,133 @@
+{
+ "title": "Shiro Shiro no Mi",
+ "format": "9:16",
+ "story": "/shorts/castle/story.js",
+ "voice": {
+  "name": "mb-us2",
+  "speed": 158,
+  "pitch": 48
+ },
+ "voice_override_dir": "shorts/castle/vo",
+ "voice_fx": {},
+ "music": false,
+ "structure": "3 techniques + Big Father as the peak (no stages and no awakening)",
+ "facts": [
+  "Appearance: not revealed (plain swirl fruit stands in)",
+  "Paramecia, Castle-Castle Fruit: the user's body becomes a living fortress",
+  "His crew shrinks and hides inside his body; gun ports and cannons fire from it; he can imprison people inside",
+  "Big Father: a giant armed fortress-warrior form",
+  "Damage to the fortress walls hurts him directly",
+  "User: Capone \"Gang\" Bege; helped the Straw Hats escape Big Mom (Whole Cake Island)"
+ ],
+ "plan": {
+  "english": "Castle-Castle Fruit",
+  "labels": "CREW, CANNONS, TRAP, BIG FATHER",
+  "fruit": "The fruit's appearance **has never been revealed**, so a plain round swirl fruit in stone grey stands in (no face or limbs).",
+  "cast": [
+   "**Enemy (new, original):** a marine grunt in a white sailor cap and uniform.",
+   "**Capone Bege:** slicked-back black hair, moustache, cigar, dark pinstripe suit with a white cravat. Send a reference to match him exactly.",
+   "**Fortress body:** stone texture, little windows, gates and cannon ports on the host."
+  ],
+  "sets": "medieval town, lavender rays, castle gate, drawbridge over a moat, castle battlements, gangster office, smoky battlefield, dungeon with torches, candy-island coast, cracked stone wall, sick bay, stormy escape at sea, apartment hallway with a FOR RENT sign."
+ },
+ "lines": [
+  {
+   "id": "hook",
+   "lead": 1.6,
+   "tail": 0.25,
+   "text": "You take a bite#red of a weird swirly#purple fruit.",
+   "say": "You take a bite of a weird swirly fruit."
+  },
+  {
+   "id": "calm",
+   "lead": 0.1,
+   "tail": 0.35,
+   "text": "Don't panic,#red that's just a Devil#purple Fruit.#purple",
+   "say": "Don't panic, that's just a Devil Fruit."
+  },
+  {
+   "id": "sea",
+   "lead": 0.1,
+   "tail": 0.25,
+   "text": "Out of every fruit in the sea,#blue",
+   "say": "Out of every fruit in the sea,"
+  },
+  {
+   "id": "name",
+   "lead": 0.05,
+   "tail": 0.9,
+   "text": "you got the Castle-Castle#gold Fruit,#gold",
+   "say": "you got the Castle-Castle Fruit,"
+  },
+  {
+   "id": "type",
+   "lead": 0.1,
+   "tail": 0.9,
+   "text": "a Paramecia#orange that turns your body into a living fortress.#gold",
+   "say": "a Paramecia that turns your body into a living fortress."
+  },
+  {
+   "id": "power1",
+   "lead": 0.3,
+   "tail": 0.4,
+   "text": "First, your whole crew#blue can shrink down#green and hide inside your body.#gold",
+   "say": "First, your whole crew can shrink down and hide inside your body."
+  },
+  {
+   "id": "power2",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "Then cannons#red pop out of your body and open fire.#red",
+   "say": "Then cannons pop out of your body and open fire."
+  },
+  {
+   "id": "power3",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "You can even trap your enemies#purple inside you.#gold",
+   "say": "You can even trap your enemies inside you."
+  },
+  {
+   "id": "peak",
+   "lead": 0.55,
+   "tail": 0.6,
+   "text": "Your strongest form is Big Father:#gold you turn into a giant fortress warrior.#red",
+   "say": "Your strongest form is Big Father: you turn into a giant fortress warrior."
+  },
+  {
+   "id": "twist",
+   "lead": 0.25,
+   "tail": 0.4,
+   "text": "But there's a painful#red catch.",
+   "say": "But there's a painful catch."
+  },
+  {
+   "id": "truth",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "The fortress is your body,#gold so every hit on the walls hurts you.#red",
+   "say": "The fortress is your body, so every hit on the walls hurts you."
+  },
+  {
+   "id": "users",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "Capone Bege#purple used it to help the Straw Hats#gold escape from Big Mom.#pink",
+   "say": "Capone Bege used it to help the Straw Hats escape from Big Mom."
+  },
+  {
+   "id": "joke",
+   "lead": 0.2,
+   "tail": 0.9,
+   "text": "Users of this fruit never pay rent.#green",
+   "say": "Users of this fruit never pay rent."
+  },
+  {
+   "id": "outro",
+   "lead": 0.2,
+   "tail": 2.4,
+   "text": "Which fruit#pink do you want next?#gold Follow for more.",
+   "say": "Which fruit do you want next? Follow for more."
+  }
+ ]
+}
