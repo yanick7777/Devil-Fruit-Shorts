@@ -1,0 +1,134 @@
+{
+ "title": "Kumo Kumo no Mi",
+ "format": "9:16",
+ "story": "/shorts/spider/story.js",
+ "voice": {
+  "name": "mb-us2",
+  "speed": 158,
+  "pitch": 48
+ },
+ "voice_override_dir": "shorts/spider/vo",
+ "voice_fx": {},
+ "music": false,
+ "structure": "3 abilities + Ancient Zoan toughness as the peak (no stages, no awakening shown)",
+ "facts": [
+  "Appearance: not revealed (plain swirl fruit stands in)",
+  "Ancient Zoan, Spider-Spider Fruit, Model: Rosamygale Grauvogeli; user becomes a prehistoric spider",
+  "Black Maria's (modified) hybrid form: her human torso on a giant spider body",
+  "Webs strong enough to trap Sanji; walks on walls and ceilings; poison from the leg tips",
+  "Rosamygale grauvogeli: real Triassic spider, the oldest known mygalomorph",
+  "Black Maria, one of the Flying Six (Tobi Roppo) of the Beasts Pirates; defeated by Robin in Wano"
+ ],
+ "lines": [
+  {
+   "id": "hook",
+   "lead": 1.6,
+   "tail": 0.25,
+   "text": "You take a bite#red of a weird swirly#purple fruit.",
+   "say": "You take a bite of a weird swirly fruit."
+  },
+  {
+   "id": "calm",
+   "lead": 0.1,
+   "tail": 0.35,
+   "text": "Don't panic,#red that's just a Devil#purple Fruit.#purple",
+   "say": "Don't panic, that's just a Devil Fruit."
+  },
+  {
+   "id": "sea",
+   "lead": 0.1,
+   "tail": 0.25,
+   "text": "Out of every fruit in the sea,#blue",
+   "say": "Out of every fruit in the sea,"
+  },
+  {
+   "id": "name",
+   "lead": 0.05,
+   "tail": 0.9,
+   "text": "you got the Spider-Spider#orange Fruit,#orange Model: Rosamygale Grauvogeli,#gold",
+   "say": "you got the Spider-Spider Fruit, Model: Rosamygale Grauvogeli,"
+  },
+  {
+   "id": "type",
+   "lead": 0.1,
+   "tail": 0.9,
+   "text": "an Ancient Zoan#orange that turns you into a giant prehistoric spider.#red",
+   "say": "an Ancient Zoan that turns you into a giant prehistoric spider."
+  },
+  {
+   "id": "power1",
+   "lead": 0.3,
+   "tail": 0.4,
+   "text": "First, your body sits on top of a huge spider#orange with eight long legs.#red",
+   "say": "First, your body sits on top of a huge spider with eight long legs."
+  },
+  {
+   "id": "power2",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "Then you spin webs#blue so strong they caught Sanji.#gold",
+   "say": "Then you spin webs so strong they caught Sanji."
+  },
+  {
+   "id": "power3",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "You can even crawl up walls#green and hang upside down#pink from the ceiling.",
+   "say": "You can even crawl up walls and hang upside down from the ceiling."
+  },
+  {
+   "id": "peak",
+   "lead": 0.55,
+   "tail": 0.6,
+   "text": "And as an Ancient Zoan,#gold your body gets crazy strong#red and tough.",
+   "say": "And as an Ancient Zoan, your body gets crazy strong and tough."
+  },
+  {
+   "id": "twist",
+   "lead": 0.25,
+   "tail": 0.4,
+   "text": "But here's the weird#purple part.",
+   "say": "But here's the weird part."
+  },
+  {
+   "id": "truth",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "Rosamygale#orange is a real spider, one of the oldest#gold ever found, from the time of the dinosaurs.#green",
+   "say": "Rosamygale is a real spider, one of the oldest ever found, from the time of the dinosaurs."
+  },
+  {
+   "id": "users",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "Black Maria,#purple one of Kaido's Flying Six,#red used it in Wano, until Robin#blue beat her.",
+   "say": "Black Maria, one of Kaido's Flying Six, used it in Wano, until Robin beat her."
+  },
+  {
+   "id": "joke",
+   "lead": 0.2,
+   "tail": 0.9,
+   "text": "Users of this fruit never need a hammock.#green",
+   "say": "Users of this fruit never need a hammock."
+  },
+  {
+   "id": "outro",
+   "lead": 0.2,
+   "tail": 2.4,
+   "text": "Which fruit#pink do you want next?#gold Follow for more.",
+   "say": "Which fruit do you want next? Follow for more."
+  }
+ ],
+ "plan": {
+  "english": "Spider-Spider Fruit, Model: Rosamygale Grauvogeli",
+  "labels": "SPIDER, WEBS, WALLS, ANCIENT",
+  "fruit": "The fruit's appearance **has never been revealed**, so a plain round swirl fruit in spider brown stands in (no face or limbs). The script says \"a weird swirly fruit\".",
+  "cast": [
+   "**Enemy (new, original):** a sumo wrestler with a topknot and a belt.",
+   "**Black Maria:** giant woman with black hair in a tall bun with red-tipped pins, red lips, pipe, dark-purple robe over red; shown in her centaur-like hybrid form on a spider body (the form she used in Wano). Send a reference to match her exactly.",
+   "**Sanji:** blond hair over one eye, curly eyebrow, black suit, cigarette.",
+   "**Robin:** long black hair, purple top, white pants; her extra arms bloom from the floor."
+  ],
+  "sets": "dusty attic, sky rays, dewy garden web, prehistoric fern jungle, mossy temple steps, old Wano street with lanterns, web-strung hall, tall warehouse, erupting volcano, museum at night, Triassic valley, Wano pleasure hall, sunny backyard."
+ }
+}
