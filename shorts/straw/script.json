@@ -1,0 +1,132 @@
+{
+ "title": "Wara Wara no Mi",
+ "format": "9:16",
+ "story": "/shorts/straw/story.js",
+ "voice": {
+  "name": "mb-us2",
+  "speed": 158,
+  "pitch": 48
+ },
+ "voice_override_dir": "shorts/straw/vo",
+ "voice_fx": {},
+ "music": false,
+ "structure": "3 techniques + the giant straw man as the peak (the fruit has no stages and no awakening)",
+ "facts": [
+  "Appearance: not revealed (plain swirl fruit stands in)",
+  "Paramecia, Straw-Straw Fruit: create and control straw, grown from the body",
+  "Straw weapons and armour; Straw Man: a towering scarecrow effigy the user fights from (Goma no S\u014d)",
+  "Straw dolls linked to up to ten people take the damage done to the user; once used up, the damage hits the user",
+  "Basil Hawkins of the Worst Generation; Killer beat him by cutting the doll arm linked to Kid's missing left arm (Wano)"
+ ],
+ "plan": {
+  "english": "Straw-Straw Fruit",
+  "labels": "WEAPONS, DOLLS, TEN LINKS, STRAW MAN",
+  "fruit": "The fruit's appearance **has never been revealed**, so a plain round swirl fruit in straw gold stands in (no face or limbs).",
+  "cast": [
+   "**Enemy (new, original):** a boxer in red trunks and a red tank top.",
+   "**Basil Hawkins:** long pale-blond hair, cream long coat over a dark-purple shirt. Send a reference to match him exactly.",
+   "**Killer:** round blue-and-white striped mask, long blond hair, black polka-dot shirt, jeans."
+  ],
+  "sets": "red barn, gold rays, wheat field, haystack farm, tarot-card stage, harvest fair, boxing gym, voodoo doll shop, field at dusk, candle-lit tarot room, corn maze, Wano rooftop under the moon, hay loft."
+ },
+ "lines": [
+  {
+   "id": "hook",
+   "lead": 1.6,
+   "tail": 0.25,
+   "text": "You take a bite#red of a weird swirly#purple fruit.",
+   "say": "You take a bite of a weird swirly fruit."
+  },
+  {
+   "id": "calm",
+   "lead": 0.1,
+   "tail": 0.35,
+   "text": "Don't panic,#red that's just a Devil#purple Fruit.#purple",
+   "say": "Don't panic, that's just a Devil Fruit."
+  },
+  {
+   "id": "sea",
+   "lead": 0.1,
+   "tail": 0.25,
+   "text": "Out of every fruit in the sea,#blue",
+   "say": "Out of every fruit in the sea,"
+  },
+  {
+   "id": "name",
+   "lead": 0.05,
+   "tail": 0.9,
+   "text": "you got the Straw-Straw#gold Fruit,#gold",
+   "say": "you got the Straw-Straw Fruit,"
+  },
+  {
+   "id": "type",
+   "lead": 0.1,
+   "tail": 0.9,
+   "text": "a Paramecia#orange that lets you create#green and control straw.#gold",
+   "say": "a Paramecia that lets you create and control straw."
+  },
+  {
+   "id": "power1",
+   "lead": 0.3,
+   "tail": 0.4,
+   "text": "First, straw grows out of your body#gold and turns into weapons.#red",
+   "say": "First, straw grows out of your body and turns into weapons."
+  },
+  {
+   "id": "power2",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "Then you make straw dolls#gold linked to other people, so when you get hurt,#red they take the damage.#purple",
+   "say": "Then you make straw dolls linked to other people, so when you get hurt, they take the damage."
+  },
+  {
+   "id": "power3",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "You can link up to ten people#blue at once.",
+   "say": "You can link up to ten people at once."
+  },
+  {
+   "id": "peak",
+   "lead": 0.55,
+   "tail": 0.6,
+   "text": "Your strongest form is a giant straw man,#gold a towering scarecrow#orange you fight from inside.",
+   "say": "Your strongest form is a giant straw man, a towering scarecrow you fight from inside."
+  },
+  {
+   "id": "twist",
+   "lead": 0.25,
+   "tail": 0.4,
+   "text": "But there's a catch.#red",
+   "say": "But there's a catch."
+  },
+  {
+   "id": "truth",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "Once all the dolls are used up,#purple the damage goes straight to you.#red",
+   "say": "Once all the dolls are used up, the damage goes straight to you."
+  },
+  {
+   "id": "users",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "Basil Hawkins#gold used it, until Killer#blue cut the doll's left arm,#red which Kid didn't even have.#orange",
+   "say": "Basil Hawkins used it, until Killer cut the doll's left arm, which Kid didn't even have."
+  },
+  {
+   "id": "joke",
+   "lead": 0.2,
+   "tail": 0.9,
+   "text": "Users of this fruit always find the needle#blue in the haystack.#gold",
+   "say": "Users of this fruit always find the needle in the haystack."
+  },
+  {
+   "id": "outro",
+   "lead": 0.2,
+   "tail": 2.4,
+   "text": "Which fruit#pink do you want next?#gold Follow for more.",
+   "say": "Which fruit do you want next? Follow for more."
+  }
+ ]
+}
