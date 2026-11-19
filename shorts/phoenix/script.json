@@ -1,0 +1,133 @@
+{
+ "title": "Tori Tori no Mi, Model: Phoenix",
+ "format": "9:16",
+ "story": "/shorts/phoenix/story.js",
+ "voice": {
+  "name": "mb-us2",
+  "speed": 158,
+  "pitch": 48
+ },
+ "voice_override_dir": "shorts/phoenix/vo",
+ "voice_fx": {},
+ "music": false,
+ "structure": "3 abilities + Phoenix Brand as the peak (Mythical Zoan; no awakening shown)",
+ "facts": [
+  "Appearance (official, One Piece Magazine Vol. 20): pineapple-shaped, skin split into fruitlets with swirls and prickly tips, crown of leaves",
+  "Mythical Zoan, Bird-Bird Fruit, Model: Phoenix: full phoenix and hybrid forms made of blue flames",
+  "Flight; self-regeneration in blue flames",
+  "Can heal others with the flames (Wano)",
+  "Phoenix Brand (H\u014d\u014d-In): a flaming kick (Marineford)",
+  "Seastone handcuffs blocked it at Marineford",
+  "User: Marco, first division commander of the Whitebeard Pirates"
+ ],
+ "plan": {
+  "english": "Bird-Bird Fruit, Model: Phoenix",
+  "labels": "WINGS, REGEN, HEAL, PHOENIX BRAND",
+  "fruit": "**Official design** (One Piece Magazine Vol. 20, via search): a **pineapple** \u2013 oval, skin split into fruitlets that each carry a swirl and a prickly tip, with a crown of leaves (one source says golden). Drawn in blue-green with golden leaves.",
+  "cast": [
+   "**Enemy (new, original):** a viking with a horned helmet and a red beard.",
+   "**Marco:** blond pineapple-tuft hair, sleepy eyes, open purple shirt with the blue Whitebeard mark on his chest; blue phoenix flames for the hybrid form."
+  ],
+  "sets": "giant nest on a cliff, cyan rays, tropical beach, aurora night sky, altar with blue braziers, rock arch over the sea, field-hospital tent, island village with a big statue, sunset clouds, prison cell, Marine headquarters wall, big ship deck with a white whale figurehead, pharmacy shelves."
+ },
+ "lines": [
+  {
+   "id": "hook",
+   "lead": 1.6,
+   "tail": 0.25,
+   "text": "You take a bite#red of a weird swirly#purple fruit.",
+   "say": "You take a bite of a weird swirly fruit."
+  },
+  {
+   "id": "calm",
+   "lead": 0.1,
+   "tail": 0.35,
+   "text": "Don't panic,#red that's just a Devil#purple Fruit.#purple",
+   "say": "Don't panic, that's just a Devil Fruit."
+  },
+  {
+   "id": "sea",
+   "lead": 0.1,
+   "tail": 0.25,
+   "text": "Out of every fruit in the sea,#blue",
+   "say": "Out of every fruit in the sea,"
+  },
+  {
+   "id": "name",
+   "lead": 0.05,
+   "tail": 0.9,
+   "text": "you got the Bird-Bird#blue Fruit,#blue Model: Phoenix,#gold",
+   "say": "you got the Bird-Bird Fruit, Model: Phoenix,"
+  },
+  {
+   "id": "type",
+   "lead": 0.1,
+   "tail": 0.9,
+   "text": "a Mythical Zoan#gold that turns you into a phoenix#blue made of blue fire.#blue",
+   "say": "a Mythical Zoan that turns you into a phoenix made of blue fire."
+  },
+  {
+   "id": "power1",
+   "lead": 0.3,
+   "tail": 0.4,
+   "text": "First, you grow flaming wings#blue and fly.#green",
+   "say": "First, you grow flaming wings and fly."
+  },
+  {
+   "id": "power2",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "Then every wound#red you take heals itself#green in blue flames.#blue",
+   "say": "Then every wound you take heals itself in blue flames."
+  },
+  {
+   "id": "power3",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "You can even use those flames to heal other people.#green",
+   "say": "You can even use those flames to heal other people."
+  },
+  {
+   "id": "peak",
+   "lead": 0.55,
+   "tail": 0.6,
+   "text": "Your strongest move is Phoenix Brand,#gold a flaming kick#blue that slams down from the sky.",
+   "say": "Your strongest move is Phoenix Brand, a flaming kick that slams down from the sky."
+  },
+  {
+   "id": "twist",
+   "lead": 0.25,
+   "tail": 0.4,
+   "text": "But even this fruit has a limit.#red",
+   "say": "But even this fruit has a limit."
+  },
+  {
+   "id": "truth",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "Seastone cuffs#purple shut it off, and the Marines#blue used them on him at Marineford.#red",
+   "say": "Seastone cuffs shut it off, and the Marines used them on him at Marineford."
+  },
+  {
+   "id": "users",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "Marco,#gold Whitebeard's first division commander,#blue has it.",
+   "say": "Marco, Whitebeard's first division commander, has it."
+  },
+  {
+   "id": "joke",
+   "lead": 0.2,
+   "tail": 0.9,
+   "text": "Users of this fruit never need a band-aid.#pink",
+   "say": "Users of this fruit never need a band-aid."
+  },
+  {
+   "id": "outro",
+   "lead": 0.2,
+   "tail": 2.4,
+   "text": "Which fruit#pink do you want next?#gold Follow for more.",
+   "say": "Which fruit do you want next? Follow for more."
+  }
+ ]
+}

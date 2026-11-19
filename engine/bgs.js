@@ -1134,7 +1134,89 @@ export const BG = {
     x.fillStyle = '#d9dce6'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
     return finish(c);
   },
+  // ---------------- Phoenix short ----------------
+  cliffNest() { // giant twig nest on a cliff top above the clouds
+    const [c, x] = canvas(); fill(x, '#ffcfa0', '#a8d8ff'); for (let i = 0; i < 5; i++) cloud(x, hash(i + 600) * 1080, 900 + hash(i + 601) * 300, 1.1);
+    x.beginPath(); x.moveTo(-OX, 1150); x.lineTo(300, 1180); x.lineTo(900, 1160); x.lineTo(BW, 1200); x.lineTo(BW, BH); x.lineTo(-OX, BH); fs(x, '#8a7a6a', 10);
+    x.beginPath(); x.ellipse(540, 1180, 420, 90, 0, 0, 7); fs(x, '#a2763e', 10); x.strokeStyle = '#6b4a2a'; x.lineWidth = 8; for (let i = 0; i < 24; i++) { const a = hash(i + 610) * 3.14; x.beginPath(); x.moveTo(540 + Math.cos(a) * 400, 1180 - Math.sin(a) * 40); x.lineTo(540 - Math.cos(a) * 380, 1190 + Math.sin(a) * 50); x.stroke(); }
+    return finish(c);
+  },
+  tropicalBeach() { // tropical beach with pineapple plants
+    const [c, x] = canvas(); fill(x, '#7fd8ff', '#c8f4ff', -OY, 900);
+    x.fillStyle = '#3fb8d8'; x.fillRect(-OX, 900, BW, 250); x.fillStyle = '#f8e2b0'; x.fillRect(-OX, 1150, BW, 1100);
+    for (const px of [120, 960]) { for (let k = 0; k < 7; k++) { x.save(); x.translate(px, 1250); x.rotate(-1.2 + k * 0.4); x.beginPath(); x.moveTo(0, 0); x.quadraticCurveTo(30, -140, 0, -260); x.quadraticCurveTo(-30, -140, 0, 0); fs(x, '#4f9a3a', 6); x.restore(); } }
+    x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1150); x.lineTo(BW, 1150); x.stroke();
+    return finish(c);
+  },
+  auroraSky() { // night sky with a blue-green aurora
+    const [c, x] = canvas(); fill(x, '#0a1028', '#1a2a50');
+    for (let i = 0; i < 4; i++) { x.beginPath(); x.moveTo(-OX, 400 + i * 140); for (let k = 0; k <= 12; k++) x.lineTo(-OX + k * 110, 400 + i * 140 + Math.sin(k * 0.8 + i) * 90); x.lineWidth = 70 - i * 10; x.strokeStyle = `rgba(${90 + i * 20},${230 - i * 20},${200 + i * 10},0.35)`; x.stroke(); }
+    for (let i = 0; i < 60; i++) { x.fillStyle = 'rgba(255,255,255,0.8)'; x.beginPath(); x.arc(hash(i + 620) * 1080, hash(i + 621) * 1300, 2 + hash(i + 622) * 2, 0, 7); x.fill(); }
+    x.fillStyle = '#1a2436'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
+    return finish(c);
+  },
+  blueAltar() { // stone altar with blue braziers, for the techniques stage
+    const [c, x] = canvas(); fill(x, '#2a3a6a', '#1a2448');
+    for (const bx of [120, 960]) { A_rr(x, bx - 40, 700, 80, 500, 10, '#8a8aa0'); x.beginPath(); x.moveTo(bx - 90, 700); x.lineTo(bx + 90, 700); x.lineTo(bx + 60, 640); x.lineTo(bx - 60, 640); fs(x, '#8a8aa0', 8); x.fillStyle = 'rgba(90,200,255,0.5)'; x.beginPath(); x.ellipse(bx, 560, 70, 100, 0, 0, 7); x.fill(); }
+    x.fillStyle = '#5a6a8a'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
+    return finish(c);
+  },
+  seaArch() { // giant rock arch over a bright sea
+    const [c, x] = canvas(); fill(x, '#7fd0ff', '#d8f2ff', -OY, 1150); cloud(x, 260, 260, 0.9);
+    x.beginPath(); x.moveTo(60, 1300); x.lineTo(120, 600); x.quadraticCurveTo(540, 160, 960, 600); x.lineTo(1020, 1300); x.lineTo(820, 1300); x.lineTo(800, 760); x.quadraticCurveTo(540, 420, 280, 760); x.lineTo(260, 1300); x.closePath(); fs(x, '#c9a880', 11);
+    x.fillStyle = '#2f8fd6'; x.fillRect(-OX, 1150, BW, 1100); waves(x, 1300, 'rgba(255,255,255,0.5)', 12, 12);
+    return finish(c);
+  },
+  fieldHospital() { // white field-hospital tent with cots
+    const [c, x] = canvas(); fill(x, '#f4f8ff', '#dfe8f4');
+    x.beginPath(); x.moveTo(-OX, 500); x.lineTo(540, 80); x.lineTo(BW, 500); x.closePath(); fs(x, '#e8eef6', 10); x.fillStyle = '#e8402e'; x.fillRect(500, 220, 80, 24); x.fillRect(528, 192, 24, 80);
+    for (let k = 0; k < 3; k++) { A_rr(x, 40 + k * 360, 1100, 300, 60, 14, '#ffffff'); A_rr(x, 40 + k * 360, 1060, 90, 50, 14, '#cfe0f4'); }
+    x.fillStyle = '#c9c0a8'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
+    return finish(c);
+  },
+  sphinxVillage() { // small island village with a big sphinx-like statue
+    const [c, x] = canvas(); fill(x, '#ffe0b0', '#fff4e0', -OY, 1000);
+    x.beginPath(); x.moveTo(600, 1150); x.lineTo(620, 700); x.quadraticCurveTo(760, 560, 900, 700); x.lineTo(960, 1150); fs(x, '#d9b48a', 10); x.beginPath(); x.arc(760, 640, 110, 0, 7); fs(x, '#d9b48a', 10);
+    for (let i = 0; i < 4; i++) { const hx = -40 + i * 160; x.beginPath(); x.rect(hx, 900, 140, 260); fs(x, '#f4ead2', 8); x.beginPath(); x.moveTo(hx - 10, 900); x.lineTo(hx + 70, 840); x.lineTo(hx + 150, 900); fs(x, '#e8822e', 8); }
+    x.fillStyle = '#e8c890'; x.fillRect(-OX, 1150, BW, 1100); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1150); x.lineTo(BW, 1150); x.stroke();
+    return finish(c);
+  },
+  sunsetClouds() { // high sky at sunset, pink-orange clouds
+    const [c, x] = canvas(); fill(x, '#ff8a6a', '#ffd08a'); sunDisk(x, 540, 1300, 140, '255,230,170');
+    for (let i = 0; i < 8; i++) { x.fillStyle = 'rgba(255,190,200,0.85)'; x.beginPath(); x.ellipse(hash(i + 630) * 1080, 200 + i * 200, 260, 60, 0, 0, 7); x.fill(); }
+    return finish(c);
+  },
+  jailCell() { // grey prison cell with bars and chains
+    const [c, x] = canvas(); fill(x, '#6a6a7a', '#4a4a58');
+    for (let r = 0; r < 20; r++) for (let k = 0; k < 7; k++) { x.strokeStyle = 'rgba(30,30,40,0.35)'; x.lineWidth = 5; x.strokeRect(-60 + k * 180 + (r % 2) * 90, -120 + r * 90, 180, 90); }
+    for (let k = 0; k < 9; k++) A_rr(x, -20 + k * 130, -OY, 30, 1450, 12, '#3a3a46');
+    x.fillStyle = '#3a3a46'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
+    return finish(c);
+  },
+  marineHQ() { // marine headquarters wall with a big MARINE sign
+    const [c, x] = canvas(); fill(x, '#9ed8ff', '#e8f6ff', -OY, 800);
+    x.beginPath(); x.rect(-OX, 300, BW, 950); fs(x, '#f4f4f8', 10); for (let r = 0; r < 4; r++) for (let k = 0; k < 6; k++) { rrect(x, -20 + k * 190, 520 + r * 170, 110, 110, 10); fs(x, '#5a8ac8', 6); }
+    x.font = 'bold 120px sans-serif'; x.textAlign = 'center'; x.fillStyle = '#2a5ab8'; x.fillText('MARINE', 540, 450);
+    x.fillStyle = '#c9c4b8'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
+    return finish(c);
+  },
+  mobyDeck() { // a big pirate ship deck with a white whale figurehead and the sea
+    const [c, x] = canvas(); fill(x, '#8fd8ff', '#e0f6ff', -OY, 900);
+    x.fillStyle = '#2f8fd6'; x.fillRect(-OX, 800, BW, 300);
+    x.beginPath(); x.ellipse(880, 620, 260, 150, 0, 0, 7); fs(x, '#f4f4f8', 11); x.beginPath(); x.arc(980, 580, 18, 0, 7); x.fillStyle = OL; x.fill(); x.beginPath(); x.moveTo(1000, 680); x.quadraticCurveTo(920, 720, 840, 690); x.lineWidth = 8; x.strokeStyle = OL; x.stroke();
+    A_rr(x, 200, -OY, 50, 1100, 8, '#6b4630'); x.beginPath(); x.moveTo(250, 0); x.quadraticCurveTo(520, 120, 250, 520); fs(x, '#f4ead2', 8);
+    x.fillStyle = '#a26d45'; x.fillRect(-OX, 1100, BW, 1200); x.strokeStyle = 'rgba(60,30,15,0.5)'; x.lineWidth = 6; for (let k = 0; k < 18; k++) { x.beginPath(); x.moveTo(-OX, 1150 + k * 60); x.lineTo(BW, 1150 + k * 60); x.stroke(); }
+    x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1100); x.lineTo(BW, 1100); x.stroke();
+    return finish(c);
+  },
+  firstAid() { // pharmacy shelves full of band-aid boxes
+    const [c, x] = canvas(); fill(x, '#e8f8f4', '#c8ece4');
+    for (let r = 0; r < 5; r++) { const y = 200 + r * 210; x.fillStyle = '#ffffff'; x.fillRect(-OX, y + 160, BW, 20); for (let k = 0; k < 7; k++) { A_rr(x, -20 + k * 160, y + 40, 120, 120, 12, ['#ffffff', '#ffd0d0', '#d0e8ff'][(k + r) % 3]); x.fillStyle = '#e8402e'; x.fillRect(20 + k * 160, y + 90, 40, 14); x.fillRect(33 + k * 160, y + 77, 14, 40); } }
+    x.fillStyle = '#b8d8d0'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
+    return finish(c);
+  },
 };
+
 
 
 
