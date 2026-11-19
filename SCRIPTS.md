@@ -420,9 +420,9 @@ First, any part of your body explodes when you touch something.
 Then you can even make your breath explode.
 And you can flick tiny bombs at people from far away.
 Best of all, explosions can't hurt you, not even your own.
-But this power has a weak spot.
-The user lost to a giant sling of a shot from Usopp, with no explosion big enough to stop it.
-Mr. 5 of Baroque Works used it in Alabasta.
+But there's a gross secret.
+His famous Nose Fancy Cannon fires exploding boogers.
+Mr. 5 of Baroque Works used it, until Luffy beat him at Whisky Peak.
 Users of this fruit can't play hot potato.
 Which fruit do you want next? Follow for more.
 ```
@@ -620,7 +620,7 @@ You can switch your weight instantly, anywhere between one and ten thousand kilo
 Your strongest move is a ten thousand kilo crush from the sky.
 But there's a catch.
 If your enemy just steps aside, you hit nothing but the ground.
-Miss Valentine of Baroque Works lost to Nami with it.
+Miss Valentine of Baroque Works used it, until Luffy beat her at Whisky Peak.
 Users of this fruit never worry about the scale.
 Which fruit do you want next? Follow for more.
 ```
@@ -709,7 +709,7 @@ Then you send people flying across the world for days.
 You can even push the pain and tiredness out of someone's body.
 Your strongest move is Ursus Shock: a giant ball of compressed air that explodes.
 But here's the sad part.
-He sent away all his own memories and pain to save his daughter.
+He gave up his own mind to save his daughter, Bonney.
 Bartholomew Kuma used it to save the Straw Hats at Sabaody.
 Users of this fruit always get the best vacations.
 Which fruit do you want next? Follow for more.
@@ -909,6 +909,6 @@ Your strongest attack is a slash so fast enemies don't see it.
 But there's a catch.
 If your body is gone when you come back, you're just a skeleton.
 Brook, the Straw Hats' musician, came back as a skeleton after fifty years.
-Users of this fruit can't show you their underwear, because they're a skeleton.
+Users of this fruit are a real bonehead.
 Which fruit do you want next? Follow for more.
 ```
