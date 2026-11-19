@@ -37,6 +37,14 @@ export const LOOKS = {
   enemy: { skin: '#d9a27a', skinD: '#bb8460', hair: '#2a1d18', hairL: '#4d362c', hairStyle: 'bandana', beard: true,
            top: 'stripes', cloth: '#ffffff', clothD: '#2c3e78', inner: '#c0392b', innerD: '#962a1f', pants: '#7a5236', shoe: '#2a2026', boots: true, arm: '#ffffff', sleeveSkin: true },
   ace: { skin: '#f3bd85', skinD: '#dc9d66', hair: '#1f1a22', hairL: '#3d3443', hairStyle: 'wavy', freckles: true, hat: 'cowboy', top: 'bare', beads: true, pants: '#2a2730', shorts: true, shoe: '#2a2026', boots: true, arm: '#f3bd85' },
+  sugar: { skin: '#f8d5b8', skinD: '#e0b498', hair: '#5fc8c0', hairL: '#9ee6df', hairStyle: 'bob',
+          top: 'dress', cloth: '#f4a9c4', clothD: '#d9789c', dots: '#ffffff', inner: '#ffffff', pants: '#f8d5b8', shoe: '#5a2a3a', boots: false, arm: '#f8d5b8', cuff: null },
+  builder: { skin: '#d9a27a', skinD: '#bb8460', hair: '#7a4a2a', hairL: '#a26d45', hairStyle: 'bald', beard: true, hat: 'hardhat',
+          top: 'vest', cloth: '#ff7a1a', clothD: '#e85a00', inner: '#8a8f9c', pants: '#3f5f95', shoe: '#6b4630', boots: true, arm: '#8a8f9c', sleeveSkin: true },
+  usopp: { skin: '#c98d64', skinD: '#ab7049', hair: '#1d1a22', hairL: '#3d3443', hairStyle: 'curly', goggles: true, longNose: true,
+          top: 'overalls', cloth: '#c9a46a', clothD: '#a5834e', pants: '#c9a46a', shoe: '#6b4630', boots: true, arm: '#c98d64' },
+  kid: { skin: '#f3c6a0', skinD: '#dca684', hair: '#7a4a2a', hairL: '#a26d45', hairStyle: 'messy',
+          top: 'tee', cloth: '#ffcf3a', clothD: '#e0a90f', inner: '#ffcf3a', pants: '#3f6fb5', shorts: true, shoe: '#e8402e', boots: false, sleeveSkin: true },
   sabo: { skin: '#f7cc9c', skinD: '#e2ab78', hair: '#f2cf55', hairL: '#ffe58a', hairStyle: 'curly', hat: 'top', scar: true,
           top: 'coat', cloth: '#2f4f8f', clothD: '#223a6c', inner: '#f4f1ea', innerD: '#cfc8b8', cravat: true, pants: '#3a3340', shoe: '#6b4630', boots: true, cuff: '#f4f1ea' },
 };
@@ -136,6 +144,16 @@ function drawTorso(x, L) {
     for (const sd of [-1, 1]) { x.beginPath(); x.moveTo(380 + sd * 150, 650); x.lineTo(380 + sd * 60, 650); x.lineTo(380 + sd * 40, 1090); x.lineTo(380 + sd * 146, 1090); x.closePath(); fs(x, L.cloth, 11); }
     x.fillStyle = L.clothD; for (const yy of [760, 860]) for (const sd of [-1, 1]) { rrect(x, 380 + sd * 95 - 26, yy, 52, 40, 8); fs(x, L.clothD, 7); }
     rrect(x, 228, 1040, 304, 52, 14); fs(x, '#3a2a20', 11); x.beginPath(); x.arc(560, 1080, 1, 0, 7);
+  } else if (L.top === 'dress') { // short dress with a flared skirt
+    x.beginPath(); x.moveTo(232, 720); x.quadraticCurveTo(236, 650, 300, 638); x.lineTo(460, 638); x.quadraticCurveTo(524, 650, 528, 720); x.lineTo(530, 960); x.lineTo(620, 1300); x.quadraticCurveTo(380, 1350, 140, 1300); x.lineTo(230, 960); x.closePath(); fs(x, L.cloth, 12);
+    if (L.dots) { x.save(); x.clip(); x.fillStyle = L.dots; for (let yy = 700; yy < 1340; yy += 70) for (let xx = 160 + (yy / 70 % 2) * 35; xx < 620; xx += 70) { x.beginPath(); x.arc(xx, yy, 13, 0, 7); x.fill(); } x.restore(); }
+    x.beginPath(); x.moveTo(300, 640); x.quadraticCurveTo(380, 740, 460, 640); x.lineTo(470, 660); x.quadraticCurveTo(380, 780, 290, 660); x.closePath(); fs(x, L.inner || '#ffffff', 8);
+    rrect(x, 232, 940, 296, 40, 14); fs(x, L.clothD, 9);
+  } else if (L.top === 'overalls') { // bare chest under a bib with straps
+    torso(); fs(x, L.skin, 12);
+    x.beginPath(); x.moveTo(290, 820); x.lineTo(470, 820); x.lineTo(500, 1090); x.lineTo(260, 1090); x.closePath(); fs(x, L.cloth, 11);
+    for (const [a, b] of [[300, 640], [460, 640]]) { x.beginPath(); x.moveTo(a, b); x.lineTo(a < 380 ? 310 : 450, 830); x.lineWidth = 34; x.strokeStyle = OL; x.stroke(); x.lineWidth = 22; x.strokeStyle = L.cloth; x.stroke(); }
+    x.beginPath(); x.rect(330, 880, 100, 70); fs(x, L.clothD, 7);
   } else { // bare chest
     torso(); fs(x, L.skin, 12);
     x.lineWidth = 6; x.strokeStyle = L.skinD; x.beginPath(); x.moveTo(380, 760); x.lineTo(380, 1000); x.moveTo(290, 790); x.quadraticCurveTo(330, 815, 370, 790); x.moveTo(390, 790); x.quadraticCurveTo(430, 815, 470, 790); x.stroke();
@@ -271,6 +289,8 @@ export function drawPerson({ who = 'host', expr = 'calm', mouth = 0, blink = fal
     x.moveTo(170, 330); x.bezierCurveTo(150, 110, 610, 110, 590, 330); x.quadraticCurveTo(560, 230, 470, 215); x.quadraticCurveTo(380, 200, 290, 220); x.quadraticCurveTo(200, 240, 170, 330); x.closePath();
   } else if (L.hairStyle === 'mohawk') {
     x.moveTo(330, 300); [[318, 220], [300, 120], [345, 150], [350, 40], [395, 120], [420, 30], [440, 140], [490, 90], [458, 220], [430, 300]].forEach(([mx, my]) => x.lineTo(mx, my)); x.closePath();
+  } else if (L.hairStyle === 'bob') { // jaw-length bob with straight bangs
+    x.moveTo(130, 520); x.bezierCurveTo(70, 60, 690, 60, 630, 520); x.lineTo(560, 520); x.lineTo(578, 300); x.lineTo(182, 300); x.lineTo(200, 520); x.closePath();
   } else if (L.hairStyle === 'bald') { x.moveTo(380, 330);
   } else { // bandana
     x.moveTo(160, 300); x.bezierCurveTo(150, 100, 610, 100, 600, 300); x.quadraticCurveTo(380, 250, 160, 300); x.closePath();
@@ -284,6 +304,12 @@ export function drawPerson({ who = 'host', expr = 'calm', mouth = 0, blink = fal
   if (!['bandana', 'bald', 'mohawk', 'short'].includes(L.hairStyle)) { x.beginPath(); x.moveTo(250, 150); x.quadraticCurveTo(330, 110, 420, 125); x.stroke(); x.beginPath(); x.moveTo(470, 140); x.quadraticCurveTo(530, 160, 560, 210); x.stroke(); }
   // thin white rim light along the upper-left edge
   if (!L.hat) { x.beginPath(); x.ellipse(380, 330, 226, 215, 0, Math.PI * 1.06, Math.PI * 1.48); x.lineWidth = 9; x.strokeStyle = '#fff'; x.stroke(); }
+  if (L.hat === 'hardhat') {
+    x.beginPath(); x.moveTo(170, 270); x.bezierCurveTo(170, 40, 590, 40, 590, 270); x.closePath(); fs(x, '#ffcf2e', 12); rrect(x, 140, 250, 480, 46, 20); fs(x, '#f2b705', 11);
+    x.beginPath(); x.moveTo(380, 70); x.lineTo(380, 250); x.lineWidth = 26; x.strokeStyle = '#f2b705'; x.stroke(); x.beginPath(); x.arc(380, 160, 210, Math.PI * 1.15, Math.PI * 1.4); x.lineWidth = 9; x.strokeStyle = 'rgba(255,255,255,0.7)'; x.stroke();
+  }
+  if (L.goggles) { x.beginPath(); x.moveTo(160, 230); x.quadraticCurveTo(380, 170, 600, 230); x.lineWidth = 22; x.strokeStyle = '#5a3a26'; x.stroke(); for (const gx of [300, 460]) { x.beginPath(); x.arc(gx, 205, 46, 0, 7); fs(x, '#7fe0a0', 10); x.beginPath(); x.arc(gx - 12, 192, 10, 0, 7); x.fillStyle = '#fff'; x.fill(); } }
+  if (L.longNose) { x.save(); x.translate(390, 430); x.rotate(-0.08); rrect(x, -10, -20, 230, 40, 20); fs(x, L.skin, 9); x.restore(); }
   if (L.hat === 'beanie') {
     x.beginPath(); x.moveTo(180, 300); x.bezierCurveTo(170, 60, 590, 60, 580, 300); x.closePath(); fs(x, '#c0392b', 12); rrect(x, 165, 250, 430, 70, 24); fs(x, '#962a1f', 11); x.beginPath(); x.arc(380, 70, 40, 0, 7); fs(x, '#f4f4f8', 9);
   } else if (L.hat === 'chef') {

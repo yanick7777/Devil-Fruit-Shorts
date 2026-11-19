@@ -1,0 +1,35 @@
+{
+  "title": "Hobi Hobi no Mi",
+  "format": "9:16",
+  "story": "/shorts/hobby/story.js",
+  "voice": { "name": "mb-us2", "speed": 158, "pitch": 48 },
+  "voice_override_dir": "shorts/hobby/vo",
+  "voice_fx": {},
+  "music": false,
+  "structure": "3 techniques + the ageless side effect as the peak (the fruit has no stages and no awakening shown)",
+  "facts": [
+    "Appearance (One Piece Wiki via search): a wheel-shaped fruit with a light yellow, spiraling core at both of its sides and a red, swirly outer shell that envelops its meridian; green stem (secondary source)",
+    "Paramecia, English name Hobby-Hobby Fruit: turns living people into toys with a touch",
+    "Everyone forgets the people turned into toys ever existed (Kyros and Rebecca)",
+    "Toys are made to sign a contract and must obey the user's orders",
+    "Side effect: the user's body stops aging (eternal youth)",
+    "If the user is knocked out, all toys return to normal and the memories come back (Dressrosa)",
+    "Sugar, Trebol Army special officer of the Donquixote Pirates; she fainted after Usopp's terrifying face"
+  ],
+  "lines": [
+    { "id": "hook", "lead": 1.6, "tail": 0.25, "text": "You take a bite#red of a weird wheel-shaped#red fruit.", "say": "You take a bite, of a weird wheel shaped fruit." },
+    { "id": "calm", "lead": 0.1, "tail": 0.35, "text": "Don't panic,#red that's just a Devil#purple Fruit.#purple", "say": "Don't panic. That's just a devil fruit." },
+    { "id": "sea", "lead": 0.1, "tail": 0.25, "text": "Out of every fruit in the sea,#blue", "say": "Out of every fruit in the sea," },
+    { "id": "name", "lead": 0.05, "tail": 0.9, "text": "you got the Hobby-Hobby#red Fruit,#red", "say": "you got the hobby, hobby fruit." },
+    { "id": "type", "lead": 0.1, "tail": 0.9, "text": "a Paramecia#orange that turns anyone you touch into a toy,#red and comes with a whole set of tricks.#gold", "say": "A paramecia, that turns anyone you touch into a toy, and comes with a whole set of tricks." },
+    { "id": "power1", "lead": 0.3, "tail": 0.4, "text": "First, one touch#pink turns a person into a living toy.#gold", "say": "First, one touch turns a person into a living toy." },
+    { "id": "power2", "lead": 0.55, "tail": 0.4, "text": "Then the whole world forgets#purple that person ever existed, even their own family.#red", "say": "Then the whole world forgets that person ever existed, even their own family." },
+    { "id": "power3", "lead": 0.55, "tail": 0.4, "text": "You can even make your toys sign a contract,#gold so they have to obey#red your every order.", "say": "You can even make your toys sign a contract, so they have to obey your every order." },
+    { "id": "peak", "lead": 0.55, "tail": 0.6, "text": "And your body stops aging,#gold so you stay a kid forever.#pink", "say": "And your body stops aging, so you stay a kid forever." },
+    { "id": "twist", "lead": 0.25, "tail": 0.4, "text": "But this power has one huge weakness.#red", "say": "But this power has one huge weakness." },
+    { "id": "truth", "lead": 0.1, "tail": 0.4, "text": "If you get knocked out,#red every toy turns back into a person,#green and everyone remembers#blue them.", "say": "If you get knocked out, every toy turns back into a person, and everyone remembers them." },
+    { "id": "users", "lead": 0.1, "tail": 0.4, "text": "Sugar#blue used it for Doflamingo,#pink until Usopp's#orange scary face made her faint.#green", "say": "Sugar used it for Doflamingo, until Usopp's scary face made her faint." },
+    { "id": "joke", "lead": 0.2, "tail": 0.9, "text": "Users of this fruit never have to buy#green toys.#gold", "say": "Users of this fruit, never have to buy toys." },
+    { "id": "outro", "lead": 0.2, "tail": 2.4, "text": "Which fruit#pink do you want next?#gold Follow for more.", "say": "Which fruit do you want next? Follow for more." }
+  ]
+}
