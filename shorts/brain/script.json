@@ -1,0 +1,133 @@
+{
+ "title": "Nomi Nomi no Mi",
+ "format": "9:16",
+ "story": "/shorts/brain/story.js",
+ "voice": {
+  "name": "mb-us2",
+  "speed": 158,
+  "pitch": 48
+ },
+ "voice_override_dir": "shorts/brain/vo",
+ "voice_fx": {},
+ "music": false,
+ "structure": "3 abilities + Punk Records as the peak (no stages and no awakening)",
+ "facts": [
+  "Appearance: not revealed (plain swirl fruit stands in)",
+  "Paramecia, Brain-Brain Fruit: the user's brain grows to store endless knowledge, retaining everything learned",
+  "The brain grows as knowledge accumulates; Vegapunk's head became enormous",
+  "He detached most of his brain: Punk Records, a still-growing brain that linked people can access",
+  "His six satellites share Punk Records (revealed around chapter 1067)",
+  "User: Dr. Vegapunk"
+ ],
+ "plan": {
+  "english": "Brain-Brain Fruit",
+  "labels": "GROW, REMEMBER, DETACH, RECORDS",
+  "fruit": "The fruit's appearance **has never been revealed**, so a plain round swirl fruit in pink stands in (no face or limbs).",
+  "cast": [
+   "**Enemy (new, original):** a know-it-all rival student with red hair and a purple sweater vest.",
+   "**Dr. Vegapunk:** an old scientist with white hair, moustache and beard, a lab coat and a headset with a glowing antenna. Send a reference to match him exactly.",
+   "**The six satellites:** six coloured figures in pods (no detailed designs)."
+  ],
+  "sets": "library, indigo rays, towers of books, planetarium, circuit-board wall, classroom with a chalkboard, corridor of doors, lab with glowing tubes, sky full of data cables, hallway with a tiny door, glowing vat lab, room of six pods, exam hall."
+ },
+ "lines": [
+  {
+   "id": "hook",
+   "lead": 1.6,
+   "tail": 0.25,
+   "text": "You take a bite#red of a weird swirly#purple fruit.",
+   "say": "You take a bite of a weird swirly fruit."
+  },
+  {
+   "id": "calm",
+   "lead": 0.1,
+   "tail": 0.35,
+   "text": "Don't panic,#red that's just a Devil#purple Fruit.#purple",
+   "say": "Don't panic, that's just a Devil Fruit."
+  },
+  {
+   "id": "sea",
+   "lead": 0.1,
+   "tail": 0.25,
+   "text": "Out of every fruit in the sea,#blue",
+   "say": "Out of every fruit in the sea,"
+  },
+  {
+   "id": "name",
+   "lead": 0.05,
+   "tail": 0.9,
+   "text": "you got the Brain-Brain#pink Fruit,#pink",
+   "say": "you got the Brain-Brain Fruit,"
+  },
+  {
+   "id": "type",
+   "lead": 0.1,
+   "tail": 0.9,
+   "text": "a Paramecia#orange that lets your brain#pink store an endless amount of knowledge.#gold",
+   "say": "a Paramecia that lets your brain store an endless amount of knowledge."
+  },
+  {
+   "id": "power1",
+   "lead": 0.3,
+   "tail": 0.4,
+   "text": "First, your brain grows bigger#pink every time you learn something.#green",
+   "say": "First, your brain grows bigger every time you learn something."
+  },
+  {
+   "id": "power2",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "Then you remember everything#gold you've ever learned, forever.#blue",
+   "say": "Then you remember everything you've ever learned, forever."
+  },
+  {
+   "id": "power3",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "You can even cut your brain off#red and keep it outside your body.#purple",
+   "say": "You can even cut your brain off and keep it outside your body."
+  },
+  {
+   "id": "peak",
+   "lead": 0.55,
+   "tail": 0.6,
+   "text": "Your biggest trick is Punk Records:#gold a giant brain#pink that anyone you link to can share.#blue",
+   "say": "Your biggest trick is Punk Records: a giant brain that anyone you link to can share."
+  },
+  {
+   "id": "twist",
+   "lead": 0.25,
+   "tail": 0.4,
+   "text": "But there's a catch.#red",
+   "say": "But there's a catch."
+  },
+  {
+   "id": "truth",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "Your head grew so huge#orange that you had to cut most of your brain off.#red",
+   "say": "Your head grew so huge that you had to cut most of your brain off."
+  },
+  {
+   "id": "users",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "Doctor Vegapunk#blue ate it, and his six satellite copies#gold all share that brain.#pink",
+   "say": "Doctor Vegapunk ate it, and his six satellite copies all share that brain."
+  },
+  {
+   "id": "joke",
+   "lead": 0.2,
+   "tail": 0.9,
+   "text": "Users of this fruit never fail a test.#green",
+   "say": "Users of this fruit never fail a test."
+  },
+  {
+   "id": "outro",
+   "lead": 0.2,
+   "tail": 2.4,
+   "text": "Which fruit#pink do you want next?#gold Follow for more.",
+   "say": "Which fruit do you want next? Follow for more."
+  }
+ ]
+}

@@ -1630,7 +1630,85 @@ export const BG = {
     x.fillStyle = '#8a6a4a'; x.fillRect(-OX, 1240, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1240); x.lineTo(BW, 1240); x.stroke();
     return finish(c);
   },
+  // ---------------- Brain-Brain short ----------------
+  library() { // tall library with ladders and bookshelves
+    const [c, x] = canvas(); fill(x, '#6a4a3a', '#4a3226');
+    for (let r = 0; r < 8; r++) { x.fillStyle = '#3a2418'; x.fillRect(-OX, 120 + r * 150, BW, 16); for (let b = 0; b < 26; b++) { x.beginPath(); x.rect(-60 + b * 46, 30 + r * 150, 38, 90); fs(x, ['#c0392b', '#2f6fb5', '#5c8a3a', '#d9a03a', '#7a5ab5'][(b + r) % 5], 3); } }
+    x.strokeStyle = '#a26d45'; x.lineWidth = 14; x.beginPath(); x.moveTo(760, -OY); x.lineTo(880, 1250); x.moveTo(860, -OY); x.lineTo(980, 1250); x.stroke();
+    x.fillStyle = '#5a3a26'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
+    return finish(c);
+  },
+  bookTower() { // swirling towers of books
+    const [c, x] = canvas(); fill(x, '#ffe8c0', '#ffd8a0');
+    for (const [bx, n] of [[120, 14], [940, 12], [540, 6]]) for (let i = 0; i < n; i++) { x.save(); x.translate(bx + Math.sin(i * 0.8) * 30, 1240 - i * 70); x.rotate(Math.sin(i * 1.3) * 0.06); A_rr(x, -110, -60, 220, 60, 6, ['#c0392b', '#2f6fb5', '#5c8a3a', '#d9a03a', '#7a5ab5'][i % 5]); x.fillStyle = '#f4ead2'; x.fillRect(-100, -48, 200, 8); x.restore(); }
+    x.fillStyle = '#c99b6d'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
+    return finish(c);
+  },
+  planetarium() { // planetarium dome with stars and planets
+    const [c, x] = canvas(); fill(x, '#101838', '#2a1a4a');
+    for (let i = 0; i < 90; i++) { x.fillStyle = 'rgba(255,255,255,0.8)'; x.beginPath(); x.arc(hash(i + 1100) * 1080, hash(i + 1101) * 1200, 1 + hash(i + 1102) * 3, 0, 7); x.fill(); }
+    for (const [px, py, r, col] of [[220, 300, 70, '#ff9a5a'], [860, 520, 110, '#6fa8ff'], [500, 820, 50, '#ffd34d']]) { x.beginPath(); x.arc(px, py, r, 0, 7); fs(x, col, 6); }
+    x.beginPath(); x.ellipse(860, 520, 170, 34, -0.3, 0, 7); x.lineWidth = 8; x.strokeStyle = '#c8e0ff'; x.stroke();
+    x.fillStyle = '#2a2236'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
+    return finish(c);
+  },
+  circuitBoard() { // green circuit-board wall, for the stage
+    const [c, x] = canvas(); fill(x, '#1f5a3a', '#0f3a24');
+    x.strokeStyle = '#5affb0'; x.lineWidth = 6; for (let i = 0; i < 24; i++) { const sx = hash(i + 1110) * 1080, sy = hash(i + 1111) * 1200; x.beginPath(); x.moveTo(sx, sy); x.lineTo(sx + 120, sy); x.lineTo(sx + 160, sy + 60); x.lineTo(sx + 300, sy + 60); x.stroke(); x.beginPath(); x.arc(sx + 300, sy + 60, 10, 0, 7); x.fillStyle = '#ffd34d'; x.fill(); }
+    x.fillStyle = '#2a3a30'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
+    return finish(c);
+  },
+  classroom() { // classroom with a chalkboard full of formulas
+    const [c, x] = canvas(); fill(x, '#f4e8d0', '#e8d8b8');
+    A_rr(x, 60, 250, 960, 520, 10, '#2f4a3a'); x.strokeStyle = 'rgba(255,255,255,0.75)'; x.lineWidth = 5; x.font = '44px sans-serif'; x.fillStyle = 'rgba(255,255,255,0.8)'; ['E = mc²', 'a² + b² = c²', '∫ x dx', 'π ≈ 3.14'].forEach((t, i) => x.fillText(t, 110 + (i % 2) * 460, 380 + Math.floor(i / 2) * 200));
+    x.fillStyle = '#a26d45'; x.fillRect(-OX, 1240, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1240); x.lineTo(BW, 1240); x.stroke();
+    return finish(c);
+  },
+  memoryHall() { // endless corridor of doors with light under them
+    const [c, x] = canvas(); fill(x, '#4a3a6a', '#2a2040');
+    for (let i = 0; i < 6; i++) { const s = 1 - i * 0.14, w = 200 * s, h = 400 * s, y = 1200 - i * 90; for (const sd of [-1, 1]) { const dx = 540 + sd * (420 - i * 60); A_rr(x, dx - w / 2, y - h, w, h, 6, '#8a5a3c'); x.fillStyle = 'rgba(255,230,150,0.8)'; x.fillRect(dx - w / 2, y - 8, w, 8); } }
+    x.fillStyle = '#3a2a4a'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
+    return finish(c, 10);
+  },
+  tubeLab() { // lab with glowing tubes and wires
+    const [c, x] = canvas(); fill(x, '#d8f0f8', '#b0d8e8');
+    for (let k = 0; k < 4; k++) { const tx = 80 + k * 260; A_rr(x, tx, 300, 160, 700, 80, 'rgba(160,255,230,0.5)'); A_rr(x, tx - 10, 280, 180, 40, 10, '#8a8fa0'); A_rr(x, tx - 10, 990, 180, 40, 10, '#8a8fa0'); }
+    x.strokeStyle = '#3a3346'; x.lineWidth = 10; for (let k = 0; k < 5; k++) { x.beginPath(); x.moveTo(k * 260, 1030); x.quadraticCurveTo(k * 260 + 130, 1150, k * 260 + 260, 1030); x.stroke(); }
+    x.fillStyle = '#9ab0c0'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
+    return finish(c);
+  },
+  cableSky() { // high sky criss-crossed with glowing data cables
+    const [c, x] = canvas(); fill(x, '#6fb8ff', '#c8e8ff'); for (let i = 0; i < 4; i++) cloud(x, hash(i + 1120) * 1080, 300 + hash(i + 1121) * 1100, 1);
+    x.lineWidth = 10; for (let i = 0; i < 8; i++) { x.strokeStyle = i % 2 ? '#5affe0' : '#ff8cd0'; x.beginPath(); x.moveTo(-OX, 200 + i * 200); x.quadraticCurveTo(540, 600 + i * 100, BW, 300 + i * 180); x.stroke(); }
+    return finish(c);
+  },
+  tinyDoor() { // hallway with a very small door
+    const [c, x] = canvas(); fill(x, '#f4e0c8', '#e0c8a8');
+    A_rr(x, 470, 940, 140, 300, 10, '#8a5a3c'); x.beginPath(); x.arc(585, 1100, 8, 0, 7); x.fillStyle = '#d9b44a'; x.fill();
+    x.fillStyle = '#a26d45'; x.fillRect(-OX, 1240, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1240); x.lineTo(BW, 1240); x.stroke();
+    return finish(c);
+  },
+  vatLab() { // dim lab with a glowing glass vat
+    const [c, x] = canvas(); fill(x, '#1a2a3a', '#0f1a24');
+    const g = x.createRadialGradient(540, 800, 40, 540, 800, 600); g.addColorStop(0, 'rgba(90,255,220,0.35)'); g.addColorStop(1, 'rgba(90,255,220,0)'); x.fillStyle = g; x.fillRect(-OX, -OY, BW, BH);
+    x.fillStyle = '#2a3440'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
+    return finish(c);
+  },
+  podRoom() { // futuristic room with six glowing pods
+    const [c, x] = canvas(); fill(x, '#eef4ff', '#d0dcf0');
+    for (let k = 0; k < 6; k++) { const px = 60 + (k % 3) * 340, py = 260 + Math.floor(k / 3) * 480; A_rr(x, px, py, 280, 400, 140, 'rgba(160,220,255,0.6)'); x.fillStyle = ['#ff8cbc', '#ffd34d', '#5cc45a', '#6fa8ff', '#b07cff', '#ff8a2e'][k]; x.beginPath(); x.arc(px + 140, py + 150, 50, 0, 7); x.fill(); x.fillRect(px + 90, py + 210, 100, 140); }
+    x.fillStyle = '#c8d4e8'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
+    return finish(c);
+  },
+  examHall() { // exam hall: rows of desks
+    const [c, x] = canvas(); fill(x, '#e8f0f8', '#d0dce8');
+    rrect(x, 340, 200, 400, 120, 10); fs(x, '#ffffff', 8); x.font = 'bold 60px sans-serif'; x.textAlign = 'center'; x.fillStyle = '#c0392b'; x.fillText('EXAM', 540, 285);
+    for (let r = 0; r < 3; r++) for (let k = 0; k < 4; k++) { const dx = 60 + k * 260 + (r % 2) * 60, dy = 700 + r * 170; A_rr(x, dx, dy, 200, 30, 6, '#c99b6d'); A_rr(x, dx + 60, dy - 20, 80, 24, 4, '#ffffff'); }
+    x.fillStyle = '#b8a890'; x.fillRect(-OX, 1240, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1240); x.lineTo(BW, 1240); x.stroke();
+    return finish(c);
+  },
 };
+
 
 
 
