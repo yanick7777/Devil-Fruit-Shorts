@@ -1,0 +1,132 @@
+{
+ "title": "Bara Bara no Mi",
+ "format": "9:16",
+ "story": "/shorts/chop/story.js",
+ "voice": {
+  "name": "mb-us2",
+  "speed": 158,
+  "pitch": 48
+ },
+ "voice_override_dir": "shorts/chop/vo",
+ "voice_fx": {},
+ "music": false,
+ "structure": "3 techniques + Chop-Chop Festival as the peak (no stages and no awakening)",
+ "facts": [
+  "Appearance (One Piece Wiki): an oval purple fruit (orange in the anime) made of little spherical pieces with swirls and green leaves on top",
+  "Paramecia, Chop-Chop Fruit: the user can split the body into pieces and control them",
+  "Immune to slashing: blades just separate him (Chop-Chop Cannon shoots his hand; Emergency Escape pops off his head)",
+  "Chop-Chop Festival: splits into many tiny pieces",
+  "His feet cannot float and must stay on the ground",
+  "Buggy swallowed it by accident on Roger's ship (Oro Jackson)"
+ ],
+ "plan": {
+  "english": "Chop-Chop Fruit",
+  "labels": "NO CUTS, CANNON, HEAD POP, FESTIVAL",
+  "fruit": "One Piece Wiki Appearance: **an oval purple fruit made of little spherical pieces with swirls and green leaves on top** (purple as in the manga; the script says purple).",
+  "cast": [
+   "**Enemy (new, original):** a ronin swordsman with a straw kasa hat and a topknot.",
+   "**Buggy:** big red round nose, blue hair, red lips and grin, black tricorn hat, red captain coat. Send a reference to match him exactly."
+  ],
+  "sets": "carnival at night, amber rays, market fruit stall, magician's stage, jigsaw-piece wall, Japanese garden, shooting gallery, haunted hallway, confetti arena, muddy field with footprints, army obstacle course, legendary old ship at night, bathroom."
+ },
+ "lines": [
+  {
+   "id": "hook",
+   "lead": 1.6,
+   "tail": 0.25,
+   "text": "You take a bite#red of a weird purple#purple fruit.",
+   "say": "You take a bite of a weird purple fruit."
+  },
+  {
+   "id": "calm",
+   "lead": 0.1,
+   "tail": 0.35,
+   "text": "Don't panic,#red that's just a Devil#purple Fruit.#purple",
+   "say": "Don't panic, that's just a Devil Fruit."
+  },
+  {
+   "id": "sea",
+   "lead": 0.1,
+   "tail": 0.25,
+   "text": "Out of every fruit in the sea,#blue",
+   "say": "Out of every fruit in the sea,"
+  },
+  {
+   "id": "name",
+   "lead": 0.05,
+   "tail": 0.9,
+   "text": "you got the Chop-Chop#purple Fruit,#purple",
+   "say": "you got the Chop-Chop Fruit,"
+  },
+  {
+   "id": "type",
+   "lead": 0.1,
+   "tail": 0.9,
+   "text": "a Paramecia#orange that splits your body into pieces#red you can float around.#blue",
+   "say": "a Paramecia that splits your body into pieces you can float around."
+  },
+  {
+   "id": "power1",
+   "lead": 0.3,
+   "tail": 0.4,
+   "text": "First, swords#blue cut right through you without hurting you at all.#green",
+   "say": "First, swords cut right through you without hurting you at all."
+  },
+  {
+   "id": "power2",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "Then you fire your fist#red off like a rocket.#orange",
+   "say": "Then you fire your fist off like a rocket."
+  },
+  {
+   "id": "power3",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "You can even pop off your own head#red to escape.#green",
+   "say": "You can even pop off your own head to escape."
+  },
+  {
+   "id": "peak",
+   "lead": 0.55,
+   "tail": 0.6,
+   "text": "Your strongest move is Chop-Chop Festival:#gold you split into tons of tiny pieces#purple and attack from everywhere.#red",
+   "say": "Your strongest move is Chop-Chop Festival: you split into tons of tiny pieces and attack from everywhere."
+  },
+  {
+   "id": "twist",
+   "lead": 0.25,
+   "tail": 0.4,
+   "text": "But there's a catch.#red",
+   "say": "But there's a catch."
+  },
+  {
+   "id": "truth",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "Your feet#orange can't float, they always have to stay on the ground.#red",
+   "say": "Your feet can't float, they always have to stay on the ground."
+  },
+  {
+   "id": "users",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "Buggy#blue swallowed it by accident#red on Roger's ship,#gold and he's been a clown#pink about it ever since.",
+   "say": "Buggy swallowed it by accident on Roger's ship, and he's been a clown about it ever since."
+  },
+  {
+   "id": "joke",
+   "lead": 0.2,
+   "tail": 0.9,
+   "text": "Users of this fruit can finally scratch their own back.#green",
+   "say": "Users of this fruit can finally scratch their own back."
+  },
+  {
+   "id": "outro",
+   "lead": 0.2,
+   "tail": 2.4,
+   "text": "Which fruit#pink do you want next?#gold Follow for more.",
+   "say": "Which fruit do you want next? Follow for more."
+  }
+ ]
+}

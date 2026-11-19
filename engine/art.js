@@ -89,6 +89,10 @@ export const LOOKS = {
           top: 'coat', cloth: '#f4f0e6', clothD: '#d9d0bc', inner: '#d9b44a', innerD: '#b8942a', pants: '#f4f0e6', shoe: '#d9b44a', boots: true, cuff: '#d9b44a' },
   knight: { skin: '#e8b48a', skinD: '#cc9670', hair: '#3a2a20', hairL: '#5b4434', hairStyle: 'bald', hat: 'knightHelm',
           top: 'coat', cloth: '#b8bcc8', clothD: '#8a8e9a', inner: '#e8402e', innerD: '#b52a1f', pants: '#8a8e9a', shoe: '#5a5e6a', boots: true, cuff: '#8a8e9a', arm: '#b8bcc8' },
+  buggy: { skin: '#f8e8dc', skinD: '#e0c8b8', hair: '#5ab8e8', hairL: '#9ad8ff', hairStyle: 'long', hat: 'tricorn', clownNose: true, lips: true, grinWide: true,
+          top: 'coat', cloth: '#d8342c', clothD: '#a92620', inner: '#f4f1ea', innerD: '#cfc8b8', pants: '#5a3a8a', pantsStripes: '#f4f4f4', shoe: '#2a2026', boots: true, cuff: '#ffcf3a' },
+  ronin: { skin: '#e8b48a', skinD: '#cc9670', hair: '#1d1a22', hairL: '#3d3443', hairStyle: 'topknot', hat: 'kasa', stache2: true,
+          top: 'coat', cloth: '#5a6a8a', clothD: '#3f4a6a', inner: '#e8dcc0', innerD: '#c9b89a', pants: '#3a3346', shoe: '#8a6a4a', boots: false, cuff: '#5a6a8a' },
   sabo: { skin: '#f7cc9c', skinD: '#e2ab78', hair: '#f2cf55', hairL: '#ffe58a', hairStyle: 'curly', hat: 'top', scar: true,
           top: 'coat', cloth: '#2f4f8f', clothD: '#223a6c', inner: '#f4f1ea', innerD: '#cfc8b8', cravat: true, pants: '#3a3340', shoe: '#6b4630', boots: true, cuff: '#f4f1ea' },
 };
@@ -458,6 +462,7 @@ export function drawPerson({ who = 'host', expr = 'calm', mouth = 0, blink = fal
   if (L.crossNecklace) { x.fillStyle = '#5a2a20'; x.fillRect(372, 610, 16, 44); x.fillRect(360, 622, 40, 14); }
   if (L.sharpTeeth) { x.beginPath(); x.moveTo(300, 470); x.quadraticCurveTo(385, 560, 470, 470); x.closePath(); fs(x, '#ffffff', 8); x.lineWidth = 4; x.strokeStyle = OL; x.beginPath(); for (let i = 0; i < 7; i++) { const tx = 310 + i * 25; x.moveTo(tx, 476); x.lineTo(tx + 12, 500); x.lineTo(tx + 25, 476); } x.stroke(); }
   if (L.piercings) { x.fillStyle = '#d9dce6'; for (const [px, py] of [[160, 360], [165, 395], [600, 360], [400, 455]]) { x.beginPath(); x.arc(px, py, 9, 0, 7); x.fill(); x.lineWidth = 3; x.strokeStyle = OL; x.stroke(); } }
+  if (L.clownNose) { x.beginPath(); x.arc(390, 430, 52, 0, 7); fs(x, '#e8302e', 9); x.beginPath(); x.arc(372, 412, 14, 0, 7); x.fillStyle = 'rgba(255,255,255,0.8)'; x.fill(); }
   if (L.lips) { x.beginPath(); x.ellipse(385, 488, 34, 12, 0, 0, 7); x.fillStyle = '#d6303e'; x.fill(); }
   if (L.hat === 'killerMask') { // round striped mask covering the whole face, with breathing holes
     x.beginPath(); x.ellipse(380, 330, 225, 240, 0, 0, 7); fs(x, '#f4f4f8', 12); x.save(); x.clip(); x.fillStyle = '#3f6fb5'; for (let k = -3; k < 4; k++) x.fillRect(360 + k * 90, 60, 44, 600); x.restore();
@@ -475,6 +480,7 @@ export function drawPerson({ who = 'host', expr = 'calm', mouth = 0, blink = fal
     x.beginPath(); x.moveTo(380, 60); x.quadraticCurveTo(470, -40, 520, 40); x.lineWidth = 30; x.strokeStyle = '#e8402e'; x.lineCap = 'round'; x.stroke(); }
   if (L.hat === 'holyHood') { x.beginPath(); x.moveTo(130, 560); x.bezierCurveTo(60, -60, 700, -60, 630, 560); x.lineTo(560, 560); x.bezierCurveTo(600, 200, 160, 200, 200, 560); x.closePath(); fs(x, '#f4f0e6', 12);
     x.beginPath(); x.moveTo(200, 560); x.bezierCurveTo(160, 200, 600, 200, 560, 560); x.closePath(); x.fillStyle = 'rgba(20,16,30,0.55)'; x.fill(); x.lineWidth = 10; x.strokeStyle = '#d9b44a'; x.beginPath(); x.moveTo(140, 520); x.bezierCurveTo(80, -20, 680, -20, 620, 520); x.stroke(); }
+  if (L.hat === 'kasa') { x.beginPath(); x.moveTo(60, 230); x.lineTo(380, 20); x.lineTo(700, 230); x.quadraticCurveTo(380, 280, 60, 230); x.closePath(); fs(x, '#d9b46a', 12); x.strokeStyle = 'rgba(120,80,30,0.5)'; x.lineWidth = 5; for (let k = -4; k <= 4; k++) { x.beginPath(); x.moveTo(380, 30); x.lineTo(380 + k * 75, 240); x.stroke(); } }
   if (L.hat === 'beanie') {
     x.beginPath(); x.moveTo(180, 300); x.bezierCurveTo(170, 60, 590, 60, 580, 300); x.closePath(); fs(x, '#c0392b', 12); rrect(x, 165, 250, 430, 70, 24); fs(x, '#962a1f', 11); x.beginPath(); x.arc(380, 70, 40, 0, 7); fs(x, '#f4f4f8', 9);
   } else if (L.hat === 'chef') {

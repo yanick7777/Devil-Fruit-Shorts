@@ -1391,7 +1391,91 @@ export const BG = {
     for (let r = 0; r < 7; r++) for (let k = 0; k < 6; k++) { if (hash(r * 6 + k + 920) > 0.45) A_rr(x, -40 + k * 200, 620 + r * 220, 200, 70, 14, '#4f9a3a'); if (hash(r * 6 + k + 930) > 0.55) A_rr(x, -40 + k * 200, 620 + r * 220, 60, 220, 14, '#3f8a2a'); }
     return finish(c);
   },
+  // ---------------- Chop-Chop short ----------------
+  carnivalNight() { // carnival at night: ferris wheel and string lights
+    const [c, x] = canvas(); fill(x, '#2a1a4a', '#5a2a6a', -OY, 1300);
+    x.save(); x.translate(780, 600); for (let i = 0; i < 12; i++) { x.rotate(Math.PI / 6); x.beginPath(); x.moveTo(0, 0); x.lineTo(0, -320); x.lineWidth = 6; x.strokeStyle = '#ffd77a'; x.stroke(); x.beginPath(); x.arc(0, -320, 26, 0, 7); fs(x, ['#e8402e', '#3f9bff', '#ffcf3a'][i % 3], 4); } x.beginPath(); x.arc(0, 0, 320, 0, 7); x.lineWidth = 8; x.stroke(); x.restore();
+    for (let i = 0; i < 18; i++) { x.fillStyle = ['#ff5a8a', '#ffd34d', '#5affe0'][i % 3]; x.beginPath(); x.arc(i * 70, 260 + Math.sin(i / 17 * Math.PI) * 80, 10, 0, 7); x.fill(); }
+    x.fillStyle = '#3a2a3a'; x.fillRect(-OX, 1240, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1240); x.lineTo(BW, 1240); x.stroke();
+    return finish(c);
+  },
+  fruitStall() { // market fruit stall with a striped awning
+    const [c, x] = canvas(); fill(x, '#ffe8c0', '#fff4e0', -OY, 900);
+    for (let k = 0; k < 9; k++) { x.beginPath(); x.moveTo(-60 + k * 140, 200); x.lineTo(80 + k * 140, 200); x.lineTo(80 + k * 140, 360); x.quadraticCurveTo(10 + k * 140, 400, -60 + k * 140, 360); x.closePath(); fs(x, k % 2 ? '#5cc45a' : '#ffffff', 6); }
+    x.fillStyle = '#a26d45'; x.fillRect(-OX, 1050, BW, 200); for (let i = 0; i < 18; i++) { x.beginPath(); x.arc(20 + (i % 9) * 125, 1010 + Math.floor(i / 9) * 70, 40, 0, 7); fs(x, ['#e8402e', '#ffcf3a', '#5cc45a', '#ff8a2e'][i % 4], 5); }
+    x.fillStyle = '#c9a880'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
+    return finish(c);
+  },
+  magicStage() { // magician's stage: star curtain and a sawing box
+    const [c, x] = canvas(); fill(x, '#1a2a6a', '#0f1a40');
+    x.fillStyle = '#ffd34d'; for (let i = 0; i < 24; i++) { x.save(); x.translate(hash(i + 940) * 1080, hash(i + 941) * 1100); x.beginPath(); for (let k = 0; k < 10; k++) { const a = k / 10 * Math.PI * 2 - Math.PI / 2, r = k % 2 ? 8 : 20; x.lineTo(Math.cos(a) * r, Math.sin(a) * r); } x.closePath(); x.fill(); x.restore(); }
+    x.fillStyle = '#8a1a3a'; x.fillRect(-OX, 1200, BW, 1100); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1200); x.lineTo(BW, 1200); x.stroke();
+    return finish(c);
+  },
+  puzzleRoom() { // giant jigsaw-piece wall, for the techniques stage
+    const [c, x] = canvas(); fill(x, '#ffe0a8', '#ffc880');
+    for (let r = 0; r < 6; r++) for (let k = 0; k < 6; k++) { const px = -60 + k * 210, py = -100 + r * 220; rrect(x, px, py, 200, 210, 20); x.fillStyle = ['#ff9ccf', '#a8e0ff', '#c8f0a8', '#ffe680'][(r + k) % 4]; x.fill(); x.lineWidth = 6; x.strokeStyle = 'rgba(27,21,48,0.4)'; x.stroke(); x.beginPath(); x.arc(px + 100, py + 210, 30, 0, Math.PI); x.fill(); }
+    x.fillStyle = '#a26d45'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
+    return finish(c);
+  },
+  zenGarden() { // Japanese garden: raked gravel, maple tree, stone lantern
+    const [c, x] = canvas(); fill(x, '#ffe0d0', '#fff4ec', -OY, 900);
+    A_rr(x, 140, 400, 60, 700, 20, '#5a3a2a'); for (let i = 0; i < 9; i++) { x.beginPath(); x.arc(170 + Math.cos(i) * 180, 380 + Math.sin(i * 1.7) * 120, 110, 0, 7); x.fillStyle = 'rgba(232,80,60,0.85)'; x.fill(); }
+    A_rr(x, 820, 900, 120, 40, 8, '#9a9aa8'); A_rr(x, 845, 940, 70, 150, 8, '#9a9aa8'); A_rr(x, 800, 1090, 160, 40, 8, '#9a9aa8');
+    x.fillStyle = '#e8e0d0'; x.fillRect(-OX, 1150, BW, 1100); x.strokeStyle = 'rgba(150,140,120,0.6)'; x.lineWidth = 5; for (let k = 0; k < 12; k++) { x.beginPath(); x.moveTo(-OX, 1200 + k * 70); x.quadraticCurveTo(540, 1180 + k * 70, BW, 1200 + k * 70); x.stroke(); }
+    x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1150); x.lineTo(BW, 1150); x.stroke();
+    return finish(c);
+  },
+  shootingGallery() { // fairground shooting gallery with tin ducks
+    const [c, x] = canvas(); fill(x, '#ffcf3a', '#ffb02a');
+    for (let k = 0; k < 9; k++) { x.beginPath(); x.moveTo(-60 + k * 140, 100); x.lineTo(80 + k * 140, 100); x.lineTo(80 + k * 140, 240); x.quadraticCurveTo(10 + k * 140, 280, -60 + k * 140, 240); x.closePath(); fs(x, k % 2 ? '#e8402e' : '#ffffff', 6); }
+    for (let r = 0; r < 2; r++) { x.fillStyle = '#5a3a26'; x.fillRect(-OX, 560 + r * 260, BW, 20); for (let k = 0; k < 6; k++) { const dx = 40 + k * 190 + r * 80; x.beginPath(); x.ellipse(dx, 520 + r * 260, 50, 34, 0, 0, 7); fs(x, '#ffe680', 6); x.beginPath(); x.arc(dx + 40, 480 + r * 260, 22, 0, 7); fs(x, '#ffe680', 6); } }
+    x.fillStyle = '#8a1a2a'; x.fillRect(-OX, 1150, BW, 1100); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1150); x.lineTo(BW, 1150); x.stroke();
+    return finish(c);
+  },
+  hauntedHouse() { // spooky hallway with crooked portraits
+    const [c, x] = canvas(); fill(x, '#3a2a4a', '#1f1428');
+    for (const [px, py, r] of [[120, 300, -0.1], [780, 380, 0.12], [420, 220, 0.05]]) { x.save(); x.translate(px + 110, py + 140); x.rotate(r); rrect(x, -110, -140, 220, 280, 10); fs(x, '#8a6a3a', 9); rrect(x, -88, -118, 176, 236, 6); fs(x, '#4a3a5a', 0); x.beginPath(); x.arc(0, -20, 50, 0, 7); x.fillStyle = 'rgba(200,200,220,0.4)'; x.fill(); x.restore(); }
+    x.fillStyle = '#2a1f2a'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
+    return finish(c);
+  },
+  confettiArena() { // spotlit arena with confetti raining down
+    const [c, x] = canvas(); fill(x, '#3a1a5a', '#6a2a8a');
+    for (const sx of [200, 880]) { const g = x.createLinearGradient(sx, 0, 540, 1250); g.addColorStop(0, 'rgba(255,240,200,0.5)'); g.addColorStop(1, 'rgba(255,240,200,0)'); x.fillStyle = g; x.beginPath(); x.moveTo(sx - 40, -OY); x.lineTo(sx + 40, -OY); x.lineTo(740, 1250); x.lineTo(340, 1250); x.fill(); }
+    for (let i = 0; i < 80; i++) { x.fillStyle = ['#ff5a7a', '#3f9bff', '#ffcf3a', '#5cc45a', '#ffffff'][i % 5]; x.save(); x.translate(hash(i + 950) * 1080, hash(i + 951) * 1200); x.rotate(hash(i + 952) * 3); x.fillRect(-10, -5, 20, 10); x.restore(); }
+    x.fillStyle = '#5a3a2a'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
+    return finish(c);
+  },
+  muddyField() { // grey field with footprints in the mud
+    const [c, x] = canvas(); fill(x, '#a8b0b8', '#d0d4d8', -OY, 1000);
+    x.fillStyle = '#8a7a6a'; x.fillRect(-OX, 1000, BW, 1300); x.fillStyle = '#6a5a4a'; for (let i = 0; i < 8; i++) { x.beginPath(); x.ellipse(200 + (i % 2) * 120 + i * 60, 1150 + i * 110, 40, 22, 0.4, 0, 7); x.fill(); }
+    x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1000); x.lineTo(BW, 1000); x.stroke();
+    return finish(c);
+  },
+  bootCamp() { // army obstacle course with a climbing wall
+    const [c, x] = canvas(); fill(x, '#9ed8ff', '#e8f6ff', -OY, 1000);
+    A_rr(x, 600, 600, 420, 640, 8, '#a26d45'); x.strokeStyle = 'rgba(60,30,15,0.5)'; x.lineWidth = 6; for (let k = 0; k < 8; k++) { x.beginPath(); x.moveTo(600, 640 + k * 75); x.lineTo(1020, 640 + k * 75); x.stroke(); }
+    x.strokeStyle = '#d9c8a0'; x.lineWidth = 10; for (let k = 0; k < 4; k++) { x.beginPath(); x.moveTo(100 + k * 100, 700); x.quadraticCurveTo(150 + k * 100, 900, 120 + k * 100, 1240); x.stroke(); }
+    x.fillStyle = '#9a8a6a'; x.fillRect(-OX, 1240, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1240); x.lineTo(BW, 1240); x.stroke();
+    return finish(c);
+  },
+  oldShipNight() { // legendary old pirate ship deck at night under a skull flag
+    const [c, x] = canvas(); fill(x, '#141a36', '#2a3460', -OY, 1100);
+    A_rr(x, 500, -OY, 60, 1300, 10, '#5a3a26'); x.beginPath(); x.moveTo(560, 80); x.lineTo(900, 160); x.lineTo(560, 300); x.closePath(); fs(x, '#1a1a22', 8); x.beginPath(); x.arc(680, 180, 34, 0, 7); x.fillStyle = '#f4f4f4'; x.fill();
+    x.strokeStyle = '#f4f4f4'; x.lineWidth = 8; x.beginPath(); x.moveTo(630, 230); x.lineTo(730, 140); x.moveTo(630, 140); x.lineTo(730, 230); x.stroke();
+    x.fillStyle = '#6b4630'; x.fillRect(-OX, 1200, BW, 1100); x.strokeStyle = 'rgba(30,15,5,0.5)'; x.lineWidth = 6; for (let k = 0; k < 16; k++) { x.beginPath(); x.moveTo(-OX, 1240 + k * 60); x.lineTo(BW, 1240 + k * 60); x.stroke(); }
+    x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1200); x.lineTo(BW, 1200); x.stroke();
+    return finish(c);
+  },
+  bathroom() { // bathroom with tiles and a mirror
+    const [c, x] = canvas(); fill(x, '#e0f4f8', '#c8e8f0');
+    for (let r = 0; r < 30; r++) for (let k = 0; k < 12; k++) { x.strokeStyle = 'rgba(120,170,190,0.4)'; x.lineWidth = 3; x.strokeRect(-60 + k * 100, -120 + r * 100, 100, 100); }
+    rrect(x, 640, 300, 320, 420, 30); fs(x, '#c8e8ff', 10); x.beginPath(); x.moveTo(690, 360); x.lineTo(760, 320); x.lineWidth = 10; x.strokeStyle = '#ffffff'; x.stroke();
+    x.fillStyle = '#9ac8d8'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
+    return finish(c);
+  },
 };
+
 
 
 
