@@ -71,6 +71,12 @@ export const LOOKS = {
           top: 'vest', cloth: '#e8402e', clothD: '#ffcf3a', inner: '#f3c09a', pants: '#3f6fb5', shorts: true, shoe: '#c9934f', boots: false, arm: '#f3c09a', sleeveSkin: true },
   fisher: { skin: '#e8b48a', skinD: '#cc9670', hair: '#7a4a2a', hairL: '#a26d45', hairStyle: 'bald', beard: true, hat: 'souwester',
           top: 'coat', cloth: '#ffcf2e', clothD: '#e8b005', inner: '#3f6fb5', innerD: '#2a4f8a', pants: '#3f6fb5', shoe: '#2a3a2a', boots: true, cuff: '#ffcf2e' },
+  cracker: { skin: '#f3c8a8', skinD: '#d9a888', hair: '#b48ce0', hairL: '#d8bcff', hairStyle: 'spikyLong', grinWide: true,
+          top: 'coat', cloth: '#5a3a8a', clothD: '#3f2a6a', inner: '#e8b86a', innerD: '#c9984a', pants: '#3a2a5a', shoe: '#2a2026', boots: true, cuff: '#e8b86a' },
+  luffy: { skin: '#f3c08a', skinD: '#dca06a', hair: '#1d1a22', hairL: '#3d3443', hairStyle: 'messy', hat: 'straw', eyeScar: true,
+          top: 'vest', cloth: '#d8342c', clothD: '#a92620', inner: '#f3c08a', pants: '#3f6fb5', shorts: true, shoe: '#c9934f', boots: false, arm: '#f3c08a', sleeveSkin: true },
+  ninja: { skin: '#e8b48a', skinD: '#cc9670', hair: '#2a2a36', hairL: '#3d3443', hairStyle: 'bald', hat: 'hood', hoodColor: '#2a2a36', ninjaMask: true,
+          top: 'tee', cloth: '#2a2a36', clothD: '#1b1b26', inner: '#2a2a36', pants: '#2a2a36', shoe: '#1b1b26', boots: true, sleeveSkin: false, arm: '#2a2a36' },
   sabo: { skin: '#f7cc9c', skinD: '#e2ab78', hair: '#f2cf55', hairL: '#ffe58a', hairStyle: 'curly', hat: 'top', scar: true,
           top: 'coat', cloth: '#2f4f8f', clothD: '#223a6c', inner: '#f4f1ea', innerD: '#cfc8b8', cravat: true, pants: '#3a3340', shoe: '#6b4630', boots: true, cuff: '#f4f1ea' },
 };
@@ -334,6 +340,9 @@ export function drawPerson({ who = 'host', expr = 'calm', mouth = 0, blink = fal
     x.moveTo(170, 300); x.bezierCurveTo(130, 120, 260, 60, 330, 80); x.bezierCurveTo(420, -40, 720, 0, 640, 150); x.quadraticCurveTo(600, 230, 590, 300); x.quadraticCurveTo(380, 210, 170, 300); x.closePath();
   } else if (L.hairStyle === 'wild') { // long messy hair down to the shoulders
     x.moveTo(130, 560); x.lineTo(110, 380); x.bezierCurveTo(60, 60, 700, 60, 650, 380); x.lineTo(640, 560); x.lineTo(590, 470); x.lineTo(580, 300); x.quadraticCurveTo(380, 200, 180, 300); x.lineTo(170, 470); x.closePath();
+  } else if (L.hairStyle === 'spikyLong') { // tall spiky hair flaring up and back
+    x.moveTo(150, 360); [[120, 240], [60, 160], [170, 170], [140, 60], [250, 120], [270, 10], [350, 100], [400, -10], [450, 100], [530, 20], [540, 130], [640, 80], [600, 190], [700, 200], [610, 280], [610, 360]].forEach(([a, b]) => x.lineTo(a, b));
+    x.quadraticCurveTo(470, 250, 380, 240); x.quadraticCurveTo(270, 250, 150, 360); x.closePath();
   } else if (L.hairStyle === 'bald') { x.moveTo(380, 330);
   } else { // bandana
     x.moveTo(160, 300); x.bezierCurveTo(150, 100, 610, 100, 600, 300); x.quadraticCurveTo(380, 250, 160, 300); x.closePath();
@@ -359,6 +368,7 @@ export function drawPerson({ who = 'host', expr = 'calm', mouth = 0, blink = fal
   if (L.hairpins) for (const [px, py, r] of [[260, 40, -0.6], [500, 40, 0.6]]) { x.save(); x.translate(px, py); x.rotate(r); rrect(x, -8, -90, 16, 140, 6); fs(x, '#d9b44a', 5); x.beginPath(); x.arc(0, -96, 20, 0, 7); fs(x, '#e8303c', 5); x.restore(); }
   if (L.kiseru) { x.save(); x.translate(430, 500); x.rotate(0.35); rrect(x, 0, -7, 200, 14, 6); fs(x, '#3a2a20', 5); rrect(x, 190, -22, 30, 30, 6); fs(x, '#d9b44a', 5); x.restore(); }
   if (L.curlyBrow) { x.beginPath(); x.arc(300, 270, 16, 0, Math.PI * 1.6); x.lineWidth = 8; x.strokeStyle = '#c99a2e'; x.stroke(); }
+  if (L.ninjaMask) { x.beginPath(); x.moveTo(170, 400); x.quadraticCurveTo(380, 380, 590, 400); x.bezierCurveTo(580, 520, 500, 580, 380, 586); x.bezierCurveTo(260, 580, 180, 520, 170, 400); x.closePath(); fs(x, '#2a2a36', 10); }
   if (L.lips) { x.beginPath(); x.ellipse(385, 488, 34, 12, 0, 0, 7); x.fillStyle = '#d6303e'; x.fill(); }
   if (L.hat === 'killerMask') { // round striped mask covering the whole face, with breathing holes
     x.beginPath(); x.ellipse(380, 330, 225, 240, 0, 0, 7); fs(x, '#f4f4f8', 12); x.save(); x.clip(); x.fillStyle = '#3f6fb5'; for (let k = -3; k < 4; k++) x.fillRect(360 + k * 90, 60, 44, 600); x.restore();
