@@ -109,6 +109,26 @@ export const LOOKS = {
           top: 'coat', cloth: '#f8f8fc', clothD: '#d8dce8', inner: '#f8c8d8', innerD: '#e8a8c0', innerDots: '#d8343a', pants: '#1f1c2a', shoe: '#14121a', boots: false, cuff: '#f8f8fc' },
   rival: { skin: '#f3c8a0', skinD: '#d9a880', hair: '#d8642c', hairL: '#f08a4a', hairStyle: 'short', grinWide: false,
           top: 'vest', cloth: '#7a5ab5', clothD: '#5a3f8a', inner: '#ffffff', pants: '#5a5a6a', shoe: '#3a2a20', boots: false, arm: '#ffffff', sleeveSkin: false },
+  kalifa: { skin: '#f6dcc4', skinD: '#dcbca4', hair: '#f2d27a', hairL: '#ffe9a8', hairStyle: 'updo', glasses: true, lips: true,
+          top: 'coat', cloth: '#2a2a34', clothD: '#1b1b24', inner: '#f4f4f8', innerD: '#cfd0dc', pants: '#2a2a34', shoe: '#14121a', boots: false, cuff: '#2a2a34' },
+  wapol: { skin: '#f0c8a0', skinD: '#d6a880', hair: '#1d1a22', hairL: '#3d3443', hairStyle: 'short', hat: 'crown2', metalJaw: true,
+          top: 'coat', cloth: '#6a3a8a', clothD: '#4a2a6a', inner: '#f4ead2', innerD: '#d8c8a8', pants: '#3a3a46', shoe: '#2a2026', boots: true, cuff: '#f4f4f8' },
+  mr5: { skin: '#c98d64', skinD: '#ab7049', hair: '#1d1a22', hairL: '#3d3443', hairStyle: 'short', shades: true,
+          top: 'coat', cloth: '#f4ead2', clothD: '#d8c8a8', inner: '#3a2a20', innerD: '#2a1a14', pants: '#3a2a20', shoe: '#2a2026', boots: true, cuff: '#f4ead2' },
+  mr3: { skin: '#f3d8bc', skinD: '#d9b89c', hair: '#1d1a22', hairL: '#3d3443', hairStyle: 'three', glasses: true,
+          top: 'coat', cloth: '#e8e4f0', clothD: '#c8c0d8', inner: '#7a5ab5', innerD: '#5a3f8a', pants: '#7a5ab5', pantsStripes: '#e8e4f0', shoe: '#2a2026', boots: false, cuff: '#e8e4f0' },
+  kanjuro: { skin: '#f8f0e8', skinD: '#e0d4c8', hair: '#1d1a22', hairL: '#3d3443', hairStyle: 'long', kabuki: true,
+          top: 'coat', cloth: '#c0392b', clothD: '#962a1f', inner: '#f4ead2', innerD: '#d8c8a8', pants: '#3a3346', shoe: '#8a6a4a', boots: false, cuff: '#c0392b' },
+  farmer: { skin: '#e8b48a', skinD: '#cc9670', hair: '#7a4a2a', hairL: '#a26d45', hairStyle: 'short', hat: 'straw',
+          top: 'overalls', cloth: '#3f6fb5', clothD: '#2a4f8a', pants: '#3f6fb5', shoe: '#6b4630', boots: true, arm: '#e8b48a' },
+  cowboy: { skin: '#d9a27a', skinD: '#bb8460', hair: '#3a2a20', hairL: '#5b4434', hairStyle: 'short', hat: 'cowboy', stache2: true,
+          top: 'vest', cloth: '#8a5a3c', clothD: '#6b4630', inner: '#e8dcc0', pants: '#3f6fb5', shoe: '#6b4630', boots: true, arm: '#e8dcc0', sleeveSkin: false },
+  mechanic: { skin: '#c98d64', skinD: '#ab7049', hair: '#1d1a22', hairL: '#3d3443', hairStyle: 'short', hat: 'mechCap',
+          top: 'tee', cloth: '#5a6a7a', clothD: '#3a4a5a', inner: '#5a6a7a', pants: '#5a6a7a', shoe: '#2a2026', boots: true, sleeveSkin: true },
+  surfer: { skin: '#e8b48a', skinD: '#cc9670', hair: '#f2d27a', hairL: '#ffe9a8', hairStyle: 'messy',
+          top: 'tank', cloth: '#ff8a2e', clothD: '#e86a1a', pants: '#3fb8d8', shorts: true, shoe: '#f4f4f8', boots: false, arm: '#e8b48a' },
+  critic: { skin: '#f3d8bc', skinD: '#d9b89c', hair: '#1d1a22', hairL: '#3d3443', hairStyle: 'short', hat: 'beret', stache2: true,
+          top: 'tee', cloth: '#1f1c26', clothD: '#14121a', inner: '#1f1c26', pants: '#3a3a46', shoe: '#14121a', boots: false, sleeveSkin: false, arm: '#1f1c26' },
   sabo: { skin: '#f7cc9c', skinD: '#e2ab78', hair: '#f2cf55', hairL: '#ffe58a', hairStyle: 'curly', hat: 'top', scar: true,
           top: 'coat', cloth: '#2f4f8f', clothD: '#223a6c', inner: '#f4f1ea', innerD: '#cfc8b8', cravat: true, pants: '#3a3340', shoe: '#6b4630', boots: true, cuff: '#f4f1ea' },
 };
@@ -464,6 +484,12 @@ export function drawPerson({ who = 'host', expr = 'calm', mouth = 0, blink = fal
     x.moveTo(250, 260); x.quadraticCurveTo(230, 40, 340, -120); x.quadraticCurveTo(420, -60, 520, -150); x.quadraticCurveTo(560, 60, 510, 260); x.quadraticCurveTo(380, 210, 250, 260); x.closePath();
   } else if (L.hairStyle === 'vegaHair') { // wild white tufts on both sides of a bald head
     for (const sd of [-1, 1]) { x.moveTo(380 + sd * 170, 120); for (let i = 0; i <= 8; i++) { const a = -0.9 + i * 0.25; x.lineTo(380 + sd * (200 + (i % 2 ? 150 : 90)) * Math.cos(a * 0.6), 280 + Math.sin(a) * 260); } x.lineTo(380 + sd * 180, 480); x.closePath(); }
+  } else if (L.hairStyle === 'updo') { // hair pulled up into a high bun with a long fringe
+    x.moveTo(160, 360); x.bezierCurveTo(130, 110, 630, 110, 600, 360); x.quadraticCurveTo(560, 230, 420, 230); x.quadraticCurveTo(300, 250, 230, 330); x.lineTo(210, 420); x.closePath();
+    x.moveTo(280, 150); x.bezierCurveTo(250, 0, 510, 0, 480, 150); x.closePath();
+  } else if (L.hairStyle === 'three') { // black hair shaped into a big 3 on top
+    x.moveTo(180, 300); x.bezierCurveTo(170, 150, 590, 150, 580, 300); x.quadraticCurveTo(380, 240, 180, 300); x.closePath();
+    x.moveTo(260, 170); x.bezierCurveTo(250, -60, 560, -60, 520, 40); x.quadraticCurveTo(470, 70, 420, 60); x.quadraticCurveTo(560, 80, 540, 170); x.closePath();
   } else if (L.hairStyle === 'bald') { x.moveTo(380, 330);
   } else { // bandana
     x.moveTo(160, 300); x.bezierCurveTo(150, 100, 610, 100, 600, 300); x.quadraticCurveTo(380, 250, 160, 300); x.closePath();
@@ -503,6 +529,8 @@ export function drawPerson({ who = 'host', expr = 'calm', mouth = 0, blink = fal
   if (L.pinkNose) { x.beginPath(); x.arc(390, 420, 48, 0, 7); fs(x, '#f49ab0', 8); }
   if (L.cigar) { x.save(); x.translate(440, 500); x.rotate(0.2); rrect(x, 0, -14, 130, 28, 10); fs(x, '#8a5a3c', 6); x.fillStyle = '#d9b44a'; x.fillRect(10, -14, 16, 28); x.restore(); x.lineWidth = 10; x.strokeStyle = 'rgba(240,240,250,0.85)'; x.beginPath(); x.moveTo(580, 510); x.quadraticCurveTo(620, 420, 590, 360); x.quadraticCurveTo(560, 300, 610, 240); x.stroke(); }
   if (L.faceMask) { x.beginPath(); x.moveTo(200, 410); x.quadraticCurveTo(385, 380, 570, 410); x.bezierCurveTo(560, 540, 480, 580, 385, 584); x.bezierCurveTo(290, 580, 210, 540, 200, 410); x.closePath(); fs(x, '#f4f4f8', 9); x.strokeStyle = 'rgba(120,120,140,0.6)'; x.lineWidth = 5; for (const yy of [450, 490, 530]) { x.beginPath(); x.moveTo(250, yy); x.lineTo(520, yy); x.stroke(); } }
+  if (L.metalJaw) { x.beginPath(); x.moveTo(230, 450); x.lineTo(530, 450); x.lineTo(500, 600); x.lineTo(260, 600); x.closePath(); fs(x, '#a8b0c0', 10); x.strokeStyle = OL; x.lineWidth = 6; for (let k = 0; k < 6; k++) { x.beginPath(); x.moveTo(270 + k * 45, 470); x.lineTo(275 + k * 45, 585); x.stroke(); } x.beginPath(); x.moveTo(240, 520); x.lineTo(520, 520); x.stroke(); }
+  if (L.kabuki) { x.strokeStyle = '#d8343a'; x.lineWidth = 12; x.lineCap = 'round'; for (const sd of [-1, 1]) { x.beginPath(); x.moveTo(380 + sd * 60, 290); x.quadraticCurveTo(380 + sd * 150, 250, 380 + sd * 200, 300); x.stroke(); x.beginPath(); x.moveTo(380 + sd * 60, 420); x.quadraticCurveTo(380 + sd * 140, 470, 380 + sd * 190, 430); x.stroke(); } }
   if (L.lips) { x.beginPath(); x.ellipse(385, 488, 34, 12, 0, 0, 7); x.fillStyle = '#d6303e'; x.fill(); }
   if (L.hat === 'killerMask') { // round striped mask covering the whole face, with breathing holes
     x.beginPath(); x.ellipse(380, 330, 225, 240, 0, 0, 7); fs(x, '#f4f4f8', 12); x.save(); x.clip(); x.fillStyle = '#3f6fb5'; for (let k = -3; k < 4; k++) x.fillRect(360 + k * 90, 60, 44, 600); x.restore();
@@ -528,6 +556,9 @@ export function drawPerson({ who = 'host', expr = 'calm', mouth = 0, blink = fal
   if (L.appleHat) { const top = L.tallDome ? -175 : 60; x.beginPath(); x.moveTo(380, top); x.lineTo(380, top - 150); x.lineWidth = 16; x.strokeStyle = '#8a5a3c'; x.stroke(); x.beginPath(); x.moveTo(230, top - 150); x.bezierCurveTo(200, top - 320, 330, top - 330, 380, top - 270); x.bezierCurveTo(430, top - 330, 560, top - 320, 530, top - 150); x.closePath(); fs(x, '#d8343a', 10); x.beginPath(); x.ellipse(380, top - 150, 140, 22, 0, 0, 7); fs(x, '#a8242a', 8); x.beginPath(); x.ellipse(460, top - 310, 40, 18, -0.4, 0, 7); fs(x, '#7fc85a', 6); x.beginPath(); x.ellipse(300, top - 260, 30, 16, -0.5, 0, 7); x.fillStyle = 'rgba(255,255,255,0.6)'; x.fill(); }
   if (L.hat === 'goggleCap') { x.beginPath(); x.moveTo(170, 250); x.bezierCurveTo(150, 20, 610, 20, 590, 250); x.closePath(); fs(x, '#22202e', 12); x.beginPath(); x.moveTo(250, 250); x.quadraticCurveTo(380, 330, 520, 250); x.lineTo(500, 230); x.quadraticCurveTo(380, 280, 270, 230); x.closePath(); fs(x, '#14121a', 8);
     for (const gx of [320, 440]) { x.beginPath(); x.arc(gx, 170, 46, 0, 7); fs(x, '#d9b44a', 9); x.beginPath(); x.arc(gx, 170, 30, 0, 7); fs(x, '#a8e8f0', 5); } x.beginPath(); x.moveTo(366, 170); x.lineTo(394, 170); x.lineWidth = 10; x.strokeStyle = OL; x.stroke(); }
+  if (L.hat === 'crown2') { x.beginPath(); x.moveTo(240, 180); x.lineTo(240, 60); x.lineTo(310, 120); x.lineTo(380, 30); x.lineTo(450, 120); x.lineTo(520, 60); x.lineTo(520, 180); x.closePath(); fs(x, '#ffcf3a', 10); for (const gx of [310, 380, 450]) { x.beginPath(); x.arc(gx, 150, 14, 0, 7); fs(x, '#e8303c', 4); } }
+  if (L.hat === 'beret') { x.beginPath(); x.ellipse(360, 150, 260, 90, -0.15, 0, 7); fs(x, '#c0392b', 12); x.beginPath(); x.moveTo(360, 70); x.lineTo(360, 40); x.lineWidth = 12; x.strokeStyle = OL; x.stroke(); }
+  if (L.hat === 'mechCap') { x.beginPath(); x.moveTo(180, 230); x.bezierCurveTo(170, 60, 590, 60, 580, 230); x.closePath(); fs(x, '#3f6fb5', 12); x.beginPath(); x.ellipse(560, 230, 160, 40, 0.1, 0, 7); fs(x, '#2a4f8a', 10); }
   if (L.hat === 'beanie') {
     x.beginPath(); x.moveTo(180, 300); x.bezierCurveTo(170, 60, 590, 60, 580, 300); x.closePath(); fs(x, '#c0392b', 12); rrect(x, 165, 250, 430, 70, 24); fs(x, '#962a1f', 11); x.beginPath(); x.arc(380, 70, 40, 0, 7); fs(x, '#f4f4f8', 9);
   } else if (L.hat === 'chef') {

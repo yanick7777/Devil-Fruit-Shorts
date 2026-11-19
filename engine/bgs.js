@@ -1,6 +1,7 @@
 // Flat painted backgrounds. Each is a 1240x2200 canvas (80px/140px margin around the 1080x1920 frame
 // so camera moves never show an edge), finished with a soft blurred edge.
 import { mk, rrect, fs, OL, hash } from './art.js';
+import { register } from './scenes3.js';
 export const BW = 1240, BH = 2200, OX = 80, OY = 140;
 
 function canvas() { const c = mk(BW, BH), x = c.getContext('2d'); x.translate(OX, OY); return [c, x]; }
@@ -1726,3 +1727,4 @@ function A_rr(x, X, Y, w, h, r, col) { rrect(x, X, Y, w, h, r); fs(x, col, 8); }
 function A_leaf(x) { fs(x, '#3fb85a', 7); }
 function A_pan(x) { fs(x, '#3a3346', 8); }
 function A_blade(x) { x.beginPath(); x.moveTo(0, 0); x.lineTo(30, -230); x.lineTo(-30, -230); x.closePath(); fs(x, '#f4ead2', 8); }
+register(BG, { canvas, fill, finish, cloud, sunDisk, waves, rrect, fs, OL, hash, OX, OY, BW, BH });
