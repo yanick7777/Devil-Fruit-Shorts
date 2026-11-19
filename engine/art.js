@@ -45,6 +45,12 @@ export const LOOKS = {
           top: 'overalls', cloth: '#c9a46a', clothD: '#a5834e', pants: '#c9a46a', shoe: '#6b4630', boots: true, arm: '#c98d64' },
   kid: { skin: '#f3c6a0', skinD: '#dca684', hair: '#7a4a2a', hairL: '#a26d45', hairStyle: 'messy',
           top: 'tee', cloth: '#ffcf3a', clothD: '#e0a90f', inner: '#ffcf3a', pants: '#3f6fb5', shorts: true, shoe: '#e8402e', boots: false, sleeveSkin: true },
+  zala: { skin: '#f3c8a4', skinD: '#d9a884', hair: '#5a2a5a', hairL: '#83508a', hairStyle: 'long', lips: true, earring: true,
+          top: 'coat', cloth: '#7a3f9a', clothD: '#5a2a78', inner: '#2a2730', innerD: '#1b1820', pants: '#2a2730', shoe: '#1b1820', boots: true, cuff: '#7a3f9a' },
+  nami: { skin: '#f6cba4', skinD: '#e0aa82', hair: '#ff8a2e', hairL: '#ffb070', hairStyle: 'long',
+          top: 'tank', cloth: '#ffffff', clothD: '#d9dde6', pants: '#3f6fb5', shoe: '#c9934f', boots: false, arm: '#f6cba4' },
+  captain: { skin: '#e8b48a', skinD: '#cc9670', hair: '#9a9aa8', hairL: '#c8c8d6', hairStyle: 'wavy', hat: 'tricorn', stache2: true,
+          top: 'coat', cloth: '#b5223a', clothD: '#8a1a2c', inner: '#f4f1ea', innerD: '#cfc8b8', pants: '#2a2730', shoe: '#2a2026', boots: true, cuff: '#d9b44a' },
   sabo: { skin: '#f7cc9c', skinD: '#e2ab78', hair: '#f2cf55', hairL: '#ffe58a', hairStyle: 'curly', hat: 'top', scar: true,
           top: 'coat', cloth: '#2f4f8f', clothD: '#223a6c', inner: '#f4f1ea', innerD: '#cfc8b8', cravat: true, pants: '#3a3340', shoe: '#6b4630', boots: true, cuff: '#f4f1ea' },
 };
@@ -189,6 +195,10 @@ export function drawPerson({ who = 'host', expr = 'calm', mouth = 0, blink = fal
   const L = LOOKS[who], c = mk(FIG.W, FIG.H), x = c.getContext('2d');
   x.translate(FIG.OX, FIG.OY);
   if (L.cape) drawCape(x, L);
+  if (L.hairStyle === 'long') { // long wavy hair hanging behind the head down past the shoulders
+    x.beginPath(); x.moveTo(380, 100); x.bezierCurveTo(60, 100, 90, 500, 110, 700); for (let i = 0; i < 7; i++) x.quadraticCurveTo(140 + i * 80, 800 + (i % 2) * 40, 180 + i * 80, 760 + (i % 2 ? 0 : 50));
+    x.bezierCurveTo(670, 500, 700, 100, 380, 100); x.closePath(); fs(x, L.hair, 12);
+  }
   drawLegs(x, L);
   drawTorso(x, L);
   // ---- neck ----
@@ -282,7 +292,7 @@ export function drawPerson({ who = 'host', expr = 'calm', mouth = 0, blink = fal
     x.moveTo(150, 360); x.bezierCurveTo(110, 70, 650, 70, 610, 360);
     for (let i = 0; i <= 8; i++) x.lineTo(600 - i * 55, i % 2 ? 300 : 240);
     x.closePath();
-  } else if (L.hairStyle === 'curly') {
+  } else if (L.hairStyle === 'curly' || L.hairStyle === 'long') {
     x.moveTo(140, 380); x.bezierCurveTo(100, 70, 660, 70, 620, 380); x.quadraticCurveTo(600, 300, 560, 250);
     x.quadraticCurveTo(450, 250, 380, 225); x.quadraticCurveTo(300, 255, 210, 250); x.quadraticCurveTo(170, 300, 140, 380); x.closePath();
   } else if (L.hairStyle === 'short') {
@@ -308,6 +318,12 @@ export function drawPerson({ who = 'host', expr = 'calm', mouth = 0, blink = fal
     x.beginPath(); x.moveTo(170, 270); x.bezierCurveTo(170, 40, 590, 40, 590, 270); x.closePath(); fs(x, '#ffcf2e', 12); rrect(x, 140, 250, 480, 46, 20); fs(x, '#f2b705', 11);
     x.beginPath(); x.moveTo(380, 70); x.lineTo(380, 250); x.lineWidth = 26; x.strokeStyle = '#f2b705'; x.stroke(); x.beginPath(); x.arc(380, 160, 210, Math.PI * 1.15, Math.PI * 1.4); x.lineWidth = 9; x.strokeStyle = 'rgba(255,255,255,0.7)'; x.stroke();
   }
+  if (L.hat === 'tricorn') {
+    x.beginPath(); x.moveTo(110, 260); x.quadraticCurveTo(380, 330, 650, 260); x.quadraticCurveTo(600, 120, 520, 140); x.quadraticCurveTo(380, -40, 240, 140); x.quadraticCurveTo(160, 120, 110, 260); x.closePath(); fs(x, '#22202a', 12);
+    x.beginPath(); x.moveTo(140, 250); x.quadraticCurveTo(380, 310, 620, 250); x.lineWidth = 12; x.strokeStyle = '#d9b44a'; x.stroke();
+    x.beginPath(); x.arc(380, 175, 34, 0, 7); fs(x, '#f4f4f4', 7); x.fillStyle = OL; for (const ex of [367, 393]) { x.beginPath(); x.arc(ex, 172, 7, 0, 7); x.fill(); }
+  }
+  if (L.lips) { x.beginPath(); x.ellipse(385, 488, 34, 12, 0, 0, 7); x.fillStyle = '#d6303e'; x.fill(); }
   if (L.goggles) { x.beginPath(); x.moveTo(160, 230); x.quadraticCurveTo(380, 170, 600, 230); x.lineWidth = 22; x.strokeStyle = '#5a3a26'; x.stroke(); for (const gx of [300, 460]) { x.beginPath(); x.arc(gx, 205, 46, 0, 7); fs(x, '#7fe0a0', 10); x.beginPath(); x.arc(gx - 12, 192, 10, 0, 7); x.fillStyle = '#fff'; x.fill(); } }
   if (L.longNose) { x.save(); x.translate(390, 430); x.rotate(-0.08); rrect(x, -10, -20, 230, 40, 20); fs(x, L.skin, 9); x.restore(); }
   if (L.hat === 'beanie') {

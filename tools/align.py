@@ -1,6 +1,6 @@
 """Split one recorded take into script lines without a transcript.
 Finds pauses, then picks the line boundaries (in order) that keep the speaking pace most even.
-usage: python3 tools/align.py <script.json> <take.wav> [--write]"""
+usage: python3 tools/align.py <script.json> <take.wav> [--write] [--set <line id>=<end time s> ...]"""
 import json, re, subprocess, sys
 import numpy as np
 S = json.load(open(sys.argv[1])); take = sys.argv[2]; write = '--write' in sys.argv
@@ -51,6 +51,9 @@ def solve():
     return list(reversed(path))
 path = solve()
 cuts = [pos[p] for p in path]
+ids = [l['id'] for l in S['lines']]
+for k, v in enumerate(sys.argv):  # manual overrides: --set name=7.9 moves the end of line "name"
+    if v == '--set': lid, t = sys.argv[k + 1].split('='); cuts[ids.index(lid) + 1] = float(t)
 print(f"take {dur:.2f}s, {sum(words)} words, {len(cands)} pause candidates")
 for k, l in enumerate(S['lines']):
     d = cuts[k + 1] - cuts[k]; print(f"  {l['id']:7s} {cuts[k]:6.2f}-{cuts[k+1]:6.2f}  {d:4.2f}s  {words[k]:2d} words  {words[k]/d:4.1f} w/s  | {re.sub(r'#\w+', '', l['text'])[:60]}")

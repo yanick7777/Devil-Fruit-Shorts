@@ -1,0 +1,34 @@
+{
+  "title": "Toge Toge no Mi",
+  "format": "9:16",
+  "story": "/shorts/spike/story.js",
+  "voice": { "name": "mb-us2", "speed": 158, "pitch": 48 },
+  "voice_override_dir": "shorts/spike/vo",
+  "voice_fx": {},
+  "music": false,
+  "structure": "3 techniques + Doping as the peak (the fruit has no stages and no awakening)",
+  "facts": [
+    "Appearance: not revealed (a plain swirl fruit stands in)",
+    "Paramecia, English name Spike-Spike Fruit: sprout spikes from any part of the body",
+    "Spike fingers (stabbing through Nami); spikes under the feet used to run like stilts; arms and body turned into spikes to pin Nami against a wall",
+    "Toge Toge Doping: spikes inside the arms make them bigger and stronger",
+    "Nami defeated her with the Clima-Tact's Thunderbolt Tempo (Alabasta)",
+    "User: Zala, Miss Doublefinger, Baroque Works Officer Agent"
+  ],
+  "lines": [
+    { "id": "hook", "lead": 1.6, "tail": 0.25, "text": "You take a bite#red of a weird swirly#purple fruit.", "say": "You take a bite, of a weird swirly fruit." },
+    { "id": "calm", "lead": 0.1, "tail": 0.35, "text": "Don't panic,#red that's just a Devil#purple Fruit.#purple", "say": "Don't panic. That's just a devil fruit." },
+    { "id": "sea", "lead": 0.1, "tail": 0.25, "text": "Out of every fruit in the sea,#blue", "say": "Out of every fruit in the sea," },
+    { "id": "name", "lead": 0.05, "tail": 0.9, "text": "you got the Spike-Spike#purple Fruit,#purple", "say": "you got the spike, spike fruit." },
+    { "id": "type", "lead": 0.1, "tail": 0.9, "text": "a Paramecia#orange that lets you grow sharp spikes#red out of any part of your body.#gold", "say": "A paramecia, that lets you grow sharp spikes, out of any part of your body." },
+    { "id": "power1", "lead": 0.3, "tail": 0.4, "text": "First, your fingers#pink stretch into long, sharp spikes.#red", "say": "First, your fingers stretch into long, sharp spikes." },
+    { "id": "power2", "lead": 0.55, "tail": 0.4, "text": "Then you grow spikes under your feet#blue and run around on them like stilts.#green", "say": "Then you grow spikes under your feet, and run around on them like stilts." },
+    { "id": "power3", "lead": 0.55, "tail": 0.4, "text": "You can even turn your arms into a wall of spikes#red to pin enemies down.#orange", "say": "You can even turn your arms into a wall of spikes, to pin enemies down." },
+    { "id": "peak", "lead": 0.55, "tail": 0.6, "text": "Your strongest trick is Doping:#gold spikes inside your arms pump them up into giant weapons.#red", "say": "Your strongest trick is doping. Spikes inside your arms, pump them up into giant weapons." },
+    { "id": "twist", "lead": 0.25, "tail": 0.4, "text": "But all those spikes lost to a weather stick.#blue", "say": "But all those spikes, lost to a weather stick." },
+    { "id": "truth", "lead": 0.1, "tail": 0.4, "text": "Nami#orange beat her with a lightning bolt#gold from the Clima-Tact.#blue", "say": "Nami beat her with a lightning bolt from the clima tact." },
+    { "id": "users", "lead": 0.1, "tail": 0.4, "text": "Zala,#purple known as Miss Doublefinger,#pink used it as a Baroque Works#red agent.", "say": "Zala, known as miss double finger, used it as a baroque works agent." },
+    { "id": "joke", "lead": 0.2, "tail": 0.9, "text": "Users of this fruit give terrible#red hugs.#pink", "say": "Users of this fruit, give terrible hugs." },
+    { "id": "outro", "lead": 0.2, "tail": 2.4, "text": "Which fruit#pink do you want next?#gold Follow for more.", "say": "Which fruit do you want next? Follow for more." }
+  ]
+}
