@@ -1,0 +1,135 @@
+{
+ "title": "Numa Numa no Mi",
+ "format": "9:16",
+ "story": "/shorts/swamp/story.js",
+ "voice": {
+  "name": "mb-us2",
+  "speed": 158,
+  "pitch": 48
+ },
+ "voice_override_dir": "shorts/swamp/vo",
+ "voice_fx": {},
+ "music": false,
+ "structure": "3 techniques + the stomach Gatling gun as the peak (Logia, no stages and no awakening)",
+ "facts": [
+  "Appearance: not revealed (plain swirl fruit stands in)",
+  "Logia, Swamp-Swamp Fruit: the user becomes and controls a bottomless swamp",
+  "Attacks sink into him (he absorbed a cannonball)",
+  "He stores weapons, treasure and kidnapped people inside his body",
+  "Encases an opponent's head in a ball of swamp to suffocate them",
+  "Numa Numa no Gatling Gun: a crank Gatling gun rising out of his swamp gut",
+  "Cannot change back if trapped where his real body cannot fit: Franky sealed him in a barrel",
+  "User: Caribou"
+ ],
+ "plan": {
+  "english": "Swamp-Swamp Fruit",
+  "labels": "SINK, SWALLOW, MUD BALL, GATLING",
+  "fruit": "The fruit's appearance **has never been revealed**, so a plain round swirl fruit in swamp green stands in (no face or limbs).",
+  "cast": [
+   "**Enemy (new, original):** a fisherman in a yellow raincoat and rain hat, with a beard.",
+   "**Caribou:** long wild black hair, a wide toothy grin, dark long coat. Send a reference to match him exactly.",
+   "**Franky:** blue pompadour, sunglasses, open red-and-yellow shirt, shorts."
+  ],
+  "sets": "misty bayou, olive rays, lily pond, mangrove roots, marsh stage on stilts, stone sea fort, treasure cave, foggy marsh, wrecked ship deck at sunset, cellar full of barrels, pantry of jars, bubble grove, school hallway with lockers."
+ },
+ "lines": [
+  {
+   "id": "hook",
+   "lead": 1.6,
+   "tail": 0.25,
+   "text": "You take a bite#red of a weird swirly#purple fruit.",
+   "say": "You take a bite of a weird swirly fruit."
+  },
+  {
+   "id": "calm",
+   "lead": 0.1,
+   "tail": 0.35,
+   "text": "Don't panic,#red that's just a Devil#purple Fruit.#purple",
+   "say": "Don't panic, that's just a Devil Fruit."
+  },
+  {
+   "id": "sea",
+   "lead": 0.1,
+   "tail": 0.25,
+   "text": "Out of every fruit in the sea,#blue",
+   "say": "Out of every fruit in the sea,"
+  },
+  {
+   "id": "name",
+   "lead": 0.05,
+   "tail": 0.9,
+   "text": "you got the Swamp-Swamp#green Fruit,#green",
+   "say": "you got the Swamp-Swamp Fruit,"
+  },
+  {
+   "id": "type",
+   "lead": 0.1,
+   "tail": 0.9,
+   "text": "a Logia#orange that turns your whole body into a bottomless swamp.#green",
+   "say": "a Logia that turns your whole body into a bottomless swamp."
+  },
+  {
+   "id": "power1",
+   "lead": 0.3,
+   "tail": 0.4,
+   "text": "First, attacks just sink into you,#green even cannonballs.#red",
+   "say": "First, attacks just sink into you, even cannonballs."
+  },
+  {
+   "id": "power2",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "Then you swallow people#orange and treasure#gold whole, and keep them inside your body.",
+   "say": "Then you swallow people and treasure whole, and keep them inside your body."
+  },
+  {
+   "id": "power3",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "You can even trap someone's head in a ball of swamp#green so they can't breathe.#red",
+   "say": "You can even trap someone's head in a ball of swamp so they can't breathe."
+  },
+  {
+   "id": "peak",
+   "lead": 0.55,
+   "tail": 0.6,
+   "text": "Your strongest move is a Gatling gun#gold that rises right out of your stomach.#red",
+   "say": "Your strongest move is a Gatling gun that rises right out of your stomach."
+  },
+  {
+   "id": "twist",
+   "lead": 0.25,
+   "tail": 0.4,
+   "text": "But there's a catch.#red",
+   "say": "But there's a catch."
+  },
+  {
+   "id": "truth",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "If you're stuck somewhere your real body can't fit,#orange you can't change back.#red",
+   "say": "If you're stuck somewhere your real body can't fit, you can't change back."
+  },
+  {
+   "id": "users",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "Caribou#purple has it, and Franky#blue once sealed him inside a barrel.#orange",
+   "say": "Caribou has it, and Franky once sealed him inside a barrel."
+  },
+  {
+   "id": "joke",
+   "lead": 0.2,
+   "tail": 0.9,
+   "text": "Users of this fruit never need a backpack.#green",
+   "say": "Users of this fruit never need a backpack."
+  },
+  {
+   "id": "outro",
+   "lead": 0.2,
+   "tail": 2.4,
+   "text": "Which fruit#pink do you want next?#gold Follow for more.",
+   "say": "Which fruit do you want next? Follow for more."
+  }
+ ]
+}
