@@ -11,7 +11,7 @@ SPEC = dict(name='phoenix', title='Tori Tori no Mi, Model: Phoenix', structure='
   ('truth', 'Seastone cuffs#purple shut it off, and the Marines#blue used them on him at Marineford.#red'),
   ('users', 'Marco,#gold Whitebeard\'s first division commander,#blue has it.'),
   ('joke', 'Users of this fruit never need a band-aid.#pink')],
- plan=dict(english='Bird-Bird Fruit, Model: Phoenix', labels='WINGS, REGEN, HEAL, PHOENIX BRAND',
+ plan=dict(english='Bird-Bird Fruit, Model: Phoenix', labels='WINGS, REGEN, HEAL, BRAND (Phoenix Brand)',
   fruit='**Official design** (One Piece Magazine Vol. 20, via search): a **pineapple** – oval, skin split into fruitlets that each carry a swirl and a prickly tip, with a crown of leaves (one source says golden). Drawn in blue-green with golden leaves.',
   cast=['**Enemy (new, original):** a viking with a horned helmet and a red beard.', '**Marco:** blond pineapple-tuft hair, sleepy eyes, open purple shirt with the blue Whitebeard mark on his chest; blue phoenix flames for the hybrid form.'],
   sets='giant nest on a cliff, cyan rays, tropical beach, aurora night sky, altar with blue braziers, rock arch over the sea, field-hospital tent, island village with a big statue, sunset clouds, prison cell, Marine headquarters wall, big ship deck with a white whale figurehead, pharmacy shelves.'))

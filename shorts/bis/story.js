@@ -9,21 +9,21 @@ const BIS = '#e8b86a', BISD = '#c9984a';
 
 // ---------------- biscuit effects ----------------
 function holes(x, cx, cy, w, h, n = 6) { x.fillStyle = BISD; for (let i = 0; i < n; i++) { x.beginPath(); x.arc(cx + (((i * 37) % 10) / 10 - 0.5) * w, cy + (((i * 53) % 10) / 10 - 0.5) * h, 7, 0, 7); x.fill(); } }
-export function biscuit(x, cx, cy, r, rot = 0, soft = 0) { x.save(); x.translate(cx, cy); x.rotate(rot); x.beginPath(); for (let i = 0; i < 24; i++) { const a = i / 24 * 6.283, rr = r * (1 + (i % 2 ? 0.05 : 0) - soft * 0.15 * Math.sin(i * 3)); x.lineTo(Math.cos(a) * rr, Math.sin(a) * rr * (1 + soft * 0.2)); } x.closePath(); A.fs(x, soft > 0.5 ? '#d9c08a' : BIS, Math.max(5, r * 0.07)); holes(x, 0, 0, r, r, 7); x.restore(); }
+export function biscuit(x, cx, cy, r, rot = 0, soft = 0) { x.save(); x.translate(cx, cy); x.rotate(rot); x.scale(1 + soft * 0.3, 1 - soft * 0.35); A.biscuitBlob(x, 0, 0, r, Math.round(rot * 10)); x.restore(); }
 // a biscuit soldier: knobbly biscuit armour, helmet, shield, spear; optional window showing someone inside
 export function soldier(x, S, cx, fy, s, o = {}) {
   x.save(); x.translate(cx, fy); x.scale(s * (o.flip ? -1 : 1), s); const bob = Math.abs(Math.sin(S.T * (o.march ? 7 : 1.5) + (o.seed || 0))) * (o.march ? 16 : 4); x.translate(0, -bob);
-  for (const sd of [-1, 1]) { A.rrect(x, sd * 70 - 40, -300, 80, 300, 30); A.fs(x, BIS, 9); }
-  A.rrect(x, -170, -760, 340, 480, 90); A.fs(x, BIS, 10); holes(x, 0, -520, 240, 340, 10);
-  x.beginPath(); x.arc(0, -880, 130, 0, 7); A.fs(x, BIS, 10); A.rrect(x, -150, -1000, 300, 90, 40); A.fs(x, BISD, 9); A.rrect(x, -90, -900, 180, 40, 12); A.fs(x, '#3a2a20', 6);
+  for (const sd of [-1, 1]) { A.biscuitBlob(x, sd * 70, -230, 75, sd); A.biscuitBlob(x, sd * 70, -90, 70, sd + 2); }
+  x.save(); x.scale(1, 1.4); A.biscuitBlob(x, 0, -370, 190, 5); x.restore();
+  A.biscuitBlob(x, 0, -880, 135, 7); A.rrect(x, -150, -1000, 300, 90, 40); A.fs(x, BISD, 9); A.rrect(x, -90, -900, 180, 40, 12); A.fs(x, '#3a2a20', 6);
   A.rrect(x, 150, -1100, 30, 1100, 10); A.fs(x, '#8a5a3c', 7); x.beginPath(); x.moveTo(130, -1100); x.lineTo(165, -1220); x.lineTo(200, -1100); x.closePath(); A.fs(x, BISD, 7);
-  x.beginPath(); x.arc(-190, -520, 130, 0, 7); A.fs(x, BISD, 10); x.beginPath(); x.arc(-190, -520, 60, 0, 7); A.fs(x, BIS, 7);
+  A.biscuitBlob(x, -190, -520, 135, 11);
   if (o.inside) { A.rrect(x, -110, -720, 220, 220, 30); A.fs(x, '#3a2a20', 8); x.save(); A.rrect(x, -104, -714, 208, 208, 26); x.clip(); o.inside(x); x.restore(); }
   if (o.crack) { x.beginPath(); x.moveTo(-60, -760); x.lineTo(10, -600); x.lineTo(-40, -480); x.lineTo(40, -330); x.lineWidth = 12; x.strokeStyle = A.OL; x.stroke(); }
   x.restore();
 }
 function raindrops(x, t, n = 60) { x.save(); x.strokeStyle = 'rgba(180,210,255,0.8)'; x.lineWidth = 5; for (let i = 0; i < n; i++) { const px = ((i * 97) % 1100), py = ((i * 211 + t * 900) % 2000) - 40; x.beginPath(); x.moveTo(px, py); x.lineTo(px - 8, py + 50); x.stroke(); } x.restore(); }
-function layers(x, cx, cy, n, s) { x.save(); x.translate(cx, cy); x.scale(s, s); for (let i = 0; i < n; i++) { A.rrect(x, -160, -20 - i * 34, 320, 44, 16); A.fs(x, i % 2 ? BIS : BISD, 7); } x.restore(); }
+function layers(x, cx, cy, n, s) { x.save(); x.translate(cx, cy); x.scale(s, s); for (let i = 0; i < n; i++) { x.save(); x.translate(0, -i * 34); x.scale(1, 0.3); A.biscuitBlob(x, 0, 0, 165, i); x.restore(); } x.restore(); }
 export function bisIcon(x, k, cx, cy, s, t) {
   x.save(); x.translate(cx, cy); x.scale(s, s);
   if (k === 1) biscuit(x, 0, 0, 120);
@@ -57,7 +57,7 @@ export function buildShots(TL) {
       const tb = W('power1', /^biscuits/) - S.t0, hit = S.T > tBlock + 0.2;
       person(x, S, 'host', 'smug', 260, 1780, 0.66, { seed: 2, pose: 'raise' });
       const e = person(x, S, 'ninja', hit ? 'hit' : 'shout', 840, 1780, 0.64, { seed: 3, pose: S.T > tBlock - 0.1 ? 'punch' : 'idle', flip: true });
-      const k = ease.outBack(prog(S.t, tb, tb + 0.4)); if (k > 0) { x.save(); x.translate(560, 1780); x.scale(k, k); A.rrect(x, -60, -760, 120, 760, 40); A.fs(x, BIS, 10); holes(x, 0, -380, 80, 640, 9); x.restore(); }
+      const k = ease.outBack(prog(S.t, tb, tb + 0.4)); if (k > 0) { x.save(); x.translate(560, 1780); x.scale(k, k); for (let i = 0; i < 5; i++) A.biscuitBlob(x, 0, -90 - i * 150, 110, i); x.restore(); }
       if (hit) { A.impactStar(x, 600, e.hand.R[1], 140 * (1 - prog(S.T, tBlock + 0.4, tBlock + 0.8)), 0.3); A.mark(x, '!?', e.head[0] + 150, e.head[1] - 200, pop(S.T, tBlock + 0.4)); if (S.T < tBlock + 0.2 + 7 * F) S.shake = 0.7; }
     } },
     tBlock, [[1.35, 640, 1150, 0.02], [1.42, 650, 1140, 0.035]], 'Power 1 close (same street): the fist meets the biscuit wall, which doesn\'t even crack');
@@ -92,13 +92,13 @@ export function buildShots(TL) {
   // ---------------- PEAK: rock hard ----------------
   const tRock = W('peak', /^rock/) - 0.15;
   addSplit({ name: 'Peak (blacksmith forge): the inside icon gives way to the layered-biscuit icon, gold halo; gold ROCK HARD banner; biscuit layers press together into one dense slab; the ninja\'s sword snaps on it', t0: st('peak'), t1: end('peak'), bg: 'forge',
-    cam: [[1.0, 540, 980, 0], [1.08, 540, 950, 0.02]], banners: [['ROCK HARD', 'gold', W('peak', /^layers/) - 0.1, end('peak'), 'slide']], sfx: [[0, 'evolve'], [W('peak', /^layers/) - st('peak'), 'stamp'], [tRock - st('peak') + 0.3, 'glass']],
+    cam: [[1.0, 540, 980, 0], [1.08, 540, 950, 0.02]], banners: [['ROCK HARD', 'gold', W('peak', /^layers/) - 0.1, end('peak'), 'slide']], sfx: [[0, 'evolve'], [W('peak', /^layers/) - st('peak'), 'stamp'], [tRock - st('peak') + 0.3, 'crumble']],
     draw(x, S) {
       halo(x, 540, 900, 620, '255,215,90', S.T);
       if (S.t < 0.5) { A.glowRing(x, 540, 820, 320 * prog(S.t, 0, 0.5), 1 - prog(S.t, 0.2, 0.5)); evolve(x, S, 3, 4, 540, 820, 1.5, 0.45, bisIcon); return; }
       const tl = W('peak', /^layers/) - S.t0, k = ease.outCubic(prog(S.t, tl, tl + 0.8)), hit = S.T > tRock + 0.3;
       person(x, S, 'host', 'grin', 260, 1780, 0.64, { seed: 7, pose: 'holdUp' });
-      for (let i = 0; i < 7; i++) { A.rrect(x, 440, 1500 - i * lerp(60, 34, k), 340, 50, 16); A.fs(x, i % 2 ? BIS : BISD, 8); }
+      for (let i = 0; i < 7; i++) { x.save(); x.translate(610, 1500 - i * lerp(60, 34, k)); x.scale(1, 0.32); A.biscuitBlob(x, 0, 0, 175, i); x.restore(); }
       const e = person(x, S, 'ninja', hit ? 'shock' : 'shout', 940, 1780, 0.56, { seed: 3, pose: 'punch', flip: true });
       if (S.T > tRock) { const [hx, hy] = e.hand.R; A.rrect(x, hx - (hit ? 150 : 260), hy - 12, hit ? 130 : 240, 24, 8); A.fs(x, '#d9dce6', 6); if (hit) { x.save(); x.translate(hx - 260, hy + 120 * prog(S.T, tRock + 0.3, tRock + 0.9)); x.rotate(2 * prog(S.T, tRock + 0.3, tRock + 0.9)); A.rrect(x, -50, -12, 100, 24, 8); A.fs(x, '#d9dce6', 6); x.restore(); A.impactStar(x, 620, hy, 120 * (1 - prog(S.T, tRock + 0.5, tRock + 0.9)), 0.3); if (S.T < tRock + 0.3 + 7 * F) S.shake = 0.8; } }
     } },
@@ -118,14 +118,14 @@ export function buildShots(TL) {
 
   // ---------------- USERS ----------------
   const tLuffy = W('users', /^fought/) - 0.1, tAte = W('users', /^and$/) - 0.1;
-  add({ name: 'Charlotte Cracker (Mirro-World shards): Cracker grins inside a ring of biscuit soldiers; purple CRACKER banner', t0: st('users'), t1: tLuffy, bg: 'mirrorWorld',
+  add({ name: 'Charlotte Cracker (forest with a giant biscuit wall): Cracker grins inside a ring of biscuit soldiers; purple CRACKER banner', t0: st('users'), t1: tLuffy, bg: 'biscuitForest',
     cam: [[1.05, 540, 1000, 0.02], [1.12, 540, 980, 0]], banners: [['CHARLOTTE CRACKER', 'pink', st('users') + 0.2, tLuffy]], sfx: [[0, 'whoosh'], [0.3, 'pop']],
     draw(x, S) { soldier(x, S, 160, 1800, 0.45, { seed: 1 }); soldier(x, S, 920, 1800, 0.45, { seed: 2, flip: true }); person(x, S, 'cracker', 'grin', 540, 1820, 0.84, { pop: S.t0 + 0.05, seed: 8, pose: 'shrug' }); } });
-  add({ name: 'Eleven hours (same shards): Luffy and a biscuit soldier trade blows while a clock spins to 11 HOURS; red 11 HOURS banner', t0: tLuffy, t1: tAte, bg: 'mirrorWorld',
+  add({ name: 'Eleven hours (same forest): Luffy and a biscuit soldier trade blows while a clock spins to 11 HOURS; red 11 HOURS banner', t0: tLuffy, t1: tAte, bg: 'biscuitForest',
     cam: [[1.0, 540, 1000, -0.02], [1.08, 540, 990, 0.03]], banners: [['11 HOURS', 'red', tLuffy + 0.3, tAte]], sfx: [[0.1, 'impact'], [0.5, 'impact'], [0.9, 'tick']],
     draw(x, S) { soldier(x, S, 780, 1800, 0.6, { flip: true, crack: Math.floor(S.T * 3) % 2 === 0 }); person(x, S, 'luffy', 'shout', 300, 1800, 0.66, { seed: 4, pose: Math.floor(S.T * 5) % 2 ? 'punch' : 'idle' });
       x.save(); x.translate(540, 560); x.beginPath(); x.arc(0, 0, 110, 0, 7); A.fs(x, '#ffffff', 10); x.rotate(S.T * 10); x.beginPath(); x.moveTo(0, 0); x.lineTo(0, -80); x.lineWidth = 10; x.strokeStyle = A.OL; x.stroke(); x.restore(); } });
-  add({ name: 'Luffy eats through (same shards, closer): Luffy, belly huge, munches through a biscuit soldier; crumbs fly; green CHOMP banner', t0: tAte, t1: end('users'), bg: 'mirrorWorld',
+  add({ name: 'Luffy eats through (same forest, closer): Luffy, belly huge, munches through a biscuit soldier; crumbs fly; green CHOMP banner', t0: tAte, t1: end('users'), bg: 'biscuitForest',
     cam: [[1.2, 540, 1000, 0.02], [1.28, 540, 990, 0.035]], banners: [['CHOMP!', 'green', tAte + 0.2, end('users')]], sfx: [[0.1, 'crunch'], [0.5, 'crunch'], [0.9, 'crunch']],
     draw(x, S) { const k = prog(S.t, 0, S.dur); x.save(); x.beginPath(); x.rect(0, 0, 1080 - 400 * k, 1920); x.clip(); soldier(x, S, 760, 1800, 0.6, { flip: true }); x.restore();
       const l = person(x, S, 'luffy', 'grin', 380, 1800, 0.66, { seed: 4, pose: 'holdUp', sx: 1 + 0.3 * k });

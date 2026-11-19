@@ -55,7 +55,7 @@ export function buildShots(TL) {
     cam: [[1.0, 540, 1000, 0.02], [1.08, 540, 960, 0.03]], sfx: [[0.1, 'whoosh'], [0.3, 'charge']],
     draw(x, S) { const k = ease.outBack(prog(S.t, 0.1, 0.7)); phoenixBird(x, 540, 900, 1.1 * k, S.T); A.glow(x, 540, 900, 500, '90,180,255', 0.3 * k); } });
   stage(T, { desc: 'altar with blue braziers', bg: 'blueAltar', t0: tMade, t1: end('type'), times: [W('type', /^made/), W('type', /^of$/), W('type', /^blue/), W('type', /^fire/)],
-    labels: ['WINGS', 'REGEN', 'HEAL', 'PHOENIX BRAND'], bar: 'PHOENIX POWERS', haloRgb: '120,200,255', icon: phoenixIcon });
+    labels: ['WINGS', 'REGEN', 'HEAL', 'BRAND'], bar: 'PHOENIX POWERS', haloRgb: '120,200,255', icon: phoenixIcon });
 
   // ---------------- POWER 1: wings and flight ----------------
   const tFly = W('power1', /^fly/) - 0.15;
@@ -64,9 +64,9 @@ export function buildShots(TL) {
     draw(x, S) { const k = ease.outBack(prog(S.T, W('power1', /^flaming/) - 0.1, W('power1', /^wings/) + 0.2)); if (k <= 0) person(x, S, 'host', 'calm', 540, 1780, 0.72, { seed: 2 }); else { x.save(); x.translate(540, 1780); x.scale(1, 1); x.restore(); const [bx, by] = A.figPoint(380, 700, 540, 1780, 0.72); wing(x, bx - 40, by, 0.8 * k, -1, S.T, 0.3); wing(x, bx + 40, by, 0.8 * k, 1, S.T, 0.3); person(x, S, 'host', 'grin', 540, 1780, 0.72, { seed: 2, pose: 'cheer' }); } } });
   add({ name: 'Power 1 flight (same arch, wide): the winged host swoops through the arch over the waves, speed lines; the viking on the cliff gapes, ?', t0: tFly, t1: end('power1'), bg: 'seaArch',
     cam: [[1.0, 540, 980, 0.03], [1.06, 560, 960, 0.045]], sfx: [[0.05, 'zip']],
-    draw(x, S) { const u = ease.smoother(prog(S.t, 0, S.dur)); const hx = lerp(120, 960, u), hy = 900 - Math.sin(u * Math.PI) * 300;
+    draw(x, S) { const u = ease.smoother(prog(S.t, 0, S.dur)); const hx = lerp(150, 900, u), hy = 1250 - Math.sin(u * Math.PI) * 250;
       const e = person(x, S, 'viking', 'shock', 900, 1500, 0.4, { seed: 3, pose: 'shrug', flip: true });
-      x.save(); x.translate(hx, hy); x.rotate(0.6); winged(x, S, 'host', 'grin', 0, 0, 0.4, { pose: 'cheer', fast: true, seed: 2 }); x.restore(); A.speedLines(x, hx - 160, hy - 200, S.T, 10, 200, Math.PI);
+      x.save(); x.translate(hx, hy); x.rotate(0.6); winged(x, S, 'host', 'grin', 0, 0, 0.5, { pose: 'cheer', fast: true, seed: 2 }); x.restore(); A.speedLines(x, hx - 260, hy - 300, S.T, 10, 200, Math.PI);
       A.mark(x, '?', e.head[0] - 100, e.head[1] - 140, pop(S.T, S.t0 + 0.3), 0.1); } });
 
   // ---------------- POWER 2: regeneration ----------------
@@ -103,7 +103,7 @@ export function buildShots(TL) {
     draw(x, S) {
       halo(x, 540, 900, 620, '120,200,255', S.T);
       if (S.t < 0.5) { A.glowRing(x, 540, 820, 320 * prog(S.t, 0, 0.5), 1 - prog(S.t, 0.2, 0.5), '160,220,255'); evolve(x, S, 3, 4, 540, 820, 1.5, 0.45, phoenixIcon); return; }
-      const k = ease.smoother(prog(S.T, W('peak', /^Phoenix/), tSlam + 0.4)), hx = lerp(260, 600, k), hy = lerp(500, 1300, k);
+      const k = ease.smoother(prog(S.T, W('peak', /^Phoenix/), tSlam + 0.4)), hx = lerp(250, 560, k), hy = lerp(1050, 1550, k);
       x.save(); x.translate(hx, hy); x.rotate(-0.6); winged(x, S, 'host', 'shout', 0, 0, 0.55, { pose: 'cheer', seed: 7 }); x.restore();
       for (let i = 0; i < 5; i++) blueFire(x, hx - 40 + i * 30, hy + 40, 60, 260, S.T, i + 10, 0.85);
       A.speedLines(x, hx - 200, hy - 300, S.T, 12, 260, -2.2);

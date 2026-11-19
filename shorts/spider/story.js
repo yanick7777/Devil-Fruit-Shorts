@@ -2,10 +2,10 @@
 // Structure follows what the fruit really does: spider hybrid body, webs, wall/ceiling crawling, and Ancient Zoan toughness as the peak.
 // No stages and no awakening have been shown, so there are no forced "forms".
 import * as A from '/engine/art.js';
-import { drawSwirlFruit } from '/engine/swirlFruit.js';
+import { drawKumo } from '/shorts/spider/fruit.js';
 import { F, ease, prog, lerp, pop, person, halo, evolve } from '/engine/kit.js';
 import { timing, opening, stage, evolveIn, ending } from '/engine/template.js';
-const fruit = (x, cx, cy, R, rot, o = {}) => drawSwirlFruit(x, cx, cy, R, rot, { pal: 'brown', ...o });
+const fruit = (x, cx, cy, R, rot, o = {}) => drawKumo(x, cx, cy, R * 0.85, rot, o);
 
 // ---------------- spider effects ----------------
 // giant hairy spider body; (cx, by) = ground point under its middle; returns where the rider's waist sits
@@ -58,7 +58,7 @@ export function spiderIcon(x, k, cx, cy, s, t) {
 // --------------------------------------------------------------------------------------
 export function buildShots(TL) {
   const T = timing(TL), { W, end, st, add, addSplit, finish } = T;
-  opening(T, { fruit, desc: 'a brown swirl fruit', biteDesc: 'a strand of silk shoots from his fingertips and sticks to the window', biteSfx: 'swish', bannerCol: 'gold',
+  opening(T, { fruit, desc: 'a purple swirly fruit ringed with green leaves', biteDesc: 'a strand of silk shoots from his fingertips and sticks to the window', biteSfx: 'swish', bannerCol: 'gold',
     biteFx(x, S, k, h) { silk(x, h.hand.L[0], h.hand.L[1], lerp(h.hand.L[0], 80, ease.outCubic(k)), lerp(h.hand.L[1], 380, ease.outCubic(k))); },
     calmBg: 'attic', calmDesc: 'dusty attic with cobwebs', seaHue: 'sky', seed: 17, nameRe: /^Spider-Spider/,
     revealBg: 'dewGarden', revealDesc: 'dewy web in a morning garden', revealBanner: 'SPIDER-SPIDER FRUIT', haloRgb: '230,200,160',

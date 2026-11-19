@@ -1215,7 +1215,16 @@ export const BG = {
     x.fillStyle = '#b8d8d0'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
     return finish(c);
   },
+  biscuitForest() { // dark green forest behind a giant wall of lumpy biscuits (Cracker's battlefield)
+    const [c, x] = canvas(); fill(x, '#2a5a3a', '#1a3a28');
+    for (let i = 0; i < 8; i++) { x.fillStyle = 'rgba(60,110,70,0.8)'; x.beginPath(); x.arc(hash(i + 700) * 1080, 150 + hash(i + 701) * 300, 160, 0, 7); x.fill(); }
+    for (let k = 0; k < 6; k++) { const bx = -60 + k * 220, by = 760 + (k % 2) * 60; x.beginPath(); for (let i = 0; i <= 14; i++) { const a = i / 14 * Math.PI * 2, r = 170 * (1 + (i % 2 ? 0.1 : 0)); x.lineTo(bx + Math.cos(a) * r, by + Math.sin(a) * r * 1.3); } x.closePath(); fs(x, '#c9a060', 9);
+      x.lineWidth = 6; x.strokeStyle = '#8a6430'; for (let q = 0; q < 4; q++) { x.beginPath(); x.ellipse(bx + Math.cos(q * 1.7) * 80, by + Math.sin(q * 1.7) * 110, 16, 12, 0, 0, 7); x.stroke(); } }
+    x.fillStyle = '#3a4a5a'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
+    return finish(c);
+  },
 };
+
 
 
 
