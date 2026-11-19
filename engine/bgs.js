@@ -1223,7 +1223,97 @@ export const BG = {
     x.fillStyle = '#3a4a5a'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
     return finish(c);
   },
+  // ---------------- Barrier-Barrier short ----------------
+  iceRink() { // indoor ice rink with boards and lights
+    const [c, x] = canvas(); fill(x, '#3a4a7a', '#5a6aa0', -OY, 900); for (let i = 0; i < 6; i++) { x.fillStyle = 'rgba(255,255,220,0.8)'; x.beginPath(); x.arc(80 + i * 190, 150, 26, 0, 7); x.fill(); }
+    x.fillStyle = '#ffffff'; x.fillRect(-OX, 980, BW, 150); x.fillStyle = '#3f9bff'; x.fillRect(-OX, 1040, BW, 20); x.fillStyle = '#e8f6ff'; x.fillRect(-OX, 1130, BW, 1200); x.strokeStyle = 'rgba(160,200,230,0.6)'; x.lineWidth = 4; for (let i = 0; i < 10; i++) { x.beginPath(); x.moveTo(hash(i + 800) * 1080, 1200 + hash(i + 801) * 600); x.lineTo(hash(i + 802) * 1080, 1200 + hash(i + 803) * 600); x.stroke(); }
+    x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1130); x.lineTo(BW, 1130); x.stroke();
+    return finish(c);
+  },
+  crystalCave() { // cave of pale blue crystals
+    const [c, x] = canvas(); fill(x, '#2a3a6a', '#1a2448');
+    for (let i = 0; i < 14; i++) { const cx = hash(i + 810) * 1080, cy = 300 + hash(i + 811) * 1000, h = 150 + hash(i + 812) * 250; x.save(); x.translate(cx, cy); x.rotate((hash(i + 813) - 0.5) * 0.8); x.beginPath(); x.moveTo(-40, 0); x.lineTo(0, -h); x.lineTo(40, 0); x.closePath(); x.fillStyle = 'rgba(160,220,255,0.75)'; x.fill(); x.lineWidth = 5; x.strokeStyle = 'rgba(255,255,255,0.9)'; x.stroke(); x.restore(); }
+    x.fillStyle = '#3a4a6a'; x.fillRect(-OX, 1260, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1260); x.lineTo(BW, 1260); x.stroke();
+    return finish(c);
+  },
+  glassLobby() { // tall glass office lobby
+    const [c, x] = canvas(); fill(x, '#d8ecf8', '#b8d4e8');
+    for (let k = 0; k < 7; k++) { x.strokeStyle = 'rgba(80,110,140,0.6)'; x.lineWidth = 10; x.beginPath(); x.moveTo(-40 + k * 180, -OY); x.lineTo(-40 + k * 180, 1250); x.stroke(); } for (let r = 0; r < 5; r++) { x.beginPath(); x.moveTo(-OX, 100 + r * 260); x.lineTo(BW, 100 + r * 260); x.stroke(); }
+    x.fillStyle = 'rgba(255,255,255,0.5)'; for (let k = 0; k < 6; k++) { x.beginPath(); x.moveTo(k * 180, 0); x.lineTo(k * 180 + 60, 0); x.lineTo(k * 180 - 100, 1200); x.lineTo(k * 180 - 160, 1200); x.fill(); }
+    x.fillStyle = '#e8e4dc'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
+    return finish(c);
+  },
+  domeArena() { // arena under a glass dome, for the techniques stage
+    const [c, x] = canvas(); fill(x, '#9ed8ff', '#e0f4ff', -OY, 1000);
+    x.strokeStyle = 'rgba(255,255,255,0.9)'; x.lineWidth = 8; for (let i = 0; i < 9; i++) { x.beginPath(); x.ellipse(540, 1200, 700 - i * 20, 1100, 0, Math.PI, 0); x.stroke(); } for (let i = -4; i <= 4; i++) { x.beginPath(); x.moveTo(540, 100); x.quadraticCurveTo(540 + i * 160, 300, 540 + i * 170, 1200); x.stroke(); }
+    x.fillStyle = '#c9b8a0'; x.fillRect(-OX, 1220, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1220); x.lineTo(BW, 1220); x.stroke();
+    return finish(c);
+  },
+  canyonBridge() { // rope bridge over a deep canyon
+    const [c, x] = canvas(); fill(x, '#ffcf9a', '#ffe8c8', -OY, 800);
+    x.beginPath(); x.moveTo(-OX, 600); x.lineTo(260, 640); x.lineTo(240, BH); x.lineTo(-OX, BH); fs(x, '#c9704a', 10); x.beginPath(); x.moveTo(BW, 600); x.lineTo(820, 640); x.lineTo(840, BH); x.lineTo(BW, BH); fs(x, '#c9704a', 10);
+    x.fillStyle = '#5a3a3a'; x.fillRect(240, 700, 600, 1500);
+    x.fillStyle = '#c9a070'; x.fillRect(-OX, 1240, BW, 70); x.strokeStyle = '#6b4630'; x.lineWidth = 6; for (let k = 0; k < 16; k++) { x.beginPath(); x.moveTo(-60 + k * 80, 1240); x.lineTo(-60 + k * 80, 1310); x.stroke(); }
+    x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1240); x.lineTo(BW, 1240); x.stroke();
+    return finish(c);
+  },
+  sheerCliff() { // sheer cliff face going up into the sky
+    const [c, x] = canvas(); fill(x, '#7fc8ff', '#d8f0ff');
+    x.beginPath(); x.moveTo(-OX, -OY); x.lineTo(380, -OY); x.lineTo(420, 400); x.lineTo(360, 900); x.lineTo(430, 1400); x.lineTo(400, BH); x.lineTo(-OX, BH); fs(x, '#a8907a', 10);
+    x.strokeStyle = 'rgba(80,60,40,0.4)'; x.lineWidth = 6; for (let i = 0; i < 12; i++) { x.beginPath(); x.moveTo(hash(i + 820) * 300, hash(i + 821) * 1900); x.lineTo(hash(i + 822) * 300 + 60, hash(i + 821) * 1900 + 80); x.stroke(); }
+    cloud(x, 800, 500, 1); cloud(x, 700, 1100, 0.8);
+    x.fillStyle = '#8a7a6a'; x.fillRect(-OX, 1700, BW, 600); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1700); x.lineTo(BW, 1700); x.stroke();
+    return finish(c);
+  },
+  playground() { // playground with a slide and swings
+    const [c, x] = canvas(); fill(x, '#9ee0ff', '#e8f8ff', -OY, 1000); cloud(x, 300, 300, 0.9);
+    x.beginPath(); x.moveTo(700, 1240); x.lineTo(700, 700); x.lineTo(820, 700); x.lineTo(1040, 1240); x.closePath(); fs(x, '#ffcf3a', 9); A_rr(x, 680, 680, 160, 30, 8, '#e8402e');
+    x.lineWidth = 14; x.strokeStyle = '#3f9bff'; x.beginPath(); x.moveTo(60, 1240); x.lineTo(160, 700); x.lineTo(460, 700); x.lineTo(560, 1240); x.stroke(); x.lineWidth = 4; x.strokeStyle = OL; for (const sx of [230, 390]) { x.beginPath(); x.moveTo(sx, 700); x.lineTo(sx, 1020); x.stroke(); A_rr(x, sx - 40, 1020, 80, 20, 6, '#e8402e'); }
+    x.fillStyle = '#f2d8a8'; x.fillRect(-OX, 1240, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1240); x.lineTo(BW, 1240); x.stroke();
+    return finish(c);
+  },
+  bullRing() { // sunny bullring with red-and-yellow stands
+    const [c, x] = canvas(); fill(x, '#8fd8ff', '#ffefcf', -OY, 700);
+    for (let r = 0; r < 5; r++) { x.fillStyle = r % 2 ? '#e8402e' : '#ffcf3a'; x.fillRect(-OX, 480 + r * 120, BW, 120); }
+    x.fillStyle = '#f4ead2'; x.fillRect(-OX, 1080, BW, 140); x.fillStyle = '#d9a868'; x.fillRect(-OX, 1220, BW, 1000);
+    x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1220); x.lineTo(BW, 1220); x.stroke();
+    return finish(c);
+  },
+  cityNight() { // city skyline at night under a blue moon
+    const [c, x] = canvas(); fill(x, '#101830', '#283a6a', -OY, 1300); x.beginPath(); x.arc(820, 320, 110, 0, 7); x.fillStyle = '#c8e0ff'; x.fill();
+    for (let i = 0; i < 8; i++) { const bx = -60 + i * 150, h = 400 + hash(i + 830) * 600; x.beginPath(); x.rect(bx, 1250 - h, 140, h); fs(x, '#1a2440', 6); for (let w = 0; w < 8; w++) { x.fillStyle = hash(i * 8 + w + 840) > 0.6 ? '#ffd77a' : '#2a3a5a'; x.fillRect(bx + 25 + (w % 2) * 55, 1280 - h + Math.floor(w / 2) * 80, 35, 40); } }
+    x.fillStyle = '#1a1a2a'; x.fillRect(-OX, 1250, BW, 1000);
+    return finish(c);
+  },
+  rubbleTown() { // town square with a giant stone fist smashing down
+    const [c, x] = canvas(); fill(x, '#c8d8e8', '#e8eef4', -OY, 900);
+    for (let i = 0; i < 5; i++) { const hx = -40 + i * 240; x.beginPath(); x.moveTo(hx, 1240); x.lineTo(hx, 700 + hash(i + 850) * 200); x.lineTo(hx + 100, 760); x.lineTo(hx + 200, 680); x.lineTo(hx + 200, 1240); fs(x, '#b8a898', 8); }
+    x.fillStyle = '#9a8a7a'; x.fillRect(-OX, 1240, BW, 1000); for (let i = 0; i < 14; i++) { x.beginPath(); x.arc(hash(i + 860) * 1080, 1300 + hash(i + 861) * 400, 20 + hash(i + 862) * 30, 0, 7); fs(x, '#a89888', 5); }
+    x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1240); x.lineTo(BW, 1240); x.stroke();
+    return finish(c);
+  },
+  fanRoom() { // fan's bedroom covered in straw-hat posters
+    const [c, x] = canvas(); fill(x, '#ffe8b0', '#ffd890');
+    for (let i = 0; i < 9; i++) { const px = 40 + (i % 3) * 360, py = 120 + Math.floor(i / 3) * 360; x.save(); x.translate(px + 140, py + 150); x.rotate((hash(i + 870) - 0.5) * 0.2); rrect(x, -130, -150, 260, 300, 8); fs(x, '#ffffff', 7);
+      x.beginPath(); x.ellipse(0, -10, 90, 22, 0, 0, 7); fs(x, '#f2c94c', 5); x.beginPath(); x.moveTo(-50, -10); x.bezierCurveTo(-50, -80, 50, -80, 50, -10); fs(x, '#f6d466', 5); x.fillStyle = '#c0392b'; x.fillRect(-48, -28, 96, 12); x.restore(); }
+    x.fillStyle = '#a26d45'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
+    return finish(c);
+  },
+  scrollHall() { // old Wano hall with a hanging painted scroll
+    const [c, x] = canvas(); fill(x, '#e8d8b8', '#c8b090');
+    for (let k = 0; k < 6; k++) { x.strokeStyle = 'rgba(90,60,30,0.4)'; x.lineWidth = 8; x.beginPath(); x.moveTo(-40 + k * 220, -OY); x.lineTo(-40 + k * 220, 1250); x.stroke(); }
+    x.fillStyle = '#6b4630'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
+    return finish(c);
+  },
+  rainyMeadow() { // green meadow in a summer downpour
+    const [c, x] = canvas(); fill(x, '#7a8aa0', '#a8b8c8', -OY, 1100);
+    x.fillStyle = 'rgba(70,80,100,0.8)'; for (let i = 0; i < 8; i++) { x.beginPath(); x.arc(hash(i + 880) * 1080, 120 + hash(i + 881) * 200, 160, 0, 7); x.fill(); }
+    x.strokeStyle = 'rgba(220,235,255,0.6)'; x.lineWidth = 4; for (let i = 0; i < 150; i++) { const rx = hash(i + 890) * 1200 - 60, ry = hash(i + 891) * 1900; x.beginPath(); x.moveTo(rx, ry); x.lineTo(rx - 8, ry + 50); x.stroke(); }
+    x.fillStyle = '#6aa85a'; x.fillRect(-OX, 1150, BW, 1100); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1150); x.lineTo(BW, 1150); x.stroke();
+    return finish(c, 8);
+  },
 };
+
 
 
 

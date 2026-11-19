@@ -1,0 +1,134 @@
+{
+ "title": "Bari Bari no Mi",
+ "format": "9:16",
+ "story": "/shorts/barrier/story.js",
+ "voice": {
+  "name": "mb-us2",
+  "speed": 158,
+  "pitch": 48
+ },
+ "voice_override_dir": "shorts/barrier/vo",
+ "voice_fx": {},
+ "music": false,
+ "structure": "3 techniques + Barrier Bulls as the peak (no stages and no awakening)",
+ "facts": [
+  "Appearance: not revealed (plain swirl fruit stands in)",
+  "Paramecia, Barrier-Barrier Fruit: see-through barriers that are nearly unbreakable",
+  "Withstood Oden's slashes (Semimaru), Elizabello's King Punch and Dellinger's kicks",
+  "Barrier stairs to climb into the air; Barrier Ball to trap people inside",
+  "Barrier Bulls: charging forward behind a barrier to plow through enemies",
+  "Only one barrier at a time (couldn't fully block Pica's stone fist)",
+  "Users: Bartolomeo (Luffy's superfan); before him, Kurozumi Semimaru of Wano"
+ ],
+ "plan": {
+  "english": "Barrier-Barrier Fruit",
+  "labels": "WALL, STAIRS, BALL, BULLS",
+  "fruit": "The fruit's appearance **has never been revealed**, so a plain round swirl fruit in light blue stands in (no face or limbs). (Fan wikis disagree on a look; none is canon.)",
+  "cast": [
+   "**Enemy (new, original):** a masked luchador wrestler.",
+   "**Bartolomeo:** tall green crest of hair, sharp teeth, piercings, open dark coat. Send a reference to match him exactly.",
+   "**Semimaru:** shown only as a faded old Wano scroll portrait (no reliable look found)."
+  ],
+  "sets": "ice rink, mint rays, crystal cave, glass office lobby, glass-dome arena, rope bridge over a canyon, sheer cliff, playground, sunny bullring, city at night, rubble-strewn town, superfan bedroom with posters, old Wano hall with a scroll, rainy meadow."
+ },
+ "lines": [
+  {
+   "id": "hook",
+   "lead": 1.6,
+   "tail": 0.25,
+   "text": "You take a bite#red of a weird swirly#purple fruit.",
+   "say": "You take a bite of a weird swirly fruit."
+  },
+  {
+   "id": "calm",
+   "lead": 0.1,
+   "tail": 0.35,
+   "text": "Don't panic,#red that's just a Devil#purple Fruit.#purple",
+   "say": "Don't panic, that's just a Devil Fruit."
+  },
+  {
+   "id": "sea",
+   "lead": 0.1,
+   "tail": 0.25,
+   "text": "Out of every fruit in the sea,#blue",
+   "say": "Out of every fruit in the sea,"
+  },
+  {
+   "id": "name",
+   "lead": 0.05,
+   "tail": 0.9,
+   "text": "you got the Barrier-Barrier#blue Fruit,#blue",
+   "say": "you got the Barrier-Barrier Fruit,"
+  },
+  {
+   "id": "type",
+   "lead": 0.1,
+   "tail": 0.9,
+   "text": "a Paramecia#orange that lets you put up see-through barriers#blue that almost nothing can break.#red",
+   "say": "a Paramecia that lets you put up see-through barriers that almost nothing can break."
+  },
+  {
+   "id": "power1",
+   "lead": 0.3,
+   "tail": 0.4,
+   "text": "First, you hold up an invisible wall#blue that stops huge attacks cold.#red",
+   "say": "First, you hold up an invisible wall that stops huge attacks cold."
+  },
+  {
+   "id": "power2",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "Then you shape barriers into stairs#gold and climb right up into the air.#blue",
+   "say": "Then you shape barriers into stairs and climb right up into the air."
+  },
+  {
+   "id": "power3",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "You can even trap enemies inside a barrier ball.#purple",
+   "say": "You can even trap enemies inside a barrier ball."
+  },
+  {
+   "id": "peak",
+   "lead": 0.55,
+   "tail": 0.6,
+   "text": "Your strongest attack is Barrier Bulls:#gold you charge forward and plow everyone over.#red",
+   "say": "Your strongest attack is Barrier Bulls: you charge forward and plow everyone over."
+  },
+  {
+   "id": "twist",
+   "lead": 0.25,
+   "tail": 0.4,
+   "text": "But it has one weakness.#red",
+   "say": "But it has one weakness."
+  },
+  {
+   "id": "truth",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "You can only make one barrier#blue at a time.#red",
+   "say": "You can only make one barrier at a time."
+  },
+  {
+   "id": "users",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "Bartolomeo,#green Luffy's biggest fan,#gold has it, and before him it belonged to Semimaru#purple of Wano.",
+   "say": "Bartolomeo, Luffy's biggest fan, has it, and before him it belonged to Semimaru of Wano."
+  },
+  {
+   "id": "joke",
+   "lead": 0.2,
+   "tail": 0.9,
+   "text": "Users of this fruit never get rained on.#blue",
+   "say": "Users of this fruit never get rained on."
+  },
+  {
+   "id": "outro",
+   "lead": 0.2,
+   "tail": 2.4,
+   "text": "Which fruit#pink do you want next?#gold Follow for more.",
+   "say": "Which fruit do you want next? Follow for more."
+  }
+ ]
+}
