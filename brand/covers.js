@@ -11,6 +11,8 @@ import { drawKumo } from '/shorts/spider/fruit.js';
 import { drawTori } from '/shorts/phoenix/fruit.js';
 import { drawBara } from '/shorts/chop/fruit.js';
 import { drawNeko } from '/shorts/leopard/fruit.js';
+import { FRUITS3 } from '/engine/fruits3.js';
+const f3 = (k) => (x, cx, cy, R, r, o) => FRUITS3[k](x, cx, cy, R * 0.9, r, o);
 const sw = (pal) => (x, cx, cy, R, r, o) => drawSwirlFruit(x, cx, cy, R, r, { ...o, pal });
 
 const C = {
@@ -32,6 +34,21 @@ const C = {
   leopard: { rays: ['#ffd0b0', '#ffae80'], glow: '255,200,110', fruit: (x, cx, cy, R, r, o) => drawNeko(x, cx, cy, R * 0.9, r, o), who: 'lucciAwake', whoExpr: 'grin', lines: [['LUCCI\'S', 110, '#ffffff'], ['AWAKENING', 150, '#ffd84a']], bottom: 'CAT-CAT FRUIT' },
   castle:  { rays: ['#e0c8ff', '#b898f0'], glow: '255,220,150', fruit: sw('grey'), who: 'bege', whoExpr: 'grin', lines: [['YOUR BODY IS A', 96, '#ffffff'], ['FORTRESS', 160, '#ffd84a']], bottom: 'CASTLE-CASTLE FRUIT' },
   brain:   { rays: ['#a8b0ff', '#6a74e0'], glow: '255,150,210', fruit: sw('pink'), who: 'vegapunk', whoExpr: 'calm', lines: [['A BRAIN THAT', 100, '#ffffff'], ['NEVER STOPS', 150, '#ff8cd0']], bottom: "VEGAPUNK'S FRUIT" },
+  bubble:  { rays: ['#c8bcf0', '#9a8ad8'], glow: '220,210,255', fruit: f3('bubble'), who: 'kalifa', whoExpr: 'smug', lines: [['ONE BUBBLE AND', 92, '#ffffff'], ['YOU\'RE POWERLESS', 130, '#7cc8ff']], bottom: 'BUBBLE-BUBBLE FRUIT' },
+  munch:   { rays: ['#b07ad8', '#7a3aa8'], glow: '200,150,255', fruit: f3('munch'), who: 'wapol', whoExpr: 'grin', lines: [['HE ATE HIS', 100, '#ffffff'], ['OWN CASTLE', 140, '#ffd84a']], bottom: 'MUNCH-MUNCH FRUIT' },
+  bomb:    { rays: ['#ffb24d', '#e8822e'], glow: '255,170,80', fruit: f3('bomb'), who: 'mr5', whoExpr: 'smug', lines: [['HIS BOOGERS', 110, '#ffffff'], ['EXPLODE', 140, '#ff4a3d']], bottom: 'BOMB-BOMB FRUIT' },
+  wax:     { rays: ['#fff6dc', '#e8dcc0'], glow: '255,245,210', fruit: f3('wax'), who: 'mr3', whoExpr: 'smug', lines: [['WAX AS HARD', 104, '#ffffff'], ['AS STEEL', 150, '#ffd84a']], bottom: 'WAX-WAX FRUIT' },
+  brush:   { rays: ['#e8e4dc', '#b8b0a8'], glow: '240,235,225', fruit: f3('brush'), who: 'kanjuro', whoExpr: 'grin', lines: [['YOUR DRAWINGS', 100, '#ffffff'], ['COME ALIVE', 140, '#ff5fa2']], bottom: 'BRUSH-BRUSH FRUIT' },
+  rumble:  { rays: ['#fff08a', '#f4d030'], glow: '255,240,140', fruit: f3('rumble'), who: 'enel', whoExpr: 'smug', lines: [['200 MILLION', 120, '#ffffff'], ['VOLTS', 150, '#3f9bff']], bottom: 'RUMBLE-RUMBLE FRUIT' },
+  flower:  { rays: ['#ffc8e0', '#f68ab8'], glow: '255,180,220', fruit: f3('flower'), who: 'robin', whoExpr: 'smug', lines: [['ARMS GROW', 120, '#ffffff'], ['ANYWHERE', 150, '#ff5fa2']], bottom: 'FLOWER-FLOWER FRUIT' },
+  orochi:  { rays: ['#f070b0', '#c8287a'], glow: '255,140,200', fruit: f3('orochi'), who: 'orochi', whoExpr: 'grin', lines: [['8 HEADS =', 120, '#ffffff'], ['8 LIVES?', 150, '#ffd84a']], bottom: 'SNAKE-SNAKE: OROCHI' },
+  human:   { rays: ['#ff8a8a', '#e0303a'], glow: '255,140,140', fruit: f3('human'), who: 'chopperMonster', whoExpr: 'grin', lines: [['THE REINDEER', 104, '#ffffff'], ['WHO ATE A FRUIT', 120, '#ffd84a']], bottom: 'HUMAN-HUMAN FRUIT' },
+  hollow:  { rays: ['#fffbe0', '#f4eaa0'], glow: '255,250,200', fruit: f3('hollow'), who: 'perona', whoExpr: 'grin', lines: [['GHOSTS THAT', 110, '#ffffff'], ['MAKE YOU CRY', 130, '#b07cff']], bottom: 'HOLLOW-HOLLOW FRUIT' },
+  wolf:    { rays: ['#ffc070', '#f08a2a'], glow: '255,190,120', fruit: f3('wolf'), who: 'yamato', whoExpr: 'grin', lines: [['A HOLY WOLF', 120, '#ffffff'], ['GUARDIAN', 150, '#7fe0d0']], bottom: 'DOG-DOG: OKUCHI NO MAKAMI' },
+  magnet:  { rays: ['#8ab0ff', '#3a6ad8'], glow: '140,190,255', fruit: f3('magnet'), who: 'eustass', whoExpr: 'grin', lines: [['KID\'S', 120, '#ffffff'], ['AWAKENED FRUIT', 130, '#ffd84a']], bottom: 'MAGNET-MAGNET FRUIT' },
+  shadow:  { rays: ['#7a6a9a', '#3a2a5a'], glow: '180,140,240', fruit: f3('shadow'), who: 'moria', whoExpr: 'grin', lines: [['HE STEALS', 120, '#ffffff'], ['YOUR SHADOW', 140, '#b07cff']], bottom: 'SHADOW-SHADOW FRUIT' },
+  kilo:    { rays: ['#e0809a', '#b0405a'], glow: '255,160,190', fruit: f3('kilo'), who: 'valentine', whoExpr: 'grin', lines: [['1 KG OR', 120, '#ffffff'], ['10,000 KG', 150, '#ffd84a']], bottom: 'KILO-KILO FRUIT' },
+  clone:   { rays: ['#ffc070', '#f08a2a'], glow: '255,200,120', fruit: f3('clone'), who: 'bonclay', whoExpr: 'grin', lines: [['STEAL ANYONE\'S', 104, '#ffffff'], ['FACE', 170, '#ff5fa2']], bottom: 'CLONE-CLONE FRUIT' },
 };
 function rays(x, a, b) { x.fillStyle = b; x.fillRect(0, 0, 1080, 1920); x.fillStyle = a; for (let i = 0; i < 28; i++) { const t = i / 28 * Math.PI * 2; x.beginPath(); x.moveTo(540, 960); x.arc(540, 960, 2400, t, t + Math.PI / 28); x.closePath(); x.fill(); } }
 function title(x, text, y, size, fill, rot = -0.03) {

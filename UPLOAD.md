@@ -160,3 +160,78 @@ You take a bite of a weird lilac fruit… and strings start shooting out of your
 **Title:** A brain that never stops growing 🧠
 **Description:** Remember everything forever, cut your brain off and share it as Punk Records. Here's Vegapunk's Brain-Brain Fruit. ⚠️ Egghead spoilers! Which fruit next? Comment and follow!
 #onepiece #devilfruit #vegapunk #egghead #punkrecords #anime #fyp
+
+## 19. Awa Awa no Mi (Bubble-Bubble) — `out/bubble.mp4` · cover `brand/cover_bubble.png`
+**Title:** One bubble and you're POWERLESS 🫧
+**Description:** Soap bubbles that wash away your strength, slippery floors and a squeaky-clean rival. Here's Kalifa's Bubble-Bubble Fruit. Which fruit next? Comment and follow!
+#onepiece #devilfruit #kalifa #cp9 #enieslobby #anime #fyp
+
+## 20. Baku Baku no Mi (Munch-Munch) — `out/munch.mp4` · cover `brand/cover_munch.png`
+**Title:** He ATE his own castle 🏰
+**Description:** Eat anything, then turn into what you ate. Here's Wapol's Munch-Munch Fruit and the Munch-Munch Factory. Which fruit next? Comment and follow!
+#onepiece #devilfruit #wapol #drumisland #chopper #anime #fyp
+
+## 21. Bomu Bomu no Mi (Bomb-Bomb) — `out/bomb.mp4` · cover `brand/cover_bomb.png`
+**Title:** His boogers EXPLODE 💥
+**Description:** Every part of your body can blow up, and you're immune to your own blasts. Here's Mr. 5's Bomb-Bomb Fruit. Which fruit next? Comment and follow!
+#onepiece #devilfruit #mr5 #baroqueworks #alabasta #anime #fyp
+
+## 22. Doru Doru no Mi (Wax-Wax) — `out/wax.mp4` · cover `brand/cover_wax.png`
+**Title:** Wax as hard as STEEL 🕯️
+**Description:** Wax walls, wax armor and a giant wax cake, but fire melts it all. Here's Mr. 3's Wax-Wax Fruit. Which fruit next? Comment and follow!
+#onepiece #devilfruit #mr3 #galdino #littlegarden #anime #fyp
+
+## 23. Fude Fude no Mi (Brush-Brush) — `out/brush.mp4` · cover `brand/cover_brush.png`
+**Title:** Your drawings come ALIVE 🖌️
+**Description:** Draw a monster, a fighter or a fake copy of yourself and it walks off the page. Here's Kanjuro's Brush-Brush Fruit and its funny catch. ⚠️ Wano spoilers! Which fruit next? Comment and follow!
+#onepiece #devilfruit #kanjuro #wano #anime #fyp
+
+## 24. Goro Goro no Mi (Rumble-Rumble) — `out/rumble.mp4` · cover `brand/cover_rumble.png`
+**Title:** 200 MILLION volts ⚡
+**Description:** Become lightning, fire giant bolts and turn into a thunder god with Amaru. Here's Enel's Rumble-Rumble Fruit and the one thing it can't beat. Which fruit next? Comment and follow!
+#onepiece #devilfruit #enel #skypiea #logia #anime #fyp
+
+## 25. Hana Hana no Mi (Flower-Flower) — `out/flower.mp4` · cover `brand/cover_flower.png`
+**Title:** Arms that grow ANYWHERE 🌸
+**Description:** Sprout arms, eyes and ears anywhere, then go giant with Demonio Fleur. Here's Nico Robin's Flower-Flower Fruit and its painful catch. Which fruit next? Comment and follow!
+#onepiece #devilfruit #nicorobin #strawhats #anime #fyp
+
+## 26. Hebi Hebi no Mi, Model: Yamata no Orochi — `out/orochi.mp4` · cover `brand/cover_orochi.png`
+**Title:** 8 heads = 8 lives? 🐍
+**Description:** A giant eight-headed serpent that keeps going after losing a head. Here's Kurozumi Orochi's Snake-Snake Fruit and how he survived Kaido. ⚠️ Wano spoilers! Which fruit next? Comment and follow!
+#onepiece #devilfruit #orochi #wano #kaido #anime #fyp
+
+## 27. Hito Hito no Mi (Human-Human) — `out/human.mp4` · cover `brand/cover_human.png`
+**Title:** The reindeer who ate a Devil Fruit 🦌
+**Description:** Talk, walk, switch forms and unlock Monster Point with a Rumble Ball. Here's Chopper's Human-Human Fruit and its scary catch. Which fruit next? Comment and follow!
+#onepiece #devilfruit #chopper #strawhats #monsterpoint #anime #fyp
+
+## 28. Horo Horo no Mi (Hollow-Hollow) — `out/hollow.mp4` · cover `brand/cover_hollow.png`
+**Title:** Ghosts that make you CRY 👻
+**Description:** Negative Hollows, exploding mini ghosts and a ghost body that walks through walls. Here's Perona's Hollow-Hollow Fruit and why it lost to Usopp. Which fruit next? Comment and follow!
+#onepiece #devilfruit #perona #thrillerbark #usopp #anime #fyp
+
+## 29. Inu Inu no Mi, Model: Okuchi no Makami — `out/wolf.mp4` · cover `brand/cover_wolf.png`
+**Title:** A holy wolf GUARDIAN 🐺
+**Description:** A giant white wolf with ice, barriers and Conqueror's Haki. Here's Yamato's Dog-Dog Fruit, a guardian deity of Wano. ⚠️ Wano spoilers! Which fruit next? Comment and follow!
+#onepiece #devilfruit #yamato #wano #mythicalzoan #anime #fyp
+
+## 30. Jiki Jiki no Mi (Magnet-Magnet) — `out/magnet.mp4` · cover `brand/cover_magnet.png`
+**Title:** Eustass Kid's AWAKENED fruit 🧲
+**Description:** Pull metal, build a scrap arm, fire it like bullets, then awaken it to make anything magnetic. Here's Kid's Magnet-Magnet Fruit. ⚠️ Wano spoilers! Which fruit next? Comment and follow!
+#onepiece #devilfruit #eustasskid #awakening #wano #anime #fyp
+
+## 31. Kage Kage no Mi (Shadow-Shadow) — `out/shadow.mp4` · cover `brand/cover_shadow.png`
+**Title:** He steals your SHADOW 🌑
+**Description:** Cut shadows, make zombie soldiers and become a giant with Shadow's Asgard. Here's Gecko Moria's Shadow-Shadow Fruit and its scary twist. Which fruit next? Comment and follow!
+#onepiece #devilfruit #geckomoria #thrillerbark #anime #fyp
+
+## 32. Kilo Kilo no Mi (Kilo-Kilo) — `out/kilo.mp4` · cover `brand/cover_kilo.png`
+**Title:** 1 kg or 10,000 kg? ⚖️
+**Description:** Float on an umbrella, then drop like a 10,000 kilo weight. Here's Miss Valentine's Kilo-Kilo Fruit and its simple weakness. Which fruit next? Comment and follow!
+#onepiece #devilfruit #missvalentine #baroqueworks #anime #fyp
+
+## 33. Mane Mane no Mi (Clone-Clone) — `out/clone.mp4` · cover `brand/cover_clone.png`
+**Title:** Steal anyone's FACE 🎭
+**Description:** Copy any face, save it to memory and trick enemies into fighting each other. Here's Bon Clay's Clone-Clone Fruit and its catch. Which fruit next? Comment and follow!
+#onepiece #devilfruit #bonclay #mr2 #impeldown #anime #fyp
