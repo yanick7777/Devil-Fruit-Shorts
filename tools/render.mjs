@@ -28,7 +28,7 @@ fs.writeFileSync(path.join(path.dirname(tlPath), 'cues.json'), JSON.stringify(aw
 
 if (only) {
   for (const t of only.split(',').map(Number)) {
-    const d = await page.evaluate((t) => window.__frame(t), t);
+    const d = await page.evaluate((t) => { try { return window.__frame(t); } catch (e) { throw new Error(e.stack); } }, t);
     fs.writeFileSync(`${out}_${t.toFixed(2)}.jpg`, Buffer.from(d.split(',')[1], 'base64'));
   }
 } else {
