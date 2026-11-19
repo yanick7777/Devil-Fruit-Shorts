@@ -39,7 +39,7 @@ Facts used (One Piece Wiki via search):
 
 - **Host:** same as before.
 - **Enemy (new, original):** a marine grunt in a white sailor cap and uniform.
-- **Capone Bege:** slicked-back black hair, moustache, cigar, dark pinstripe suit with a white cravat. Send a reference to match him exactly.
+- **Capone Bege (matched to your reference):** black fedora, blue stubble around a big grin, goatee, cigar, black-and-white pinstripe suit, green cravat, long black coat with gold trim and buttons over a brown lining.
 - **Fortress body:** stone texture, little windows, gates and cannon ports on the host.
 - Sheet: `review/cast_sheet.png`.
 

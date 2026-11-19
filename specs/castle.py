@@ -13,5 +13,5 @@ SPEC = dict(name='castle', title='Shiro Shiro no Mi', structure='3 techniques + 
   ('joke', 'Users of this fruit never pay rent.#green')],
  plan=dict(english='Castle-Castle Fruit', labels='CREW, CANNONS, TRAP, BIG FATHER',
   fruit='The fruit\'s appearance **has never been revealed**, so a plain round swirl fruit in stone grey stands in (no face or limbs).',
-  cast=['**Enemy (new, original):** a marine grunt in a white sailor cap and uniform.', '**Capone Bege:** slicked-back black hair, moustache, cigar, dark pinstripe suit with a white cravat. Send a reference to match him exactly.', '**Fortress body:** stone texture, little windows, gates and cannon ports on the host.'],
+  cast=['**Enemy (new, original):** a marine grunt in a white sailor cap and uniform.', '**Capone Bege (matched to your reference):** black fedora, blue stubble around a big grin, goatee, cigar, black-and-white pinstripe suit, green cravat, long black coat with gold trim and buttons over a brown lining.', '**Fortress body:** stone texture, little windows, gates and cannon ports on the host.'],
   sets='medieval town, lavender rays, castle gate, drawbridge over a moat, castle battlements, gangster office, smoky battlefield, dungeon with torches, candy-island coast, cracked stone wall, sick bay, stormy escape at sea, apartment hallway with a FOR RENT sign.'))

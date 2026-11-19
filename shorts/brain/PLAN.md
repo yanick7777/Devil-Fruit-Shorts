@@ -39,7 +39,7 @@ Facts used (One Piece Wiki via search):
 
 - **Host:** same as before.
 - **Enemy (new, original):** a know-it-all rival student with red hair and a purple sweater vest.
-- **Dr. Vegapunk:** an old scientist with white hair, moustache and beard, a lab coat and a headset with a glowing antenna. Send a reference to match him exactly.
+- **Dr. Vegapunk (matched to your reference):** tall bald dome head with wild white side hair, red apple hat floating on a stalk, pink round nose, white moustache, long tongue, open lab coat over a pink shirt with red dots, black pants.
 - **The six satellites:** six coloured figures in pods (no detailed designs).
 - Sheet: `review/cast_sheet.png`.
 
