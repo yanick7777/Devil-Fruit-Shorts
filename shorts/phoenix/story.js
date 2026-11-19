@@ -103,7 +103,7 @@ export function buildShots(TL) {
     draw(x, S) {
       halo(x, 540, 900, 620, '120,200,255', S.T);
       if (S.t < 0.5) { A.glowRing(x, 540, 820, 320 * prog(S.t, 0, 0.5), 1 - prog(S.t, 0.2, 0.5), '160,220,255'); evolve(x, S, 3, 4, 540, 820, 1.5, 0.45, phoenixIcon); return; }
-      const k = ease.smoother(prog(S.T, W('peak', /^Phoenix/), tSlam + 0.4)), hx = lerp(250, 560, k), hy = lerp(1050, 1550, k);
+      const k = ease.smoother(prog(S.T, W('peak', /^Phoenix/), tSlam + 0.4)), hx = lerp(440, 660, k), hy = lerp(1150, 1550, k);
       x.save(); x.translate(hx, hy); x.rotate(-0.6); winged(x, S, 'host', 'shout', 0, 0, 0.55, { pose: 'cheer', seed: 7 }); x.restore();
       for (let i = 0; i < 5; i++) blueFire(x, hx - 40 + i * 30, hy + 40, 60, 260, S.T, i + 10, 0.85);
       A.speedLines(x, hx - 200, hy - 300, S.T, 12, 260, -2.2);
@@ -112,9 +112,9 @@ export function buildShots(TL) {
     tSlam, [[1.15, 600, 1300, -0.02], [1.22, 600, 1290, -0.04]], 'Peak impact (same sky): the flaming kick slams into the viking\'s shield; blue fire shockwave, impact star, 7-frame shake');
   const pk = T.shots[T.shots.length - 1], pkd = pk.draw;
   pk.draw = function (x, S) { const hit = S.T > tSlam + 0.4;
-    const e = person(x, S, 'viking', hit ? 'hit' : 'shock', 720, 1800, 0.62, { seed: 3, pose: 'shrug', flip: true, rot: hit ? 0.35 * prog(S.T, tSlam + 0.4, tSlam + 0.8) : 0 });
+    const e = person(x, S, 'viking', hit ? 'hit' : 'shock', 860, 1800, 0.62, { seed: 3, pose: 'shrug', flip: true, rot: hit ? 0.35 * prog(S.T, tSlam + 0.4, tSlam + 0.8) : 0 });
     pkd.call(this, x, S);
-    if (hit) { A.glowRing(x, 640, 1400, 500 * prog(S.T, tSlam + 0.4, tSlam + 0.9), 1 - prog(S.T, tSlam + 0.6, tSlam + 1.0), '120,200,255'); A.impactStar(x, 660, 1350, 200 * (1 - prog(S.T, tSlam + 0.6, tSlam + 1.0)), 0.3); if (S.T < tSlam + 0.4 + 7 * F) S.shake = 1.1; } };
+    if (hit) { A.glowRing(x, 760, 1400, 500 * prog(S.T, tSlam + 0.4, tSlam + 0.9), 1 - prog(S.T, tSlam + 0.6, tSlam + 1.0), '120,200,255'); A.impactStar(x, 760, 1350, 200 * (1 - prog(S.T, tSlam + 0.6, tSlam + 1.0)), 0.3); if (S.T < tSlam + 0.4 + 7 * F) S.shake = 1.1; } };
 
   // ---------------- TWIST + TRUTH ----------------
   add({ name: 'Twist (prison cell): a pair of grey seastone cuffs swings from a chain in the dark cell; push-in with roll, low sting; red LIMIT banner', t0: st('twist'), t1: end('twist'), bg: 'jailCell', twist: true,

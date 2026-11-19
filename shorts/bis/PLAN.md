@@ -40,14 +40,14 @@ Facts used (One Piece Wiki via search):
 
 - **Host:** same as before.
 - **Enemy (new, original):** a ninja in a black hood and face mask.
-- **Charlotte Cracker:** tall spiky lavender hair, wide grin, purple coat. Send a reference to match him exactly.
+- **Charlotte Cracker (matched to your reference):** purple hair with two long coiled tails, scar over the eye, big toothy grin, shirtless, brown gloves, pink dotted side cape with a pink-and-gold shoulder pad, pink belt with gold rings and lumpy biscuits hanging from it, puffy white-pink-green ball pants, purple drape, brown boots with yellow bands.
 - **Luffy:** straw hat, red open vest, blue shorts, scar under his eye.
-- **Biscuit soldiers:** knobbly biscuit armour with dock holes, a shield and a spear.
+- **Biscuit soldiers:** built from the same lumpy golden biscuits with dots as on Cracker's belt, with a biscuit shield and a spear.
 - Sheet: `review/cast_sheet.png`.
 
 ## 4. Sets (all new)
 
-bakery, tan rays, giant cookie jar, glowing brick oven, cake-tier stage, candy town, castle parade ground, candy-castle hall, blacksmith forge, rainy café window, rainy town square, Mirro-World shards, supermarket snack aisle. Only the desk room and the purple outro rays repeat.
+bakery, tan rays, giant cookie jar, glowing brick oven, cake-tier stage, candy town, castle parade ground, candy-castle hall, blacksmith forge, rainy café window, rainy town square, forest with a giant biscuit wall, supermarket snack aisle. Only the desk room and the purple outro rays repeat.
 Sheet: `review/bg_sheet.png`. Contact sheet: `review/contact_sheet.jpg`.
 
 ## 5. Shot list
@@ -68,12 +68,12 @@ Sheet: `review/bg_sheet.png`. Contact sheet: `review/contact_sheet.jpg`.
 | 12 | 622–654 | You can even hide | sweetHall | wide, push-in 1.00→1.08 | Power 3 evolve (candy-castle hall): army icon becomes the inside icon; a giant biscuit soldier stomps in and a window in its chest shows the host steering from inside; gold INSIDE banner; the ninja's kick breaks a chunk off but the host is fine | HIDE INSIDE (gold) | evolve, whoosh |
 | 13 | 655–730 | inside a biscuit soldier and fight from in there. | sweetHall | close-up, push-in 1.40→1.48, roll -3° | Power 3 close (same hall): the host waves from the soldier's chest window |  | impact, thunk |
 | 14 | 731–810 | Pack the layers tight enough and your biscuits get as hard | forge | wide, push-in 1.00→1.08 | Peak (blacksmith forge): the inside icon gives way to the layered-biscuit icon, gold halo; gold ROCK HARD banner; biscuit layers press together into one dense slab; the ninja's sword snaps on it | ROCK HARD (gold) | evolve, stamp |
-| 15 | 811–842 | as rock. | forge | close-up, push-in 1.30→1.38 | Peak close (same forge): the sword snaps against the rock-hard biscuit, star and shake |  | glass |
+| 15 | 811–842 | as rock. | forge | close-up, push-in 1.30→1.38 | Peak close (same forge): the sword snaps against the rock-hard biscuit, star and shake |  | crumble |
 | 16 | 843–901 | But there's a tasty weakness. | rainCafe | medium, push-in 1.00→1.28, roll 4° **twist** | Twist (rainy café window): a biscuit on the windowsill, raindrops racing down the glass behind it; push-in with roll, low sting; pink WEAKNESS banner | TASTY WEAKNESS (pink) | splash, sting |
 | 17 | 902–965 | Biscuits go soft when they get wet. | drizzleTown | medium, push-in 1.05→1.15, roll -2° | Soggy (rainy town square): rain pours on a biscuit soldier, it droops, sags and slumps into a soggy heap; blue SOGGY banner | SOGGY! (blue) | boing, splash |
-| 18 | 966–1021 | Charlotte Cracker, Big Mom's son, | mirrorWorld | wide, push-in 1.05→1.12 | Charlotte Cracker (Mirro-World shards): Cracker grins inside a ring of biscuit soldiers; purple CRACKER banner | CHARLOTTE CRACKER (pink) | pop, whoosh |
-| 19 | 1022–1069 | fought Luffy for eleven hours, | mirrorWorld | wide, push-in 1.00→1.08 | Eleven hours (same shards): Luffy and a biscuit soldier trade blows while a clock spins to 11 HOURS; red 11 HOURS banner | 11 HOURS (red) | impact, tick |
-| 20 | 1070–1131 | and Luffy ate his way through. | mirrorWorld | medium, push-in 1.20→1.28 | Luffy eats through (same shards, closer): Luffy, belly huge, munches through a biscuit soldier; crumbs fly; green CHOMP banner | CHOMP! (green) | crunch |
+| 18 | 966–1021 | Charlotte Cracker, Big Mom's son, | biscuitForest | wide, push-in 1.05→1.12 | Charlotte Cracker (forest with a giant biscuit wall): Cracker grins inside a ring of biscuit soldiers; purple CRACKER banner | CHARLOTTE CRACKER (pink) | pop, whoosh |
+| 19 | 1022–1069 | fought Luffy for eleven hours, | biscuitForest | wide, push-in 1.00→1.08 | Eleven hours (same forest): Luffy and a biscuit soldier trade blows while a clock spins to 11 HOURS; red 11 HOURS banner | 11 HOURS (red) | impact, tick |
+| 20 | 1070–1131 | and Luffy ate his way through. | biscuitForest | medium, push-in 1.20→1.28 | Luffy eats through (same forest, closer): Luffy, belly huge, munches through a biscuit soldier; crumbs fly; green CHOMP banner | CHOMP! (green) | crunch |
 | 21 | 1132–1223 | Users of this fruit never run out of snacks. | snackAisle | wide, push-in 1.05→1.12 | Joke (supermarket snack aisle): the host walks past the snacks, pops a fresh biscuit out of his palm and munches it; gold FREE SNACKS banner | FREE SNACKS (gold) | crunch, jokesting, pop |
 | 22 | 1224–1307 | Which fruit do you want next? Follow for more. | rays:purple | wide, push-in 1.00→1.10 | Outro (purple rays): host with big ? marks, the fruit bouncing in; pink NEXT? banner | NEXT? (pink) | pop, whoosh |
 | 23 | 1308–1369 | (no voice) | desk | medium, push-in 1.12→1.18 | Back in the desk room: host sips coffee, steam rising |  | sip |
