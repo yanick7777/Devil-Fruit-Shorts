@@ -1,0 +1,124 @@
+{
+ "title": "4. Wax-Wax Fruit (Doru Doru no Mi)",
+ "format": "9:16",
+ "story": "/shorts/wax/story.js",
+ "voice": {
+  "name": "mb-us2",
+  "speed": 158,
+  "pitch": 48
+ },
+ "voice_override_dir": "shorts/wax/vo",
+ "voice_fx": {},
+ "music": false,
+ "structure": "techniques + peak (no forced forms)",
+ "facts": [
+  "Fruit look from the user's oparchive screenshots (refs/batch3/DESIGNS.md)"
+ ],
+ "plan": {
+  "english": "4. Wax-Wax Fruit (Doru Doru no Mi)",
+  "labels": "",
+  "fruit": "Drawn from the design you sent (refs/batch3).",
+  "cast": [],
+  "sets": ""
+ },
+ "lines": [
+  {
+   "id": "hook",
+   "lead": 1.6,
+   "tail": 0.25,
+   "text": "You take a bite#red of a weird dripping white#purple fruit.",
+   "say": "You take a bite of a weird dripping white fruit."
+  },
+  {
+   "id": "calm",
+   "lead": 0.1,
+   "tail": 0.35,
+   "text": "Don't panic,#red that's just a Devil#purple Fruit.#purple",
+   "say": "Don't panic, that's just a Devil Fruit."
+  },
+  {
+   "id": "sea",
+   "lead": 0.1,
+   "tail": 0.25,
+   "text": "Out of every fruit in the sea,#blue",
+   "say": "Out of every fruit in the sea,"
+  },
+  {
+   "id": "name",
+   "lead": 0.05,
+   "tail": 0.9,
+   "text": "you got the Wax-Wax#pink Fruit,#pink",
+   "say": "you got the Wax-Wax Fruit,"
+  },
+  {
+   "id": "type",
+   "lead": 0.1,
+   "tail": 0.9,
+   "text": "a Paramecia#orange that lets you make wax as hard as steel.#gold",
+   "say": "a Paramecia that lets you make wax as hard as steel."
+  },
+  {
+   "id": "power1",
+   "lead": 0.3,
+   "tail": 0.4,
+   "text": "First, you shape wax into walls, swords#pink and shields.#purple",
+   "say": "First, you shape wax into walls, swords and shields."
+  },
+  {
+   "id": "power2",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "Then you trap#red people's#blue feet in wax so they can't move.",
+   "say": "Then you trap people's feet in wax so they can't move."
+  },
+  {
+   "id": "power3",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "You can even make a giant#orange wax suit and fight from inside#pink it.",
+   "say": "You can even make a giant wax suit and fight from inside it."
+  },
+  {
+   "id": "peak",
+   "lead": 0.55,
+   "tail": 0.6,
+   "text": "Your strongest#blue trick is the Candle Service#gold Set: a cake that slowly turns people into wax statues.",
+   "say": "Your strongest trick is the Candle Service Set: a cake that slowly turns people into wax statues."
+  },
+  {
+   "id": "twist",
+   "lead": 0.25,
+   "tail": 0.4,
+   "text": "But wax has one big weakness.#gold",
+   "say": "But wax has one big weakness."
+  },
+  {
+   "id": "truth",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "Fire#green melts#pink it right away.",
+   "say": "Fire melts it right away."
+  },
+  {
+   "id": "users",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "Mr. 3 of Baroque#gold Works#red used it, until Usopp lit his wax on fire.",
+   "say": "Mr. 3 of Baroque Works used it, until Usopp lit his wax on fire."
+  },
+  {
+   "id": "joke",
+   "lead": 0.2,
+   "tail": 0.9,
+   "text": "Users of this fruit never run out of candles.#purple",
+   "say": "Users of this fruit never run out of candles."
+  },
+  {
+   "id": "outro",
+   "lead": 0.2,
+   "tail": 2.4,
+   "text": "Which fruit#pink do you want next?#gold Follow for more.",
+   "say": "Which fruit do you want next? Follow for more."
+  }
+ ]
+}

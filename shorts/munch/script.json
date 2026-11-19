@@ -1,0 +1,124 @@
+{
+ "title": "2. Munch-Munch Fruit (Baku Baku no Mi)",
+ "format": "9:16",
+ "story": "/shorts/munch/story.js",
+ "voice": {
+  "name": "mb-us2",
+  "speed": 158,
+  "pitch": 48
+ },
+ "voice_override_dir": "shorts/munch/vo",
+ "voice_fx": {},
+ "music": false,
+ "structure": "techniques + peak (no forced forms)",
+ "facts": [
+  "Fruit look from the user's oparchive screenshots (refs/batch3/DESIGNS.md)"
+ ],
+ "plan": {
+  "english": "2. Munch-Munch Fruit (Baku Baku no Mi)",
+  "labels": "",
+  "fruit": "Drawn from the design you sent (refs/batch3).",
+  "cast": [],
+  "sets": ""
+ },
+ "lines": [
+  {
+   "id": "hook",
+   "lead": 1.6,
+   "tail": 0.25,
+   "text": "You take a bite#red of a weird zigzag purple#purple fruit.",
+   "say": "You take a bite of a weird zigzag purple fruit."
+  },
+  {
+   "id": "calm",
+   "lead": 0.1,
+   "tail": 0.35,
+   "text": "Don't panic,#red that's just a Devil#purple Fruit.#purple",
+   "say": "Don't panic, that's just a Devil Fruit."
+  },
+  {
+   "id": "sea",
+   "lead": 0.1,
+   "tail": 0.25,
+   "text": "Out of every fruit in the sea,#blue",
+   "say": "Out of every fruit in the sea,"
+  },
+  {
+   "id": "name",
+   "lead": 0.05,
+   "tail": 0.9,
+   "text": "you got the Munch-Munch#pink Fruit,#pink",
+   "say": "you got the Munch-Munch Fruit,"
+  },
+  {
+   "id": "type",
+   "lead": 0.1,
+   "tail": 0.9,
+   "text": "a Paramecia#orange that lets you eat anything,#green even metal and stone.",
+   "say": "a Paramecia that lets you eat anything, even metal and stone."
+  },
+  {
+   "id": "power1",
+   "lead": 0.3,
+   "tail": 0.4,
+   "text": "First, your mouth opens huge and you chomp through#purple cannons#gold and walls.",
+   "say": "First, your mouth opens huge and you chomp through cannons and walls."
+  },
+  {
+   "id": "power2",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "Then whatever#gold you eat becomes#green part of your body, so you can turn your arm into a cannon.",
+   "say": "Then whatever you eat becomes part of your body, so you can turn your arm into a cannon."
+  },
+  {
+   "id": "power3",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "You can even eat your own crew and fuse into one weird#pink soldier.#orange",
+   "say": "You can even eat your own crew and fuse into one weird soldier."
+  },
+  {
+   "id": "peak",
+   "lead": 0.55,
+   "tail": 0.6,
+   "text": "Your strongest#blue trick is Munch-Munch#orange Factory: you eat a whole house and become one.",
+   "say": "Your strongest trick is Munch-Munch Factory: you eat a whole house and become one."
+  },
+  {
+   "id": "twist",
+   "lead": 0.25,
+   "tail": 0.4,
+   "text": "But here's#green the funny#orange part.",
+   "say": "But here's the funny part."
+  },
+  {
+   "id": "truth",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "The user ran away from his own island#green when pirates#orange showed up.",
+   "say": "The user ran away from his own island when pirates showed up."
+  },
+  {
+   "id": "users",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "Wapol, the old king of Drum Island,#green got blasted#orange into the sky by Luffy.",
+   "say": "Wapol, the old king of Drum Island, got blasted into the sky by Luffy."
+  },
+  {
+   "id": "joke",
+   "lead": 0.2,
+   "tail": 0.9,
+   "text": "Users of this fruit never do the dishes.#orange",
+   "say": "Users of this fruit never do the dishes."
+  },
+  {
+   "id": "outro",
+   "lead": 0.2,
+   "tail": 2.4,
+   "text": "Which fruit#pink do you want next?#gold Follow for more.",
+   "say": "Which fruit do you want next? Follow for more."
+  }
+ ]
+}

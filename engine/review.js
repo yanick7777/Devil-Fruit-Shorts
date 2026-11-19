@@ -18,3 +18,11 @@ export function bgSheet(c, BG, names) {
   const cols = Math.ceil(names.length / 2); c.width = cols * 216; c.height = 2 * 404; const x = c.getContext('2d'); x.fillStyle = '#111'; x.fillRect(0, 0, c.width, c.height);
   names.forEach((n, i) => { const [k, a] = n.split(':'); x.drawImage(BG[k](a), 80, 140, 1080, 1920, (i % cols) * 216, Math.floor(i / cols) * 404, 216, 384); x.fillStyle = '#fff'; x.font = '18px sans-serif'; x.fillText(n, (i % cols) * 216 + 6, Math.floor(i / cols) * 404 + 400); });
 }
+// one-call sheets module for batch 3 shorts
+export function makeSheet({ title, fruit, cols, note, cast, sets, BG }) {
+  return (c, q) => {
+    if (q.get('k') === 'cast') return castSheet(c, cast);
+    if (q.get('k') === 'bg') return bgSheet(c, BG, sets);
+    fruitSheet(c, title, (x, cx, cy, R, r) => fruit(x, cx, cy, R * 0.9, r), cols, note);
+  };
+}

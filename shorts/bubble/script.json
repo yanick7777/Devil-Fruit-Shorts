@@ -1,0 +1,124 @@
+{
+ "title": "1. Bubble-Bubble Fruit (Awa Awa no Mi)",
+ "format": "9:16",
+ "story": "/shorts/bubble/story.js",
+ "voice": {
+  "name": "mb-us2",
+  "speed": 158,
+  "pitch": 48
+ },
+ "voice_override_dir": "shorts/bubble/vo",
+ "voice_fx": {},
+ "music": false,
+ "structure": "techniques + peak (no forced forms)",
+ "facts": [
+  "Fruit look from the user's oparchive screenshots (refs/batch3/DESIGNS.md)"
+ ],
+ "plan": {
+  "english": "1. Bubble-Bubble Fruit (Awa Awa no Mi)",
+  "labels": "",
+  "fruit": "Drawn from the design you sent (refs/batch3).",
+  "cast": [],
+  "sets": ""
+ },
+ "lines": [
+  {
+   "id": "hook",
+   "lead": 1.6,
+   "tail": 0.25,
+   "text": "You take a bite#red of a weird lavender#purple fruit.",
+   "say": "You take a bite of a weird lavender fruit."
+  },
+  {
+   "id": "calm",
+   "lead": 0.1,
+   "tail": 0.35,
+   "text": "Don't panic,#red that's just a Devil#purple Fruit.#purple",
+   "say": "Don't panic, that's just a Devil Fruit."
+  },
+  {
+   "id": "sea",
+   "lead": 0.1,
+   "tail": 0.25,
+   "text": "Out of every fruit in the sea,#blue",
+   "say": "Out of every fruit in the sea,"
+  },
+  {
+   "id": "name",
+   "lead": 0.05,
+   "tail": 0.9,
+   "text": "you got the Bubble-Bubble#pink Fruit,#pink",
+   "say": "you got the Bubble-Bubble Fruit,"
+  },
+  {
+   "id": "type",
+   "lead": 0.1,
+   "tail": 0.9,
+   "text": "a Paramecia#orange that makes soap bubbles#blue come out of your body.",
+   "say": "a Paramecia that makes soap bubbles come out of your body."
+  },
+  {
+   "id": "power1",
+   "lead": 0.3,
+   "tail": 0.4,
+   "text": "First, your bubbles clean anything#blue spotless#green in seconds.",
+   "say": "First, your bubbles clean anything spotless in seconds."
+  },
+  {
+   "id": "power2",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "Then the bubbles wash away people's strength,#orange so they go weak and slippery.#pink",
+   "say": "Then the bubbles wash away people's strength, so they go weak and slippery."
+  },
+  {
+   "id": "power3",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "You can even make the ground#orange so slippery#gold that nobody can stand up.",
+   "say": "You can even make the ground so slippery that nobody can stand up."
+  },
+  {
+   "id": "peak",
+   "lead": 0.55,
+   "tail": 0.6,
+   "text": "Your strongest#blue move is Golden Awa: a giant wave of bubbles#pink that cleans an enemy right out of power.",
+   "say": "Your strongest move is Golden Awa: a giant wave of bubbles that cleans an enemy right out of power."
+  },
+  {
+   "id": "twist",
+   "lead": 0.25,
+   "tail": 0.4,
+   "text": "But there's#green a catch.#orange",
+   "say": "But there's a catch."
+  },
+  {
+   "id": "truth",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "Once the bubbles#orange wash off, the strength#blue comes right back.",
+   "say": "Once the bubbles wash off, the strength comes right back."
+  },
+  {
+   "id": "users",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "Kalifa, the CP9 secretary,#gold used it against#green Nami at Enies Lobby.",
+   "say": "Kalifa, the CP9 secretary, used it against Nami at Enies Lobby."
+  },
+  {
+   "id": "joke",
+   "lead": 0.2,
+   "tail": 0.9,
+   "text": "Users of this fruit never need a bath.#orange",
+   "say": "Users of this fruit never need a bath."
+  },
+  {
+   "id": "outro",
+   "lead": 0.2,
+   "tail": 2.4,
+   "text": "Which fruit#pink do you want next?#gold Follow for more.",
+   "say": "Which fruit do you want next? Follow for more."
+  }
+ ]
+}

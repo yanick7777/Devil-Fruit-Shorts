@@ -1,0 +1,124 @@
+{
+ "title": "9. Human-Human Fruit (Hito Hito no Mi, Chopper)",
+ "format": "9:16",
+ "story": "/shorts/human/story.js",
+ "voice": {
+  "name": "mb-us2",
+  "speed": 158,
+  "pitch": 48
+ },
+ "voice_override_dir": "shorts/human/vo",
+ "voice_fx": {},
+ "music": false,
+ "structure": "techniques + peak (no forced forms)",
+ "facts": [
+  "Fruit look from the user's oparchive screenshots (refs/batch3/DESIGNS.md)"
+ ],
+ "plan": {
+  "english": "9. Human-Human Fruit (Hito Hito no Mi, Chopper)",
+  "labels": "",
+  "fruit": "Drawn from the design you sent (refs/batch3).",
+  "cast": [],
+  "sets": ""
+ },
+ "lines": [
+  {
+   "id": "hook",
+   "lead": 1.6,
+   "tail": 0.25,
+   "text": "You take a bite#red of a weird mushroom-shaped#purple fruit.",
+   "say": "You take a bite of a weird mushroom-shaped fruit."
+  },
+  {
+   "id": "calm",
+   "lead": 0.1,
+   "tail": 0.35,
+   "text": "Don't panic,#red that's just a Devil#purple Fruit.#purple",
+   "say": "Don't panic, that's just a Devil Fruit."
+  },
+  {
+   "id": "sea",
+   "lead": 0.1,
+   "tail": 0.25,
+   "text": "Out of every fruit in the sea,#blue",
+   "say": "Out of every fruit in the sea,"
+  },
+  {
+   "id": "name",
+   "lead": 0.05,
+   "tail": 0.9,
+   "text": "you got the Human-Human#pink Fruit,#pink",
+   "say": "you got the Human-Human Fruit,"
+  },
+  {
+   "id": "type",
+   "lead": 0.1,
+   "tail": 0.9,
+   "text": "a Zoan that lets an animal#blue turn into a human.#purple",
+   "say": "a Zoan that lets an animal turn into a human."
+  },
+  {
+   "id": "power1",
+   "lead": 0.3,
+   "tail": 0.4,
+   "text": "First, a little reindeer#red becomes#blue able to talk and walk like a person.",
+   "say": "First, a little reindeer becomes able to talk and walk like a person."
+  },
+  {
+   "id": "power2",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "Then you switch#red between#blue a cute small form and a giant strong form.",
+   "say": "Then you switch between a cute small form and a giant strong form."
+  },
+  {
+   "id": "power3",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "With a Rumble#blue Ball, you unlock even more forms for three minutes.#pink",
+   "say": "With a Rumble Ball, you unlock even more forms for three minutes."
+  },
+  {
+   "id": "peak",
+   "lead": 0.55,
+   "tail": 0.6,
+   "text": "Your strongest#blue form is Monster#orange Point: a giant beast with huge power.",
+   "say": "Your strongest form is Monster Point: a giant beast with huge power."
+  },
+  {
+   "id": "twist",
+   "lead": 0.25,
+   "tail": 0.4,
+   "text": "But there's#green a scary#orange catch.",
+   "say": "But there's a scary catch."
+  },
+  {
+   "id": "truth",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "If you lose control,#purple you can't tell friends#green from enemies.",
+   "say": "If you lose control, you can't tell friends from enemies."
+  },
+  {
+   "id": "users",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "Tony Tony Chopper,#purple the Straw Hats' doctor, ate it as a little reindeer.#blue",
+   "say": "Tony Tony Chopper, the Straw Hats' doctor, ate it as a little reindeer."
+  },
+  {
+   "id": "joke",
+   "lead": 0.2,
+   "tail": 0.9,
+   "text": "Users of this fruit are not a raccoon.#orange",
+   "say": "Users of this fruit are not a raccoon."
+  },
+  {
+   "id": "outro",
+   "lead": 0.2,
+   "tail": 2.4,
+   "text": "Which fruit#pink do you want next?#gold Follow for more.",
+   "say": "Which fruit do you want next? Follow for more."
+  }
+ ]
+}

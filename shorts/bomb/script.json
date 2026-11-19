@@ -1,0 +1,124 @@
+{
+ "title": "3. Bomb-Bomb Fruit (Bomu Bomu no Mi)",
+ "format": "9:16",
+ "story": "/shorts/bomb/story.js",
+ "voice": {
+  "name": "mb-us2",
+  "speed": 158,
+  "pitch": 48
+ },
+ "voice_override_dir": "shorts/bomb/vo",
+ "voice_fx": {},
+ "music": false,
+ "structure": "techniques + peak (no forced forms)",
+ "facts": [
+  "Fruit look from the user's oparchive screenshots (refs/batch3/DESIGNS.md)"
+ ],
+ "plan": {
+  "english": "3. Bomb-Bomb Fruit (Bomu Bomu no Mi)",
+  "labels": "",
+  "fruit": "Drawn from the design you sent (refs/batch3).",
+  "cast": [],
+  "sets": ""
+ },
+ "lines": [
+  {
+   "id": "hook",
+   "lead": 1.6,
+   "tail": 0.25,
+   "text": "You take a bite#red of a weird bomb-shaped#purple fruit.",
+   "say": "You take a bite of a weird bomb-shaped fruit."
+  },
+  {
+   "id": "calm",
+   "lead": 0.1,
+   "tail": 0.35,
+   "text": "Don't panic,#red that's just a Devil#purple Fruit.#purple",
+   "say": "Don't panic, that's just a Devil Fruit."
+  },
+  {
+   "id": "sea",
+   "lead": 0.1,
+   "tail": 0.25,
+   "text": "Out of every fruit in the sea,#blue",
+   "say": "Out of every fruit in the sea,"
+  },
+  {
+   "id": "name",
+   "lead": 0.05,
+   "tail": 0.9,
+   "text": "you got the Bomb-Bomb#pink Fruit,#pink",
+   "say": "you got the Bomb-Bomb Fruit,"
+  },
+  {
+   "id": "type",
+   "lead": 0.1,
+   "tail": 0.9,
+   "text": "a Paramecia#orange that turns#gold your whole body into a bomb.",
+   "say": "a Paramecia that turns your whole body into a bomb."
+  },
+  {
+   "id": "power1",
+   "lead": 0.3,
+   "tail": 0.4,
+   "text": "First, any part of your body explodes#pink when you touch something.#red",
+   "say": "First, any part of your body explodes when you touch something."
+  },
+  {
+   "id": "power2",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "Then you can even make your breath#orange explode.#purple",
+   "say": "Then you can even make your breath explode."
+  },
+  {
+   "id": "power3",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "And you can flick#green tiny bombs at people#gold from far away.",
+   "say": "And you can flick tiny bombs at people from far away."
+  },
+  {
+   "id": "peak",
+   "lead": 0.55,
+   "tail": 0.6,
+   "text": "Best#red of all, explosions#pink can't hurt you, not even your own.",
+   "say": "Best of all, explosions can't hurt you, not even your own."
+  },
+  {
+   "id": "twist",
+   "lead": 0.25,
+   "tail": 0.4,
+   "text": "But there's#green a gross secret.#purple",
+   "say": "But there's a gross secret."
+  },
+  {
+   "id": "truth",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "His famous Nose Fancy Cannon fires exploding#blue boogers.#green",
+   "say": "His famous Nose Fancy Cannon fires exploding boogers."
+  },
+  {
+   "id": "users",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "Mr. 5 of Baroque#gold Works used it, until Luffy beat him at Whisky#blue Peak.",
+   "say": "Mr. 5 of Baroque Works used it, until Luffy beat him at Whisky Peak."
+  },
+  {
+   "id": "joke",
+   "lead": 0.2,
+   "tail": 0.9,
+   "text": "Users of this fruit can't#blue play hot potato.#orange",
+   "say": "Users of this fruit can't play hot potato."
+  },
+  {
+   "id": "outro",
+   "lead": 0.2,
+   "tail": 2.4,
+   "text": "Which fruit#pink do you want next?#gold Follow for more.",
+   "say": "Which fruit do you want next? Follow for more."
+  }
+ ]
+}

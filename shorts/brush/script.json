@@ -1,0 +1,124 @@
+{
+ "title": "5. Brush-Brush Fruit (Fude Fude no Mi)",
+ "format": "9:16",
+ "story": "/shorts/brush/story.js",
+ "voice": {
+  "name": "mb-us2",
+  "speed": 158,
+  "pitch": 48
+ },
+ "voice_override_dir": "shorts/brush/vo",
+ "voice_fx": {},
+ "music": false,
+ "structure": "techniques + peak (no forced forms)",
+ "facts": [
+  "Fruit look from the user's oparchive screenshots (refs/batch3/DESIGNS.md)"
+ ],
+ "plan": {
+  "english": "5. Brush-Brush Fruit (Fude Fude no Mi)",
+  "labels": "",
+  "fruit": "Drawn from the design you sent (refs/batch3).",
+  "cast": [],
+  "sets": ""
+ },
+ "lines": [
+  {
+   "id": "hook",
+   "lead": 1.6,
+   "tail": 0.25,
+   "text": "You take a bite#red of a weird ink-black#purple fruit.",
+   "say": "You take a bite of a weird ink-black fruit."
+  },
+  {
+   "id": "calm",
+   "lead": 0.1,
+   "tail": 0.35,
+   "text": "Don't panic,#red that's just a Devil#purple Fruit.#purple",
+   "say": "Don't panic, that's just a Devil Fruit."
+  },
+  {
+   "id": "sea",
+   "lead": 0.1,
+   "tail": 0.25,
+   "text": "Out of every fruit in the sea,#blue",
+   "say": "Out of every fruit in the sea,"
+  },
+  {
+   "id": "name",
+   "lead": 0.05,
+   "tail": 0.9,
+   "text": "you got the Brush-Brush#pink Fruit,#pink",
+   "say": "you got the Brush-Brush Fruit,"
+  },
+  {
+   "id": "type",
+   "lead": 0.1,
+   "tail": 0.9,
+   "text": "a Paramecia#orange that makes everything#red you draw come to life.",
+   "say": "a Paramecia that makes everything you draw come to life."
+  },
+  {
+   "id": "power1",
+   "lead": 0.3,
+   "tail": 0.4,
+   "text": "First, you draw an animal#blue and it jumps#orange right off the paper.",
+   "say": "First, you draw an animal and it jumps right off the paper."
+  },
+  {
+   "id": "power2",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "Then you draw weapons#blue and fighters#pink to battle for you.",
+   "say": "Then you draw weapons and fighters to battle for you."
+  },
+  {
+   "id": "power3",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "You can even draw a giant monster#purple as big as a building.#pink",
+   "say": "You can even draw a giant monster as big as a building."
+  },
+  {
+   "id": "peak",
+   "lead": 0.55,
+   "tail": 0.6,
+   "text": "Your strongest#blue trick is drawing a fake copy of yourself,#green so you can fool anyone.",
+   "say": "Your strongest trick is drawing a fake copy of yourself, so you can fool anyone."
+  },
+  {
+   "id": "twist",
+   "lead": 0.25,
+   "tail": 0.4,
+   "text": "But there's#green a funny#orange catch.",
+   "say": "But there's a funny catch."
+  },
+  {
+   "id": "truth",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "The user is really bad at drawing, so his creations#orange look terrible.#gold",
+   "say": "The user is really bad at drawing, so his creations look terrible."
+  },
+  {
+   "id": "users",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "Kurozumi#pink Kanjuro#orange used it to spy on the Wano samurai for twenty years.",
+   "say": "Kurozumi Kanjuro used it to spy on the Wano samurai for twenty years."
+  },
+  {
+   "id": "joke",
+   "lead": 0.2,
+   "tail": 0.9,
+   "text": "Users of this fruit never fail#green art class.#orange",
+   "say": "Users of this fruit never fail art class."
+  },
+  {
+   "id": "outro",
+   "lead": 0.2,
+   "tail": 2.4,
+   "text": "Which fruit#pink do you want next?#gold Follow for more.",
+   "say": "Which fruit do you want next? Follow for more."
+  }
+ ]
+}

@@ -1,0 +1,124 @@
+{
+ "title": "10. Hollow-Hollow Fruit (Horo Horo no Mi)",
+ "format": "9:16",
+ "story": "/shorts/hollow/story.js",
+ "voice": {
+  "name": "mb-us2",
+  "speed": 158,
+  "pitch": 48
+ },
+ "voice_override_dir": "shorts/hollow/vo",
+ "voice_fx": {},
+ "music": false,
+ "structure": "techniques + peak (no forced forms)",
+ "facts": [
+  "Fruit look from the user's oparchive screenshots (refs/batch3/DESIGNS.md)"
+ ],
+ "plan": {
+  "english": "10. Hollow-Hollow Fruit (Horo Horo no Mi)",
+  "labels": "",
+  "fruit": "Drawn from the design you sent (refs/batch3).",
+  "cast": [],
+  "sets": ""
+ },
+ "lines": [
+  {
+   "id": "hook",
+   "lead": 1.6,
+   "tail": 0.25,
+   "text": "You take a bite#red of a weird ghost-shaped#purple fruit.",
+   "say": "You take a bite of a weird ghost-shaped fruit."
+  },
+  {
+   "id": "calm",
+   "lead": 0.1,
+   "tail": 0.35,
+   "text": "Don't panic,#red that's just a Devil#purple Fruit.#purple",
+   "say": "Don't panic, that's just a Devil Fruit."
+  },
+  {
+   "id": "sea",
+   "lead": 0.1,
+   "tail": 0.25,
+   "text": "Out of every fruit in the sea,#blue",
+   "say": "Out of every fruit in the sea,"
+  },
+  {
+   "id": "name",
+   "lead": 0.05,
+   "tail": 0.9,
+   "text": "you got the Hollow-Hollow#pink Fruit,#pink",
+   "say": "you got the Hollow-Hollow Fruit,"
+  },
+  {
+   "id": "type",
+   "lead": 0.1,
+   "tail": 0.9,
+   "text": "a Paramecia#orange that lets you make ghosts.#green",
+   "say": "a Paramecia that lets you make ghosts."
+  },
+  {
+   "id": "power1",
+   "lead": 0.3,
+   "tail": 0.4,
+   "text": "First, Negative#purple Hollows#gold fly through people and make them super sad.",
+   "say": "First, Negative Hollows fly through people and make them super sad."
+  },
+  {
+   "id": "power2",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "Then mini ghosts#red explode#blue like little bombs.",
+   "say": "Then mini ghosts explode like little bombs."
+  },
+  {
+   "id": "power3",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "You can even leave#green your body as a ghost and float through#pink walls.",
+   "say": "You can even leave your body as a ghost and float through walls."
+  },
+  {
+   "id": "peak",
+   "lead": 0.55,
+   "tail": 0.6,
+   "text": "Your strongest#blue trick makes even the toughest#gold fighters fall to their knees and cry.",
+   "say": "Your strongest trick makes even the toughest fighters fall to their knees and cry."
+  },
+  {
+   "id": "twist",
+   "lead": 0.25,
+   "tail": 0.4,
+   "text": "But it has one funny#purple weakness.#gold",
+   "say": "But it has one funny weakness."
+  },
+  {
+   "id": "truth",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "It doesn't work on someone#gold who's already negative.#green",
+   "say": "It doesn't work on someone who's already negative."
+  },
+  {
+   "id": "users",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "Perona, the ghost princess#gold of Thriller#blue Bark, lost to Usopp.",
+   "say": "Perona, the ghost princess of Thriller Bark, lost to Usopp."
+  },
+  {
+   "id": "joke",
+   "lead": 0.2,
+   "tail": 0.9,
+   "text": "Users of this fruit never feel#green lonely.#pink",
+   "say": "Users of this fruit never feel lonely."
+  },
+  {
+   "id": "outro",
+   "lead": 0.2,
+   "tail": 2.4,
+   "text": "Which fruit#pink do you want next?#gold Follow for more.",
+   "say": "Which fruit do you want next? Follow for more."
+  }
+ ]
+}
