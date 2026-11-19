@@ -1312,7 +1312,87 @@ export const BG = {
     x.fillStyle = '#6aa85a'; x.fillRect(-OX, 1150, BW, 1100); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1150); x.lineTo(BW, 1150); x.stroke();
     return finish(c, 8);
   },
+  // ---------------- Arrow-Arrow short ----------------
+  archeryRange() { // archery range with straw targets
+    const [c, x] = canvas(); fill(x, '#9ed8ff', '#e8f6ff', -OY, 1000);
+    for (const tx of [180, 540, 900]) { x.beginPath(); x.moveTo(tx - 60, 1240); x.lineTo(tx, 1000); x.lineTo(tx + 60, 1240); x.lineWidth = 12; x.strokeStyle = '#8a5a3c'; x.stroke(); for (let r = 4; r > 0; r--) { x.beginPath(); x.arc(tx, 900, r * 32, 0, 7); fs(x, r % 2 ? '#e8402e' : '#ffffff', 5); } x.beginPath(); x.arc(tx, 900, 18, 0, 7); fs(x, '#ffcf3a', 4); }
+    x.fillStyle = '#8fcf6a'; x.fillRect(-OX, 1240, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1240); x.lineTo(BW, 1240); x.stroke();
+    return finish(c);
+  },
+  signposts() { // crossroads with a tall signpost of arrow signs
+    const [c, x] = canvas(); fill(x, '#ffd8b0', '#fff2e0', -OY, 1000);
+    A_rr(x, 520, 300, 40, 950, 8, '#8a5a3c'); for (let i = 0; i < 5; i++) { const y = 360 + i * 120, d = i % 2 ? -1 : 1; x.beginPath(); x.moveTo(540, y); x.lineTo(540 + d * 260, y); x.lineTo(540 + d * 320, y + 40); x.lineTo(540 + d * 260, y + 80); x.lineTo(540, y + 80); x.closePath(); fs(x, ['#ff5a8a', '#3f9bff', '#ffcf3a', '#5cc45a', '#b07cff'][i], 8); }
+    x.fillStyle = '#d9b48a'; x.fillRect(-OX, 1240, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1240); x.lineTo(BW, 1240); x.stroke();
+    return finish(c);
+  },
+  windyHill() { // windswept hill with bent grass and streaks
+    const [c, x] = canvas(); fill(x, '#a8e0ff', '#e8f8ff', -OY, 1000);
+    x.strokeStyle = 'rgba(255,255,255,0.8)'; x.lineWidth = 8; x.lineCap = 'round'; for (let i = 0; i < 12; i++) { const y = 200 + i * 80, x0 = hash(i + 900) * 600; x.beginPath(); x.moveTo(x0, y); x.quadraticCurveTo(x0 + 200, y - 30, x0 + 400, y); x.stroke(); }
+    x.beginPath(); x.moveTo(-OX, 1240); x.quadraticCurveTo(540, 1050, BW, 1240); x.lineTo(BW, BH); x.lineTo(-OX, BH); fs(x, '#7fd36a', 10);
+    return finish(c);
+  },
+  compassHall() { // hall with a giant compass rose on the floor, for the techniques stage
+    const [c, x] = canvas(); fill(x, '#3a2a5a', '#241838');
+    for (let k = 0; k < 4; k++) A_rr(x, 30 + k * 300, 200, 80, 1050, 20, '#5a4a7a');
+    x.fillStyle = '#c9a64a'; x.fillRect(-OX, 1250, BW, 1000); x.save(); x.translate(540, 1500); x.scale(1, 0.3); for (let i = 0; i < 8; i++) { x.rotate(Math.PI / 4); x.beginPath(); x.moveTo(0, 0); x.lineTo(40, -60); x.lineTo(0, -420 * (i % 2 ? 0.6 : 1)); x.lineTo(-40, -60); x.closePath(); fs(x, i % 2 ? '#f4ead2' : '#8a1a14', 6); } x.restore();
+    x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
+    return finish(c);
+  },
+  courtyard() { // stone courtyard with a fountain wall
+    const [c, x] = canvas(); fill(x, '#c8e0f0', '#e8f0f8', -OY, 700);
+    x.beginPath(); x.rect(-OX, 500, BW, 750); fs(x, '#d8ccb8', 10); for (let i = 0; i < 4; i++) { x.beginPath(); const ax = 40 + i * 270; x.moveTo(ax, 1250); x.lineTo(ax, 800); x.arc(ax + 100, 800, 100, Math.PI, 0); x.lineTo(ax + 200, 1250); x.closePath(); fs(x, '#a89a88', 8); }
+    x.fillStyle = '#c0b4a0'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
+    return finish(c);
+  },
+  raceTrack() { // running track with lanes and a stadium
+    const [c, x] = canvas(); fill(x, '#8fd8ff', '#e0f4ff', -OY, 800);
+    for (let r = 0; r < 4; r++) { x.fillStyle = r % 2 ? '#3f6fb5' : '#5a8ad8'; x.fillRect(-OX, 520 + r * 90, BW, 90); }
+    x.fillStyle = '#d8643a'; x.fillRect(-OX, 1000, BW, 1300); x.strokeStyle = '#ffffff'; x.lineWidth = 8; for (let k = 0; k < 6; k++) { x.beginPath(); x.moveTo(-OX, 1100 + k * 160); x.lineTo(BW, 1100 + k * 160); x.stroke(); }
+    return finish(c);
+  },
+  butcherShop() { // butcher shop with knives on a rack
+    const [c, x] = canvas(); fill(x, '#f0f4f4', '#d8e4e4');
+    for (let r = 0; r < 30; r++) for (let k = 0; k < 12; k++) { x.strokeStyle = 'rgba(120,150,150,0.35)'; x.lineWidth = 3; x.strokeRect(-60 + k * 100, -120 + r * 100, 100, 100); }
+    A_rr(x, 140, 420, 800, 30, 8, '#6b4630'); for (let k = 0; k < 7; k++) { x.save(); x.translate(200 + k * 110, 450); A_rr(x, -10, 0, 20, 60, 4, '#3a2a20'); x.beginPath(); x.moveTo(-14, 60); x.lineTo(14, 60); x.lineTo(20, 220); x.lineTo(-14, 200); x.closePath(); fs(x, '#d9dce6', 6); x.restore(); }
+    x.fillStyle = '#c8b8a0'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
+    return finish(c);
+  },
+  railYard() { // rail yard with switching tracks at sunset
+    const [c, x] = canvas(); fill(x, '#ffb07a', '#ffe0c0', -OY, 1000);
+    x.fillStyle = '#8a7a6a'; x.fillRect(-OX, 1000, BW, 1300); x.strokeStyle = '#5a4a3a'; x.lineWidth = 14; for (const [a, b] of [[200, 100], [540, 540], [880, 980], [540, 200]]) { x.beginPath(); x.moveTo(a, 1000); x.lineTo(b, 2000); x.stroke(); }
+    for (let k = 0; k < 12; k++) { x.fillStyle = '#6b4630'; x.fillRect(-OX, 1060 + k * 90, BW, 16); }
+    x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1000); x.lineTo(BW, 1000); x.stroke();
+    return finish(c);
+  },
+  cathedral() { // dark cathedral with tall stained-glass windows
+    const [c, x] = canvas(); fill(x, '#1f1a30', '#100c1c');
+    for (let k = 0; k < 3; k++) { const wx = 120 + k * 320; x.beginPath(); x.moveTo(wx, 1100); x.lineTo(wx, 400); x.arc(wx + 100, 400, 100, Math.PI, 0); x.lineTo(wx + 200, 1100); x.closePath(); fs(x, '#3a2a5a', 10);
+      for (let i = 0; i < 6; i++) { x.fillStyle = ['rgba(232,64,46,0.5)', 'rgba(63,155,255,0.5)', 'rgba(255,207,58,0.5)'][(i + k) % 3]; x.fillRect(wx + 10 + (i % 2) * 95, 420 + Math.floor(i / 2) * 220, 85, 200); } }
+    x.fillStyle = '#2a2236'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
+    return finish(c);
+  },
+  holyPalace() { // gleaming white-and-gold palace above the clouds
+    const [c, x] = canvas(); fill(x, '#fff4d0', '#e8f0ff'); for (let i = 0; i < 5; i++) cloud(x, hash(i + 910) * 1080, 1100 + hash(i + 911) * 200, 1.2);
+    x.beginPath(); x.rect(140, 500, 800, 650); fs(x, '#ffffff', 10); for (let k = 0; k < 5; k++) A_rr(x, 180 + k * 160, 560, 60, 590, 10, '#f4ead2');
+    x.beginPath(); x.moveTo(100, 520); x.lineTo(540, 260); x.lineTo(980, 520); x.closePath(); fs(x, '#d9b44a', 10);
+    x.fillStyle = '#e8e0d0'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
+    return finish(c);
+  },
+  giantForest() { // land of giants: enormous tree trunks and a huge sword stuck in the ground
+    const [c, x] = canvas(); fill(x, '#b8e0a8', '#e8f8d8', -OY, 1000);
+    for (const [tx, w] of [[60, 260], [940, 300]]) { A_rr(x, tx - w / 2, -OY, w, 1450, 30, '#8a6a4a'); x.strokeStyle = 'rgba(60,40,20,0.4)'; x.lineWidth = 8; for (let k = 0; k < 5; k++) { x.beginPath(); x.moveTo(tx - w / 2 + 30 + k * 50, 100); x.lineTo(tx - w / 2 + 40 + k * 50, 1240); x.stroke(); } }
+    x.save(); x.translate(560, 1240); x.rotate(0.12); A_rr(x, -40, -900, 80, 900, 10, '#c9ccd6'); A_rr(x, -140, -960, 280, 60, 14, '#8a5a3c'); x.restore();
+    x.fillStyle = '#6aa85a'; x.fillRect(-OX, 1240, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1240); x.lineTo(BW, 1240); x.stroke();
+    return finish(c);
+  },
+  hedgeMaze() { // green hedge maze seen at an angle
+    const [c, x] = canvas(); fill(x, '#9ed8ff', '#e0f4ff', -OY, 600);
+    x.fillStyle = '#c8b890'; x.fillRect(-OX, 600, BW, 1700);
+    for (let r = 0; r < 7; r++) for (let k = 0; k < 6; k++) { if (hash(r * 6 + k + 920) > 0.45) A_rr(x, -40 + k * 200, 620 + r * 220, 200, 70, 14, '#4f9a3a'); if (hash(r * 6 + k + 930) > 0.55) A_rr(x, -40 + k * 200, 620 + r * 220, 60, 220, 14, '#3f8a2a'); }
+    return finish(c);
+  },
 };
+
 
 
 
