@@ -91,3 +91,72 @@ You take a bite of a weird lilac fruit… and strings start shooting out of your
 #onepiece #doflamingo #devilfruit #itoitonomi #birdcage #anime #fyp
 
 **Tags:** One Piece, Doflamingo, Donquixote Doflamingo, Ito Ito no Mi, String-String Fruit, Birdcage, awakening, awakened Devil Fruit, Parasite, Trebol, Dressrosa, Devil Fruit explained, One Piece explained, anime explained, Paramecia, anime shorts
+
+---
+
+# Batch 2
+
+## 6. Hobi Hobi no Mi (Hobby-Hobby / toy fruit) — `out/hobby.mp4` · cover `brand/cover_hobby.png`
+**Title:** One touch and you're a TOY forever 🧸
+**Description:** You take a bite of a weird wheel-shaped fruit… and now one touch turns anyone into a toy that the whole world forgets. Here's Sugar's Hobby-Hobby Fruit and its one huge weakness. Which fruit next? Comment and follow!
+#onepiece #devilfruit #sugar #dressrosa #hobihobinomi #anime #fyp
+
+## 7. Toge Toge no Mi (Spike-Spike) — `out/spike.mp4` · cover `brand/cover_spike.png`
+**Title:** What if YOU ate the Spike-Spike Fruit? 🌵
+**Description:** Spike fingers, spike stilts, a wall of spikes and Doping. Here's Miss Doublefinger's fruit, and how Nami beat it with a weather stick. Which fruit next? Comment and follow!
+#onepiece #devilfruit #missdoublefinger #nami #baroqueworks #anime #fyp
+
+## 8. Kumo Kumo no Mi, Model: Rosamygale Grauvogeli (Spider-Spider) — `out/spider.mp4` · cover `brand/cover_spider.png`
+**Title:** This Devil Fruit is a spider from the dinosaur age 🕷️
+**Description:** Turn into a giant prehistoric spider, spin webs that caught Sanji and crawl on the ceiling. Here's Black Maria's Ancient Zoan. Which fruit next? Comment and follow!
+#onepiece #devilfruit #blackmaria #wano #ancientzoan #anime #fyp
+
+## 9. Wara Wara no Mi (Straw-Straw) — `out/straw.mp4` · cover `brand/cover_straw.png`
+**Title:** This fruit sends your pain to someone else 🎎
+**Description:** Straw weapons, voodoo dolls linked to ten people and a giant straw man. Here's Basil Hawkins' fruit, and the left-arm mistake that beat him. Which fruit next? Comment and follow!
+#onepiece #devilfruit #basilhawkins #killer #wano #anime #fyp
+
+## 10. Numa Numa no Mi (Swamp-Swamp) — `out/swamp.mp4` · cover `brand/cover_swamp.png`
+**Title:** Your body becomes a bottomless swamp 🐊
+**Description:** Cannonballs sink into you, you swallow treasure whole and a Gatling gun pops out of your stomach. Here's Caribou's Logia, and the barrel that beat it. Which fruit next? Comment and follow!
+#onepiece #devilfruit #caribou #logia #franky #anime #fyp
+
+## 11. Bisu Bisu no Mi (Bis-Bis) — `out/bis.mp4` · cover `brand/cover_bis.png`
+**Title:** An army made of BISCUITS 🍪
+**Description:** Biscuit shields, endless biscuit soldiers and biscuits as hard as rock. Here's Charlotte Cracker's fruit, and how Luffy ate his way through it. Which fruit next? Comment and follow!
+#onepiece #devilfruit #cracker #bigmom #wholecakeisland #anime #fyp
+
+## 12. Tori Tori no Mi, Model: Phoenix — `out/phoenix.mp4` · cover `brand/cover_phoenix.png`
+**Title:** The Devil Fruit that can't die 🔥🐦
+**Description:** Blue flame wings, wounds that heal themselves, healing others and Phoenix Brand. Here's Marco's Mythical Zoan, and the one thing that stops it. Which fruit next? Comment and follow!
+#onepiece #devilfruit #marco #phoenix #whitebeardpirates #anime #fyp
+
+## 13. Bari Bari no Mi (Barrier-Barrier) — `out/barrier.mp4` · cover `brand/cover_barrier.png`
+**Title:** The barrier NOTHING can break 🛡️
+**Description:** Invisible walls, barrier stairs, barrier balls and Barrier Bulls. Here's Bartolomeo's fruit and its one weakness. Which fruit next? Comment and follow!
+#onepiece #devilfruit #bartolomeo #dressrosa #barrier #anime #fyp
+
+## 14. Aro Aro no Mi (Arrow-Arrow) — `out/arrow.mp4` · cover `brand/cover_arrow.png`
+**Title:** A Holy Knight's secret Devil Fruit 🏹
+**Description:** Arrows from your body, attacks boosted by arrows, arrows a knife can't cut. Here's Gunko's Arrow-Arrow Fruit from Elbaph. ⚠️ Manga spoilers! Which fruit next? Comment and follow!
+#onepiece #devilfruit #gunko #holyknights #elbaph #anime #fyp
+
+## 15. Bara Bara no Mi (Chop-Chop) — `out/chop.mp4` · cover `brand/cover_chop.png`
+**Title:** Swords can't cut you, but there's a catch ✂️
+**Description:** Swords pass right through you, your fist flies like a rocket and your head pops off. Here's Buggy's Chop-Chop Fruit and why his feet can't float. Which fruit next? Comment and follow!
+#onepiece #devilfruit #buggy #barabaranomi #roger #anime #fyp
+
+## 16. Neko Neko no Mi, Model: Leopard (Cat-Cat) — `out/leopard.mp4` · cover `brand/cover_leopard.png`
+**Title:** Lucci's AWAKENED Devil Fruit 🐆
+**Description:** Full leopard, hybrid, Rokuogan and the awakening that didn't take over his mind. Here's Rob Lucci's Cat-Cat Fruit. ⚠️ Egghead spoilers! Which fruit next? Comment and follow!
+#onepiece #devilfruit #robLucci #awakening #egghead #anime #fyp
+
+## 17. Shiro Shiro no Mi (Castle-Castle) — `out/castle.mp4` · cover `brand/cover_castle.png`
+**Title:** Your body becomes a FORTRESS 🏰
+**Description:** Your crew lives inside you, cannons fire out of you and you turn into Big Father. Here's Capone Bege's fruit and its painful catch. Which fruit next? Comment and follow!
+#onepiece #devilfruit #caponebege #bigmom #wholecakeisland #anime #fyp
+
+## 18. Nomi Nomi no Mi (Brain-Brain) — `out/brain.mp4` · cover `brand/cover_brain.png`
+**Title:** A brain that never stops growing 🧠
+**Description:** Remember everything forever, cut your brain off and share it as Punk Records. Here's Vegapunk's Brain-Brain Fruit. ⚠️ Egghead spoilers! Which fruit next? Comment and follow!
+#onepiece #devilfruit #vegapunk #egghead #punkrecords #anime #fyp
