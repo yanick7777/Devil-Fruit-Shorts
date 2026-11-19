@@ -22,13 +22,16 @@ export function leopard(x, cx, by, s, t, o = {}) {
 }
 function pigeon(x, cx, cy, s) { x.save(); x.translate(cx, cy); x.scale(s, s); x.beginPath(); x.ellipse(0, 0, 60, 46, 0, 0, 7); A.fs(x, '#f4f4f8', 7); x.beginPath(); x.arc(46, -34, 28, 0, 7); A.fs(x, '#f4f4f8', 7); x.beginPath(); x.moveTo(70, -34); x.lineTo(96, -28); x.lineTo(70, -24); x.closePath(); A.fs(x, '#ffcf3a', 4); x.beginPath(); x.arc(52, -40, 5, 0, 7); x.fillStyle = A.OL; x.fill(); x.beginPath(); x.moveTo(20, -10); x.lineTo(46, 8); x.lineTo(20, 14); x.closePath(); A.fs(x, '#e8303c', 4); x.restore(); }
 function shockRing(x, cx, cy, k, col = '255,255,255') { if (k <= 0 || k >= 1) return; for (let i = 0; i < 3; i++) { const r = (60 + 600 * k) * (1 - i * 0.18); x.beginPath(); x.arc(cx, cy, r, 0, 7); x.lineWidth = 18 * (1 - k); x.strokeStyle = `rgba(${col},${(1 - k) * (1 - i * 0.25)})`; x.stroke(); } }
-function whiteAura(x, cx, cy, r, t) { for (let i = 0; i < 10; i++) { const a = i / 10 * 6.283 + t, rr = r * (1 + 0.1 * Math.sin(t * 4 + i)); x.beginPath(); x.arc(cx + Math.cos(a) * rr * 0.7, cy + Math.sin(a) * rr, r * 0.35, 0, 7); x.fillStyle = 'rgba(255,255,255,0.35)'; x.fill(); } }
+function whiteAura(x, cx, cy, r, t) { // black smoke clouds pouring off the awakened form (named for history)
+  for (let i = 0; i < 14; i++) { const a = i / 14 * 6.283 + t * 0.6, rr = r * (0.9 + 0.15 * Math.sin(t * 3 + i)), px = cx + Math.cos(a) * rr * 0.75, py = cy + Math.sin(a) * rr;
+    x.beginPath(); x.arc(px, py, r * 0.22, 0, 7); x.arc(px + r * 0.12, py - r * 0.1, r * 0.16, 0, 7); x.fillStyle = '#121016'; x.fill();
+    x.beginPath(); x.arc(px + r * 0.05, py, r * 0.08, 0.3, 4.5); x.lineWidth = 4; x.strokeStyle = '#d9c870'; x.stroke(); } }
 export function nekoIcon(x, k, cx, cy, s, t) {
   x.save(); x.translate(cx, cy); x.scale(s, s);
   if (k === 1) leopard(x, 0, 120, 0.42, t);
   else if (k === 2) { x.beginPath(); x.arc(0, -20, 90, 0, 7); A.fs(x, '#e8a84a', 8); for (const sd of [-1, 1]) { x.beginPath(); x.moveTo(sd * 50, -90); x.lineTo(sd * 90, -170); x.lineTo(sd * 100, -60); x.closePath(); A.fs(x, '#e8a84a', 6); } }
   else if (k === 3) { A.fist(x, 0, 0, 0.6, '#e8a84a'); shockRing(x, 0, 0, (t * 0.8) % 1); }
-  else { A.glow(x, 0, 0, 180, '255,255,255', 0.7); whiteAura(x, 0, 0, 120, t); leopard(x, 0, 120, 0.4, t, { white: true }); }
+  else { whiteAura(x, 0, 0, 130, t); leopard(x, 0, 120, 0.4, t); }
   x.restore();
 }
 
@@ -87,17 +90,17 @@ export function buildShots(TL) {
 
   // ---------------- AWAKENING (peak) ----------------
   const tStr = W('awaken', /^stronger/) - 0.1;
-  add({ name: 'Awakening (futuristic lab): the shockwave icon gives way to the awakened icon, white halo; gold AWAKENED banner; white flash; the leopard-man\'s fur turns pale white with a cloudy white aura', t0: st('awaken'), t1: tStr, bg: 'futureLab',
+  add({ name: 'Awakening (futuristic lab): the shockwave icon gives way to the awakened icon, gold halo; gold AWAKENED banner; flash; black smoke clouds burst off the leopard-man, white chest, white pants', t0: st('awaken'), t1: tStr, bg: 'futureLab',
     cam: [[1.0, 540, 980, 0], [1.08, 540, 940, 0.02]], banners: [['AWAKENED', 'gold', W('awaken', /^awaken/) - 0.1, end('awaken'), 'slide']], sfx: [[0, 'evolve'], [W('awaken', /^awaken/) - st('awaken'), 'charge']],
     draw(x, S) {
-      halo(x, 540, 900, 620, '255,255,255', S.T);
+      halo(x, 540, 900, 620, '255,220,120', S.T);
       if (S.t < 0.5) { A.glowRing(x, 540, 820, 320 * prog(S.t, 0, 0.5), 1 - prog(S.t, 0.2, 0.5), '255,255,255'); evolve(x, S, 3, 4, 540, 820, 1.5, 0.45, nekoIcon); return; }
       const ta = W('awaken', /^awaken/), aw = S.T > ta + 0.1;
-      if (aw) whiteAura(x, 540, 1300, 380, S.T);
-      person(x, S, aw ? 'lucciAwake' : 'lucciHybrid', 'grin', 540, 1780, 0.82, { seed: 7, pose: 'cheer', sx: 1.2 });
+      if (aw) whiteAura(x, 540, 950, 470, S.T);
+      person(x, S, aw ? 'lucciAwake' : 'lucciHybrid', 'grin', 540, 1780, 0.82, { seed: 7, pose: 'cheer', sx: 1.2 }); if (aw) { whiteAura(x, 330, 1100, 110, S.T + 1.3); whiteAura(x, 750, 1100, 110, S.T + 2.1); }
       if (S.T > ta) { S.flash = Math.max(S.flash, 0.9 * (1 - prog(S.T, ta, ta + 0.4))); S.flashCol = '255,255,255'; }
     } });
-  add({ name: 'Awakened speed (same lab, wide): the white leopard-man blurs across the room in a zig-zag of after-images and flattens the bandit; impact star, shake', t0: tStr, t1: end('awaken'), bg: 'futureLab',
+  add({ name: 'Awakened speed (same lab, wide): the awakened leopard-man blurs across the room in a zig-zag of after-images and flattens the bandit; impact star, shake', t0: tStr, t1: end('awaken'), bg: 'futureLab',
     cam: [[1.0, 540, 1000, -0.02], [1.06, 560, 990, -0.04]], sfx: [[0.1, 'zip'], [0.6, 'impact']],
     draw(x, S) { const u = ease.smoother(prog(S.t, 0, 0.6)); for (let i = 0; i < 4; i++) { const v = Math.max(0, u - i * 0.12); person(x, S, 'lucciAwake', 'shout', lerp(160, 560, v), 1780, 0.66, { seed: 7, pose: 'punch', sx: 1.15, alpha: i ? 0.25 : 1 }); }
       const hit = S.t > 0.6; const e = person(x, S, 'bandit', hit ? 'hit' : 'shock', 860, 1780, 0.56, { seed: 3, pose: 'shrug', flip: true, rot: hit ? 1.2 * prog(S.t, 0.6, 1.0) : 0 });
@@ -110,7 +113,7 @@ export function buildShots(TL) {
   const tStay = W('truth', /^but/) - 0.1;
   add({ name: 'Mind takeover (mind spiral): a wild beast silhouette swirls in on the spiral, trying to swallow a little Lucci head; purple TAKEOVER banner', t0: st('truth'), t1: tStay, bg: 'mindSpiral',
     cam: [[1.05, 540, 1000, -0.02], [1.15, 540, 990, -0.04]], banners: [['MIND TAKEOVER', 'pink', W('truth', /^take/) - 0.1, tStay]], sfx: [[0, 'whoosh'], [0.5, 'rumble']],
-    draw(x, S) { x.save(); x.translate(540, 900); x.rotate(S.T * 0.8); x.translate(-540, -900); leopard(x, 600, 1100, 1.3, S.T, { white: true }); x.restore(); A.mark(x, '!?', 800, 600, pop(S.T, S.t0 + 0.4)); } });
+    draw(x, S) { x.save(); x.translate(540, 900); x.rotate(S.T * 0.8); x.translate(-540, -900); leopard(x, 600, 1100, 1.3, S.T); whiteAura(x, 600, 800, 300, S.T); x.restore(); A.mark(x, '!?', 800, 600, pop(S.T, S.t0 + 0.4)); } });
   add({ name: 'Still himself (same spiral fades): calm Lucci in his top hat, pigeon on his shoulder, unbothered; green STILL HIMSELF banner', t0: tStay, t1: end('truth'), bg: 'mindSpiral',
     cam: [[1.15, 540, 1000, 0.02], [1.22, 540, 990, 0.035]], banners: [['STILL HIMSELF', 'green', tStay + 0.2, end('truth')]], sfx: [[0.1, 'ding']],
     draw(x, S) { const l = person(x, S, 'lucci', 'calm', 540, 1800, 0.84, { seed: 8, pose: 'idle' }); pigeon(x, l.head[0] + 210, l.head[1] + 280, 0.8); } });
@@ -122,7 +125,7 @@ export function buildShots(TL) {
     draw(x, S) { const l = person(x, S, 'lucci', 'smug', 540, 1820, 0.84, { pop: S.t0 + 0.05, seed: 8, pose: 'idle' }); pigeon(x, l.head[0] + 210, l.head[1] + 280, 0.8); } });
   add({ name: 'Versus Luffy (futuristic egg-dome island): the awakened leopard-man squares off against Luffy; red VS LUFFY banner', t0: tLuffy, t1: end('users'), bg: 'eggheadIsle',
     cam: [[1.0, 540, 1000, -0.02], [1.08, 540, 990, 0.03]], banners: [['ENIES LOBBY + EGGHEAD', 'red', tLuffy + 0.3, end('users')]], sfx: [[0.1, 'whoosh'], [0.6, 'impact']],
-    draw(x, S) { whiteAura(x, 780, 1350, 300, S.T); person(x, S, 'lucciAwake', 'shout', 780, 1800, 0.7, { seed: 7, pose: 'punch', flip: true, sx: 1.15 }); person(x, S, 'luffy', 'shout', 280, 1800, 0.66, { seed: 4, pose: 'punch' }); A.impactStar(x, 530, 1200, 120 * Math.abs(Math.sin(S.T * 3)), 0.3); } });
+    draw(x, S) { whiteAura(x, 780, 1100, 380, S.T); person(x, S, 'lucciAwake', 'shout', 780, 1800, 0.7, { seed: 7, pose: 'punch', flip: true, sx: 1.15 }); person(x, S, 'luffy', 'shout', 280, 1800, 0.66, { seed: 4, pose: 'punch' }); A.impactStar(x, 530, 1200, 120 * Math.abs(Math.sin(S.T * 3)), 0.3); } });
 
   // ---------------- JOKE ----------------
   add({ name: 'Joke (night rooftops): the host trips off a roof, flips mid-air and lands perfectly on his feet like a cat, then sips his coffee; green ALWAYS LANDS banner', t0: st('joke'), t1: end('joke'), bg: 'catRooftops',

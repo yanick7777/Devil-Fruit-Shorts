@@ -40,7 +40,7 @@ Facts used (One Piece Wiki via search):
 - **Host:** same as before.
 - **Enemy (new, original):** a one-eyed bandit with an eye patch, moustache and vest.
 - **Rob Lucci:** long black hair, goatee, black top hat, black suit with a white cravat, his pigeon on his shoulder.
-- **Leopard forms:** a full leopard; the hybrid (spotted, cat ears, muscular); the awakened form (pale white fur with dark spots and a white aura). Send references if you want them closer.
+- **Leopard forms:** a full leopard; the hybrid (spotted, cat ears, muscular); the awakened form, matched to your reference (gold spotted fur, white chest, black hair, white pants, purple armband, black smoke clouds pouring off him).
 - Sheet: `review/cast_sheet.png`.
 
 ## 4. Sets (all new)
