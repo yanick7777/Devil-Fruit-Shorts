@@ -371,11 +371,11 @@ Which fruit do you want next? Follow for more.
 
 Already made, so not repeated here: Bara Bara (Chop), Gomu Gomu (Gum), Gura Gura (Tremor), Hobi Hobi (Toy), Ito Ito (String), Mera Mera (Flame), Neko Neko Leopard, Ope Ope, Tori Tori Phoenix.
 "Hito Hito no Mi" below is Chopper's Human-Human Fruit (the Nika version is the Gum-Gum short).
-Same rules: one take each, about half a second of pause between lines.
+Fruit looks are from the designs you sent (oparchive). Same rules: one take each, about half a second of pause between lines.
 
 ## 1. Bubble-Bubble Fruit (Awa Awa no Mi)
 ```
-You take a bite of a weird swirly fruit.
+You take a bite of a weird lavender fruit.
 Don't panic, that's just a Devil Fruit.
 Out of every fruit in the sea,
 you got the Bubble-Bubble Fruit,
@@ -393,7 +393,7 @@ Which fruit do you want next? Follow for more.
 
 ## 2. Munch-Munch Fruit (Baku Baku no Mi)
 ```
-You take a bite of a weird swirly fruit.
+You take a bite of a weird zigzag purple fruit.
 Don't panic, that's just a Devil Fruit.
 Out of every fruit in the sea,
 you got the Munch-Munch Fruit,
@@ -411,7 +411,7 @@ Which fruit do you want next? Follow for more.
 
 ## 3. Bomb-Bomb Fruit (Bomu Bomu no Mi)
 ```
-You take a bite of a weird swirly fruit.
+You take a bite of a weird bomb-shaped fruit.
 Don't panic, that's just a Devil Fruit.
 Out of every fruit in the sea,
 you got the Bomb-Bomb Fruit,
@@ -429,7 +429,7 @@ Which fruit do you want next? Follow for more.
 
 ## 4. Wax-Wax Fruit (Doru Doru no Mi)
 ```
-You take a bite of a weird swirly fruit.
+You take a bite of a weird dripping white fruit.
 Don't panic, that's just a Devil Fruit.
 Out of every fruit in the sea,
 you got the Wax-Wax Fruit,
@@ -447,7 +447,7 @@ Which fruit do you want next? Follow for more.
 
 ## 5. Brush-Brush Fruit (Fude Fude no Mi)
 ```
-You take a bite of a weird swirly fruit.
+You take a bite of a weird ink-black fruit.
 Don't panic, that's just a Devil Fruit.
 Out of every fruit in the sea,
 you got the Brush-Brush Fruit,
@@ -465,7 +465,7 @@ Which fruit do you want next? Follow for more.
 
 ## 6. Rumble-Rumble Fruit (Goro Goro no Mi)
 ```
-You take a bite of a weird yellow fruit.
+You take a bite of a weird spiky yellow fruit.
 Don't panic, that's just a Devil Fruit.
 Out of every fruit in the sea,
 you got the Rumble-Rumble Fruit,
@@ -483,7 +483,7 @@ Which fruit do you want next? Follow for more.
 
 ## 7. Flower-Flower Fruit (Hana Hana no Mi)
 ```
-You take a bite of a weird swirly fruit.
+You take a bite of a weird flower-shaped fruit.
 Don't panic, that's just a Devil Fruit.
 Out of every fruit in the sea,
 you got the Flower-Flower Fruit,
@@ -501,7 +501,7 @@ Which fruit do you want next? Follow for more.
 
 ## 8. Snake-Snake Fruit, Model: Yamata no Orochi (Hebi Hebi no Mi)
 ```
-You take a bite of a weird swirly fruit.
+You take a bite of a weird big pink fruit.
 Don't panic, that's just a Devil Fruit.
 Out of every fruit in the sea,
 you got the Snake-Snake Fruit, Model: Yamata no Orochi,
@@ -519,7 +519,7 @@ Which fruit do you want next? Follow for more.
 
 ## 9. Human-Human Fruit (Hito Hito no Mi, Chopper)
 ```
-You take a bite of a weird swirly fruit.
+You take a bite of a weird mushroom-shaped fruit.
 Don't panic, that's just a Devil Fruit.
 Out of every fruit in the sea,
 you got the Human-Human Fruit,
@@ -537,7 +537,7 @@ Which fruit do you want next? Follow for more.
 
 ## 10. Hollow-Hollow Fruit (Horo Horo no Mi)
 ```
-You take a bite of a weird swirly fruit.
+You take a bite of a weird ghost-shaped fruit.
 Don't panic, that's just a Devil Fruit.
 Out of every fruit in the sea,
 you got the Hollow-Hollow Fruit,
@@ -555,7 +555,7 @@ Which fruit do you want next? Follow for more.
 
 ## 11. Dog-Dog Fruit, Model: Okuchi no Makami (Inu Inu no Mi)
 ```
-You take a bite of a weird swirly fruit.
+You take a bite of a weird orange fruit.
 Don't panic, that's just a Devil Fruit.
 Out of every fruit in the sea,
 you got the Dog-Dog Fruit, Model: Okuchi no Makami,
@@ -573,7 +573,7 @@ Which fruit do you want next? Follow for more.
 
 ## 12. Magnet-Magnet Fruit (Jiki Jiki no Mi), with awakening
 ```
-You take a bite of a weird swirly fruit.
+You take a bite of a weird ring-wrapped blue fruit.
 Don't panic, that's just a Devil Fruit.
 Out of every fruit in the sea,
 you got the Magnet-Magnet Fruit,
@@ -591,7 +591,7 @@ Which fruit do you want next? Follow for more.
 
 ## 13. Shadow-Shadow Fruit (Kage Kage no Mi)
 ```
-You take a bite of a weird swirly fruit.
+You take a bite of a weird black fruit.
 Don't panic, that's just a Devil Fruit.
 Out of every fruit in the sea,
 you got the Shadow-Shadow Fruit,
@@ -609,7 +609,7 @@ Which fruit do you want next? Follow for more.
 
 ## 14. Kilo-Kilo Fruit (Kiro Kiro no Mi)
 ```
-You take a bite of a weird swirly fruit.
+You take a bite of a weird weight-shaped fruit.
 Don't panic, that's just a Devil Fruit.
 Out of every fruit in the sea,
 you got the Kilo-Kilo Fruit,
@@ -627,7 +627,7 @@ Which fruit do you want next? Follow for more.
 
 ## 15. Clone-Clone Fruit (Mane Mane no Mi)
 ```
-You take a bite of a weird swirly fruit.
+You take a bite of a weird twin fruit.
 Don't panic, that's just a Devil Fruit.
 Out of every fruit in the sea,
 you got the Clone-Clone Fruit,
@@ -645,7 +645,7 @@ Which fruit do you want next? Follow for more.
 
 ## 16. Love-Love Fruit (Mero Mero no Mi)
 ```
-You take a bite of a weird swirly fruit.
+You take a bite of a weird heart-shaped fruit.
 Don't panic, that's just a Devil Fruit.
 Out of every fruit in the sea,
 you got the Love-Love Fruit,
@@ -663,7 +663,7 @@ Which fruit do you want next? Follow for more.
 
 ## 17. Mochi-Mochi Fruit (Mochi Mochi no Mi), with awakening
 ```
-You take a bite of a weird swirly fruit.
+You take a bite of a weird white fruit.
 Don't panic, that's just a Devil Fruit.
 Out of every fruit in the sea,
 you got the Mochi-Mochi Fruit,
@@ -681,7 +681,7 @@ Which fruit do you want next? Follow for more.
 
 ## 18. Smoke-Smoke Fruit (Moku Moku no Mi)
 ```
-You take a bite of a weird swirly fruit.
+You take a bite of a weird cloud-shaped fruit.
 Don't panic, that's just a Devil Fruit.
 Out of every fruit in the sea,
 you got the Smoke-Smoke Fruit,
@@ -699,7 +699,7 @@ Which fruit do you want next? Follow for more.
 
 ## 19. Paw-Paw Fruit (Nikyu Nikyu no Mi)
 ```
-You take a bite of a weird swirly fruit.
+You take a bite of a weird paw-shaped fruit.
 Don't panic, that's just a Devil Fruit.
 Out of every fruit in the sea,
 you got the Paw-Paw Fruit,
@@ -717,7 +717,7 @@ Which fruit do you want next? Follow for more.
 
 ## 20. Stitch-Stitch Fruit (Nui Nui no Mi)
 ```
-You take a bite of a weird swirly fruit.
+You take a bite of a weird stitched-together fruit.
 Don't panic, that's just a Devil Fruit.
 Out of every fruit in the sea,
 you got the Stitch-Stitch Fruit,
@@ -735,7 +735,7 @@ Which fruit do you want next? Follow for more.
 
 ## 21. Dragon-Dragon Fruit, Model: Nidhoggr (Ryu Ryu no Mi)
 ```
-You take a bite of a weird swirly fruit.
+You take a bite of a weird dark fruit.
 Don't panic, that's just a Devil Fruit.
 Out of every fruit in the sea,
 you got the Dragon-Dragon Fruit, Model: Nidhoggr,
@@ -753,7 +753,7 @@ Which fruit do you want next? Follow for more.
 
 ## 22. Salamander-Salamander Fruit, Model: Axolotl (Sara Sara no Mi)
 ```
-You take a bite of a weird swirly fruit.
+You take a bite of a weird blue fruit.
 Don't panic, that's just a Devil Fruit.
 Out of every fruit in the sea,
 you got the Salamander-Salamander Fruit, Model: Axolotl,
@@ -771,7 +771,7 @@ Which fruit do you want next? Follow for more.
 
 ## 23. Slip-Slip Fruit (Sube Sube no Mi)
 ```
-You take a bite of a weird swirly fruit.
+You take a bite of a weird pink fruit.
 Don't panic, that's just a Devil Fruit.
 Out of every fruit in the sea,
 you got the Slip-Slip Fruit,
@@ -789,7 +789,7 @@ Which fruit do you want next? Follow for more.
 
 ## 24. Sand-Sand Fruit (Suna Suna no Mi)
 ```
-You take a bite of a weird swirly fruit.
+You take a bite of a weird sandy fruit.
 Don't panic, that's just a Devil Fruit.
 Out of every fruit in the sea,
 you got the Sand-Sand Fruit,
@@ -807,7 +807,7 @@ Which fruit do you want next? Follow for more.
 
 ## 25. Dice-Dice Fruit (Supa Supa no Mi)
 ```
-You take a bite of a weird swirly fruit.
+You take a bite of a weird blade-shaped fruit.
 Don't panic, that's just a Devil Fruit.
 Out of every fruit in the sea,
 you got the Dice-Dice Fruit,
@@ -825,7 +825,7 @@ Which fruit do you want next? Follow for more.
 
 ## 26. Fish-Fish Fruit, Model: Azure Dragon (Uo Uo no Mi)
 ```
-You take a bite of a weird swirly fruit.
+You take a bite of a weird scaly blue fruit.
 Don't panic, that's just a Devil Fruit.
 Out of every fruit in the sea,
 you got the Fish-Fish Fruit, Model: Azure Dragon,
@@ -843,7 +843,7 @@ Which fruit do you want next? Follow for more.
 
 ## 27. Ox-Ox Fruit, Model: Bison (Ushi Ushi no Mi)
 ```
-You take a bite of a weird swirly fruit.
+You take a bite of a weird horned black fruit.
 Don't panic, that's just a Devil Fruit.
 Out of every fruit in the sea,
 you got the Ox-Ox Fruit, Model: Bison,
@@ -861,7 +861,7 @@ Which fruit do you want next? Follow for more.
 
 ## 28. Ox-Ox Fruit, Model: Giraffe (Ushi Ushi no Mi)
 ```
-You take a bite of a weird swirly fruit.
+You take a bite of a weird long red fruit.
 Don't panic, that's just a Devil Fruit.
 Out of every fruit in the sea,
 you got the Ox-Ox Fruit, Model: Giraffe,
@@ -879,7 +879,7 @@ Which fruit do you want next? Follow for more.
 
 ## 29. Dark-Dark Fruit (Yami Yami no Mi)
 ```
-You take a bite of a weird swirly fruit.
+You take a bite of a weird purple fruit.
 Don't panic, that's just a Devil Fruit.
 Out of every fruit in the sea,
 you got the Dark-Dark Fruit,
@@ -897,7 +897,7 @@ Which fruit do you want next? Follow for more.
 
 ## 30. Revive-Revive Fruit (Yomi Yomi no Mi)
 ```
-You take a bite of a weird swirly fruit.
+You take a bite of a weird red fruit.
 Don't panic, that's just a Devil Fruit.
 Out of every fruit in the sea,
 you got the Revive-Revive Fruit,
