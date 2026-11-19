@@ -1474,7 +1474,84 @@ export const BG = {
     x.fillStyle = '#9ac8d8'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
     return finish(c);
   },
+  // ---------------- Cat-Cat (Leopard) short ----------------
+  savanna() { // golden savanna with an acacia tree
+    const [c, x] = canvas(); fill(x, '#ffb46a', '#ffe8b0', -OY, 1000); sunDisk(x, 300, 700, 110, '255,230,160');
+    x.beginPath(); x.moveTo(800, 1150); x.lineTo(820, 800); x.lineWidth = 30; x.strokeStyle = '#5a3a26'; x.stroke(); x.beginPath(); x.ellipse(820, 760, 260, 70, 0, 0, 7); fs(x, '#6a8a3a', 9);
+    x.fillStyle = '#e8c070'; x.fillRect(-OX, 1150, BW, 1100); x.strokeStyle = '#c8a050'; x.lineWidth = 5; for (let i = 0; i < 80; i++) { const gx = hash(i + 960) * 1200 - 60, gy = 1170 + hash(i + 961) * 500; x.beginPath(); x.moveTo(gx, gy); x.lineTo(gx + 6, gy - 40); x.stroke(); }
+    x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1150); x.lineTo(BW, 1150); x.stroke();
+    return finish(c);
+  },
+  jungleVines() { // dark jungle with hanging vines
+    const [c, x] = canvas(); fill(x, '#2a5a3a', '#14301f');
+    for (let i = 0; i < 14; i++) { const vx = hash(i + 970) * 1080; x.beginPath(); x.moveTo(vx, -OY); x.quadraticCurveTo(vx + 40, 500, vx - 20, 400 + hash(i + 971) * 900); x.lineWidth = 12; x.strokeStyle = '#4f8a3a'; x.stroke(); for (let k = 0; k < 4; k++) { x.beginPath(); x.ellipse(vx + 10, 200 + k * 200, 30, 14, 0.5, 0, 7); x.fillStyle = '#6aa84a'; x.fill(); } }
+    x.fillStyle = '#1f3a28'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
+    return finish(c, 10);
+  },
+  rockyOutcrop() { // rocky outcrop under a hot sky
+    const [c, x] = canvas(); fill(x, '#ff9a5a', '#ffd8a0', -OY, 1000);
+    x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(100, 800); x.lineTo(400, 700); x.lineTo(560, 900); x.lineTo(560, 1250); x.closePath(); fs(x, '#b8805a', 10);
+    x.fillStyle = '#d8a870'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
+    return finish(c);
+  },
+  sixPowers() { // dojo hall with six hanging scrolls, for the stage
+    const [c, x] = canvas(); fill(x, '#3a2a20', '#241810');
+    for (let k = 0; k < 6; k++) { const sx = 40 + k * 170; A_rr(x, sx, 180, 130, 480, 8, '#f2e6c8'); A_rr(x, sx - 10, 160, 150, 26, 10, '#6b4630'); x.fillStyle = '#1b1530'; x.fillRect(sx + 50, 260, 30, 300); }
+    x.fillStyle = '#8a5a3c'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
+    return finish(c);
+  },
+  grassPlain() { // wide grass plain blurred by speed
+    const [c, x] = canvas(); fill(x, '#a8e0ff', '#e8f8ff', -OY, 900);
+    x.fillStyle = '#9ac85a'; x.fillRect(-OX, 900, BW, 1400); x.strokeStyle = 'rgba(255,255,255,0.5)'; x.lineWidth = 6; for (let i = 0; i < 30; i++) { const y = 950 + hash(i + 980) * 1100; x.beginPath(); x.moveTo(hash(i + 981) * 1080, y); x.lineTo(hash(i + 981) * 1080 + 300, y); x.stroke(); }
+    x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 900); x.lineTo(BW, 900); x.stroke();
+    return finish(c);
+  },
+  courthouse() { // grand island courthouse with columns
+    const [c, x] = canvas(); fill(x, '#9ed8ff', '#e8f6ff', -OY, 900);
+    x.beginPath(); x.moveTo(60, 520); x.lineTo(540, 260); x.lineTo(1020, 520); x.closePath(); fs(x, '#e8e0d0', 10); x.beginPath(); x.rect(80, 520, 920, 720); fs(x, '#f4ece0', 10); for (let k = 0; k < 6; k++) A_rr(x, 110 + k * 160, 560, 70, 680, 10, '#ffffff');
+    x.fillStyle = '#c8bca8'; x.fillRect(-OX, 1240, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1240); x.lineTo(BW, 1240); x.stroke();
+    return finish(c);
+  },
+  towerRoof() { // stone tower rooftop high over the sea
+    const [c, x] = canvas(); fill(x, '#7fb8e8', '#d0e8ff', -OY, 1150); for (let i = 0; i < 4; i++) cloud(x, hash(i + 990) * 1080, 900 + hash(i + 991) * 200, 1);
+    x.fillStyle = '#9a8a7a'; x.fillRect(-OX, 1150, BW, 1100); for (let k = 0; k < 9; k++) A_rr(x, -60 + k * 140, 1080, 90, 80, 6, '#9a8a7a');
+    x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1150); x.lineTo(BW, 1150); x.stroke();
+    return finish(c);
+  },
+  futureLab() { // futuristic lab with glowing panels
+    const [c, x] = canvas(); fill(x, '#e0f0ff', '#b8d8f0');
+    for (let k = 0; k < 4; k++) { A_rr(x, 40 + k * 260, 300, 220, 400, 20, '#ffffff'); x.fillStyle = 'rgba(80,200,255,0.4)'; x.fillRect(60 + k * 260, 320, 180, 360); }
+    x.strokeStyle = 'rgba(80,200,255,0.8)'; x.lineWidth = 6; for (let i = 0; i < 6; i++) { x.beginPath(); x.moveTo(-OX, 820 + i * 60); x.lineTo(BW, 820 + i * 60); x.stroke(); }
+    x.fillStyle = '#c8d8e8'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
+    return finish(c);
+  },
+  beastCage() { // dark iron cage with glowing eyes behind the bars
+    const [c, x] = canvas(); fill(x, '#2a1a1a', '#140a0a');
+    for (let i = 0; i < 3; i++) { x.fillStyle = '#ffd34d'; for (const sd of [-1, 1]) { x.beginPath(); x.ellipse(250 + i * 300 + sd * 30, 600 + (i % 2) * 150, 14, 8, 0, 0, 7); x.fill(); } }
+    for (let k = 0; k < 9; k++) A_rr(x, -20 + k * 130, -OY, 26, 1450, 10, '#4a4a56');
+    x.fillStyle = '#1a1414'; x.fillRect(-OX, 1250, BW, 1000);
+    return finish(c);
+  },
+  mindSpiral() { // pink-violet hypnotic mind spiral
+    const [c, x] = canvas(); x.fillStyle = '#5a2a6a'; x.fillRect(-OX, -OY, BW, BH);
+    for (let i = 0; i < 12; i++) { x.beginPath(); x.moveTo(540, 900); for (let k = 0; k <= 60; k++) { const a = i / 12 * Math.PI * 2 + k * 0.1, r = k * 26; x.lineTo(540 + Math.cos(a) * r, 900 + Math.sin(a) * r); } for (let k = 60; k >= 0; k--) { const a = (i + 0.5) / 12 * Math.PI * 2 + k * 0.1, r = k * 26; x.lineTo(540 + Math.cos(a) * r, 900 + Math.sin(a) * r); } x.closePath(); x.fillStyle = i % 2 ? '#ff8cbc' : '#7a3a8a'; x.fill(); }
+    return finish(c, 8);
+  },
+  eggheadIsle() { // futuristic island city with a giant egg dome
+    const [c, x] = canvas(); fill(x, '#7fd8ff', '#e0f8ff', -OY, 1000);
+    x.beginPath(); x.ellipse(540, 900, 300, 380, 0, Math.PI, 0); fs(x, '#ffffff', 10); x.beginPath(); x.ellipse(540, 900, 300, 380, 0, Math.PI, 0); x.save(); x.clip(); x.fillStyle = '#ffcf3a'; x.fillRect(240, 700, 600, 60); x.restore();
+    for (let k = 0; k < 6; k++) { const bx = -40 + k * 220; A_rr(x, bx, 900 + (k % 2) * 80, 120, 400, 20, ['#ff9ccf', '#a8e0ff', '#c8f0a8'][k % 3]); }
+    x.fillStyle = '#e8e0d0'; x.fillRect(-OX, 1250, BW, 1000); x.lineWidth = 10; x.strokeStyle = OL; x.beginPath(); x.moveTo(-OX, 1250); x.lineTo(BW, 1250); x.stroke();
+    return finish(c);
+  },
+  catRooftops() { // night rooftops with a full moon
+    const [c, x] = canvas(); fill(x, '#1a1a40', '#3a3a6a', -OY, 1300); x.beginPath(); x.arc(300, 360, 140, 0, 7); x.fillStyle = '#fff4c8'; x.fill();
+    for (let i = 0; i < 6; i++) { const hx = -60 + i * 200, hy = 900 + hash(i + 995) * 200; x.beginPath(); x.moveTo(hx, 1300); x.lineTo(hx, hy); x.lineTo(hx + 100, hy - 90); x.lineTo(hx + 200, hy); x.lineTo(hx + 200, 1300); fs(x, '#2a2a46', 6); x.fillStyle = '#ffd77a'; x.fillRect(hx + 70, hy + 60, 50, 50); }
+    x.fillStyle = '#20203a'; x.fillRect(-OX, 1300, BW, 1000);
+    return finish(c);
+  },
 };
+
 
 
 
