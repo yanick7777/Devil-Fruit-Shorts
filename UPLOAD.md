@@ -235,3 +235,8 @@ You take a bite of a weird lilac fruit… and strings start shooting out of your
 **Title:** Steal anyone's FACE 🎭
 **Description:** Copy any face, save it to memory and trick enemies into fighting each other. Here's Bon Clay's Clone-Clone Fruit and its catch. Which fruit next? Comment and follow!
 #onepiece #devilfruit #bonclay #mr2 #impeldown #anime #fyp
+
+## Special. How Devil Fruits come back after their user dies — `out/rebirth.mp4`
+**Title:** What happens to a Devil Fruit when its user DIES? 💀
+**Description:** Only one of each fruit can exist, so where does the power go? From Smiley on Punk Hazard to Ace's Flame-Flame Fruit ending up with Sabo, and how Blackbeard broke the rules. Which fruit next? Comment and follow!
+#onepiece #devilfruit #ace #sabo #blackbeard #punkhazard #anime #fyp
