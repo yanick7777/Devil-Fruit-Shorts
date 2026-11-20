@@ -912,3 +912,27 @@ Brook, the Straw Hats' musician, came back as a skeleton after fifty years.
 Users of this fruit are a real bonehead.
 Which fruit do you want next? Follow for more.
 ```
+
+---
+
+## Special: How Devil Fruits come back after their user dies
+
+1. **hook** — What happens to a Devil Fruit when its user dies?
+2. **calm** — Don't panic, the power doesn't die with them.
+3. **rule1** — Only one of each Devil Fruit can exist at a time.
+4. **rule2** — So while its user is alive, nobody else can ever find it.
+5. **death** — But the moment the user dies, the power leaves their body.
+6. **reborn** — It jumps into a normal fruit nearby, and that fruit becomes the same Devil Fruit again: same swirls, same power.
+7. **vegapunk** — Doctor Vegapunk figured this out, and we saw it happen on Punk Hazard.
+8. **smiley1** — Caesar Clown fed the Axolotl Fruit to Smiley, a giant blob of poison gas.
+9. **smiley2** — When Smiley ate a piece of candy, it burst into the deadly gas Shinokuni and died.
+10. **smiley3** — And right next to it, an ordinary apple turned into the Axolotl Fruit.
+11. **ace1** — The same thing happened to Ace's Flame-Flame Fruit.
+12. **ace2** — Ace died at Marineford, and two years later his fruit turned up in Dressrosa.
+13. **ace3** — Doflamingo made it the grand prize of the Corrida Colosseum.
+14. **ace4** — Luffy entered to win his brother's fruit, but Sabo took his place, won, and ate it.
+15. **ace5** — Now Sabo fights with Ace's flames.
+16. **twist** — But one man broke the rules.
+17. **truth** — When Whitebeard died, Blackbeard stole his Tremor-Tremor power, and nobody knows how he did it.
+18. **joke** — So if you ever find a weird swirly fruit, someone, somewhere, just had a really bad day.
+19. **outro** — Which fruit do you want next? Follow for more.
