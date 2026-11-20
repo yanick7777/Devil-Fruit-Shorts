@@ -36,7 +36,13 @@ export function sheet(c, q) {
   const [sx, sy, sw, sh] = SAFE;
   x.save(); x.beginPath(); x.rect(sx, sy - 20, 420, sh + 40); x.clip(); figure(x, 'host', 'shock', 'shrug', sx + 210, sy + 1440 - 500, 0.55, false); x.restore();
   mark(x, '!?', sx + 380, sy + 70, 0.75, 0.15);
-  text(x, name, sx + 420 + (sw - 420) / 2, sy + 150, 190, '#ffd84a', -0.03, sw - 470);
-  text(x, tag, sx + 420 + (sw - 420) / 2, sy + 320, 84, '#ffffff', -0.01, sw - 470);
+  const tcx = sx + 420 + (sw - 420) / 2;
+  // small fruits hugging the text inside the safe strip
+  const ring = [[drawGura, tcx - 455, sy + 75, 40], [FRUITS3.flower, tcx - 180, sy + 40, 36], [drawOpe, tcx + 200, sy + 42, 38], [drawTori, tcx + 480, sy + 65, 42],
+    [FRUITS3.magnet, tcx - 470, sy + 245, 38], [FRUITS3.kilo, tcx + 490, sy + 245, 38], [FRUITS3.shadow, tcx - 455, sy + 375, 34], [FRUITS3.hollow, tcx + 480, sy + 375, 34]];
+  for (const [f, fx, fy, r] of ring) { glow(x, fx, fy, r * 1.7, '255,255,255', 0.5); f(x, fx, fy, r, 0.25, { shadow: false }); }
+  for (const [px, py, r] of [[tcx - 360, sy + 30, 18], [tcx + 380, sy + 30, 18], [tcx - 300, sy + 400, 16], [tcx + 300, sy + 400, 16]]) sparkle(x, px, py, r);
+  text(x, name, tcx, sy + 155, 180, '#ffd84a', -0.03, 960);
+  text(x, tag, tcx, sy + 315, 80, '#ffffff', -0.01, 900);
   if (q.get('guides')) { x.lineWidth = 6; x.setLineDash([24, 18]); x.strokeStyle = '#00ff88'; x.strokeRect(sx, sy, sw, sh); x.strokeStyle = '#ffffff'; x.strokeRect(W / 2 - 1235, 0, 2470, H); x.setLineDash([]); }
 }
