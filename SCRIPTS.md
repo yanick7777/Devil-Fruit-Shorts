@@ -928,8 +928,8 @@ Which fruit do you want next? Follow for more.
 9. **smiley2** — When Smiley ate a piece of candy, it burst into the deadly gas Shinokuni and died.
 10. **smiley3** — And right next to it, an ordinary apple turned into the Axolotl Fruit.
 11. **ace1** — The same thing happened to Ace's Flame-Flame Fruit.
-12. **ace2** — Ace died at Marineford, and two years later his fruit turned up in Dressrosa.
-13. **ace3** — Doflamingo made it the grand prize of the Corrida Colosseum.
+12. **ace2** — Ace died at Marineford, and two years later his fruit ended up in Doflamingo's hands.
+13. **ace3** — Doflamingo made it the grand prize of the Corrida Colosseum in Dressrosa.
 14. **ace4** — Luffy entered to win his brother's fruit, but Sabo took his place, won, and ate it.
 15. **ace5** — Now Sabo fights with Ace's flames.
 16. **twist** — But one man broke the rules.
