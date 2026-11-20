@@ -1,0 +1,161 @@
+{
+ "title": "Special: How Devil Fruits come back",
+ "format": "9:16",
+ "story": "/shorts/rebirth/story.js",
+ "voice": {
+  "name": "mb-us2",
+  "speed": 158,
+  "pitch": 48
+ },
+ "voice_override_dir": "shorts/rebirth/vo",
+ "voice_fx": {},
+ "music": false,
+ "structure": "explainer special (no powers stage)",
+ "facts": [
+  "Rebirth into a nearby fruit, Vegapunk, Punk Hazard (Smiley, candy, Shinokuni, apple)",
+  "Ace's Mera Mera: Doflamingo, Corrida Colosseum, Sabo",
+  "Blackbeard took the Gura Gura, method unknown"
+ ],
+ "plan": {
+  "english": "Special: How Devil Fruits come back after their user dies",
+  "labels": "",
+  "fruit": "Uses existing fruit designs (Axolotl drawn new; Mera Mera, Gura Gura).",
+  "cast": [],
+  "sets": ""
+ },
+ "lines": [
+  {
+   "id": "hook",
+   "lead": 1.2,
+   "tail": 0.3,
+   "text": "What happens to a Devil#red Fruit when its user dies?#purple",
+   "say": "What happens to a Devil Fruit when its user dies?"
+  },
+  {
+   "id": "calm",
+   "lead": 0.1,
+   "tail": 0.3,
+   "text": "Don't panic,#red the power doesn't die#purple with them.",
+   "say": "Don't panic, the power doesn't die with them."
+  },
+  {
+   "id": "rule1",
+   "lead": 0.1,
+   "tail": 0.3,
+   "text": "Only one#gold of each Devil Fruit can exist#blue at a time.",
+   "say": "Only one of each Devil Fruit can exist at a time."
+  },
+  {
+   "id": "rule2",
+   "lead": 0.1,
+   "tail": 0.3,
+   "text": "So while its user is alive,#green nobody else can ever find#orange it.",
+   "say": "So while its user is alive, nobody else can ever find it."
+  },
+  {
+   "id": "death",
+   "lead": 0.1,
+   "tail": 0.3,
+   "text": "But the moment the user dies,#red the power leaves#purple their body.",
+   "say": "But the moment the user dies, the power leaves their body."
+  },
+  {
+   "id": "reborn",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "It jumps into a normal fruit#green nearby, and that fruit becomes the same Devil Fruit again:#pink same swirls, same power.#gold",
+   "say": "It jumps into a normal fruit nearby, and that fruit becomes the same Devil Fruit again: same swirls, same power."
+  },
+  {
+   "id": "vegapunk",
+   "lead": 0.1,
+   "tail": 0.3,
+   "text": "Doctor Vegapunk#blue figured this out, and we saw it happen on Punk Hazard.#orange",
+   "say": "Doctor Vegapunk figured this out, and we saw it happen on Punk Hazard."
+  },
+  {
+   "id": "smiley1",
+   "lead": 0.1,
+   "tail": 0.3,
+   "text": "Caesar Clown#purple fed the Axolotl Fruit to Smiley,#pink a giant blob of poison gas.#green",
+   "say": "Caesar Clown fed the Axolotl Fruit to Smiley, a giant blob of poison gas."
+  },
+  {
+   "id": "smiley2",
+   "lead": 0.1,
+   "tail": 0.3,
+   "text": "When Smiley ate a piece of candy,#pink it burst into the deadly gas Shinokuni#purple and died.",
+   "say": "When Smiley ate a piece of candy, it burst into the deadly gas Shinokuni and died."
+  },
+  {
+   "id": "smiley3",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "And right next to it, an ordinary apple#red turned into the Axolotl Fruit.#pink",
+   "say": "And right next to it, an ordinary apple turned into the Axolotl Fruit."
+  },
+  {
+   "id": "ace1",
+   "lead": 0.1,
+   "tail": 0.3,
+   "text": "The same thing happened to Ace's Flame-Flame#orange Fruit.",
+   "say": "The same thing happened to Ace's Flame-Flame Fruit."
+  },
+  {
+   "id": "ace2",
+   "lead": 0.1,
+   "tail": 0.3,
+   "text": "Ace died at Marineford,#red and two years later his fruit ended up in Doflamingo's#pink hands.",
+   "say": "Ace died at Marineford, and two years later his fruit ended up in Doflamingo's hands."
+  },
+  {
+   "id": "ace3",
+   "lead": 0.1,
+   "tail": 0.3,
+   "text": "Doflamingo made it the grand prize#gold of the Corrida Colosseum#orange in Dressrosa.",
+   "say": "Doflamingo made it the grand prize of the Corrida Colosseum in Dressrosa."
+  },
+  {
+   "id": "ace4",
+   "lead": 0.1,
+   "tail": 0.3,
+   "text": "Luffy entered to win his brother's#red fruit, but Sabo#blue took his place, won, and ate#orange it.",
+   "say": "Luffy entered to win his brother's fruit, but Sabo took his place, won, and ate it."
+  },
+  {
+   "id": "ace5",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "Now Sabo fights with Ace's flames.#orange",
+   "say": "Now Sabo fights with Ace's flames."
+  },
+  {
+   "id": "twist",
+   "lead": 0.25,
+   "tail": 0.4,
+   "text": "But one man broke#red the rules.",
+   "say": "But one man broke the rules."
+  },
+  {
+   "id": "truth",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "When Whitebeard#blue died, Blackbeard#purple stole his Tremor-Tremor power, and nobody knows how#gold he did it.",
+   "say": "When Whitebeard died, Blackbeard stole his Tremor-Tremor power, and nobody knows how he did it."
+  },
+  {
+   "id": "joke",
+   "lead": 0.2,
+   "tail": 0.9,
+   "text": "So if you ever find a weird swirly#purple fruit, someone, somewhere, just had a really bad#red day.",
+   "say": "So if you ever find a weird swirly fruit, someone, somewhere, just had a really bad day."
+  },
+  {
+   "id": "outro",
+   "lead": 0.2,
+   "tail": 2.4,
+   "text": "Which fruit do#pink you want next? Follow#gold for more.",
+   "say": "Which fruit do you want next? Follow for more."
+  }
+ ]
+}

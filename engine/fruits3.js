@@ -127,4 +127,9 @@ export const drawKage = wrap((x, cx, cy, R) => {
   body(x, R * 0.8, p, cx, cy, ['#2a2436', '#5a5070', '#0e0a16', '#7a6a9a', 0.28, 0.1]); stem(x, cx, cy - R * 0.72, R); shine(x, cx, cy, R * 0.8);
   for (const a of [0.6, 2.55]) leaf(x, cx, cy + R * 0.7, R, a + Math.PI, R * 0.8, '#6ab84a');
 });
-export const FRUITS3 = { shadow: drawKage,  bubble: drawAwa, munch: drawBaku, bomb: drawBomu, wax: drawDoru, brush: drawFude, rumble: drawGoro, flower: drawHana, orochi: drawOrochi, human: drawHito, hollow: drawHoro, wolf: drawWolf, magnet: drawJiki, kilo: drawKiro, clone: drawMane, love: drawMero };
+// ---- Sara Sara no Mi, Model: Axolotl: blue round fruit with swirls, curly stem ----
+export const drawSara = wrap((x, cx, cy, R) => {
+  const p = () => { x.beginPath(); x.ellipse(cx, cy + R * 0.05, R * 0.95, R * 0.88, 0, 0, 7); };
+  body(x, R, p, cx, cy, ['#4a8ae8', '#9ac4ff', '#1a4ab0', '#0a2a70', 0.26, 0.1]); stem(x, cx, cy - R * 0.82, R); shine(x, cx, cy, R);
+});
+export const FRUITS3 = { axolotl: drawSara,  shadow: drawKage,  bubble: drawAwa, munch: drawBaku, bomb: drawBomu, wax: drawDoru, brush: drawFude, rumble: drawGoro, flower: drawHana, orochi: drawOrochi, human: drawHito, hollow: drawHoro, wolf: drawWolf, magnet: drawJiki, kilo: drawKiro, clone: drawMane, love: drawMero };
