@@ -15,7 +15,7 @@ import { FRUITS3 } from '/engine/fruits3.js';
 const f3 = (k) => (x, cx, cy, R, r, o) => FRUITS3[k](x, cx, cy, R * 0.9, r, o);
 const sw = (pal) => (x, cx, cy, R, r, o) => drawSwirlFruit(x, cx, cy, R, r, { ...o, pal });
 
-const C = {
+export const C = {
   mera:   { rays: ['#ffb24d', '#ff8a1d'], glow: '255,150,40', fruit: drawFruit, who: 'ace', whoExpr: 'smug', lines: [['WHAT IF YOU ATE THE', 84, '#ffffff'], ['FLAME-FLAME', 150, '#ffd84a'], ['FRUIT?', 110, '#ffd84a']], bottom: "ACE'S FRUIT" },
   gum:    { rays: ['#c9a8ff', '#9a6be8'], glow: '200,150,255', fruit: drawGomu, who: 'host_g5', whoExpr: 'grin', lines: [['ITS REAL NAME', 90, '#ffffff'], ["ISN'T GUM-GUM", 140, '#ff5fa2'], ['🤫', 1, '#ffffff']], bottom: 'GEAR 5 SECRET' },
   quake:  { rays: ['#7cc8ff', '#3c8fe0'], glow: '140,200,255', fruit: drawGura, who: 'whitebeard', whoExpr: 'smug', lines: [['THE FRUIT THAT CAN', 88, '#ffffff'], ['DESTROY THE', 140, '#ff4a3d'], ['WORLD', 150, '#ff4a3d']], bottom: 'TREMOR-TREMOR FRUIT' },
