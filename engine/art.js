@@ -325,12 +325,11 @@ function drawTorso(x, L) {
     torso(); fs(x, '#e8b830', 12); x.save(); torso(); x.clip(); x.strokeStyle = '#fff0a0'; x.lineWidth = 9; for (let k = 240; k < 530; k += 34) { x.beginPath(); x.moveTo(k, 640); x.lineTo(k, 1100); x.stroke(); } x.strokeStyle = '#b8861a'; x.lineWidth = 5; for (let k = 257; k < 530; k += 34) { x.beginPath(); x.moveTo(k, 640); x.lineTo(k, 1100); x.stroke(); } x.restore(); torso(); x.lineWidth = 12; x.strokeStyle = OL; x.stroke();
     x.beginPath(); x.moveTo(320, 640); x.lineTo(380, 800); x.lineTo(440, 640); x.closePath(); fs(x, '#2a4a40', 8); x.beginPath(); x.moveTo(370, 660); x.lineTo(390, 660); x.lineTo(398, 770); x.lineTo(380, 800); x.lineTo(362, 770); x.closePath(); fs(x, '#b070e0', 6);
     for (const sd of [-1, 1]) { x.beginPath(); x.moveTo(380 + sd * 60, 640); x.lineTo(380 + sd * 10, 840); x.lineTo(380 + sd * 90, 700); x.closePath(); fs(x, '#e8b830', 7); for (const yy of [880, 980]) { x.beginPath(); x.arc(380 + sd * 50, yy, 11, 0, 7); fs(x, '#6b4630', 4); } }
-    if (L.popCollar) for (const sd of [-1, 1]) { // white coat collar standing up around the neck, grey inside, opening into lapels
-      const P = (px, py) => [380 + sd * px, py];
-      x.beginPath(); x.moveTo(...P(255, 720)); x.quadraticCurveTo(...P(262, 560), ...P(232, 430)); x.lineTo(...P(168, 405)); x.quadraticCurveTo(...P(140, 520), ...P(100, 600)); x.lineTo(...P(70, 720)); x.quadraticCurveTo(...P(160, 760), ...P(250, 740)); x.closePath(); fs(x, '#f4f4f8', 10);
-      x.beginPath(); x.moveTo(...P(168, 405)); x.quadraticCurveTo(...P(140, 520), ...P(100, 600)); x.lineTo(...P(122, 650)); x.quadraticCurveTo(...P(175, 540), ...P(205, 425)); x.closePath(); fs(x, '#b8bcc8', 6);
-      x.beginPath(); x.moveTo(...P(100, 600)); x.lineTo(...P(60, 640)); x.lineTo(...P(118, 700)); x.closePath(); fs(x, '#2a4a40', 6); }
     for (const sd of [-1, 1]) { x.beginPath(); x.ellipse(380 + sd * 170, 650, 85, 42, sd * 0.3, 0, 7); fs(x, '#f4e070', 8); x.strokeStyle = '#d8b830'; x.lineWidth = 6; for (let k = 0; k < 6; k++) { x.beginPath(); x.moveTo(380 + sd * (115 + k * 20), 680); x.lineTo(380 + sd * (125 + k * 20), 745); x.stroke(); } }
+    if (L.popCollar) for (const sd of [-1, 1]) { // white coat collar standing up around the neck (in front of the epaulettes), grey inside
+      const P = (px, py) => [380 + sd * px, py];
+      x.beginPath(); x.moveTo(...P(215, 700)); x.quadraticCurveTo(...P(220, 580), ...P(190, 495)); x.lineTo(...P(140, 470)); x.quadraticCurveTo(...P(120, 560), ...P(88, 620)); x.lineTo(...P(66, 700)); x.quadraticCurveTo(...P(140, 725), ...P(215, 700)); x.closePath(); fs(x, '#f4f4f8', 9);
+      x.beginPath(); x.moveTo(...P(140, 470)); x.quadraticCurveTo(...P(120, 560), ...P(88, 620)); x.lineTo(...P(104, 655)); x.quadraticCurveTo(...P(148, 570), ...P(168, 482)); x.closePath(); fs(x, '#b8bcc8', 5); }
   } else if (L.top === 'peacoat') { // short double-breasted coat with gold buttons and a high collar
     x.beginPath(); x.moveTo(232, 720); x.quadraticCurveTo(236, 650, 300, 638); x.lineTo(460, 638); x.quadraticCurveTo(524, 650, 528, 720); x.lineTo(540, 1130); x.lineTo(220, 1130); x.closePath(); fs(x, L.cloth, 12);
     x.fillStyle = '#e8b52e'; for (let r = 0; r < 3; r++) for (const sd of [-1, 1]) { x.beginPath(); x.arc(380 + sd * 55, 760 + r * 110, 16, 0, 7); x.fill(); }
