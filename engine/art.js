@@ -328,9 +328,9 @@ function drawTorso(x, L) {
     for (const sd of [-1, 1]) { x.beginPath(); x.ellipse(380 + sd * 170, 650, 85, 42, sd * 0.3, 0, 7); fs(x, '#f4e070', 8); x.strokeStyle = '#d8b830'; x.lineWidth = 6; for (let k = 0; k < 6; k++) { x.beginPath(); x.moveTo(380 + sd * (115 + k * 20), 680); x.lineTo(380 + sd * (125 + k * 20), 745); x.stroke(); } }
     if (L.popCollar) for (const sd of [-1, 1]) { // tall coat collar standing up beside the face: white outside, big grey inside, thin white inner edge
       const P = (px, py) => [380 + sd * px, py];
-      x.beginPath(); x.moveTo(...P(250, 720)); x.lineTo(...P(282, 395)); x.lineTo(...P(185, 425)); x.lineTo(...P(80, 700)); x.lineTo(...P(62, 790)); x.quadraticCurveTo(...P(160, 760), ...P(250, 720)); x.closePath(); fs(x, '#f4f4f8', 9);
-      x.beginPath(); x.moveTo(...P(200, 432)); x.lineTo(...P(250, 418)); x.lineTo(...P(205, 715)); x.lineTo(...P(98, 712)); x.closePath(); fs(x, '#b4b8c4', 0);
-      x.beginPath(); x.moveTo(...P(250, 720)); x.lineTo(...P(282, 395)); x.lineTo(...P(185, 425)); x.lineTo(...P(80, 700)); x.lineTo(...P(62, 790)); x.lineWidth = 9; x.strokeStyle = OL; x.stroke(); }
+      x.beginPath(); x.moveTo(...P(250, 720)); x.lineTo(...P(278, 460)); x.lineTo(...P(185, 485)); x.lineTo(...P(80, 700)); x.lineTo(...P(62, 790)); x.quadraticCurveTo(...P(160, 760), ...P(250, 720)); x.closePath(); fs(x, '#f4f4f8', 9);
+      x.beginPath(); x.moveTo(...P(200, 492)); x.lineTo(...P(248, 478)); x.lineTo(...P(205, 715)); x.lineTo(...P(98, 712)); x.closePath(); fs(x, '#b4b8c4', 0);
+      x.beginPath(); x.moveTo(...P(250, 720)); x.lineTo(...P(278, 460)); x.lineTo(...P(185, 485)); x.lineTo(...P(80, 700)); x.lineTo(...P(62, 790)); x.lineWidth = 9; x.strokeStyle = OL; x.stroke(); }
   } else if (L.top === 'peacoat') { // short double-breasted coat with gold buttons and a high collar
     x.beginPath(); x.moveTo(232, 720); x.quadraticCurveTo(236, 650, 300, 638); x.lineTo(460, 638); x.quadraticCurveTo(524, 650, 528, 720); x.lineTo(540, 1130); x.lineTo(220, 1130); x.closePath(); fs(x, L.cloth, 12);
     x.fillStyle = '#e8b52e'; for (let r = 0; r < 3; r++) for (const sd of [-1, 1]) { x.beginPath(); x.arc(380 + sd * 55, 760 + r * 110, 16, 0, 7); x.fill(); }
