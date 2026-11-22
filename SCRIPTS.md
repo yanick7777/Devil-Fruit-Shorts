@@ -936,3 +936,23 @@ Which fruit do you want next? Follow for more.
 17. **truth** — When Whitebeard died, Blackbeard stole his Tremor-Tremor power, and nobody knows how he did it.
 18. **joke** — So if you ever find a weird swirly fruit, someone, somewhere, just had a really bad day.
 19. **outro** — Which fruit do you want next? Follow for more.
+
+---
+
+## Pika Pika no Mi (Glint-Glint Fruit): Kizaru
+Design (user's reference, refs/light/pika_design.png): yellow shield-shaped fruit with swirls, star-shaped top, curly green stem with a star leaf.
+
+1. **hook** — You take a bite of a weird star-topped yellow fruit.
+2. **calm** — Don't panic, that's just a Devil Fruit.
+3. **sea** — Out of every fruit in the sea,
+4. **name** — you got the Glint-Glint Fruit,
+5. **type** — a Logia that turns your whole body into light.
+6. **power1** — First, you move at the speed of light, zipping anywhere in a flash.
+7. **power2** — Then you fire lasers from your fingers that blow up anything they hit.
+8. **power3** — You can even make a sword out of pure light.
+9. **peak** — Your strongest attack is Yasakani no Magatama: a rain of light bullets.
+10. **twist** — But speed isn't everything.
+11. **truth** — Haki users can still hit you, and Rayleigh blocked Kizaru's kick with just a sword.
+12. **users** — Admiral Kizaru uses it, and he beat the Straw Hats at Sabaody before Kuma sent them away.
+13. **joke** — Users of this fruit never need a flashlight.
+14. **outro** — Which fruit do you want next? Follow for more.
