@@ -84,8 +84,12 @@ export function buildShots(TL) {
     draw(x, S) { shimmerBody(x, 760, 1300, 180, S.T); person(x, S, 'kizaru', S.T > W('truth', /^hit/) ? 'hit' : 'smug', 760, 1780, 0.62, { seed: 2, pose: 'shrug', flip: true }); const g = person(x, S, 'grunt', 'grin', 330, 1780, 0.62, { seed: 3, pose: 'punch' }); A.glow(x, g.hand.R[0], g.hand.R[1], 70, '40,20,60', 0.9); if (S.T > W('truth', /^hit/)) A.impactStar(x, g.hand.R[0] + 60, g.hand.R[1], 120 * pop(S.T, W('truth', /^hit/)), S.T); } },
     tRay, [[1.05, 540, 1000, 0.02], [1.12, 540, 980, 0]], 'Rayleigh (Sabaody grove 41): Kizaru\'s glowing kick is stopped dead by Rayleigh\'s sword; clang; blue BLOCKED banner');
   const tr = T.shots[T.shots.length - 1]; tr.bg = 's3:li_grove'; tr.banners = [['RAYLEIGH BLOCKS IT', 'blue', tRay + 0.2, end('truth')]]; tr.sfx = [[W('truth', /^kick/) - tRay, 'impact'], [W('truth', /^sword/) - tRay, 'slash']];
-  tr.draw = function (x, S) { shimmerBody(x, 760, 1250, 160, S.T); person(x, S, 'kizaru', 'shock', 780, 1780, 0.62, { seed: 2, pose: 'punch', flip: true }); const r = person(x, S, 'rayleigh', 'smug', 300, 1780, 0.64, { seed: 5, pose: 'punch' }); A.sword(x, r.hand.R[0], r.hand.R[1], 0.9, 1.1); if (S.T > W('truth', /^kick/)) A.impactStar(x, 560, 1250, 120 * pop(S.T, W('truth', /^kick/)), S.T); };
-
+  tr.draw = function (x, S) { const tk = W('truth', /^kick/), k = ease.outCubic(prog(S.T, tk - 0.3, tk)); shimmerBody(x, 800, 1300, 160, S.T);
+    person(x, S, 'kizaru', S.T > tk + 0.1 ? 'shock' : 'smug', 820, 1780, 0.62, { seed: 2, pose: 'idle', flip: true });
+    // glowing kick: a leg of light swinging up from Kizaru's hip into Rayleigh's blade
+    beam(x, 790, 1480, lerp(760, 650, k), lerp(1500, 1170, k), 44, 0.95); x.beginPath(); x.ellipse(lerp(760, 650, k), lerp(1500, 1170, k), 40, 28, -0.6, 0, 7); A.fs(x, '#f4f4f8', 7);
+    const r = person(x, S, 'rayleigh', 'smug', 280, 1780, 0.64, { seed: 5, pose: 'punch' }); A.sword(x, r.hand.R[0] + 10, r.hand.R[1], -0.15, 1.1);
+    if (S.T > tk) { A.impactStar(x, 640, 1160, 120 * pop(S.T, tk), S.T); if (S.T < tk + 7 * F) S.shake = 0.5; } };
   const tBeat = W('users', /^beat/) - 0.1;
   add({ name: 'Admiral Kizaru (Marine HQ): Kizaru in his yellow pinstripe suit and white coat, hands in his pockets; gold ADMIRAL KIZARU banner', t0: st('users'), t1: tBeat, bg: 's3:li_navy',
     cam: [[1.05, 540, 1000, 0.02], [1.12, 540, 980, 0]], banners: [['ADMIRAL KIZARU', 'gold', st('users') + 0.2, tBeat + 0.1]], sfx: [[0, 'whoosh'], [0.3, 'shimmer']],
