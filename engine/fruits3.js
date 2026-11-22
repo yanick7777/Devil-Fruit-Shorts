@@ -132,4 +132,19 @@ export const drawSara = wrap((x, cx, cy, R) => {
   const p = () => { x.beginPath(); x.ellipse(cx, cy + R * 0.05, R * 0.95, R * 0.88, 0, 0, 7); };
   body(x, R, p, cx, cy, ['#4a8ae8', '#9ac4ff', '#1a4ab0', '#0a2a70', 0.26, 0.1]); stem(x, cx, cy - R * 0.82, R); shine(x, cx, cy, R);
 });
-export const FRUITS3 = { axolotl: drawSara,  shadow: drawKage,  bubble: drawAwa, munch: drawBaku, bomb: drawBomu, wax: drawDoru, brush: drawFude, rumble: drawGoro, flower: drawHana, orochi: drawOrochi, human: drawHito, hollow: drawHoro, wolf: drawWolf, magnet: drawJiki, kilo: drawKiro, clone: drawMane, love: drawMero };
+// ---- Pika Pika no Mi: yellow shield-shaped fruit split into two faces, swirls, star-shaped top, curly stem with a star leaf ----
+function star(x, cx, cy, r, rot = 0) { x.beginPath(); for (let i = 0; i < 10; i++) { const a = rot - Math.PI / 2 + i * Math.PI / 5, rr = i % 2 ? r * 0.45 : r; x.lineTo(cx + Math.cos(a) * rr, cy + Math.sin(a) * rr); } x.closePath(); }
+export const drawPika = wrap((x, cx, cy, R) => {
+  const top = cy - R * 0.55, L = (k) => [cx - R * 0.78 + k, top];
+  const half = (sd) => () => { x.beginPath(); x.moveTo(cx, top + R * 0.15); x.lineTo(cx + sd * R * 0.8, top); x.quadraticCurveTo(cx + sd * R * 0.85, cy + R * 0.6, cx, cy + R * 1.05); x.closePath(); };
+  for (const [sd, c] of [[-1, ['#c89a20', '#e8c040', '#8a6810', '#7a5a10']], [1, ['#f0d030', '#fff08a', '#c8a010', '#8a6a10']]]) { const p = half(sd); p(); x.save(); x.clip(); swirlFill(x, R, cx + sd * R * 0.3, cy, ...c, 0.26, 0.1); x.restore(); outline(x, R, p); }
+  star(x, cx, top + R * 0.05, R * 0.95, 0); x.save(); x.scale(1, 1); x.restore();
+  x.save(); x.translate(cx, top + R * 0.05); x.scale(1, 0.38); star(x, 0, 0, R * 0.95, 0); x.restore(); x.fillStyle = '#f4e070'; x.fill(); x.lineWidth = R * 0.05; x.strokeStyle = OL; x.stroke();
+  x.save(); x.translate(cx, top + R * 0.05); x.scale(1, 0.38); star(x, 0, 0, R * 0.95, 0); x.restore(); x.save(); x.clip(); curl(x, cx - R * 0.3, top + R * 0.02, R * 0.12, R * 0.025, '#a07a10'); curl(x, cx + R * 0.3, top + R * 0.05, R * 0.12, R * 0.025, '#a07a10', -1); x.restore();
+  // stem: curl up, a branch out to a star leaf
+  x.lineCap = 'round'; const sp = () => { x.beginPath(); x.moveTo(cx, top + R * 0.05); x.quadraticCurveTo(cx - R * 0.05, top - R * 0.35, cx + R * 0.05, top - R * 0.7); x.arc(cx - R * 0.08, top - R * 0.72, R * 0.13, 0, Math.PI * 1.5, true); x.moveTo(cx + R * 0.02, top - R * 0.35); x.quadraticCurveTo(cx + R * 0.35, top - R * 0.4, cx + R * 0.6, top - R * 0.55); };
+  sp(); x.lineWidth = R * 0.13; x.strokeStyle = OL; x.stroke(); sp(); x.lineWidth = R * 0.07; x.strokeStyle = '#5ab04a'; x.stroke();
+  star(x, cx + R * 0.68, top - R * 0.6, R * 0.22, 0.3); x.fillStyle = '#5ab04a'; x.fill(); x.lineWidth = R * 0.04; x.strokeStyle = OL; x.stroke();
+  x.beginPath(); x.ellipse(cx + R * 0.42, cy + R * 0.15, R * 0.07, R * 0.16, 0.2, 0, 7); x.fillStyle = 'rgba(255,255,255,0.7)'; x.fill();
+});
+export const FRUITS3 = { light: drawPika,  axolotl: drawSara,  shadow: drawKage,  bubble: drawAwa, munch: drawBaku, bomb: drawBomu, wax: drawDoru, brush: drawFude, rumble: drawGoro, flower: drawHana, orochi: drawOrochi, human: drawHito, hollow: drawHoro, wolf: drawWolf, magnet: drawJiki, kilo: drawKiro, clone: drawMane, love: drawMero };

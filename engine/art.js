@@ -155,6 +155,8 @@ export const LOOKS = {
           top: 'caesar', pants: '#d8b8f0', shoe: '#d8b8f0', boots: false, arm: '#f4f8fc', glove: '#2a2450', cuff: '#f4f8fc' },
   kizaru: { skin: '#c8946a', skinD: '#a8764e', hair: '#1d1a22', hairL: '#3d3443', hairStyle: 'short', sideburns: true, shadesOrange: true, stubble: true, coatSleeves: true, fit: 1.04,
           top: 'kizaru', cloakCol: '#f4f4f8', cloakLining: '#dcdce4', pants: '#e8b830', pantsStripes: '#fff0a0', shoe: '#f4f4f8', boots: false, arm: '#e8b830', cuff: '#f4e070', glove: '#c8946a' },
+  rayleigh: { skin: '#f0c8a0', skinD: '#d6a880', hair: '#f4f4f8', hairL: '#ffffff', hairStyle: 'wavy', glasses: true, beard: true, scar: true,
+          top: 'coat', cloth: '#f4f0e6', clothD: '#d8d0c0', inner: '#f4f0e6', innerD: '#d8d0c0', cloakCol: '#5a4a3a', cloakLining: '#3a3028', pants: '#4a4a5a', shoe: '#2a2026', boots: false, arm: '#f4f0e6', cuff: '#f4f0e6' },
   sabo: { skin: '#f7cc9c', skinD: '#e2ab78', hair: '#f2cf55', hairL: '#ffe58a', hairStyle: 'curly', hat: 'top', scar: true,
           top: 'coat', cloth: '#2f4f8f', clothD: '#223a6c', inner: '#f4f1ea', innerD: '#cfc8b8', cravat: true, pants: '#3a3340', shoe: '#6b4630', boots: true, cuff: '#f4f1ea' },
 };

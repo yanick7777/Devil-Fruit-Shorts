@@ -1,0 +1,124 @@
+{
+ "title": "Pika Pika no Mi (Glint-Glint Fruit)",
+ "format": "9:16",
+ "story": "/shorts/light/story.js",
+ "voice": {
+  "name": "mb-us2",
+  "speed": 158,
+  "pitch": 48
+ },
+ "voice_override_dir": "shorts/light/vo",
+ "voice_fx": {},
+ "music": false,
+ "structure": "techniques + peak (no forced forms)",
+ "facts": [
+  "Logia, light; Yasakani no Magatama; Ama no Murakumo light sword; lasers; Rayleigh blocked Kizaru at Sabaody; Kizaru vs Straw Hats at Sabaody"
+ ],
+ "plan": {
+  "english": "Pika Pika no Mi (Glint-Glint Fruit)",
+  "labels": "",
+  "fruit": "Drawn from the user's design (refs/light/pika_design.png).",
+  "cast": [],
+  "sets": ""
+ },
+ "lines": [
+  {
+   "id": "hook",
+   "lead": 1.6,
+   "tail": 0.25,
+   "text": "You take a bite#red of a weird star-topped yellow#purple fruit.",
+   "say": "You take a bite of a weird star-topped yellow fruit."
+  },
+  {
+   "id": "calm",
+   "lead": 0.1,
+   "tail": 0.35,
+   "text": "Don't panic,#red that's just a Devil#purple Fruit.#purple",
+   "say": "Don't panic, that's just a Devil Fruit."
+  },
+  {
+   "id": "sea",
+   "lead": 0.1,
+   "tail": 0.25,
+   "text": "Out of every fruit in the sea,#blue",
+   "say": "Out of every fruit in the sea,"
+  },
+  {
+   "id": "name",
+   "lead": 0.05,
+   "tail": 0.9,
+   "text": "you got the Glint-Glint#pink Fruit,#pink",
+   "say": "you got the Glint-Glint Fruit,"
+  },
+  {
+   "id": "type",
+   "lead": 0.1,
+   "tail": 0.9,
+   "text": "a Logia#orange that turns your whole body into light.#gold",
+   "say": "a Logia that turns your whole body into light."
+  },
+  {
+   "id": "power1",
+   "lead": 0.3,
+   "tail": 0.4,
+   "text": "First, you move at the speed#blue of light,#gold zipping anywhere in a flash.",
+   "say": "First, you move at the speed of light, zipping anywhere in a flash."
+  },
+  {
+   "id": "power2",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "Then you fire lasers#red from your fingers that blow up#orange anything they hit.",
+   "say": "Then you fire lasers from your fingers that blow up anything they hit."
+  },
+  {
+   "id": "power3",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "You can even make a sword#blue out of pure light.#gold",
+   "say": "You can even make a sword out of pure light."
+  },
+  {
+   "id": "peak",
+   "lead": 0.55,
+   "tail": 0.6,
+   "text": "Your strongest#blue attack is Yasakani no Magatama:#gold a rain of light bullets.",
+   "say": "Your strongest attack is Yasakani no Magatama: a rain of light bullets."
+  },
+  {
+   "id": "twist",
+   "lead": 0.25,
+   "tail": 0.4,
+   "text": "But speed isn't everything.#purple",
+   "say": "But speed isn't everything."
+  },
+  {
+   "id": "truth",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "Haki#red users can still hit you, and Rayleigh#blue blocked Kizaru's kick with just a sword.",
+   "say": "Haki users can still hit you, and Rayleigh blocked Kizaru's kick with just a sword."
+  },
+  {
+   "id": "users",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "Admiral Kizaru#gold uses it, and he beat the Straw Hats#red at Sabaody before Kuma sent them away.",
+   "say": "Admiral Kizaru uses it, and he beat the Straw Hats at Sabaody before Kuma sent them away."
+  },
+  {
+   "id": "joke",
+   "lead": 0.2,
+   "tail": 0.9,
+   "text": "Users of this fruit never need a flashlight.#orange",
+   "say": "Users of this fruit never need a flashlight."
+  },
+  {
+   "id": "outro",
+   "lead": 0.2,
+   "tail": 2.4,
+   "text": "Which fruit#pink do you want next?#gold Follow for more.",
+   "say": "Which fruit do you want next? Follow for more."
+  }
+ ]
+}
