@@ -49,6 +49,7 @@ export const C = {
   shadow:  { rays: ['#7a6a9a', '#3a2a5a'], glow: '180,140,240', fruit: f3('shadow'), who: 'moria', whoExpr: 'grin', lines: [['HE STEALS', 120, '#ffffff'], ['YOUR SHADOW', 140, '#b07cff']], bottom: 'SHADOW-SHADOW FRUIT' },
   kilo:    { rays: ['#e0809a', '#b0405a'], glow: '255,160,190', fruit: f3('kilo'), who: 'valentine', whoExpr: 'grin', lines: [['1 KG OR', 120, '#ffffff'], ['10,000 KG', 150, '#ffd84a']], bottom: 'KILO-KILO FRUIT' },
   rebirth: { rays: ['#ffb24d', '#e8622e'], glow: '255,160,60', fruit: drawFruit, who: 'sabo', whoExpr: 'grin', lines: [['WHAT HAPPENS TO', 96, '#ffffff'], ['YOUR FRUIT WHEN', 110, '#ffffff'], ['YOU DIE?', 160, '#ffd84a']], bottom: 'ACE\'S FRUIT CAME BACK' },
+  light:   { rays: ['#fff08a', '#f0c830'], glow: '255,240,150', fruit: f3('light'), who: 'kizaru', whoExpr: 'smug', lines: [['HAVE YOU EVER BEEN', 92, '#ffffff'], ['KICKED AT THE', 110, '#ffffff'], ['SPEED OF LIGHT?', 140, '#ffd84a']], bottom: 'GLINT-GLINT FRUIT' },
   clone:   { rays: ['#ffc070', '#f08a2a'], glow: '255,200,120', fruit: f3('clone'), who: 'bonclay', whoExpr: 'grin', lines: [['STEAL ANYONE\'S', 104, '#ffffff'], ['FACE', 170, '#ff5fa2']], bottom: 'CLONE-CLONE FRUIT' },
 };
 function rays(x, a, b) { x.fillStyle = b; x.fillRect(0, 0, 1080, 1920); x.fillStyle = a; for (let i = 0; i < 28; i++) { const t = i / 28 * Math.PI * 2; x.beginPath(); x.moveTo(540, 960); x.arc(540, 960, 2400, t, t + Math.PI / 28); x.closePath(); x.fill(); } }

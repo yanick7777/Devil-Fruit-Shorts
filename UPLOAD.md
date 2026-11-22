@@ -240,3 +240,8 @@ You take a bite of a weird lilac fruit… and strings start shooting out of your
 **Title:** What happens to a Devil Fruit when its user DIES? 💀
 **Description:** Only one of each fruit can exist, so where does the power go? From Smiley on Punk Hazard to Ace's Flame-Flame Fruit ending up with Sabo, and how Blackbeard broke the rules. Which fruit next? Comment and follow!
 #onepiece #devilfruit #ace #sabo #blackbeard #punkhazard #anime #fyp
+
+## 34. Pika Pika no Mi (Glint-Glint) — `out/light.mp4` · cover `brand/cover_light.png`
+**Title:** Have you ever been kicked at the speed of light? ⚡
+**Description:** Move at light speed, fire lasers from your fingers, make a sword of light and rain down Yasakani no Magatama. Here's Admiral Kizaru's Glint-Glint Fruit and why speed isn't everything. Which fruit next? Comment and follow!
+#onepiece #devilfruit #kizaru #admiral #sabaody #logia #anime #fyp
