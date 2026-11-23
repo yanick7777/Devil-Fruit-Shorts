@@ -201,7 +201,7 @@ function crackerHair(x, L) { // two long coiled purple tails flaring out to the 
 
 // Full-body figure. Canvas 1000x1900; local coords are offset by (120,110); the head is centred at local (380,330).
 // Feet rest on canvas y = FEET. pose: idle | hold | sip | raise | punch | cheer | shrug | holdUp
-export const FIG = { W: 1200, H: 2150, OX: 220, OY: 360, FEET: 1995, HEAD: [380, 330] };   // roomy canvas so horns, spiky hair and punches are never clipped
+export const FIG = { W: 1300, H: 2150, OX: 270, OY: 360, FEET: 1995, HEAD: [380, 330] };   // roomy canvas so horns, spiky hair and punches are never clipped
 const SH = { L: [262, 690], R: [498, 690] };
 export const POSES = {
   idle:   { L: [[226, 880], [222, 1060], 'round'], R: [[534, 880], [538, 1060], 'round'] },
@@ -212,12 +212,26 @@ export const POSES = {
   cheer:  { L: [[165, 560], [155, 390], 'fist'], R: [[595, 560], [605, 390], 'fist'] },
   shrug:  { L: [[165, 830], [105, 720], 'open'], R: [[595, 830], [655, 720], 'open'] },
   holdUp: { L: [[226, 880], [222, 1060], 'round'], R: [[640, 760], [620, 560], 'open'] },
+  jumpPunch: { L: [[130, 640], [175, 450], 'fist'], R: [[660, 700], [820, 690], 'fist'], legs: 'jump' },   // mid-air: back fist raised, front fist punching, knees bent
 };
 // hand / head position of a figure drawn with its feet at (cx, fy), scale s, optionally mirrored
 export function figPoint(lx, ly, cx, fy, s, flip = false) { const dx = (lx + FIG.OX - FIG.W / 2) * s; return [cx + (flip ? -dx : dx), fy + (ly + FIG.OY - FIG.FEET) * s]; }
 
-function drawLegs(x, L) {
+function drawLegs(x, L, pose) {
   const pants = L.pants, shoe = L.shoe;
+  if ((POSES[pose] || {}).legs === 'jump') { // front knee pulled up, back leg trailing down
+    x.lineCap = 'round'; x.lineJoin = 'round';
+    for (const [hip, knee, foot, back] of [[[320, 1110], [250, 1360], [130, 1520], true], [[440, 1110], [610, 1250], [600, 1490], false]]) {
+      const seg = (a, b, w, col) => { x.beginPath(); x.moveTo(...a); x.lineTo(...b); x.lineWidth = w + 24; x.strokeStyle = OL; x.stroke(); x.lineWidth = w; x.strokeStyle = col; x.stroke(); };
+      const mid = [knee[0] + (foot[0] - knee[0]) * 0.62, knee[1] + (foot[1] - knee[1]) * 0.62];
+      seg(knee, foot, 96, L.shorts ? L.skin : pants); if (L.boots) seg(mid, foot, 100, shoe);
+      x.save(); x.translate(...foot); x.rotate(back ? 0.45 : -0.1); x.beginPath(); x.ellipse(back ? -10 : 20, 14, 76, 36, 0, 0, 7); fs(x, shoe, 12); x.restore();
+      seg(hip, knee, 112, pants);
+      if (L.fluffShorts) { const a = Math.atan2(knee[1] - hip[1], knee[0] - hip[0]), nx = -Math.sin(a), ny = Math.cos(a), c = [hip[0] + (knee[0] - hip[0]) * 0.92, hip[1] + (knee[1] - hip[1]) * 0.92];
+        for (let k = -1.5; k <= 1.5; k++) { x.beginPath(); x.arc(c[0] + nx * k * 30, c[1] + ny * k * 30, 26, 0, 7); fs(x, '#f4f2fa', 5); } }
+    }
+    return;
+  }
   for (const [x0, x1] of [[262, 372], [388, 498]]) {
     x.beginPath(); x.moveTo(x0, 1060); x.lineTo(x1, 1060); x.lineTo(x1 - 6, 1580); x.lineTo(x0 + 6, 1580); x.closePath(); fs(x, pants, 12);
     if (L.shorts) { x.beginPath(); x.rect(x0 + 10, 1330, x1 - x0 - 20, 250); fs(x, L.skin, 10); x.beginPath(); x.moveTo(x0, 1330); x.lineTo(x1, 1330); x.lineWidth = 12; x.strokeStyle = OL; x.stroke(); }
@@ -517,7 +531,7 @@ export function drawPerson({ who = 'host', expr = 'calm', mouth = 0, blink = fal
   if (L.twinTails) for (const sd of [-1, 1]) { x.beginPath(); x.moveTo(380 + sd * 200, 200); x.bezierCurveTo(380 + sd * 380, 300, 380 + sd * 380, 900, 380 + sd * 300, 1150); x.lineTo(380 + sd * 230, 1100); x.bezierCurveTo(380 + sd * 280, 800, 380 + sd * 250, 400, 380 + sd * 150, 260); x.closePath(); fs(x, L.hair, 10); }
   if (L.braids) crackerHair(x, L);
   if (L.sideCape) sideCape(x);
-  if (L.crackerLegs) crackerLegs(x, L); else drawLegs(x, L);
+  if (L.crackerLegs) crackerLegs(x, L); else drawLegs(x, L, pose);
   drawTorso(x, L);
   if (L.xScar) { x.strokeStyle = '#b86a50'; x.lineWidth = 12; x.lineCap = 'round'; x.beginPath(); x.moveTo(318, 700); x.lineTo(442, 800); x.moveTo(442, 700); x.lineTo(318, 800); x.stroke(); }   // Luffy's X scar from Marineford
   if (L.crackerBelt) crackerBelt(x);
