@@ -55,7 +55,7 @@ export function dragon(x, cx, cy, s, t, o = {}) { const n = 30, pts = []; for (l
 function coil(x, pts, w) { const path = () => { x.beginPath(); pts.forEach(([px, py], i) => (i ? x.lineTo(px, py) : x.moveTo(px, py))); };
   x.lineCap = 'round'; x.lineJoin = 'round'; path(); x.lineWidth = w + 18; x.strokeStyle = A.OL; x.stroke(); path(); x.lineWidth = w; x.strokeStyle = '#2a5a8a'; x.stroke();
   x.save(); x.translate(0, w * 0.22); path(); x.lineWidth = w * 0.45; x.strokeStyle = '#d8b878'; x.stroke(); path(); x.setLineDash([6, w * 0.22]); x.lineWidth = w * 0.45; x.strokeStyle = '#8a6a3a'; x.stroke(); x.restore();
-  x.save(); x.translate(0, -w * 0.18); path(); x.setLineDash([w * 0.18, w * 0.14]); x.lineWidth = w * 0.3; x.strokeStyle = '#4a8ac0'; x.stroke(); x.restore(); x.setLineDash([]); }
+  for (const [off, lw] of [[-0.3, 0.16], [-0.08, 0.14]]) { x.save(); x.translate(0, w * off); path(); x.setLineDash([w * 0.12, w * 0.1]); x.lineWidth = w * lw; x.strokeStyle = off < -0.2 ? '#4a8ac0' : '#3a7ab0'; x.stroke(); x.restore(); } x.setLineDash([]); }
 export function dragonFront(x, cx, cy, s, t, o = {}) { x.save(); x.translate(cx, cy); x.scale(s, s); const wv = Math.sin(t * 2) * 20;
   // body coils behind the head
   const c1 = [], c2 = []; for (let i = 0; i <= 30; i++) { const u = i / 30; c1.push([-700 + u * 1400, -250 + Math.sin(u * 5 + t) * 120 + wv]); c2.push([700 - u * 1400, 330 + Math.sin(u * 4 + t + 2) * 110]); }
@@ -63,16 +63,16 @@ export function dragonFront(x, cx, cy, s, t, o = {}) { x.save(); x.translate(cx,
   // neck down from the head
   x.beginPath(); x.moveTo(-120, 0); x.lineTo(120, 0); x.lineTo(150, 420); x.lineTo(-150, 420); x.closePath(); A.fs(x, '#2a5a8a', 12); x.fillStyle = '#d8b878'; x.beginPath(); x.moveTo(-70, 120); x.lineTo(70, 120); x.lineTo(95, 420); x.lineTo(-95, 420); x.closePath(); x.fill(); x.strokeStyle = '#8a6a3a'; x.lineWidth = 6; for (let k = 0; k < 6; k++) { x.beginPath(); x.moveTo(-75 - k * 4, 160 + k * 45); x.lineTo(75 + k * 4, 160 + k * 45); x.stroke(); }
   // clawed arms
-  for (const sd of [-1, 1]) { x.save(); x.translate(sd * 220, 220); x.beginPath(); x.moveTo(0, -60); x.lineTo(sd * 60, 120); x.lineCap = 'round'; x.lineWidth = 70; x.strokeStyle = A.OL; x.stroke(); x.lineWidth = 52; x.strokeStyle = '#2a5a8a'; x.stroke(); for (const d of [-26, 0, 26]) { x.beginPath(); x.moveTo(sd * 60 + d, 140); x.quadraticCurveTo(sd * 70 + d * 1.4, 190, sd * 60 + d * 1.6, 215); x.lineWidth = 12; x.strokeStyle = '#f4ecd8'; x.stroke(); } x.restore(); }
+  for (const sd of [-1, 1]) { x.save(); x.translate(sd * 220, 220); x.beginPath(); x.moveTo(0, -60); x.lineTo(sd * 60, 120); x.lineCap = 'round'; x.lineWidth = 70; x.strokeStyle = A.OL; x.stroke(); x.lineWidth = 52; x.strokeStyle = '#2a5a8a'; x.stroke(); for (const d of [-26, 0, 26]) { x.beginPath(); x.moveTo(sd * 60 + d, 140); x.quadraticCurveTo(sd * 70 + d * 1.4, 190, sd * 60 + d * 1.6, 215); x.lineWidth = 12; x.strokeStyle = '#f4ecd8'; x.stroke(); } if (o.flames) A.flame(x, sd * 70, 150, 90, 220, t, sd + 2); x.restore(); }
   // black wild mane around the head
   for (let i = 0; i < 20; i++) { const a = Math.PI * (0.95 + i / 19 * 1.1), r = 230 + (i % 3) * 50; x.beginPath(); x.moveTo(Math.cos(a - 0.12) * 120, -40 + Math.sin(a - 0.12) * 120); x.lineTo(Math.cos(a) * r, -40 + Math.sin(a) * r * 0.9 + (i % 2) * 20); x.lineTo(Math.cos(a + 0.12) * 120, -40 + Math.sin(a + 0.12) * 120); x.closePath(); x.fillStyle = '#14121a'; x.fill(); }
   for (const sd of [-1, 1]) for (let k = 0; k < 6; k++) { x.beginPath(); x.moveTo(sd * 120, -60 + k * 30); x.lineTo(sd * (260 + (k % 2) * 60), -40 + k * 40); x.lineTo(sd * 120, -30 + k * 30); x.closePath(); x.fillStyle = '#14121a'; x.fill(); }
-  // tan branching antlers
-  for (const sd of [-1, 1]) { const br = () => { x.beginPath(); x.moveTo(sd * 50, -150); x.quadraticCurveTo(sd * 60, -300, sd * 40, -430); x.moveTo(sd * 54, -240); x.quadraticCurveTo(sd * 150, -270, sd * 230, -380); x.moveTo(sd * 52, -330); x.quadraticCurveTo(sd * 100, -360, sd * 120, -450); x.moveTo(sd * 70, -170); x.quadraticCurveTo(sd * 200, -170, sd * 300, -120); };
-    x.lineCap = 'round'; br(); x.lineWidth = 40; x.strokeStyle = A.OL; x.stroke(); br(); x.lineWidth = 26; x.strokeStyle = '#d8b878'; x.stroke(); }
+  // big tan antlers: curve up and out from the brow, then sweep back with forward branches
+  for (const sd of [-1, 1]) { const br = () => { x.beginPath(); x.moveTo(sd * 60, -150); x.bezierCurveTo(sd * 70, -330, sd * 220, -380, sd * 330, -560); x.moveTo(sd * 95, -290); x.quadraticCurveTo(sd * 70, -400, sd * 110, -520); x.moveTo(sd * 180, -360); x.quadraticCurveTo(sd * 170, -460, sd * 220, -560); x.moveTo(sd * 80, -200); x.quadraticCurveTo(sd * 260, -200, sd * 380, -260); };
+    x.lineCap = 'round'; br(); x.lineWidth = 46; x.strokeStyle = A.OL; x.stroke(); br(); x.lineWidth = 30; x.strokeStyle = '#d8b878'; x.stroke(); br(); x.lineWidth = 8; x.strokeStyle = '#a8865a'; x.stroke(); }
   // head: broad brow narrowing to a long snout
   x.beginPath(); x.moveTo(-150, -150); x.quadraticCurveTo(0, -220, 150, -150); x.quadraticCurveTo(190, -40, 110, 40); x.lineTo(80, 150); x.quadraticCurveTo(0, 175, -80, 150); x.lineTo(-110, 40); x.quadraticCurveTo(-190, -40, -150, -150); x.closePath(); A.fs(x, '#2a5a8a', 12);
-  x.strokeStyle = '#4a8ac0'; x.lineWidth = 6; for (let k = 0; k < 5; k++) { x.beginPath(); x.arc(-80 + k * 40, -150, 18, 0, Math.PI); x.stroke(); }
+  x.save(); x.beginPath(); x.moveTo(-150, -150); x.quadraticCurveTo(0, -220, 150, -150); x.quadraticCurveTo(190, -40, 110, 40); x.lineTo(80, 150); x.lineTo(-80, 150); x.lineTo(-110, 40); x.quadraticCurveTo(-190, -40, -150, -150); x.clip(); x.strokeStyle = '#4a8ac0'; x.lineWidth = 5; for (let r = 0; r < 6; r++) for (let k = -4; k <= 4; k++) { x.beginPath(); x.arc(k * 40 + (r % 2) * 20, -190 + r * 34, 17, 0, Math.PI); x.stroke(); } x.restore();
   // brows + glowing red eyes
   for (const sd of [-1, 1]) { x.beginPath(); x.moveTo(sd * 30, -95); x.lineTo(sd * 140, -120); x.lineTo(sd * 135, -85); x.closePath(); x.fillStyle = '#1a3a6a'; x.fill(); A.glow(x, sd * 85, -70, 50, '255,60,40', 0.8); x.beginPath(); x.moveTo(sd * 40, -72); x.lineTo(sd * 130, -88); x.lineTo(sd * 115, -55); x.closePath(); A.fs(x, '#ff3a2a', 5); }
   // snout ridge + nostrils
@@ -111,7 +111,7 @@ export function buildShots(TL) {
   const tFly = W('power1', /^fly/) - 0.1;
   addSplit({ name: 'Power 1 (open skies): Kaido roars and turns into a huge blue dragon; blue AZURE DRAGON banner', t0: st('power1'), t1: end('power1'), bg: 's3:az_skies',
     cam: [[1.0, 540, 980, -0.02], [1.05, 560, 970, -0.01]], banners: [['AZURE DRAGON', 'blue', st('power1') + 0.2, end('power1'), 'slide']], sfx: [[0.2, 'rumble'], [W('power1', /^dragon/) - st('power1'), 'boom']],
-    draw(x, S) { const td = W('power1', /^dragon/); if (S.T < td) person(x, S, 'kaido', 'grin', 540, 1880, 0.74, { seed: 2, pose: 'raise' }); else { dragonFront(x, 540, 1000, 0.5 + 0.35 * ease.outBack(prog(S.T, td, td + 0.5)), S.T, { roar: true }); if (S.T < td + 0.3) S.shake = 0.5; } } },
+    draw(x, S) { const td = W('power1', /^dragon/); if (S.T < td) person(x, S, 'kaido', 'grin', 540, 1880, 0.74, { seed: 2, pose: 'raise' }); else { dragonFront(x, 540, 1060, 0.5 + 0.3 * ease.outBack(prog(S.T, td, td + 0.5)), S.T, { roar: true, flames: true }); if (S.T < td + 0.3) S.shake = 0.5; } } },
     tFly, [[0.95, 540, 960, 0.02], [1.0, 540, 940, 0.035]], 'Power 1 fly (same skies): the dragon swims through the air riding on puffy white clouds');
   const p1 = T.shots[T.shots.length - 1]; p1.sfx = [[0.1, 'whoosh']]; p1.draw = function (x, S) { for (let i = 0; i < 4; i++) cloudPuff(x, ((S.T * 260 + i * 330) % 1500) - 200, 1250 + (i % 2) * 120, 1.2); dragon(x, 540, 900, 0.9, S.T); A.speedLines(x, 540, 900, S.T, 10, 260, Math.PI); };
 

@@ -158,17 +158,21 @@ export const drawMochi = wrap((x, cx, cy, R) => {
 });
 // ---- Uo Uo no Mi, Model: Seiryu (user's reference): pinecone of overlapping teal/blue scales with curled tongues, orange star calyx, two purple curly stems ----
 export const drawSeiryu = wrap((x, cx, cy, R) => {
-  // big overlapping scales in a teardrop: each a pale teal U with a dark-blue curled tongue; lower rows drawn first so upper rows overlap them
-  const rows = [[-0.45, 4, 0.66], [-0.15, 5, 0.9], [0.15, 5, 0.92], [0.45, 4, 0.7], [0.72, 3, 0.44], [0.92, 2, 0.2]];
-  const cols = ['#5ac8d8', '#b8ecf0', '#3ab0c8', '#8adce6'];
-  const scale = (sx, sy, sw, sh, c, d) => { x.beginPath(); x.ellipse(sx, sy, sw, sh, 0, 0, 7); x.fillStyle = c; x.fill(); x.lineWidth = R * 0.028; x.strokeStyle = OL; x.stroke();
-    x.beginPath(); x.ellipse(sx, sy - sh * 0.05, sw * 0.42, sh * 0.72, 0, 0, 7); x.fillStyle = d; x.fill(); x.lineWidth = R * 0.018; x.stroke(); curl(x, sx, sy + sh * 0.12, sw * 0.26, R * 0.02, '#0a1a5a'); };
-  for (let r = rows.length - 1; r >= 0; r--) { const [dy, n, w] = rows[r]; for (let i = 0; i < n; i++) { const u = n === 1 ? 0 : i / (n - 1) - 0.5; scale(cx + u * w * R * 1.75, cy + dy * R, R * 0.25, R * 0.3, cols[(i + r) % 4], (i + r) % 2 ? '#3a5ad0' : '#6a8ae8'); } }
-  // big orange calyx: rounded arms spreading over the top scales
-  const ccy = cy - R * 0.62; for (let i = 0; i < 7; i++) { const a = -Math.PI / 2 + (i - 3) * 0.75; x.save(); x.translate(cx + Math.cos(a) * R * 0.3, ccy + Math.sin(a) * R * 0.16 + R * 0.05); x.rotate(a + Math.PI / 2); x.beginPath(); x.ellipse(0, 0, R * 0.12, R * 0.3, 0, 0, 7); x.fillStyle = '#f0a830'; x.fill(); x.lineWidth = R * 0.03; x.strokeStyle = OL; x.stroke(); x.restore(); }
-  x.beginPath(); x.ellipse(cx, ccy, R * 0.3, R * 0.15, 0, 0, 7); x.fillStyle = '#f0a830'; x.fill(); x.lineWidth = R * 0.03; x.strokeStyle = OL; x.stroke();
-  // two purple stems rising high, each ending in a big loop curl
-  for (const [dx, col, d] of [[-0.08, '#c890e0', -1], [0.1, '#8a4ac0', 1]]) { const sp = () => { x.beginPath(); x.moveTo(cx + dx * R, cy - R * 0.64); x.lineTo(cx + dx * R, cy - R * 1.25); x.bezierCurveTo(cx + dx * R, cy - R * 1.55, cx + dx * R + d * R * 0.45, cy - R * 1.6, cx + dx * R + d * R * 0.4, cy - R * 1.35); x.bezierCurveTo(cx + dx * R + d * R * 0.35, cy - R * 1.2, cx + dx * R + d * R * 0.15, cy - R * 1.3, cx + dx * R + d * R * 0.22, cy - R * 1.4); };
-    x.lineCap = 'round'; sp(); x.lineWidth = R * 0.14; x.strokeStyle = OL; x.stroke(); sp(); x.lineWidth = R * 0.08; x.strokeStyle = col; x.stroke(); }
+  // egg shape built from big teardrop scales; upper rows overlap the rows below
+  const rows = [[-0.42, 4, 0.7], [-0.1, 5, 0.98], [0.22, 5, 0.98], [0.52, 4, 0.78], [0.78, 3, 0.48], [0.96, 2, 0.2]];
+  const cols = ['#58c4d4', '#a6e2ea', '#3aaec4', '#7cd2de', '#c6eef2'];
+  const scale = (sx, sy, sw, sh, c, d) => {
+    const P = () => { x.beginPath(); x.moveTo(sx - sw * 0.55, sy - sh * 0.7); x.bezierCurveTo(sx - sw * 1.25, sy - sh * 0.2, sx - sw * 0.9, sy + sh, sx, sy + sh); x.bezierCurveTo(sx + sw * 0.9, sy + sh, sx + sw * 1.25, sy - sh * 0.2, sx + sw * 0.55, sy - sh * 0.7); x.quadraticCurveTo(sx, sy - sh * 1.15, sx - sw * 0.55, sy - sh * 0.7); x.closePath(); };
+    P(); x.fillStyle = c; x.fill(); x.lineWidth = R * 0.03; x.strokeStyle = OL; x.lineJoin = 'round'; x.stroke();
+    x.save(); P(); x.clip(); x.beginPath(); x.moveTo(sx - sw * 0.5, sy - sh * 0.9); x.bezierCurveTo(sx - sw * 0.75, sy + sh * 0.1, sx - sw * 0.35, sy + sh * 0.62, sx - sw * 0.02, sy + sh * 0.6); x.bezierCurveTo(sx + sw * 0.28, sy + sh * 0.55, sx + sw * 0.25, sy - sh * 0.2, sx + sw * 0.05, sy - sh * 0.9); x.closePath(); x.fillStyle = d; x.fill(); x.lineWidth = R * 0.02; x.stroke(); x.restore();
+    curl(x, sx - sw * 0.18, sy + sh * 0.3, sw * 0.24, R * 0.022, '#0a1a5a'); };
+  for (let r = rows.length - 1; r >= 0; r--) { const [dy, n, w] = rows[r]; for (let i = 0; i < n; i++) { const u = n === 1 ? 0 : i / (n - 1) - 0.5; scale(cx + u * w * R * 1.72, cy + dy * R, R * 0.27, R * 0.34, cols[(i * 2 + r) % 5], (i + r) % 2 ? '#3a56c8' : '#5a7ad8'); } }
+  // orange calyx: six fat rounded arms spreading flat over the top
+  const ccy = cy - R * 0.66; for (const a of [-2.75, -2.15, -1.6, -1.05, -0.45, 0.15, 2.95]) { x.save(); x.translate(cx + Math.cos(a) * R * 0.28, ccy + Math.sin(a) * R * 0.18); x.rotate(a + Math.PI / 2); x.beginPath(); x.moveTo(-R * 0.1, R * 0.12); x.quadraticCurveTo(-R * 0.14, -R * 0.2, 0, -R * 0.3); x.quadraticCurveTo(R * 0.14, -R * 0.2, R * 0.1, R * 0.12); x.closePath(); x.fillStyle = '#f2a428'; x.fill(); x.lineWidth = R * 0.03; x.strokeStyle = OL; x.stroke(); x.restore(); }
+  x.beginPath(); x.ellipse(cx, ccy, R * 0.28, R * 0.13, 0, 0, 7); x.fillStyle = '#f2a428'; x.fill();
+  // two tall purple stems: up, a loop curling to the left, then a long tail flicking up to the right
+  for (const [dx, col, sc] of [[-0.14, '#c890e0', 0.85], [0.12, '#8a48c0', 1.05]]) { const bx = cx + dx * R, yt = ccy - R * 0.7 * sc, r = R * 0.24 * sc, lc = bx - r;
+    const sp = () => { x.beginPath(); x.moveTo(bx, ccy); x.lineTo(bx, yt); x.arc(lc, yt, r, 0, -1.85 * Math.PI, true); x.bezierCurveTo(lc + r * 1.2, yt - r * 1.6, bx + R * 0.25 * sc, yt - R * 0.5 * sc, bx + R * 0.5 * sc, yt - R * 0.75 * sc); };
+    x.lineCap = 'round'; x.lineJoin = 'round'; sp(); x.lineWidth = R * 0.14; x.strokeStyle = OL; x.stroke(); sp(); x.lineWidth = R * 0.08; x.strokeStyle = col; x.stroke(); }
 });
 export const FRUITS3 = { mochi: drawMochi, azure: drawSeiryu,  light: drawPika,  axolotl: drawSara,  shadow: drawKage,  bubble: drawAwa, munch: drawBaku, bomb: drawBomu, wax: drawDoru, brush: drawFude, rumble: drawGoro, flower: drawHana, orochi: drawOrochi, human: drawHito, hollow: drawHoro, wolf: drawWolf, magnet: drawJiki, kilo: drawKiro, clone: drawMane, love: drawMero };
