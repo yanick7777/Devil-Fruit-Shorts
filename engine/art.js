@@ -219,17 +219,20 @@ export function figPoint(lx, ly, cx, fy, s, flip = false) { const dx = (lx + FIG
 
 function drawLegs(x, L, pose) {
   const pants = L.pants, shoe = L.shoe;
-  if ((POSES[pose] || {}).legs === 'jump') { // front knee pulled up, back leg trailing down
+  if ((POSES[pose] || {}).legs === 'jump') { // tucked mid-air jump (traced from the Snakeman ref): knees flared wide, shins angled in under the body, toes pointing down
     x.lineCap = 'round'; x.lineJoin = 'round';
-    for (const [hip, knee, foot, back] of [[[320, 1110], [250, 1360], [130, 1520], true], [[440, 1110], [610, 1250], [600, 1490], false]]) {
+    const shin = L.hakiArms ? '#1b1820' : (L.shorts ? L.skin : pants);
+    for (const [knee, foot, sd] of [[[235, 1300], [330, 1545], -1], [[525, 1300], [430, 1555], 1]]) {
       const seg = (a, b, w, col) => { x.beginPath(); x.moveTo(...a); x.lineTo(...b); x.lineWidth = w + 24; x.strokeStyle = OL; x.stroke(); x.lineWidth = w; x.strokeStyle = col; x.stroke(); };
-      const mid = [knee[0] + (foot[0] - knee[0]) * 0.62, knee[1] + (foot[1] - knee[1]) * 0.62];
-      seg(knee, foot, 96, L.shorts ? L.skin : pants); if (L.boots) seg(mid, foot, 100, shoe);
-      x.save(); x.translate(...foot); x.rotate(back ? 0.45 : -0.1); x.beginPath(); x.ellipse(back ? -10 : 20, 14, 76, 36, 0, 0, 7); fs(x, shoe, 12); x.restore();
-      seg(hip, knee, 112, pants);
-      if (L.fluffShorts) { const a = Math.atan2(knee[1] - hip[1], knee[0] - hip[0]), nx = -Math.sin(a), ny = Math.cos(a), c = [hip[0] + (knee[0] - hip[0]) * 0.92, hip[1] + (knee[1] - hip[1]) * 0.92];
-        for (let k = -1.5; k <= 1.5; k++) { x.beginPath(); x.arc(c[0] + nx * k * 30, c[1] + ny * k * 30, 26, 0, 7); fs(x, '#f4f2fa', 5); } }
+      seg(knee, foot, 104, shin);
+      if (L.hakiArms) { x.strokeStyle = '#d8304a'; x.lineWidth = 5; for (const f of [0.35, 0.7]) { const mx = knee[0] + (foot[0] - knee[0]) * f, my = knee[1] + (foot[1] - knee[1]) * f; x.beginPath(); x.moveTo(mx - 32, my - 8); x.quadraticCurveTo(mx, my + 18, mx + 32, my - 8); x.stroke(); } }
+      else if (L.boots) seg([knee[0] + (foot[0] - knee[0]) * 0.6, knee[1] + (foot[1] - knee[1]) * 0.6], foot, 108, shoe);
+      x.save(); x.translate(foot[0] - sd * 6, foot[1] + 34); x.rotate(-sd * 0.3); x.beginPath(); x.ellipse(0, 0, 46, 74, 0, 0, 7); fs(x, L.hakiArms ? '#1b1820' : shoe, 12); x.restore();   // foot pointing down
     }
+    // baggy shorts flaring out wide over the spread knees
+    x.beginPath(); x.moveTo(262, 1050); x.lineTo(498, 1050); x.quadraticCurveTo(600, 1150, 630, 1290); x.lineTo(430, 1335); x.lineTo(380, 1210); x.lineTo(330, 1335); x.lineTo(130, 1290); x.quadraticCurveTo(160, 1150, 262, 1050); x.closePath(); fs(x, pants, 12);
+    x.strokeStyle = 'rgba(0,0,0,0.22)'; x.lineWidth = 7; x.beginPath(); x.moveTo(300, 1110); x.quadraticCurveTo(240, 1200, 220, 1280); x.moveTo(460, 1110); x.quadraticCurveTo(520, 1200, 540, 1280); x.stroke();
+    if (L.fluffShorts) for (const [ax, ay, bx, by] of [[130, 1290, 330, 1335], [430, 1335, 630, 1290]]) for (let k = 0; k <= 4; k++) { const f = k / 4; x.beginPath(); x.arc(ax + (bx - ax) * f, ay + (by - ay) * f, 28, 0, 7); fs(x, '#f4f2fa', 5); }
     return;
   }
   for (const [x0, x1] of [[262, 372], [388, 498]]) {
