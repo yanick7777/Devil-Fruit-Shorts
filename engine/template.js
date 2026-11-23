@@ -15,7 +15,8 @@ export function timing(TL) {
     add({ ...o, t1: tSplit });
     add({ ...o, name: name2, t0: tSplit, cam: cam2, banners: [], sfx: [], draw: wrap(o.draw), hud: wrap(o.hud) });
   };
-  const finish = () => { shots.forEach((s, i) => { s.i = i; s.sfx = (s.sfx || []).map(([t, n]) => [s.t0 + t, n]); }); return shots; };
+  const finish = () => { shots.sort((a, b) => a.t0 - b.t0); for (let i = 0; i < shots.length - 1; i++) if (shots[i + 1].t0 > shots[i].t1) shots[i].t1 = shots[i + 1].t0;   // no gaps between shots
+    shots.forEach((s, i) => { s.i = i; s.sfx = (s.sfx || []).map(([t, n]) => [s.t0 + t, n]); }); return shots; };
   return { L, W, end, st, shots, add, addSplit, finish };
 }
 

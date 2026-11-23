@@ -1,5 +1,5 @@
 // Generic review sheets: fruit design sheet and cast sheet.
-import { drawPerson, OL } from './art.js';
+import { FIG, drawPerson, OL } from './art.js';
 export function fruitSheet(c, title, draw, swatches, note, rots = [0, 0.6, 1.2, 1.8], labels = ['front', 'turn', 'turn', 'turn']) {
   const x = c.getContext('2d'); c.width = 1600; c.height = 900; x.fillStyle = '#f4efe6'; x.fillRect(0, 0, 1600, 900);
   x.font = '64px "Lilita One"'; x.fillStyle = OL; x.fillText(`${title}  -  design sheet`, 50, 85);
@@ -11,7 +11,7 @@ export function fruitSheet(c, title, draw, swatches, note, rots = [0, 0.6, 1.2, 
 }
 export function castSheet(c, list) { // list of [who, expr, pose, scale?]
   const x = c.getContext('2d'); c.width = 2600; c.height = 1050; x.fillStyle = '#e9f1f6'; x.fillRect(0, 0, c.width, c.height);
-  list.forEach(([w, e, p, sc], k) => { const s = sc || 0.48, cx = 160 + k * 320, fy = 920; x.drawImage(drawPerson({ who: w, expr: e, pose: p }), cx - 500 * s, fy - 1745 * s, 1000 * s, 1900 * s);
+  list.forEach(([w, e, p, sc], k) => { const s = sc || 0.48, cx = 160 + k * 320, fy = 920; x.drawImage(drawPerson({ who: w, expr: e, pose: p }), cx - FIG.W / 2 * s, fy - FIG.FEET * s, FIG.W * s, FIG.H * s);
     x.font = '30px "Lilita One"'; x.fillStyle = OL; x.textAlign = 'center'; x.fillText(`${w} ${e}`, cx, fy + 60); });
 }
 export function bgSheet(c, BG, names) {

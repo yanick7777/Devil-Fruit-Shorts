@@ -42,23 +42,24 @@ const DB = '#3a8ac0', DBL = '#7cc4e4', DBD = '#1f5a8a', BELLY = '#c8b070', BELLY
 // one body segment run: thick tube along pts with scales on top, khaki ridged belly underneath and a black flame mane on the back
 export function scaledTube(x, pts, w, t, o = {}) {
   const n = pts.length, nrm = pts.map((p, i) => { const a = pts[Math.max(0, i - 1)], b = pts[Math.min(n - 1, i + 1)], dx = b[0] - a[0], dy = b[1] - a[1], l = Math.hypot(dx, dy) || 1; return [dy / l, -dx / l]; });
-  const up = (i, d) => [pts[i][0] + nrm[i][0] * d, pts[i][1] + nrm[i][1] * d];
-  // black flame mane along the back
-  if (o.mane !== false) for (let i = 1; i < n - 1; i += 2) { const [bx, by] = up(i, w * 0.42), [tx, ty] = up(i, w * (0.95 + 0.25 * Math.sin(i * 1.7 + t * 4))); const [ex, ey] = up(Math.min(n - 1, i + 2), w * 0.42);
-    x.beginPath(); x.moveTo(bx, by); x.quadraticCurveTo(tx - nrm[i][1] * w * 0.3, ty + nrm[i][0] * w * 0.3, tx, ty); x.quadraticCurveTo((tx + ex) / 2, (ty + ey) / 2 + 6, ex, ey); x.closePath(); x.fillStyle = '#0e0c14'; x.fill(); }
+  const up = (i, d) => [pts[i][0] + nrm[i][0] * d, pts[i][1] + nrm[i][1] * d], tang = (i) => Math.atan2(-nrm[i][0], nrm[i][1]);
+  // black flame mane along the back: several tongues per flame, curling backwards
+  if (o.mane !== false) for (let i = 1; i < n - 2; i += 2) { const [bx, by] = up(i, w * 0.4), [ex, ey] = up(i + 2, w * 0.4), h = w * (0.7 + 0.3 * Math.sin(i * 1.3 + t * 3));
+    const [t1x, t1y] = up(i, w * 0.4 + h), [t2x, t2y] = up(i + 1, w * 0.4 + h * 0.6);
+    x.beginPath(); x.moveTo(bx, by); x.quadraticCurveTo(bx + (t1x - bx) * 0.6 - nrm[i][1] * w * 0.25, by + (t1y - by) * 0.6 + nrm[i][0] * w * 0.25, t1x, t1y); x.quadraticCurveTo((t1x + t2x) / 2, (t1y + t2y) / 2 + 10, t2x, t2y); x.quadraticCurveTo((t2x + ex) / 2, (t2y + ey) / 2, ex, ey); x.closePath(); x.fillStyle = '#0c0a12'; x.fill(); }
   const path = (d = 0) => { x.beginPath(); for (let i = 0; i < n; i++) { const [px, py] = up(i, d); i ? x.lineTo(px, py) : x.moveTo(px, py); } };
   x.lineCap = 'round'; x.lineJoin = 'round';
-  path(); x.lineWidth = w + 16; x.strokeStyle = A.OL; x.stroke();
+  path(); x.lineWidth = w + 14; x.strokeStyle = A.OL; x.stroke();
   path(); x.lineWidth = w; x.strokeStyle = DB; x.stroke();
-  // khaki belly on the lower half, with curved rib lines
-  path(-w * 0.24); x.lineWidth = w * 0.52; x.strokeStyle = BELLY; x.stroke();
-  x.lineCap = 'butt'; path(-w * 0.24); x.setLineDash([4, w * 0.15]); x.lineWidth = w * 0.5; x.strokeStyle = BELLYD; x.stroke(); x.setLineDash([]); x.lineCap = 'round';
+  // khaki belly band (lower half) with rib lines across it
+  path(-w * 0.25); x.lineWidth = w * 0.5; x.strokeStyle = BELLY; x.stroke();
+  x.strokeStyle = BELLYD; x.lineWidth = 3; x.lineCap = 'butt'; for (let i = 0; i < n; i++) { const [ax, ay] = up(i, -w * 0.02), [bx2, by2] = up(i, -w * 0.48); x.beginPath(); x.moveTo(ax, ay); x.quadraticCurveTo((ax + bx2) / 2 + nrm[i][1] * w * 0.06, (ay + by2) / 2 - nrm[i][0] * w * 0.06, bx2, by2); x.stroke(); } x.lineCap = 'round';
   path(-w * 0.02); x.lineWidth = 4; x.strokeStyle = A.OL; x.stroke();
-  // scale rows on the upper half: light scales with darker centres
-  x.lineCap = 'round';
-  for (const [d, col, dash] of [[w * 0.12, DBL, w * 0.16], [w * 0.3, DBL, w * 0.13], [w * 0.12, DBD, w * 0.06], [w * 0.3, DBD, w * 0.05]]) { path(d); x.setLineDash([dash, w * 0.22 - dash * 0.3]); x.lineDashOffset = d > w * 0.2 ? w * 0.1 : 0; x.lineWidth = w * 0.15; x.strokeStyle = col; x.stroke(); }
-  x.setLineDash([]); x.lineDashOffset = 0;
-  path(w * 0.46); x.setLineDash([2, 14]); x.lineWidth = 5; x.strokeStyle = '#0e0c14'; x.stroke(); x.setLineDash([]); }
+  // scales on the upper half: rows of pointed light-blue scales with dark-blue centres, overlapping along the body
+  for (const [d, off] of [[w * 0.36, 0.5], [w * 0.2, 0], [w * 0.06, 0.5]]) for (let i = 0; i < n - 1; i++) { const f = i + off; if (f > n - 1.5) continue; const i0 = Math.floor(f), [px, py] = up(i0, d), a = tang(i0), sw = w * 0.12, sh = w * 0.1;
+    x.save(); x.translate(px, py); x.rotate(a); x.beginPath(); x.moveTo(-sw, -sh); x.quadraticCurveTo(-sw, sh, 0, sh * 1.3); x.quadraticCurveTo(sw, sh, sw, -sh); x.quadraticCurveTo(0, -sh * 0.6, -sw, -sh); x.closePath(); x.fillStyle = DBL; x.fill(); x.lineWidth = 2.5; x.strokeStyle = '#163e66'; x.stroke();
+    x.beginPath(); x.ellipse(0, sh * 0.15, sw * 0.45, sh * 0.6, 0, 0, 7); x.fillStyle = DBD; x.fill(); x.restore(); }
+  path(w * 0.47); x.setLineDash([2, 12]); x.lineWidth = 5; x.strokeStyle = '#0c0a12'; x.stroke(); x.setLineDash([]); }
 function claw(x, sd, t, o) { // light-blue scaly forearm with a gold spiked cuff, four hooked talons
   x.save(); x.scale(sd, 1);
   x.beginPath(); x.moveTo(0, -80); x.quadraticCurveTo(20, 40, 50, 140); x.lineWidth = 92; x.strokeStyle = A.OL; x.stroke(); x.lineWidth = 74; x.strokeStyle = DBL; x.stroke();
@@ -69,6 +70,13 @@ function claw(x, sd, t, o) { // light-blue scaly forearm with a gold spiked cuff
   x.beginPath(); x.ellipse(60, 150, 62, 48, 0.2, 0, 7); A.fs(x, DBL, 8);
   for (const [dx, a] of [[-40, 0.35], [-8, 0.15], [28, -0.05], [70, -0.4]]) { x.save(); x.translate(60 + dx * 0.9, 180); x.rotate(a); x.beginPath(); x.moveTo(-14, 0); x.quadraticCurveTo(-18, 60, 6, 90); x.lineTo(18, 84); x.quadraticCurveTo(10, 50, 14, 0); x.closePath(); A.fs(x, DBL, 6); x.beginPath(); x.moveTo(4, 84); x.quadraticCurveTo(-6, 120, 20, 130); x.quadraticCurveTo(10, 110, 18, 86); x.closePath(); A.fs(x, '#f4f0e4', 4); x.restore(); }
   x.restore(); }
+// flame sweeping along a line: layered tongues licking up, red-orange outside, yellow-white core
+function fireSwoosh(x, x0, y0, x1, y1, w, t, seed) { // merged anime-style flame: overlapping teardrop tongues filled per colour layer, no outlines, soft glow
+  const n = 9; A.glow(x, (x0 + x1) / 2, (y0 + y1) / 2 - w * 0.4, Math.hypot(x1 - x0, y1 - y0) * 0.6, '255,150,40', 0.55);
+  for (const [k, col] of [[1, '#e8501e'], [0.78, '#ff8c1e'], [0.55, '#ffc83a'], [0.32, '#fff2b0']]) { x.beginPath();
+    for (let i = 0; i <= n; i++) { const u = i / n, px = x0 + (x1 - x0) * u, py = y0 + (y1 - y0) * u, sz = w * k * (0.55 + 0.65 * Math.sin(u * Math.PI)), h = sz * (2.0 + 0.5 * Math.sin(t * 9 + i * 1.9 + seed)), lean = Math.sin(t * 5 + i + seed) * sz * 0.35 + sz * 0.3;
+      x.moveTo(px - sz, py); x.bezierCurveTo(px - sz, py - h * 0.5, px + lean - sz * 0.2, py - h * 0.75, px + lean, py - h); x.bezierCurveTo(px + lean + sz * 0.1, py - h * 0.6, px + sz, py - h * 0.45, px + sz, py); x.arc(px, py, sz, 0, Math.PI); }
+    x.fillStyle = col; x.fill(); } }
 function fur(x, cx, cy, r) { x.beginPath(); for (let i = 0; i <= 28; i++) { const a = i / 28 * 6.283, rr = r * (i % 2 ? 1 : 0.72); x.lineTo(cx + Math.cos(a) * rr, cy + Math.sin(a) * rr * 0.8); } x.closePath(); A.fs(x, '#4a3a7a', 6); }
 export function dragonFront(x, cx, cy, s, t, o = {}) { x.save(); x.translate(cx, cy); x.scale(s, s); const wv = Math.sin(t * 1.6) * 16;
   // coils: a big loop sweeping left and back, one rising behind the head to the upper right, the chest dropping down the middle
@@ -84,34 +92,35 @@ export function dragonFront(x, cx, cy, s, t, o = {}) { x.save(); x.translate(cx,
   // purple fur at the shoulders and the clawed arms with gold spiked cuffs
   fur(x, -230, 260, 120); fur(x, 380, 280, 130);
   x.save(); x.translate(-260, 300); claw(x, -1, t, o); x.restore(); x.save(); x.translate(360, 320); claw(x, 1, t, o); x.restore();
-  if (o.flames) { for (const [fx, fy, fw, fh, sd] of [[-300, 420, 90, 260, 1], [-220, 360, 70, 200, 4], [330, 380, 120, 380, 2], [430, 300, 110, 420, 3], [520, 220, 80, 300, 5]]) A.flame(x, fx, fy, fw, fh, t, sd, 0.92); }
+  if (o.flames) { fireSwoosh(x, -330, 420, -170, 300, 55, t, 1); fireSwoosh(x, 300, 430, 720, 160, 80, t, 2); }
   // black flame mane around and behind the head
   for (let i = 0; i < 16; i++) { const a = Math.PI * (0.75 + i / 15 * 1.5), r = 200 + (i % 3) * 60; x.beginPath(); x.moveTo(Math.cos(a - 0.2) * 110, -60 + Math.sin(a - 0.2) * 110); x.quadraticCurveTo(Math.cos(a) * r * 0.8, -60 + Math.sin(a) * r * 0.8 - 30, Math.cos(a + 0.05) * r, -60 + Math.sin(a + 0.05) * r); x.lineTo(Math.cos(a + 0.2) * 110, -60 + Math.sin(a + 0.2) * 110); x.closePath(); x.fillStyle = '#0e0c14'; x.fill(); }
-  // antlers: two tall prongs straight up from the forehead, and two long horns sweeping out sideways then curling up
-  const ant = (fn, w) => { fn(); x.lineCap = 'round'; x.lineWidth = w + 14; x.strokeStyle = A.OL; x.stroke(); fn(); x.lineWidth = w; x.strokeStyle = ANT; x.stroke(); fn(); x.lineWidth = w * 0.25; x.strokeStyle = '#8a6a3a'; x.stroke(); };
+  // antlers: two tall prongs up from the forehead (with a small branch), and two big horns that arc out from the top of the head and hook down beside the face
+  const ant = (fn, w) => { fn(); x.lineCap = 'round'; x.lineWidth = w + 14; x.strokeStyle = A.OL; x.stroke(); fn(); x.lineWidth = w; x.strokeStyle = ANT; x.stroke(); fn(); x.lineWidth = w * 0.22; x.strokeStyle = '#7a5a2a'; x.stroke(); };
   for (const sd of [-1, 1]) {
-    ant(() => { x.beginPath(); x.moveTo(sd * 40, -190); x.quadraticCurveTo(sd * 50, -400, sd * 30, -620); x.moveTo(sd * 44, -330); x.quadraticCurveTo(sd * 110, -380, sd * 120, -470); }, 30);
-    ant(() => { x.beginPath(); x.moveTo(sd * 120, -150); x.bezierCurveTo(sd * 260, -200, sd * 420, -120, sd * 470, 20); x.quadraticCurveTo(sd * 490, 90, sd * 450, 130); }, 34); }
-  // radiating pale-blue scale fringe around the face
-  for (let i = 0; i < 22; i++) { const a = Math.PI * (-0.15 + i / 21 * 1.3), r1 = 120, r2 = 200 + (i % 2) * 22; x.beginPath(); x.moveTo(Math.cos(a - 0.08) * r1, 10 + Math.sin(a - 0.08) * r1); x.lineTo(Math.cos(a) * r2, 10 + Math.sin(a) * r2 * 0.9); x.lineTo(Math.cos(a + 0.08) * r1, 10 + Math.sin(a + 0.08) * r1); x.closePath(); A.fs(x, '#a8dcf0', 5); }
-  for (const sd of [-1, 1]) for (let k = 0; k < 6; k++) { const a = -0.9 + k * 0.28; x.beginPath(); x.moveTo(sd * 130, -60 + k * 30); x.lineTo(sd * (210 + (k % 2) * 25), -80 + k * 40); x.lineTo(sd * 130, -40 + k * 30); x.closePath(); A.fs(x, '#a8dcf0', 5); }
-  // head: broad horned brow, cheeks, long snout
-  const head = () => { x.beginPath(); x.moveTo(-140, -150); x.quadraticCurveTo(0, -230, 140, -150); x.quadraticCurveTo(175, -60, 140, 0); x.quadraticCurveTo(120, 60, 80, 90); x.lineTo(70, 160); x.quadraticCurveTo(0, 190, -70, 160); x.lineTo(-80, 90); x.quadraticCurveTo(-120, 60, -140, 0); x.quadraticCurveTo(-175, -60, -140, -150); x.closePath(); };
-  head(); A.fs(x, DBL, 12); x.save(); head(); x.clip(); x.strokeStyle = DB; x.lineWidth = 5; for (let r = 0; r < 7; r++) for (let k = -4; k <= 4; k++) { x.beginPath(); x.arc(k * 34 + (r % 2) * 17, -200 + r * 30, 15, 0.2, Math.PI - 0.2); x.stroke(); }
-  x.fillStyle = DB; x.beginPath(); x.moveTo(-30, -30); x.quadraticCurveTo(0, -60, 30, -30); x.lineTo(40, 110); x.lineTo(-40, 110); x.closePath(); x.globalAlpha = 0.35; x.fill(); x.globalAlpha = 1; x.restore();
-  // heavy brow ridges + yellow eyes
-  for (const sd of [-1, 1]) { x.beginPath(); x.moveTo(sd * 20, -95); x.quadraticCurveTo(sd * 90, -140, sd * 150, -110); x.lineTo(sd * 140, -78); x.quadraticCurveTo(sd * 80, -95, sd * 25, -65); x.closePath(); A.fs(x, DB, 6);
-    x.beginPath(); x.moveTo(sd * 40, -62); x.quadraticCurveTo(sd * 90, -82, sd * 130, -70); x.quadraticCurveTo(sd * 95, -42, sd * 45, -45); x.closePath(); A.fs(x, '#f2c43a', 5); x.beginPath(); x.ellipse(sd * 88, -60, 7, 13, 0, 0, 7); x.fillStyle = '#0e0c14'; x.fill(); }
-  // white tusks at the cheeks
-  for (const sd of [-1, 1]) { x.beginPath(); x.moveTo(sd * 110, 20); x.quadraticCurveTo(sd * 150, -10, sd * 145, -50); x.quadraticCurveTo(sd * 125, -10, sd * 95, 30); x.closePath(); A.fs(x, '#f4f0e4', 5); }
-  // snout ridge and nostrils
-  x.beginPath(); x.moveTo(-55, 70); x.quadraticCurveTo(0, 40, 55, 70); x.lineTo(60, 110); x.quadraticCurveTo(0, 95, -60, 110); x.closePath(); A.fs(x, DBL, 7); for (const sd of [-1, 1]) { x.beginPath(); x.ellipse(sd * 28, 88, 14, 9, sd * 0.5, 0, 7); x.fillStyle = '#0e0c14'; x.fill(); }
-  // open jaw: pink mouth, fangs, lower jaw with the fringe below
-  const jaw = o.roar ? 1 : 0.55; x.beginPath(); x.moveTo(-70, 120); x.lineTo(70, 120); x.lineTo(62, 150 + 80 * jaw); x.quadraticCurveTo(0, 175 + 90 * jaw, -62, 150 + 80 * jaw); x.closePath(); A.fs(x, '#a8405a', 9);
-  x.beginPath(); x.ellipse(0, 150 + 60 * jaw, 34, 18, 0, 0, 7); x.fillStyle = '#e07890'; x.fill();
-  x.fillStyle = '#ffffff'; for (const dx of [-54, -32, -12, 12, 32, 54]) { x.beginPath(); x.moveTo(dx - 9, 120); x.lineTo(dx, Math.abs(dx) > 40 ? 168 : 146); x.lineTo(dx + 9, 120); x.fill(); } for (const dx of [-44, -18, 18, 44]) { x.beginPath(); x.moveTo(dx - 9, 148 + 82 * jaw); x.lineTo(dx, 112 + 80 * jaw); x.lineTo(dx + 9, 148 + 82 * jaw); x.fill(); }
-  x.beginPath(); x.moveTo(-72, 148 + 80 * jaw); x.quadraticCurveTo(0, 190 + 92 * jaw, 72, 148 + 80 * jaw); x.lineTo(60, 178 + 82 * jaw); x.quadraticCurveTo(0, 210 + 92 * jaw, -60, 178 + 82 * jaw); x.closePath(); A.fs(x, DBL, 7);
-  for (let k = 0; k < 9; k++) { const dx = -64 + k * 16; x.beginPath(); x.moveTo(dx - 8, 190 + 86 * jaw); x.lineTo(dx, 225 + 86 * jaw); x.lineTo(dx + 8, 190 + 86 * jaw); x.closePath(); A.fs(x, '#a8dcf0', 3); }
+    ant(() => { x.beginPath(); x.moveTo(sd * 30, -200); x.quadraticCurveTo(sd * 45, -420, sd * 20, -640); x.moveTo(sd * 38, -380); x.quadraticCurveTo(sd * 95, -420, sd * 105, -500); }, 30);
+    ant(() => { x.beginPath(); x.moveTo(sd * 90, -190); x.bezierCurveTo(sd * 170, -330, sd * 330, -330, sd * 360, -170); x.quadraticCurveTo(sd * 375, -80, sd * 330, -10); }, 36); }
+  // pale scale fringe all around the face (sides and under the jaw), like a ruff
+  for (let i = 0; i < 30; i++) { const a = Math.PI * (-0.12 + i / 29 * 1.24), r1 = 112, r2 = 165 + (i % 2) * 18; const ox = Math.cos(a), oy = Math.sin(a); x.beginPath(); x.moveTo(Math.cos(a - 0.06) * r1, 20 + Math.sin(a - 0.06) * r1 * 1.25); x.lineTo(ox * r2, 20 + oy * r2 * 1.25); x.lineTo(Math.cos(a + 0.06) * r1, 20 + Math.sin(a + 0.06) * r1 * 1.25); x.closePath(); A.fs(x, '#9ad4ec', 4); }
+  // head: narrow, long, scaly
+  const head = () => { x.beginPath(); x.moveTo(-115, -170); x.quadraticCurveTo(0, -235, 115, -170); x.quadraticCurveTo(140, -80, 118, -10); x.quadraticCurveTo(100, 50, 70, 80); x.lineTo(62, 150); x.quadraticCurveTo(0, 172, -62, 150); x.lineTo(-70, 80); x.quadraticCurveTo(-100, 50, -118, -10); x.quadraticCurveTo(-140, -80, -115, -170); x.closePath(); };
+  head(); A.fs(x, DB, 12); x.save(); head(); x.clip();
+  for (let r = 0; r < 8; r++) for (let k = -4; k <= 4; k++) { const px = k * 30 + (r % 2) * 15, py = -205 + r * 26; x.beginPath(); x.moveTo(px - 13, py); x.quadraticCurveTo(px - 13, py + 14, px, py + 18); x.quadraticCurveTo(px + 13, py + 14, px + 13, py); x.fillStyle = DBL; x.fill(); x.lineWidth = 2.5; x.strokeStyle = '#163e66'; x.stroke(); }
+  x.restore(); head(); x.lineWidth = 12; x.strokeStyle = A.OL; x.stroke();
+  // forehead ridge crest and heavy angry brows over small yellow eyes
+  x.beginPath(); x.moveTo(-30, -190); x.quadraticCurveTo(0, -150, 30, -190); x.lineTo(14, -110); x.lineTo(-14, -110); x.closePath(); A.fs(x, DBL, 5);
+  for (const sd of [-1, 1]) { x.beginPath(); x.moveTo(sd * 18, -80); x.quadraticCurveTo(sd * 80, -125, sd * 135, -100); x.lineTo(sd * 128, -72); x.quadraticCurveTo(sd * 75, -88, sd * 22, -55); x.closePath(); A.fs(x, '#1f4e78', 6);
+    x.beginPath(); x.moveTo(sd * 40, -55); x.quadraticCurveTo(sd * 82, -74, sd * 118, -64); x.quadraticCurveTo(sd * 88, -38, sd * 44, -40); x.closePath(); A.fs(x, '#f2c43a', 5); x.beginPath(); x.ellipse(sd * 82, -54, 6, 11, 0, 0, 7); x.fillStyle = '#0c0a12'; x.fill(); }
+  // white tusks curving up beside the snout
+  for (const sd of [-1, 1]) { x.beginPath(); x.moveTo(sd * 92, 40); x.quadraticCurveTo(sd * 130, 10, sd * 128, -35); x.quadraticCurveTo(sd * 108, 5, sd * 78, 48); x.closePath(); A.fs(x, '#f4f0e4', 5); }
+  // snout with flared nostrils
+  x.beginPath(); x.moveTo(-60, 60); x.quadraticCurveTo(0, 20, 60, 60); x.quadraticCurveTo(72, 95, 56, 118); x.lineTo(-56, 118); x.quadraticCurveTo(-72, 95, -60, 60); x.closePath(); A.fs(x, DB, 7);
+  for (const sd of [-1, 1]) { x.beginPath(); x.moveTo(sd * 12, 92); x.quadraticCurveTo(sd * 40, 70, sd * 54, 96); x.quadraticCurveTo(sd * 36, 88, sd * 16, 102); x.closePath(); x.fillStyle = '#0c0a12'; x.fill(); }
+  // open jaw: dark pink mouth, rows of fangs, lower jaw with fringe
+  const jaw = o.roar ? 1 : 0.55; x.beginPath(); x.moveTo(-58, 122); x.lineTo(58, 122); x.lineTo(52, 150 + 70 * jaw); x.quadraticCurveTo(0, 170 + 80 * jaw, -52, 150 + 70 * jaw); x.closePath(); A.fs(x, '#8a2a44', 9);
+  x.beginPath(); x.ellipse(0, 150 + 55 * jaw, 28, 15, 0, 0, 7); x.fillStyle = '#d86a88'; x.fill();
+  x.fillStyle = '#ffffff'; for (const dx of [-46, -28, -10, 10, 28, 46]) { x.beginPath(); x.moveTo(dx - 8, 122); x.lineTo(dx, Math.abs(dx) > 40 ? 162 : 142); x.lineTo(dx + 8, 122); x.fill(); } for (const dx of [-38, -14, 14, 38]) { x.beginPath(); x.moveTo(dx - 8, 148 + 72 * jaw); x.lineTo(dx, 115 + 70 * jaw); x.lineTo(dx + 8, 148 + 72 * jaw); x.fill(); }
+  x.beginPath(); x.moveTo(-62, 146 + 70 * jaw); x.quadraticCurveTo(0, 182 + 82 * jaw, 62, 146 + 70 * jaw); x.lineTo(52, 172 + 72 * jaw); x.quadraticCurveTo(0, 200 + 82 * jaw, -52, 172 + 72 * jaw); x.closePath(); A.fs(x, DB, 7);
   // long black whiskers trailing out to both sides
   for (const sd of [-1, 1]) { x.beginPath(); x.moveTo(sd * 60, 100); x.bezierCurveTo(sd * 300, 60 + wv, sd * 500, 220, sd * 780, 140 + wv * 2); x.lineCap = 'round'; x.lineWidth = 9; x.strokeStyle = '#0e0c14'; x.stroke(); }
   x.restore(); return [cx, cy + (150 + 80 * (o.roar ? 1 : 0.55)) * s]; }

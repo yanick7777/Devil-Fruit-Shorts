@@ -161,6 +161,8 @@ export const LOOKS = {
           top: 'katakuri', pants: '#1b1820', pantsStripes: '#4a4a5a', shoe: '#2a2a36', boots: true, arm: '#e0a878', glove: '#3a2a20', spikeCuffs: true },
   kaido: { skin: '#b07a52', skinD: '#8a5a3a', hair: '#2a2028', hairL: '#4a3a44', hairStyle: 'short', dreadMane: true, bullHorns: true, jawBeard: true, angryBrows: true, whiskers: true, skullTat: true, buff: 1.5, fit: 1.0,
           top: 'kaido', cloakCol: '#3a3478', cloakLining: '#2a2458', shaggyCloak: true, pants: '#5a6a5a', shoe: '#1b1820', boots: true, arm: '#b07a52', spikeCuffs: true, dragonSleeve: true },
+  luffySnake: { skin: '#f3c08a', skinD: '#dca06a', hair: '#1d1a22', hairL: '#3d3443', hairStyle: 'messy', eyeScar: true, buff: 0.9, steam: true, hakiArms: true, fluffShorts: true, glove: '#1b1820',
+          top: 'bare', pants: '#d8342c', shorts: true, shoe: '#1b1820', boots: true, arm: '#1b1820' },
   sabo: { skin: '#f7cc9c', skinD: '#e2ab78', hair: '#f2cf55', hairL: '#ffe58a', hairStyle: 'curly', hat: 'top', scar: true,
           top: 'coat', cloth: '#2f4f8f', clothD: '#223a6c', inner: '#f4f1ea', innerD: '#cfc8b8', cravat: true, pants: '#3a3340', shoe: '#6b4630', boots: true, cuff: '#f4f1ea' },
 };
@@ -199,7 +201,7 @@ function crackerHair(x, L) { // two long coiled purple tails flaring out to the 
 
 // Full-body figure. Canvas 1000x1900; local coords are offset by (120,110); the head is centred at local (380,330).
 // Feet rest on canvas y = FEET. pose: idle | hold | sip | raise | punch | cheer | shrug | holdUp
-export const FIG = { W: 1000, H: 1900, OX: 120, OY: 110, FEET: 1745, HEAD: [380, 330] };
+export const FIG = { W: 1200, H: 2150, OX: 220, OY: 360, FEET: 1995, HEAD: [380, 330] };   // roomy canvas so horns, spiky hair and punches are never clipped
 const SH = { L: [262, 690], R: [498, 690] };
 export const POSES = {
   idle:   { L: [[226, 880], [222, 1060], 'round'], R: [[534, 880], [538, 1060], 'round'] },
@@ -220,6 +222,7 @@ function drawLegs(x, L) {
     x.beginPath(); x.moveTo(x0, 1060); x.lineTo(x1, 1060); x.lineTo(x1 - 6, 1580); x.lineTo(x0 + 6, 1580); x.closePath(); fs(x, pants, 12);
     if (L.shorts) { x.beginPath(); x.rect(x0 + 10, 1330, x1 - x0 - 20, 250); fs(x, L.skin, 10); x.beginPath(); x.moveTo(x0, 1330); x.lineTo(x1, 1330); x.lineWidth = 12; x.strokeStyle = OL; x.stroke(); }
     if (L.fishnet) { x.save(); x.beginPath(); x.rect(x0 + 6, 1180, x1 - x0 - 12, 400); x.clip(); x.strokeStyle = '#1b1820'; x.lineWidth = 3; for (let k = -12; k < 12; k++) { x.beginPath(); x.moveTo(x0 + k * 18, 1180); x.lineTo(x0 + k * 18 + 200, 1580); x.moveTo(x1 - k * 18, 1180); x.lineTo(x1 - k * 18 - 200, 1580); x.stroke(); } x.restore(); x.fillStyle = '#1b1820'; x.fillRect(x0 + 4, 1180, x1 - x0 - 8, 22); }
+  if (L.fluffShorts) for (let k = 0; k < 4; k++) { x.beginPath(); x.arc(x0 + 12 + k * (x1 - x0 - 24) / 3, 1330, 26, 0, 7); fs(x, '#f4f2fa', 5); }
   if (L.stripedLegs) { x.save(); x.beginPath(); x.rect(x0 + 6, 1060, x1 - x0 - 12, 520); x.clip(); x.fillStyle = OL; for (let k = 1080; k < 1580; k += 50) x.fillRect(x0, k, x1 - x0, 25); x.restore(); }
   if (L.bandages) { x.strokeStyle = '#f4f4f8'; x.lineWidth = 14; for (let k = 0; k < 4; k++) { x.beginPath(); x.moveTo(x0 + 6, 1230 + k * 22); x.lineTo(x1 - 6, 1238 + k * 22); x.stroke(); } }
     if (L.boots) { const by = L.tallBoots ? 1320 : 1440; x.beginPath(); x.rect(x0 + 4, by, x1 - x0 - 8, 1585 - by); fs(x, shoe, 11); if (L.tallBoots) { rrect(x, x0 - 10, 1500, x1 - x0 + 20, 40, 10); fs(x, '#6a5a8a', 8); } }
@@ -476,11 +479,12 @@ function drawArms(x, L, pose) {
       bulge(sx, sy + 10, 62 * bw * 0.85); bulge(sx + (ex - sx) * 0.55, sy + (ey - sy) * 0.55, 48 * bw * 0.85); bulge(ex + (hx - ex) * 0.35, ey + (hy - ey) * 0.35, 40 * bw * 0.85);
       x.beginPath(); x.moveTo(sx, sy); x.lineTo(ex, ey); x.lineTo(hx, hy); x.lineWidth = 64 * bw; x.strokeStyle = armCol; x.stroke();
       x.strokeStyle = L.skinD || OL; x.lineWidth = 5; x.beginPath(); x.arc(sx + (ex - sx) * 0.55, sy + (ey - sy) * 0.55, 30 * bw, Math.atan2(ey - sy, ex - sx) + 0.6, Math.atan2(ey - sy, ex - sx) + 2.4); x.stroke(); }
+    if (L.hakiArms) { x.beginPath(); x.moveTo(sx, sy); x.lineTo(ex, ey); x.lineTo(hx, hy); x.lineWidth = 64 * bw; x.strokeStyle = '#1b1820'; x.stroke(); x.strokeStyle = '#d8304a'; x.lineWidth = 5; for (const f of [0.25, 0.5, 0.75]) { const mx = sx + (hx - sx) * f, my = sy + (hy - sy) * f; x.beginPath(); x.moveTo(mx - 20, my - 10); x.quadraticCurveTo(mx, my + 20, mx + 22, my - 6); x.stroke(); } }
     if (L.sleeveSkin) { x.beginPath(); x.moveTo(ex, ey); x.lineTo(hx, hy); x.lineWidth = 64; x.strokeStyle = L.skin; x.stroke(); x.beginPath(); x.moveTo(sx, sy); x.lineTo(ex, ey); x.lineWidth = 64; x.strokeStyle = armCol; x.stroke(); }
     if (L.heartCol) { for (const [ax, ay] of [[sx + (ex - sx) * 0.35, sy + (ey - sy) * 0.35], [sx + (ex - sx) * 0.78, sy + (ey - sy) * 0.78], [ex + (hx - ex) * 0.5, ey + (hy - ey) * 0.5]]) { x.save(); x.translate(ax, ay); x.beginPath(); x.moveTo(0, 12); x.bezierCurveTo(-22, -2, -10, -18, 0, -6); x.bezierCurveTo(10, -18, 22, -2, 0, 12); x.fillStyle = L.heartCol; x.fill(); x.restore(); } }
     // cuff + hand
     const ang = Math.atan2(hy - ey, hx - ex);
-    x.save(); x.translate(hx, hy); x.rotate(ang); if (L.buff) x.scale(1 + L.buff * 0.3, 1 + L.buff * 0.3);
+    x.save(); x.translate(hx, hy); x.rotate(ang); if (L.buff) x.scale(1 + L.buff * (L.hakiArms ? 0.8 : 0.3), 1 + L.buff * (L.hakiArms ? 0.8 : 0.3));
     if (L.cuff) { rrect(x, -30, -36, L.furCuff ? 40 : 26, 72, 10); fs(x, L.cuff, 8); }
     x.beginPath();
     if (hand === 'open') { x.ellipse(28, 0, 40, 36, 0, 0, 7); fs(x, L.glove || L.skin, 10); for (const k of [-24, -8, 8, 24]) { x.save(); x.translate(64, k); x.rotate(k * 0.012); rrect(x, -12, -10, 40, 20, 10); fs(x, L.glove || L.skin, 7); x.restore(); } }
@@ -504,6 +508,7 @@ export function drawPerson({ who = 'host', expr = 'calm', mouth = 0, blink = fal
   if (L.drumRing) { x.beginPath(); x.arc(380, 260, 420, Math.PI * 0.95, Math.PI * 2.05); x.lineWidth = 16; x.strokeStyle = '#8aa8c8'; x.stroke(); for (const a of [1.05, 1.35, 1.65, 1.95]) { const dx = 380 + Math.cos(a * Math.PI) * 420, dy = 260 + Math.sin(a * Math.PI) * 420; x.beginPath(); x.arc(dx, dy, 80, 0, 7); fs(x, '#f4ead2', 10); x.fillStyle = OL; for (let k = 0; k < 3; k++) { const b = k / 3 * 6.283; x.beginPath(); x.arc(dx + Math.cos(b) * 28, dy + Math.sin(b) * 28, 26, b, b + 2.4); x.lineTo(dx, dy); x.fill(); } } }
   if (L.swans) for (const sd of [-1, 1]) { x.beginPath(); x.moveTo(380 + sd * 120, 700); x.quadraticCurveTo(380 + sd * 320, 500, 380 + sd * 260, 160); x.lineWidth = 44; x.strokeStyle = OL; x.stroke(); x.lineWidth = 32; x.strokeStyle = '#ffffff'; x.stroke(); x.beginPath(); x.ellipse(380 + sd * 280, 150, 46, 34, 0, 0, 7); fs(x, '#ffffff', 8); x.beginPath(); x.moveTo(380 + sd * 310, 140); x.lineTo(380 + sd * 420, 120); x.lineTo(380 + sd * 310, 165); x.closePath(); fs(x, '#e8c84a', 6); }
   if (L.longWild) { x.beginPath(); x.moveTo(380, 120); const pts = [[150, 160], [60, 330], [120, 380], [20, 560], [110, 560], [60, 760], [200, 640], [230, 800], [300, 620], [460, 620], [530, 800], [560, 640], [700, 760], [650, 560], [740, 560], [640, 380], [700, 330], [610, 160]]; for (const [px, py] of pts) x.lineTo(px, py); x.closePath(); fs(x, L.hair, 10); }
+  if (L.steam) for (const [px, py, r] of [[60, 900, 160], [700, 860, 170], [-20, 1250, 140], [780, 1250, 150], [120, 500, 130], [640, 480, 140], [380, 1500, 120]]) { x.beginPath(); for (let i = 0; i < 6; i++) x.arc(px + Math.cos(i) * r * 0.5, py + Math.sin(i) * r * 0.4, r * 0.55, 0, 7); x.fillStyle = 'rgba(248,244,255,0.95)'; x.fill(); }
   if (L.dreadMane) { x.lineCap = 'round'; for (let i = 0; i < 26; i++) { const ang = Math.PI * (0.92 + i / 25 * 1.16), len = 170 + ((i * 37) % 5) * 28, r0 = 150;
       const bx = 380 + Math.cos(ang) * r0, by = 280 + Math.sin(ang) * r0 * 0.9, ex = 380 + Math.cos(ang) * (r0 + len), ey = 280 + Math.sin(ang) * (r0 + len) * 0.75 + 40;
       const nx = -Math.sin(ang), ny = Math.cos(ang), w = 26 * ((i % 2) ? 1 : -1);
@@ -792,7 +797,7 @@ export function drawPerson({ who = 'host', expr = 'calm', mouth = 0, blink = fal
   }
   drawArms(x, L, pose);
   if (L.shoulderPad) shoulderPad(x);
-  if (L.spikeCuffs) for (const hx of (L.buff ? [[160 - L.buff * 54, 1070], [600 + L.buff * 54, 1070]] : [[160, 1070], [600, 1070]])) { rrect(x, hx[0] - 55, hx[1] - 30, 110, 50, 12); fs(x, '#3a3a4a', 7); for (let k = 0; k < 4; k++) { x.beginPath(); x.moveTo(hx[0] - 45 + k * 30, hx[1] - 30); x.lineTo(hx[0] - 30 + k * 30, hx[1] - 70); x.lineTo(hx[0] - 15 + k * 30, hx[1] - 30); x.closePath(); fs(x, '#c8b040', 5); } }
+  if (L.spikeCuffs && (POSES[pose] || POSES.idle).R[1][1] > 1000) for (const hx of (L.buff ? [[160 - L.buff * 54, 1070], [600 + L.buff * 54, 1070]] : [[160, 1070], [600, 1070]])) { rrect(x, hx[0] - 55, hx[1] - 30, 110, 50, 12); fs(x, '#3a3a4a', 7); for (let k = 0; k < 4; k++) { x.beginPath(); x.moveTo(hx[0] - 45 + k * 30, hx[1] - 30); x.lineTo(hx[0] - 30 + k * 30, hx[1] - 70); x.lineTo(hx[0] - 15 + k * 30, hx[1] - 30); x.closePath(); fs(x, '#c8b040', 5); } }
   if (L.dragonSleeve && (POSES[pose] || POSES.idle).R[1][1] > 1000) { x.save(); x.beginPath(); x.rect(560, 640, 150, 330); x.clip(); for (let r = 0; r < 7; r++) for (let k = 0; k < 3; k++) { x.beginPath(); x.arc(575 + k * 42 + (r % 2) * 20, 720 + r * 45, 22, 0, Math.PI); x.fillStyle = '#e8702e'; x.fill(); x.lineWidth = 4; x.strokeStyle = '#a03a1a'; x.stroke(); } x.restore(); }
   if (L.skullTat && (POSES[pose] || POSES.idle).R[1][1] > 1000) { const sx = 618, sy = 930; x.beginPath(); x.arc(sx, sy, 46, Math.PI, 0); x.lineTo(sx + 32, sy + 50); x.lineTo(sx - 32, sy + 50); x.closePath(); fs(x, '#f4f0e8', 6); x.fillStyle = OL; for (const d of [-17, 17]) { x.beginPath(); x.arc(sx + d, sy, 11, 0, 7); x.fill(); } for (let k = -2; k <= 2; k++) x.fillRect(sx + k * 12 - 2, sy + 30, 4, 18); }
   if (L.whiskers) for (const sd of [-1, 1]) { x.beginPath(); x.moveTo(380 + sd * 30, 470); x.bezierCurveTo(380 + sd * 150, 470, 380 + sd * 120, 640, 380 + sd * 60, 760); x.bezierCurveTo(380 + sd * 10, 880, 380 + sd * 200, 960, 380 + sd * 140, 1080); x.lineCap = 'round'; x.lineWidth = 13; x.strokeStyle = OL; x.stroke(); x.lineWidth = 7; x.strokeStyle = '#2a2028'; x.stroke(); }
