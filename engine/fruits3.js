@@ -147,4 +147,17 @@ export const drawPika = wrap((x, cx, cy, R) => {
   star(x, cx + R * 0.68, top - R * 0.6, R * 0.22, 0.3); x.fillStyle = '#5ab04a'; x.fill(); x.lineWidth = R * 0.04; x.strokeStyle = OL; x.stroke();
   x.beginPath(); x.ellipse(cx + R * 0.42, cy + R * 0.15, R * 0.07, R * 0.16, 0.2, 0, 7); x.fillStyle = 'rgba(255,255,255,0.7)'; x.fill();
 });
-export const FRUITS3 = { light: drawPika,  axolotl: drawSara,  shadow: drawKage,  bubble: drawAwa, munch: drawBaku, bomb: drawBomu, wax: drawDoru, brush: drawFude, rumble: drawGoro, flower: drawHana, orochi: drawOrochi, human: drawHito, hollow: drawHoro, wolf: drawWolf, magnet: drawJiki, kilo: drawKiro, clone: drawMane, love: drawMero };
+// ---- Mochi Mochi: white bumpy round fruit with swirls, green stem ----
+export const drawMochi = wrap((x, cx, cy, R) => {
+  const p = () => { x.beginPath(); for (let i = 0; i <= 40; i++) { const a = i / 40 * 6.283, r = R * (0.9 + 0.07 * Math.sin(a * 7)); x.lineTo(cx + Math.cos(a) * r, cy + Math.sin(a) * r * 0.92); } x.closePath(); };
+  body(x, R, p, cx, cy, ['#f4f2ec', '#ffffff', '#d8d2c4', '#b8ac98', 0.26, 0.1]); stem(x, cx, cy - R * 0.86, R); shine(x, cx, cy, R);
+});
+// ---- Uo Uo no Mi, Model: Seiryu: blue scale-patterned fruit with swirls, orange leaves on top ----
+export const drawSeiryu = wrap((x, cx, cy, R) => {
+  const p = () => { x.beginPath(); x.ellipse(cx, cy + R * 0.05, R * 0.9, R * 0.95, 0, 0, 7); };
+  p(); x.save(); x.clip(); swirlFill(x, R, cx, cy, '#3a6ad8', '#8ab0ff', '#1a3a90', '#0a1a60', 0.3, 0.09);
+  x.strokeStyle = 'rgba(10,30,90,0.6)'; x.lineWidth = R * 0.025; for (let r = 0; r < 9; r++) for (let k = -5; k <= 5; k++) { x.beginPath(); x.arc(cx + k * R * 0.22 + (r % 2) * R * 0.11, cy - R + r * R * 0.24, R * 0.12, 0, Math.PI); x.stroke(); } x.restore(); outline(x, R, p);
+  for (const [a, l] of [[-2.4, 0.55], [-1.9, 0.5], [-1.2, 0.5], [-0.7, 0.55]]) leaf(x, cx, cy - R * 0.88, R, a, R * l, '#f08a2a');
+  stem(x, cx, cy - R * 0.9, R); shine(x, cx, cy, R);
+});
+export const FRUITS3 = { mochi: drawMochi, azure: drawSeiryu,  light: drawPika,  axolotl: drawSara,  shadow: drawKage,  bubble: drawAwa, munch: drawBaku, bomb: drawBomu, wax: drawDoru, brush: drawFude, rumble: drawGoro, flower: drawHana, orochi: drawOrochi, human: drawHito, hollow: drawHoro, wolf: drawWolf, magnet: drawJiki, kilo: drawKiro, clone: drawMane, love: drawMero };

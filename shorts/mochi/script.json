@@ -1,0 +1,124 @@
+{
+ "title": "17. Mochi-Mochi Fruit (Mochi Mochi no Mi), with awakening",
+ "format": "9:16",
+ "story": "/shorts/mochi/story.js",
+ "voice": {
+  "name": "mb-us2",
+  "speed": 158,
+  "pitch": 48
+ },
+ "voice_override_dir": "shorts/mochi/vo",
+ "voice_fx": {},
+ "music": false,
+ "structure": "base powers + AWAKENED",
+ "facts": [
+  "Fruit look from the user's oparchive screenshots (refs/batch3/DESIGNS.md)"
+ ],
+ "plan": {
+  "english": "17. Mochi-Mochi Fruit (Mochi Mochi no Mi), with awakening",
+  "labels": "",
+  "fruit": "Drawn from the design you sent (refs/batch3).",
+  "cast": [],
+  "sets": ""
+ },
+ "lines": [
+  {
+   "id": "hook",
+   "lead": 1.6,
+   "tail": 0.25,
+   "text": "You take a bite#red of a weird white#purple fruit.",
+   "say": "You take a bite of a weird white fruit."
+  },
+  {
+   "id": "calm",
+   "lead": 0.1,
+   "tail": 0.35,
+   "text": "Don't panic,#red that's just a Devil#purple Fruit.#purple",
+   "say": "Don't panic, that's just a Devil Fruit."
+  },
+  {
+   "id": "sea",
+   "lead": 0.1,
+   "tail": 0.25,
+   "text": "Out of every fruit in the sea,#blue",
+   "say": "Out of every fruit in the sea,"
+  },
+  {
+   "id": "name",
+   "lead": 0.05,
+   "tail": 0.9,
+   "text": "you got the Mochi-Mochi#pink Fruit,#pink",
+   "say": "you got the Mochi-Mochi Fruit,"
+  },
+  {
+   "id": "type",
+   "lead": 0.1,
+   "tail": 0.9,
+   "text": "a special#orange Paramecia#purple that turns your body into sticky mochi, and it can even awaken.",
+   "say": "a special Paramecia that turns your body into sticky mochi, and it can even awaken."
+  },
+  {
+   "id": "power1",
+   "lead": 0.3,
+   "tail": 0.4,
+   "text": "First, attacks#purple go right through#blue your soft body.",
+   "say": "First, attacks go right through your soft body."
+  },
+  {
+   "id": "power2",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "Then you shape#red mochi#blue into fists and a giant spear.",
+   "say": "Then you shape mochi into fists and a giant spear."
+  },
+  {
+   "id": "power3",
+   "lead": 0.55,
+   "tail": 0.4,
+   "text": "You can even trap enemies#pink in sticky#purple mochi so they can't move.",
+   "say": "You can even trap enemies in sticky mochi so they can't move."
+  },
+  {
+   "id": "awaken",
+   "lead": 0.55,
+   "tail": 0.6,
+   "text": "And once you awaken#pink it, the whole area around#blue you turns into mochi.",
+   "say": "And once you awaken it, the whole area around you turns into mochi."
+  },
+  {
+   "id": "twist",
+   "lead": 0.25,
+   "tail": 0.4,
+   "text": "But there's#green a sticky#orange secret.",
+   "say": "But there's a sticky secret."
+  },
+  {
+   "id": "truth",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "Its user hid his mouth his whole life because#pink people laughed#purple at it.",
+   "say": "Its user hid his mouth his whole life because people laughed at it."
+  },
+  {
+   "id": "users",
+   "lead": 0.1,
+   "tail": 0.4,
+   "text": "Charlotte#pink Katakuri, Big Mom's strongest#red son, fought Luffy on Whole Cake Island.",
+   "say": "Charlotte Katakuri, Big Mom's strongest son, fought Luffy on Whole Cake Island."
+  },
+  {
+   "id": "joke",
+   "lead": 0.2,
+   "tail": 0.9,
+   "text": "Users of this fruit never run out of snacks.#purple",
+   "say": "Users of this fruit never run out of snacks."
+  },
+  {
+   "id": "outro",
+   "lead": 0.2,
+   "tail": 2.4,
+   "text": "Which fruit#pink do you want next?#gold Follow for more.",
+   "say": "Which fruit do you want next? Follow for more."
+  }
+ ]
+}
