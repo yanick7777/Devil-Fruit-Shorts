@@ -510,12 +510,15 @@ function drawArms(x, L, pose) {
   }
 }
 
-function smokeRibbon(x, pts, r0, seed = 0) { // one continuous trail of steam with a single outline (pts: [x, y, widthScale])
+function smokeCircles(pts, r0, seed = 0) { // puff circles along a smooth path (pts: [x, y, widthScale])
   const cr = (p0, p1, p2, p3, u) => 0.5 * (2 * p1 + (-p0 + p2) * u + (2 * p0 - 5 * p1 + 4 * p2 - p3) * u * u + (-p0 + 3 * p1 - 3 * p2 + p3) * u * u * u);
   const P = [pts[0], ...pts, pts[pts.length - 1]], circ = [];
   for (let i = 1; i < P.length - 2; i++) for (let k = 0; k < 6; k++) { const u = k / 6, w = (P[i][2] ?? 1) + ((P[i + 1][2] ?? 1) - (P[i][2] ?? 1)) * u, n = circ.length;
     const r = r0 * w * (0.72 + 0.4 * Math.abs(Math.sin(n * 1.3 + seed))), side = (n % 2 ? 1 : -1) * r * 0.45;
     circ.push([cr(P[i - 1][0], P[i][0], P[i + 1][0], P[i + 2][0], u), cr(P[i - 1][1], P[i][1], P[i + 1][1], P[i + 2][1], u) + side, r]); }
+  return circ;
+}
+function drawSmoke(x, circ) { // one merged cloud with a single outline
   const blob = (dy, k) => { x.beginPath(); for (const [cx, cy, r] of circ) { x.moveTo(cx + r * k, cy + dy * r); x.arc(cx, cy + dy * r, r * k, 0, 7); } };
   for (const [cx, cy, r] of circ) { x.beginPath(); x.arc(cx, cy, r + 8, 0, 7); x.fillStyle = '#b3a0d8'; x.fill(); }
   blob(0, 1); x.fillStyle = '#ddd2f2'; x.fill();
@@ -523,6 +526,12 @@ function smokeRibbon(x, pts, r0, seed = 0) { // one continuous trail of steam wi
   x.strokeStyle = 'rgba(160,140,210,0.85)'; x.lineWidth = 5; circ.forEach(([cx, cy, r], i) => { if (i % 5 === 2) { x.beginPath(); x.arc(cx - r * 0.1, cy - r * 0.15, r * 0.4, Math.PI, Math.PI * 1.75); x.stroke(); } });
   x.restore();
 }
+function smokeRibbon(x, pts, r0, seed = 0) { drawSmoke(x, smokeCircles(pts, r0, seed)); }
+// Gear 4 Snakeman steam (user's markup): one connected cloud - arch over the head, trails down the chest, branches down to a puff at each side of the waist
+function snakeSteam() { return [
+  ...smokeCircles([[300, 770, 0.5], [230, 650, 0.8], [130, 560, 0.9], [0, 420, 0.9], [-30, 250, 0.85], [60, 40, 0.8], [230, -70, 0.75], [380, -100, 0.75], [530, -70, 0.75], [700, 40, 0.8], [790, 250, 0.85], [760, 420, 0.9], [630, 560, 0.9], [530, 650, 0.8], [460, 770, 0.5]], 70, 1),
+  ...smokeCircles([[180, 660, 1.2], [240, 700, 1.2]], 80, 6), ...smokeCircles([[580, 660, 1.2], [520, 700, 1.2]], 80, 7),
+  ...smokeCircles([[150, 600, 0.8], [80, 720, 0.75], [70, 850, 1.1], [130, 890, 0.8]], 64, 4), ...smokeCircles([[610, 600, 0.8], [680, 720, 0.75], [690, 850, 1.1], [630, 890, 0.8]], 64, 5)]; }
 // expr: smug | grin | shock | shout | sad | worried | hit | calm | yuck
 export function drawPerson({ who = 'host', expr = 'calm', mouth = 0, blink = false, pose = 'idle' }) {
   const L = LOOKS[who], c = mk(FIG.W, FIG.H), x = c.getContext('2d');
@@ -538,8 +547,6 @@ export function drawPerson({ who = 'host', expr = 'calm', mouth = 0, blink = fal
   if (L.drumRing) { x.beginPath(); x.arc(380, 260, 420, Math.PI * 0.95, Math.PI * 2.05); x.lineWidth = 16; x.strokeStyle = '#8aa8c8'; x.stroke(); for (const a of [1.05, 1.35, 1.65, 1.95]) { const dx = 380 + Math.cos(a * Math.PI) * 420, dy = 260 + Math.sin(a * Math.PI) * 420; x.beginPath(); x.arc(dx, dy, 80, 0, 7); fs(x, '#f4ead2', 10); x.fillStyle = OL; for (let k = 0; k < 3; k++) { const b = k / 3 * 6.283; x.beginPath(); x.arc(dx + Math.cos(b) * 28, dy + Math.sin(b) * 28, 26, b, b + 2.4); x.lineTo(dx, dy); x.fill(); } } }
   if (L.swans) for (const sd of [-1, 1]) { x.beginPath(); x.moveTo(380 + sd * 120, 700); x.quadraticCurveTo(380 + sd * 320, 500, 380 + sd * 260, 160); x.lineWidth = 44; x.strokeStyle = OL; x.stroke(); x.lineWidth = 32; x.strokeStyle = '#ffffff'; x.stroke(); x.beginPath(); x.ellipse(380 + sd * 280, 150, 46, 34, 0, 0, 7); fs(x, '#ffffff', 8); x.beginPath(); x.moveTo(380 + sd * 310, 140); x.lineTo(380 + sd * 420, 120); x.lineTo(380 + sd * 310, 165); x.closePath(); fs(x, '#e8c84a', 6); }
   if (L.longWild) { x.beginPath(); x.moveTo(380, 120); const pts = [[150, 160], [60, 330], [120, 380], [20, 560], [110, 560], [60, 760], [200, 640], [230, 800], [300, 620], [460, 620], [530, 800], [560, 640], [700, 760], [650, 560], [740, 560], [640, 380], [700, 330], [610, 160]]; for (const [px, py] of pts) x.lineTo(px, py); x.closePath(); fs(x, L.hair, 10); }
-  if (L.steamBody) // Gear 4 steam (user's markup): a tight arch over the head, from shoulder to shoulder, behind the body
-    smokeRibbon(x, [[120, 600, 0.8], [0, 450, 0.9], [-40, 270, 0.85], [60, 40, 0.8], [230, -70, 0.75], [380, -100, 0.75], [530, -70, 0.75], [700, 40, 0.8], [800, 270, 0.85], [760, 450, 0.9], [640, 600, 0.8]], 70, 1);
   if (L.steam) for (const [px, py, r] of [[60, 900, 160], [700, 860, 170], [-20, 1250, 140], [780, 1250, 150], [120, 500, 130], [640, 480, 140], [380, 1500, 120]]) { x.beginPath(); for (let i = 0; i < 6; i++) x.arc(px + Math.cos(i) * r * 0.5, py + Math.sin(i) * r * 0.4, r * 0.55, 0, 7); x.fillStyle = 'rgba(248,244,255,0.95)'; x.fill(); }
   if (L.dreadMane) { x.lineCap = 'round'; for (let i = 0; i < 26; i++) { const ang = Math.PI * (0.92 + i / 25 * 1.16), len = 170 + ((i * 37) % 5) * 28, r0 = 150;
       const bx = 380 + Math.cos(ang) * r0, by = 280 + Math.sin(ang) * r0 * 0.9, ex = 380 + Math.cos(ang) * (r0 + len), ey = 280 + Math.sin(ang) * (r0 + len) * 0.75 + 40;
@@ -828,11 +835,10 @@ export function drawPerson({ who = 'host', expr = 'calm', mouth = 0, blink = fal
     if (!L.noGoggles) for (const gx of [330, 430]) { x.beginPath(); x.arc(gx, 62, 34, 0, 7); fs(x, '#9bd6ff', 10); x.beginPath(); x.arc(gx - 10, 52, 9, 0, 7); x.fillStyle = '#fff'; x.fill(); }
     if (!L.noGoggles) { x.beginPath(); x.moveTo(364, 62); x.lineTo(396, 62); x.lineWidth = 12; x.strokeStyle = OL; x.stroke(); }
   }
+  const steam = L.steamBody ? snakeSteam() : null;
+  if (steam) drawSmoke(x, steam);   // under the arms...
   drawArms(x, L, pose);
-  if (L.steamBody) { // ...then trails down the front of the chest toward the middle, and a puff at each side of the waist
-    smokeRibbon(x, [[140, 520, 0.9], [230, 640, 0.8], [300, 760, 0.5]], 60, 2); smokeRibbon(x, [[620, 500, 0.9], [540, 630, 0.8], [470, 760, 0.5]], 60, 3);
-    smokeRibbon(x, [[30, 870, 0.8], [90, 860, 1], [150, 880, 0.8]], 60, 4); smokeRibbon(x, [[610, 880, 0.8], [670, 860, 1], [730, 870, 0.8]], 60, 5);
-  }
+  if (steam) { const bo = (L.buff || 0) * 45; x.save(); x.beginPath(); for (const [sx, sd] of [[SH.L[0] - bo, -1], [SH.R[0] + bo, 1]]) { x.moveTo(sx + 115, SH.L[1] + 10); x.ellipse(sx, SH.L[1] + 10, 115, 110, 0, 0, 7); } x.clip(); drawSmoke(x, steam); x.restore(); }   // ...but over the shoulder caps
   if (L.shoulderPad) shoulderPad(x);
   if (L.spikeCuffs && (POSES[pose] || POSES.idle).R[1][1] > 1000) for (const hx of (L.buff ? [[160 - L.buff * 54, 1070], [600 + L.buff * 54, 1070]] : [[160, 1070], [600, 1070]])) { rrect(x, hx[0] - 55, hx[1] - 30, 110, 50, 12); fs(x, '#3a3a4a', 7); for (let k = 0; k < 4; k++) { x.beginPath(); x.moveTo(hx[0] - 45 + k * 30, hx[1] - 30); x.lineTo(hx[0] - 30 + k * 30, hx[1] - 70); x.lineTo(hx[0] - 15 + k * 30, hx[1] - 30); x.closePath(); fs(x, '#c8b040', 5); } }
   if (L.dragonSleeve && (POSES[pose] || POSES.idle).R[1][1] > 1000) { x.save(); x.beginPath(); x.rect(560, 640, 150, 330); x.clip(); for (let r = 0; r < 7; r++) for (let k = 0; k < 3; k++) { x.beginPath(); x.arc(575 + k * 42 + (r % 2) * 20, 720 + r * 45, 22, 0, Math.PI); x.fillStyle = '#e8702e'; x.fill(); x.lineWidth = 4; x.strokeStyle = '#a03a1a'; x.stroke(); } x.restore(); }
