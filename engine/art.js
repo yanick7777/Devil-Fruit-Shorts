@@ -161,7 +161,7 @@ export const LOOKS = {
           top: 'katakuri', pants: '#1b1820', pantsStripes: '#4a4a5a', shoe: '#2a2a36', boots: true, arm: '#e0a878', glove: '#3a2a20', spikeCuffs: true },
   kaido: { skin: '#b07a52', skinD: '#8a5a3a', hair: '#2a2028', hairL: '#4a3a44', hairStyle: 'short', dreadMane: true, bullHorns: true, jawBeard: true, angryBrows: true, whiskers: true, skullTat: true, buff: 1.5, fit: 1.0,
           top: 'kaido', cloakCol: '#3a3478', cloakLining: '#2a2458', shaggyCloak: true, pants: '#5a6a5a', shoe: '#1b1820', boots: true, arm: '#b07a52', spikeCuffs: true, dragonSleeve: true },
-  luffySnake: { skin: '#f3c08a', skinD: '#dca06a', hair: '#1d1a22', hairL: '#3d3443', hairStyle: 'messy', eyeScar: true, buff: 0.9, xScar: true, hakiArms: true, fluffShorts: true, glove: '#1b1820',
+  luffySnake: { skin: '#f3c08a', skinD: '#dca06a', hair: '#1d1a22', hairL: '#3d3443', hairStyle: 'messy', eyeScar: true, buff: 0.9, xScar: true, steamBody: true, hakiArms: true, fluffShorts: true, glove: '#1b1820',
           top: 'bare', pants: '#d8342c', shorts: true, shoe: '#1b1820', boots: true, arm: '#1b1820' },
   sabo: { skin: '#f7cc9c', skinD: '#e2ab78', hair: '#f2cf55', hairL: '#ffe58a', hairStyle: 'curly', hat: 'top', scar: true,
           top: 'coat', cloth: '#2f4f8f', clothD: '#223a6c', inner: '#f4f1ea', innerD: '#cfc8b8', cravat: true, pants: '#3a3340', shoe: '#6b4630', boots: true, cuff: '#f4f1ea' },
@@ -510,6 +510,19 @@ function drawArms(x, L, pose) {
   }
 }
 
+function smokeRibbon(x, pts, r0, seed = 0) { // one continuous trail of steam with a single outline (pts: [x, y, widthScale])
+  const cr = (p0, p1, p2, p3, u) => 0.5 * (2 * p1 + (-p0 + p2) * u + (2 * p0 - 5 * p1 + 4 * p2 - p3) * u * u + (-p0 + 3 * p1 - 3 * p2 + p3) * u * u * u);
+  const P = [pts[0], ...pts, pts[pts.length - 1]], circ = [];
+  for (let i = 1; i < P.length - 2; i++) for (let k = 0; k < 6; k++) { const u = k / 6, w = (P[i][2] ?? 1) + ((P[i + 1][2] ?? 1) - (P[i][2] ?? 1)) * u, n = circ.length;
+    const r = r0 * w * (0.72 + 0.4 * Math.abs(Math.sin(n * 1.3 + seed))), side = (n % 2 ? 1 : -1) * r * 0.45;
+    circ.push([cr(P[i - 1][0], P[i][0], P[i + 1][0], P[i + 2][0], u), cr(P[i - 1][1], P[i][1], P[i + 1][1], P[i + 2][1], u) + side, r]); }
+  const blob = (dy, k) => { x.beginPath(); for (const [cx, cy, r] of circ) { x.moveTo(cx + r * k, cy + dy * r); x.arc(cx, cy + dy * r, r * k, 0, 7); } };
+  for (const [cx, cy, r] of circ) { x.beginPath(); x.arc(cx, cy, r + 8, 0, 7); x.fillStyle = '#b3a0d8'; x.fill(); }
+  blob(0, 1); x.fillStyle = '#ddd2f2'; x.fill();
+  x.save(); blob(0, 1); x.clip(); blob(-0.3, 0.92); x.fillStyle = '#fbf9ff'; x.fill();
+  x.strokeStyle = 'rgba(160,140,210,0.85)'; x.lineWidth = 5; circ.forEach(([cx, cy, r], i) => { if (i % 5 === 2) { x.beginPath(); x.arc(cx - r * 0.1, cy - r * 0.15, r * 0.4, Math.PI, Math.PI * 1.75); x.stroke(); } });
+  x.restore();
+}
 // expr: smug | grin | shock | shout | sad | worried | hit | calm | yuck
 export function drawPerson({ who = 'host', expr = 'calm', mouth = 0, blink = false, pose = 'idle' }) {
   const L = LOOKS[who], c = mk(FIG.W, FIG.H), x = c.getContext('2d');
@@ -813,6 +826,8 @@ export function drawPerson({ who = 'host', expr = 'calm', mouth = 0, blink = fal
     if (!L.noGoggles) for (const gx of [330, 430]) { x.beginPath(); x.arc(gx, 62, 34, 0, 7); fs(x, '#9bd6ff', 10); x.beginPath(); x.arc(gx - 10, 52, 9, 0, 7); x.fillStyle = '#fff'; x.fill(); }
     if (!L.noGoggles) { x.beginPath(); x.moveTo(364, 62); x.lineTo(396, 62); x.lineWidth = 12; x.strokeStyle = OL; x.stroke(); }
   }
+  if (L.steamBody) // Gear 4 steam (traced from the ref): a trail wrapped behind the neck and shoulders, billowing up behind both arms
+    smokeRibbon(x, [[-60, 300, 0.85], [-40, 450, 1], [40, 570, 1.05], [170, 630, 0.9], [280, 640, 0.65], [380, 640, 0.55], [480, 640, 0.65], [590, 630, 0.9], [720, 570, 1.05], [800, 450, 1], [820, 300, 0.85]], 72, 1);
   drawArms(x, L, pose);
   if (L.shoulderPad) shoulderPad(x);
   if (L.spikeCuffs && (POSES[pose] || POSES.idle).R[1][1] > 1000) for (const hx of (L.buff ? [[160 - L.buff * 54, 1070], [600 + L.buff * 54, 1070]] : [[160, 1070], [600, 1070]])) { rrect(x, hx[0] - 55, hx[1] - 30, 110, 50, 12); fs(x, '#3a3a4a', 7); for (let k = 0; k < 4; k++) { x.beginPath(); x.moveTo(hx[0] - 45 + k * 30, hx[1] - 30); x.lineTo(hx[0] - 30 + k * 30, hx[1] - 70); x.lineTo(hx[0] - 15 + k * 30, hx[1] - 30); x.closePath(); fs(x, '#c8b040', 5); } }
