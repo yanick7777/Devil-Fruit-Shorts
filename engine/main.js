@@ -45,15 +45,12 @@ function lineAt(T) { return TL.lines.find((l) => T >= l.start && T < l.start + l
 export function frame(T) {
   const shot = shotAt(T), ln = lineAt(T), lt = T - ln.start;
   const S = { T, t: T - shot.t0, t0: shot.t0, dur: shot.t1 - shot.t0, shake: 0, flash: 0, flashCol: '255,255,255', speaking: lt > ln.voStart && lt < ln.voStart + ln.voDur };
-  // word timing: how long since the last spoken word / last colour-tagged (key) word, for bounces and camera punches
-  { let wa = 99, ea = 99; for (const w of ln.words) if (w.t <= lt) { wa = lt - w.t; if (w.c) ea = lt - w.t; } S.wordAgo = S.speaking ? wa : 99; S.emphAgo = ea; }
   M.bg.material.map = bgTex(shot.bg); M.bg.material.needsUpdate = true;
   // ---- stage ----
   const x = M.stageC.getContext('2d'); x.clearRect(0, 0, W, H);
   S.wobble = 0; S.bgRoll = 0;
   shot.draw(x, S);
   M.bg.rotation.z = S.bgRoll || 0;   // tilt only the world behind the characters
-  M.bg.position.x = Math.sin(T * 0.45) * 22; M.bg.position.y = Math.cos(T * 0.37) * 14;   // slow parallax so the set breathes behind the cast
   { const kb = (DIST + 420) / DIST * (1 + Math.abs(S.bgRoll || 0) * 1.4); M.bg.scale.set(kb, kb, 1); }
   // cartoon wobble: bend the background mesh (Gear 5 style)
   { const pos = M.bg.geometry.attributes.position, r = M.bgRest, w = S.wobble || 0;
@@ -64,13 +61,11 @@ export function frame(T) {
   M.stage.material.map.needsUpdate = true;
   // ---- camera: smootherstep glide + slow push-in, a punch on every cut, 7-frame shakes ----
   const [a, b] = shot.cam, k = ease.smoother(clamp01(S.t / S.dur));
-  const punch = S.emphAgo < 0.6 ? 0.045 * Math.exp(-S.emphAgo * 6) * Math.min(1, S.emphAgo * 25) : 0;   // quick zoom punch on key words
-  const zoom = (a[0] + (b[0] - a[0]) * k) * (1 + 0.07 * (1 - ease.outCubic(prog(S.t, 0, 0.3)))) * (1 + punch);
-  const drift = (f, p) => Math.sin(T * f + p);   // slow handheld drift so the frame is never perfectly still
-  const fx = a[1] + (b[1] - a[1]) * k + drift(0.7, 0) * 9 + drift(1.9, 2) * 4, fy = a[2] + (b[2] - a[2]) * k + drift(0.9, 1) * 8 + drift(2.3, 4) * 3, fr = Math.round(T * 30);
+  const zoom = (a[0] + (b[0] - a[0]) * k) * (1 + 0.07 * (1 - ease.outCubic(prog(S.t, 0, 0.3))));
+  const fx = a[1] + (b[1] - a[1]) * k, fy = a[2] + (b[2] - a[2]) * k, fr = Math.round(T * 30);
   const sh = S.shake, j = (n) => Math.sin(fr * 12.9898 + n * 78.233) * 0.5;
   cam.position.set(fx - W / 2 + j(1) * 46 * sh, H / 2 - fy + j(2) * 46 * sh, DIST / zoom);
-  cam.rotation.set(0, 0, a[3] + (b[3] - a[3]) * k + j(3) * 0.035 * sh + drift(0.6, 3) * 0.005 + punch * 0.12 * Math.sin(T * 7));
+  cam.rotation.set(0, 0, a[3] + (b[3] - a[3]) * k + j(3) * 0.035 * sh);
   // ---- HUD ----
   const h = M.hudC.getContext('2d'); h.clearRect(0, 0, W, H);
   if (shot.hud) shot.hud(h, S);
