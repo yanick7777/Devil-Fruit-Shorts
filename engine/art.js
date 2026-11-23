@@ -157,9 +157,9 @@ export const LOOKS = {
           top: 'kizaru', cloakCol: '#f4f4f8', cloakLining: '#dcdce4', pants: '#e8b830', pantsStripes: '#fff0a0', shoe: '#f4f4f8', boots: false, arm: '#e8b830', cuff: '#f4e070', glove: '#c8946a' },
   rayleigh: { skin: '#f0c8a0', skinD: '#d6a880', hair: '#f4f4f8', hairL: '#ffffff', hairStyle: 'wavy', glasses: true, beard: true, scar: true,
           top: 'coat', cloth: '#f4f0e6', clothD: '#d8d0c0', inner: '#f4f0e6', innerD: '#d8d0c0', cloakCol: '#5a4a3a', cloakLining: '#3a3028', pants: '#4a4a5a', shoe: '#2a2026', boots: false, arm: '#f4f0e6', cuff: '#f4f0e6' },
-  katakuri: { skin: '#e0a878', skinD: '#c08a5a', hair: '#a8305a', hairL: '#d0507a', hairStyle: 'spikyLong', furScarf: true, fit: 1.08,
+  katakuri: { skin: '#e0a878', skinD: '#c08a5a', hair: '#a8305a', hairL: '#d0507a', hairStyle: 'spikyLong', furScarf: true, buff: 1, fit: 1.08,
           top: 'katakuri', pants: '#1b1820', pantsStripes: '#4a4a5a', shoe: '#2a2a36', boots: true, arm: '#e0a878', glove: '#3a2a20', spikeCuffs: true },
-  kaido: { skin: '#b07a52', skinD: '#8a5a3a', hair: '#2a2028', hairL: '#4a3a44', hairStyle: 'wild', dreadMane: true, bullHorns: true, beard: true, whiskers: true, fit: 1.0,
+  kaido: { skin: '#b07a52', skinD: '#8a5a3a', hair: '#2a2028', hairL: '#4a3a44', hairStyle: 'short', dreadMane: true, bullHorns: true, goateeLong: true, whiskers: true, buff: 1.5, fit: 1.0,
           top: 'kaido', cloakCol: '#3a3478', cloakLining: '#2a2458', fur: true, pants: '#5a6a5a', shoe: '#1b1820', boots: true, arm: '#b07a52', spikeCuffs: true, dragonSleeve: true },
   sabo: { skin: '#f7cc9c', skinD: '#e2ab78', hair: '#f2cf55', hairL: '#ffe58a', hairStyle: 'curly', hat: 'top', scar: true,
           top: 'coat', cloth: '#2f4f8f', clothD: '#223a6c', inner: '#f4f1ea', innerD: '#cfc8b8', cravat: true, pants: '#3a3340', shoe: '#6b4630', boots: true, cuff: '#f4f1ea' },
@@ -414,14 +414,17 @@ function drawTorso(x, L) {
     for (const [r, n, cols] of [[150, 9, ['#5cc45a']], [190, 9, ['#5cc45a', '#6a4ad8']]]) for (let i = 0; i < n; i++) { const a = Math.PI * (0.18 + 0.64 * i / (n - 1)); x.beginPath(); x.arc(380 + Math.cos(a) * r * 0.9, 600 + Math.sin(a) * r * 0.55, 13, 0, 7); fs(x, cols[i % cols.length], 4); }
     x.beginPath(); x.moveTo(220, 1040); x.lineTo(540, 1040); x.lineTo(550, 1110); x.lineTo(210, 1110); x.closePath(); fs(x, '#e8c030', 9); x.beginPath(); x.moveTo(470, 1100); x.lineTo(540, 1300); x.lineTo(490, 1300); x.lineTo(440, 1110); x.closePath(); fs(x, '#e8c030', 7);
     for (const sd of [-1, 1]) { x.beginPath(); x.ellipse(380 + sd * 175, 650, 90, 45, sd * 0.3, 0, 7); fs(x, '#e8c030', 8); x.strokeStyle = '#c89a10'; x.lineWidth = 6; for (let k = 0; k < 6; k++) { x.beginPath(); x.moveTo(380 + sd * (120 + k * 20), 680); x.lineTo(380 + sd * (130 + k * 20), 740); x.stroke(); } }
-  } else if (L.top === 'katakuri') { // bare muscular chest with pink stripes, open black vest, studded belt with skull buckle, black pants
-    torso(); fs(x, L.skin, 12); x.strokeStyle = L.skinD; x.lineWidth = 5; x.beginPath(); x.moveTo(380, 700); x.lineTo(380, 1010); for (const yy of [820, 890, 960]) { x.moveTo(320, yy); x.lineTo(440, yy); } x.stroke();
-    x.fillStyle = '#e84a8a'; for (const dx of [400, 430, 460]) x.fillRect(dx, 680, 14, 330);
-    for (const sd of [-1, 1]) { x.beginPath(); x.moveTo(380 + sd * 150, 650); x.lineTo(380 + sd * 95, 650); x.lineTo(380 + sd * 120, 1010); x.lineTo(380 + sd * 150, 1010); x.closePath(); fs(x, '#1b1820', 9); }
-    rrect(x, 220, 1000, 320, 56, 10); fs(x, '#3a3a4a', 8); x.fillStyle = '#a8b0c8'; for (let k = 0; k < 8; k++) { x.beginPath(); x.arc(245 + k * 38, 1028, 7, 0, 7); x.fill(); } x.beginPath(); x.arc(380, 1028, 40, 0, 7); fs(x, '#f4f4f8', 7); x.fillStyle = OL; for (const sd of [-1, 1]) { x.beginPath(); x.arc(380 + sd * 13, 1020, 8, 0, 7); x.fill(); }
-  } else if (L.top === 'kaido') { // huge bare muscular torso, scar, white rope belt, purple sash, maroon waistband, chains, grey-green baggy pants
-    x.beginPath(); x.moveTo(190, 700); x.quadraticCurveTo(380, 580, 570, 700); x.lineTo(560, 1040); x.lineTo(200, 1040); x.closePath(); fs(x, L.skin, 12);
-    x.strokeStyle = L.skinD; x.lineWidth = 6; x.beginPath(); x.moveTo(380, 720); x.lineTo(380, 1020); for (const yy of [850, 920, 990]) { x.moveTo(300, yy); x.quadraticCurveTo(380, yy + 10, 460, yy); } x.moveTo(240, 780); x.quadraticCurveTo(310, 840, 370, 790); x.moveTo(520, 780); x.quadraticCurveTo(450, 840, 390, 790); x.stroke();
+  } else if (L.top === 'katakuri') { // V-shaped muscular chest with pink stripes, open black vest, studded belt with skull buckle
+    const vt = () => { x.beginPath(); x.moveTo(150, 690); x.quadraticCurveTo(380, 600, 610, 690); x.lineTo(530, 1030); x.lineTo(230, 1030); x.closePath(); }; vt(); fs(x, L.skin, 12);
+    x.strokeStyle = L.skinD; x.lineWidth = 7; x.lineCap = 'round'; for (const sd of [-1, 1]) { x.beginPath(); x.moveTo(380, 690); x.quadraticCurveTo(380 + sd * 170, 700, 380 + sd * 190, 800); x.quadraticCurveTo(380 + sd * 110, 840, 380, 820); x.stroke(); }
+    x.beginPath(); x.moveTo(380, 820); x.lineTo(380, 1010); for (const yy of [880, 940]) { x.moveTo(300, yy); x.quadraticCurveTo(340, yy + 10, 375, yy); x.moveTo(385, yy); x.quadraticCurveTo(420, yy + 10, 460, yy); } x.moveTo(250, 860); x.quadraticCurveTo(290, 960, 300, 1010); x.moveTo(510, 860); x.quadraticCurveTo(470, 960, 460, 1010); x.stroke();
+    x.save(); vt(); x.clip(); x.fillStyle = '#e84a8a'; for (const dx of [405, 432, 459]) x.fillRect(dx, 680, 15, 360); x.restore();
+    for (const sd of [-1, 1]) { x.beginPath(); x.moveTo(380 + sd * 230, 680); x.lineTo(380 + sd * 175, 670); x.lineTo(380 + sd * 140, 1030); x.lineTo(380 + sd * 175, 1030); x.closePath(); fs(x, '#1b1820', 9); }
+    rrect(x, 220, 1010, 320, 56, 10); fs(x, '#3a3a4a', 8); x.fillStyle = '#a8b0c8'; for (let k = 0; k < 8; k++) { x.beginPath(); x.arc(245 + k * 38, 1038, 7, 0, 7); x.fill(); } x.beginPath(); x.arc(380, 1038, 40, 0, 7); fs(x, '#f4f4f8', 7); x.fillStyle = OL; for (const sd of [-1, 1]) { x.beginPath(); x.arc(380 + sd * 13, 1030, 8, 0, 7); x.fill(); }
+  } else if (L.top === 'kaido') { // huge V-shaped muscular torso, scar, white rope belt, purple sash, maroon waistband, chains
+    x.beginPath(); x.moveTo(110, 700); x.quadraticCurveTo(380, 570, 650, 700); x.lineTo(570, 1050); x.lineTo(190, 1050); x.closePath(); fs(x, L.skin, 12);
+    x.strokeStyle = L.skinD; x.lineWidth = 8; x.lineCap = 'round'; for (const sd of [-1, 1]) { x.beginPath(); x.moveTo(380, 700); x.quadraticCurveTo(380 + sd * 210, 700, 380 + sd * 230, 820); x.quadraticCurveTo(380 + sd * 130, 870, 380, 840); x.stroke(); }
+    x.beginPath(); x.moveTo(380, 840); x.lineTo(380, 1030); for (const yy of [900, 960]) { x.moveTo(290, yy); x.quadraticCurveTo(335, yy + 12, 375, yy); x.moveTo(385, yy); x.quadraticCurveTo(425, yy + 12, 470, yy); } x.moveTo(220, 880); x.quadraticCurveTo(270, 980, 280, 1030); x.moveTo(540, 880); x.quadraticCurveTo(490, 980, 480, 1030); x.stroke();
     x.beginPath(); x.moveTo(270, 800); x.lineTo(320, 900); x.lineTo(280, 960); x.lineTo(300, 1010); x.lineWidth = 16; x.strokeStyle = '#a86a5a'; x.stroke();
     x.beginPath(); x.moveTo(160, 1020); x.quadraticCurveTo(380, 1080, 600, 1020); x.lineTo(620, 1120); x.quadraticCurveTo(380, 1180, 140, 1120); x.closePath(); fs(x, '#8a5aa8', 9);
     rrect(x, 210, 1060, 340, 90, 10); fs(x, '#7a2a3a', 8); for (let k = 0; k < 6; k++) { x.beginPath(); x.ellipse(250 + k * 52, 1040, 34, 26, 0, 0, 7); fs(x, '#f4f4f8', 6); }
@@ -460,15 +463,21 @@ function drawTorso(x, L) {
 function drawArms(x, L, pose) {
   const P = POSES[pose] || POSES.idle, armCol = L.arm || L.cloth || L.skin;
   for (const side of ['L', 'R']) {
-    const [sx, sy] = SH[side], [[ex, ey], [hx, hy], hand] = P[side];
+    const bo = L.buff ? (side === 'L' ? -L.buff * 45 : L.buff * 45) : 0, bw = 1 + (L.buff || 0) * 0.55;
+    const [sx0, sy] = SH[side], [[ex0, ey], [hx0, hy], hand] = P[side], sx = sx0 + bo, ex = ex0 + bo * 1.2, hx = hx0 + bo * 1.2;
     x.lineCap = 'round'; x.lineJoin = 'round';
     x.beginPath(); x.moveTo(sx, sy); x.lineTo(ex, ey); x.lineTo(hx, hy);
-    x.lineWidth = 86; x.strokeStyle = OL; x.stroke(); x.lineWidth = 64; x.strokeStyle = armCol; x.stroke();
+    x.lineWidth = 86 * bw; x.strokeStyle = OL; x.stroke(); x.lineWidth = 64 * bw; x.strokeStyle = armCol; x.stroke();
+    if (L.buff) { // deltoid, bicep and forearm bulges
+      const bulge = (px, py, r) => { x.beginPath(); x.arc(px, py, r + 11, 0, 7); x.fillStyle = OL; x.fill(); x.beginPath(); x.arc(px, py, r, 0, 7); x.fillStyle = armCol; x.fill(); };
+      bulge(sx, sy + 10, 62 * bw * 0.85); bulge(sx + (ex - sx) * 0.55, sy + (ey - sy) * 0.55, 48 * bw * 0.85); bulge(ex + (hx - ex) * 0.35, ey + (hy - ey) * 0.35, 40 * bw * 0.85);
+      x.beginPath(); x.moveTo(sx, sy); x.lineTo(ex, ey); x.lineTo(hx, hy); x.lineWidth = 64 * bw; x.strokeStyle = armCol; x.stroke();
+      x.strokeStyle = L.skinD || OL; x.lineWidth = 5; x.beginPath(); x.arc(sx + (ex - sx) * 0.55, sy + (ey - sy) * 0.55, 30 * bw, Math.atan2(ey - sy, ex - sx) + 0.6, Math.atan2(ey - sy, ex - sx) + 2.4); x.stroke(); }
     if (L.sleeveSkin) { x.beginPath(); x.moveTo(ex, ey); x.lineTo(hx, hy); x.lineWidth = 64; x.strokeStyle = L.skin; x.stroke(); x.beginPath(); x.moveTo(sx, sy); x.lineTo(ex, ey); x.lineWidth = 64; x.strokeStyle = armCol; x.stroke(); }
     if (L.heartCol) { for (const [ax, ay] of [[sx + (ex - sx) * 0.35, sy + (ey - sy) * 0.35], [sx + (ex - sx) * 0.78, sy + (ey - sy) * 0.78], [ex + (hx - ex) * 0.5, ey + (hy - ey) * 0.5]]) { x.save(); x.translate(ax, ay); x.beginPath(); x.moveTo(0, 12); x.bezierCurveTo(-22, -2, -10, -18, 0, -6); x.bezierCurveTo(10, -18, 22, -2, 0, 12); x.fillStyle = L.heartCol; x.fill(); x.restore(); } }
     // cuff + hand
     const ang = Math.atan2(hy - ey, hx - ex);
-    x.save(); x.translate(hx, hy); x.rotate(ang);
+    x.save(); x.translate(hx, hy); x.rotate(ang); if (L.buff) x.scale(1 + L.buff * 0.3, 1 + L.buff * 0.3);
     if (L.cuff) { rrect(x, -30, -36, L.furCuff ? 40 : 26, 72, 10); fs(x, L.cuff, 8); }
     x.beginPath();
     if (hand === 'open') { x.ellipse(28, 0, 40, 36, 0, 0, 7); fs(x, L.glove || L.skin, 10); for (const k of [-24, -8, 8, 24]) { x.save(); x.translate(64, k); x.rotate(k * 0.012); rrect(x, -12, -10, 40, 20, 10); fs(x, L.glove || L.skin, 7); x.restore(); } }
@@ -492,6 +501,11 @@ export function drawPerson({ who = 'host', expr = 'calm', mouth = 0, blink = fal
   if (L.drumRing) { x.beginPath(); x.arc(380, 260, 420, Math.PI * 0.95, Math.PI * 2.05); x.lineWidth = 16; x.strokeStyle = '#8aa8c8'; x.stroke(); for (const a of [1.05, 1.35, 1.65, 1.95]) { const dx = 380 + Math.cos(a * Math.PI) * 420, dy = 260 + Math.sin(a * Math.PI) * 420; x.beginPath(); x.arc(dx, dy, 80, 0, 7); fs(x, '#f4ead2', 10); x.fillStyle = OL; for (let k = 0; k < 3; k++) { const b = k / 3 * 6.283; x.beginPath(); x.arc(dx + Math.cos(b) * 28, dy + Math.sin(b) * 28, 26, b, b + 2.4); x.lineTo(dx, dy); x.fill(); } } }
   if (L.swans) for (const sd of [-1, 1]) { x.beginPath(); x.moveTo(380 + sd * 120, 700); x.quadraticCurveTo(380 + sd * 320, 500, 380 + sd * 260, 160); x.lineWidth = 44; x.strokeStyle = OL; x.stroke(); x.lineWidth = 32; x.strokeStyle = '#ffffff'; x.stroke(); x.beginPath(); x.ellipse(380 + sd * 280, 150, 46, 34, 0, 0, 7); fs(x, '#ffffff', 8); x.beginPath(); x.moveTo(380 + sd * 310, 140); x.lineTo(380 + sd * 420, 120); x.lineTo(380 + sd * 310, 165); x.closePath(); fs(x, '#e8c84a', 6); }
   if (L.longWild) { x.beginPath(); x.moveTo(380, 120); const pts = [[150, 160], [60, 330], [120, 380], [20, 560], [110, 560], [60, 760], [200, 640], [230, 800], [300, 620], [460, 620], [530, 800], [560, 640], [700, 760], [650, 560], [740, 560], [640, 380], [700, 330], [610, 160]]; for (const [px, py] of pts) x.lineTo(px, py); x.closePath(); fs(x, L.hair, 10); }
+  if (L.dreadMane) { x.lineCap = 'round'; for (let i = 0; i < 26; i++) { const ang = Math.PI * (0.92 + i / 25 * 1.16), len = 170 + ((i * 37) % 5) * 28, r0 = 150;
+      const bx = 380 + Math.cos(ang) * r0, by = 280 + Math.sin(ang) * r0 * 0.9, ex = 380 + Math.cos(ang) * (r0 + len), ey = 280 + Math.sin(ang) * (r0 + len) * 0.75 + 40;
+      const nx = -Math.sin(ang), ny = Math.cos(ang), w = 26 * ((i % 2) ? 1 : -1);
+      const path = () => { x.beginPath(); x.moveTo(bx, by); x.bezierCurveTo(bx + (ex - bx) * 0.33 + nx * w, by + (ey - by) * 0.33 + ny * w, bx + (ex - bx) * 0.66 - nx * w, by + (ey - by) * 0.66 - ny * w, ex, ey + 18); };
+      path(); x.lineWidth = 34; x.strokeStyle = OL; x.stroke(); path(); x.lineWidth = 22; x.strokeStyle = i % 3 ? L.hair : L.hairL; x.stroke(); } }
   if (L.twinTails) for (const sd of [-1, 1]) { x.beginPath(); x.moveTo(380 + sd * 200, 200); x.bezierCurveTo(380 + sd * 380, 300, 380 + sd * 380, 900, 380 + sd * 300, 1150); x.lineTo(380 + sd * 230, 1100); x.bezierCurveTo(380 + sd * 280, 800, 380 + sd * 250, 400, 380 + sd * 150, 260); x.closePath(); fs(x, L.hair, 10); }
   if (L.braids) crackerHair(x, L);
   if (L.sideCape) sideCape(x);
@@ -510,6 +524,7 @@ export function drawPerson({ who = 'host', expr = 'calm', mouth = 0, blink = fal
   head(); fs(x, L.skin, 12);
   if (L.sideburns) { x.save(); head(); x.clip(); x.fillStyle = L.hair; for (const sd of [-1, 1]) { x.beginPath(); x.moveTo(380 + sd * 215, 200); x.lineTo(380 + sd * 160, 200); x.quadraticCurveTo(380 + sd * 165, 380, 380 + sd * 150, 520); x.lineTo(380 + sd * 205, 470); x.closePath(); x.fill(); } x.restore(); head(); x.lineWidth = 12; x.strokeStyle = OL; x.stroke(); }
   if (L.thinBurns) { x.save(); head(); x.clip(); x.fillStyle = L.hair; for (const sd of [-1, 1]) { x.beginPath(); x.moveTo(380 + sd * 205, 200); x.lineTo(380 + sd * 168, 210); x.quadraticCurveTo(380 + sd * 160, 360, 380 + sd * 150, 470); x.lineTo(380 + sd * 172, 478); x.quadraticCurveTo(380 + sd * 190, 360, 380 + sd * 205, 200); x.closePath(); x.fill(); } x.restore(); head(); x.lineWidth = 12; x.strokeStyle = OL; x.stroke(); }
+  if (L.goateeLong) { x.beginPath(); x.moveTo(330, 520); x.quadraticCurveTo(380, 640, 430, 520); x.quadraticCurveTo(380, 560, 330, 520); fs(x, L.hair, 8); }
   if (L.wrinkles) { x.strokeStyle = L.skinD; x.lineWidth = 6; x.lineCap = 'round'; for (const sd of [-1, 1]) { x.beginPath(); x.moveTo(380 + sd * 70, 445); x.quadraticCurveTo(380 + sd * 95, 500, 380 + sd * 80, 545); x.stroke(); } x.beginPath(); x.moveTo(320, 235); x.lineTo(440, 235); x.moveTo(335, 255); x.lineTo(425, 255); x.stroke(); }
   if (L.beard) { x.beginPath(); x.moveTo(176, 380); x.bezierCurveTo(190, 520, 280, 600, 380, 604); x.bezierCurveTo(480, 600, 570, 520, 584, 380); x.bezierCurveTo(560, 470, 480, 470, 380, 470); x.bezierCurveTo(280, 470, 200, 470, 176, 380); fs(x, L.hair, 11); }
   // ---- eyes ----
@@ -728,7 +743,6 @@ export function drawPerson({ who = 'host', expr = 'calm', mouth = 0, blink = fal
   if (L.blueNose) { x.beginPath(); x.ellipse(390, 430, 26, 18, 0, 0, 7); fs(x, '#3f6fd8', 6); }
   if (L.hat === 'peronaCrown') { rrect(x, 290, 0, 180, 110, 10); fs(x, '#1b1530', 9); x.fillStyle = '#d8343a'; for (let k = 0; k < 4; k++) x.fillRect(305 + k * 42, 10, 20, 90); rrect(x, 280, 100, 200, 30, 8); fs(x, '#e8c84a', 6); }
   if (L.bullHorns) for (const sd of [-1, 1]) { x.beginPath(); x.moveTo(380 + sd * 150, 170); x.quadraticCurveTo(380 + sd * 380, 120, 380 + sd * 330, -170); x.quadraticCurveTo(380 + sd * 300, 40, 380 + sd * 110, 120); x.closePath(); fs(x, '#e8e4d8', 9); }
-  if (L.dreadMane) { for (let i = 0; i < 16; i++) { const a = Math.PI * (1.02 + i / 15 * 0.96), r1 = 200, r2 = 300 + (i % 3) * 40; x.beginPath(); x.moveTo(380 + Math.cos(a) * r1, 300 + Math.sin(a) * r1); x.quadraticCurveTo(380 + Math.cos(a + 0.15) * (r2 - 40), 300 + Math.sin(a + 0.15) * (r2 - 40), 380 + Math.cos(a) * r2, 300 + Math.sin(a) * r2); x.lineCap = 'round'; x.lineWidth = 34; x.strokeStyle = OL; x.stroke(); x.lineWidth = 22; x.strokeStyle = L.hair; x.stroke(); } }
   if (L.furNeck) { for (let r = 0; r < 4; r++) { x.beginPath(); for (let i = 0; i <= 18; i++) { const a = Math.PI * (i / 18), rr = (r % 2 ? 1.0 : 0.92); x.lineTo(380 + Math.cos(a) * 280 * rr, 600 - r * 55 + Math.sin(a) * 60 * rr + (i % 2) * 14); } for (let i = 18; i >= 0; i--) { const a = Math.PI * (i / 18); x.lineTo(380 + Math.cos(a) * 260, 600 - r * 55 + 30 + Math.sin(a) * 40); } x.closePath(); fs(x, r % 2 ? '#1b1820' : '#f4ecd8', 7); } }
   if (L.goatHorns) for (const sd of [-1, 1]) { x.beginPath(); x.moveTo(380 + sd * 50, 120); x.quadraticCurveTo(380 + sd * 40, -40, 380 + sd * 150, -70); x.quadraticCurveTo(380 + sd * 90, -10, 380 + sd * 100, 130); x.closePath(); fs(x, '#a89a4a', 8); }
   if (L.redHorns) for (const sd of [-1, 1]) { x.beginPath(); x.moveTo(380 + sd * 120, 150); x.quadraticCurveTo(380 + sd * 260, 60, 380 + sd * 200, -80); x.quadraticCurveTo(380 + sd * 190, 40, 380 + sd * 90, 110); x.closePath(); fs(x, '#d8303a', 9); }
@@ -773,9 +787,9 @@ export function drawPerson({ who = 'host', expr = 'calm', mouth = 0, blink = fal
   }
   drawArms(x, L, pose);
   if (L.shoulderPad) shoulderPad(x);
-  if (L.spikeCuffs) for (const hx of [[160, 1070], [600, 1070]]) { rrect(x, hx[0] - 55, hx[1] - 30, 110, 50, 12); fs(x, '#3a3a4a', 7); for (let k = 0; k < 4; k++) { x.beginPath(); x.moveTo(hx[0] - 45 + k * 30, hx[1] - 30); x.lineTo(hx[0] - 30 + k * 30, hx[1] - 70); x.lineTo(hx[0] - 15 + k * 30, hx[1] - 30); x.closePath(); fs(x, '#c8b040', 5); } }
-  if (L.dragonSleeve && (POSES[pose] || POSES.idle).R[1][1] > 1000) { x.save(); x.beginPath(); x.rect(500, 690, 80, 300); x.clip(); for (let r = 0; r < 6; r++) for (let k = 0; k < 2; k++) { x.beginPath(); x.arc(515 + k * 40 + (r % 2) * 20, 720 + r * 45, 22, 0, Math.PI); x.fillStyle = '#e8702e'; x.fill(); x.lineWidth = 4; x.strokeStyle = '#a03a1a'; x.stroke(); } x.restore(); }
-  if (L.whiskers) for (const sd of [-1, 1]) { x.beginPath(); x.moveTo(380 + sd * 40, 470); x.bezierCurveTo(380 + sd * 160, 520, 380 + sd * 40, 760, 380 + sd * 150, 900); x.bezierCurveTo(380 + sd * 220, 980, 380 + sd * 120, 1040, 380 + sd * 170, 1080); x.lineCap = 'round'; x.lineWidth = 16; x.strokeStyle = OL; x.stroke(); x.lineWidth = 9; x.strokeStyle = '#2a2028'; x.stroke(); }
+  if (L.spikeCuffs) for (const hx of (L.buff ? [[160 - L.buff * 54, 1070], [600 + L.buff * 54, 1070]] : [[160, 1070], [600, 1070]])) { rrect(x, hx[0] - 55, hx[1] - 30, 110, 50, 12); fs(x, '#3a3a4a', 7); for (let k = 0; k < 4; k++) { x.beginPath(); x.moveTo(hx[0] - 45 + k * 30, hx[1] - 30); x.lineTo(hx[0] - 30 + k * 30, hx[1] - 70); x.lineTo(hx[0] - 15 + k * 30, hx[1] - 30); x.closePath(); fs(x, '#c8b040', 5); } }
+  if (L.dragonSleeve && (POSES[pose] || POSES.idle).R[1][1] > 1000) { x.save(); x.beginPath(); x.rect(560, 640, 150, 330); x.clip(); for (let r = 0; r < 7; r++) for (let k = 0; k < 3; k++) { x.beginPath(); x.arc(575 + k * 42 + (r % 2) * 20, 720 + r * 45, 22, 0, Math.PI); x.fillStyle = '#e8702e'; x.fill(); x.lineWidth = 4; x.strokeStyle = '#a03a1a'; x.stroke(); } x.restore(); }
+  if (L.whiskers) for (const sd of [-1, 1]) { x.beginPath(); x.moveTo(380 + sd * 30, 470); x.bezierCurveTo(380 + sd * 150, 470, 380 + sd * 120, 640, 380 + sd * 60, 760); x.bezierCurveTo(380 + sd * 10, 880, 380 + sd * 200, 960, 380 + sd * 140, 1080); x.lineCap = 'round'; x.lineWidth = 13; x.strokeStyle = OL; x.stroke(); x.lineWidth = 7; x.strokeStyle = '#2a2028'; x.stroke(); }
   if (L.furScarf) for (let r = 0; r < 4; r++) { const y = 640 - r * 52; x.beginPath(); for (let i = 0; i <= 22; i++) { const a = Math.PI * (i / 22), w = 300 - r * 30; x.lineTo(380 - Math.cos(a) * w, y + Math.sin(a) * 50 + ((i % 2) ? 22 : 0)); } for (let i = 22; i >= 0; i--) { const a = Math.PI * (i / 22), w = 280 - r * 30; x.lineTo(380 - Math.cos(a) * w, y - 50 + Math.sin(a) * 30 - ((i % 2) ? 18 : 0)); } x.closePath(); fs(x, r % 2 ? '#1b1820' : '#f4ecd8', 7); }
   if (L.coatSleeves) for (const sd of [-1, 1]) { x.beginPath(); x.moveTo(380 + sd * 230, 700); x.quadraticCurveTo(380 + sd * 330, 900, 380 + sd * 320, 1130); x.lineTo(380 + sd * 240, 1140); x.quadraticCurveTo(380 + sd * 250, 920, 380 + sd * 200, 730); x.closePath(); fs(x, L.cloakCol || '#f4f4f8', 10); rrect(x, 380 + sd * 280 - 48, 1110, 96, 70, 16); fs(x, '#f4e070', 8); }
   if (L.metalArm) { x.save(); x.translate(560, 720); for (let i = 0; i < 4; i++) { rrect(x, -50, i * 100, 110, 90, 16); fs(x, '#c8ccd8', 9); x.beginPath(); x.arc(5, i * 100 + 45, 14, 0, 7); fs(x, '#8a8fa0', 4); } rrect(x, -70, 400, 150, 130, 24); fs(x, '#c8ccd8', 10); x.restore(); }
