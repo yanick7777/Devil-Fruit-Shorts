@@ -27,16 +27,24 @@ export function figure(key, fn) {
 // --------------------------------------------------------------------------------------
 // Full-body character with its feet at (cx, fy). Returns head and hand positions for props and marks.
 export function person(x, S, who, expr, cx, fy, s = 1, o = {}) {
-  const pose = o.pose || 'idle', flip = !!o.flip, P = A.POSES[pose];
-  const info = { head: A.figPoint(...A.FIG.HEAD, cx, fy, s, flip), hand: { L: A.figPoint(...P.L[1], cx, fy, s, flip), R: A.figPoint(...P.R[1], cx, fy, s, flip) }, s };
+  const pose = o.pose || 'idle', flip = !!o.flip, P = A.POSES[pose], seed = o.seed || 0;
+  // ---- motion: entrance drop, idle bob, sway, talking bounce (squash and stretch), a hop on key words ----
+  const enter = o.pop != null ? ease.outCubic(prog(S.T, o.pop, o.pop + 0.3)) : 1;
+  const talkHit = o.talk && S.speaking && S.wordAgo < 0.4 ? Math.exp(-S.wordAgo * 10) : 0;
+  const emph = S.emphAgo < 0.5 ? Math.exp(-S.emphAgo * 8) * Math.min(1, S.emphAgo * 20) : 0;
+  const still = o.still ? 0 : 1;
+  const dy = still * (Math.sin(S.T * 2.2 + seed * 1.7) * 7 * s - emph * 26 * s - talkHit * 10 * s) - (1 - enter) * 90 * s;
+  const sq = still * (talkHit * 0.035 + emph * 0.03), syM = (1 + Math.sin(S.T * 2.4 + seed) * 0.012 + sq) * (o.sy || 1), sxM = (1 - sq * 0.6) * (o.sx || 1);
+  const rot = (o.rot || 0) + still * (Math.sin(S.T * 1.1 + seed) * 0.02 + Math.sin(S.T * 2.7 + seed * 3) * 0.006);
+  const pt = ([px, py]) => [cx + (px - cx) * sxM, fy + dy + (py - fy) * syM];
+  const info = { head: pt(A.figPoint(...A.FIG.HEAD, cx, fy, s, flip)), hand: { L: pt(A.figPoint(...P.L[1], cx, fy, s, flip)), R: pt(A.figPoint(...P.R[1], cx, fy, s, flip)) }, s };
   const p = o.pop != null ? pop(S.T, o.pop) : 1; if (p <= 0) return info;
-  const seed = o.seed || 0, blink = ((S.T + seed) % 3.3) < 0.11;
+  const blink = ((S.T + seed) % 3.3) < 0.11;
   let mouth = 0;
   if (o.talk && S.speaking) { const m = Math.abs(Math.sin(S.T * 13.5)) * (0.55 + 0.45 * Math.sin(S.T * 5.3 + 1)); mouth = m > 0.5 ? 1 : m > 0.18 ? 0.5 : 0; }
   const c = figure(`p:${who}|${expr}|${mouth}|${blink}|${pose}`, () => A.drawPerson({ who, expr, mouth, blink, pose }));
-  const br = 1 + Math.sin(S.T * 2.4 + seed) * 0.01;
-  x.save(); x.globalAlpha = o.alpha ?? 1; x.translate(cx, fy); x.rotate((o.rot || 0) + Math.sin(S.T * 1.1 + seed) * 0.012);
-  x.scale(s * p * (flip ? -1 : 1) * (o.sx || 1), s * p * br * (o.sy || 1)); x.drawImage(c, -A.FIG.W / 2, -A.FIG.FEET); x.restore();
+  x.save(); x.globalAlpha = (o.alpha ?? 1) * Math.min(1, enter * 1.5 + (o.pop == null ? 1 : 0)); x.translate(cx, fy + dy); x.rotate(rot);
+  x.scale(s * p * (flip ? -1 : 1) * sxM, s * p * syM); x.drawImage(c, -A.FIG.W / 2, -A.FIG.FEET); x.restore();
   return info;
 }
 // where a figure's head will be (for marks drawn before or without the figure)
