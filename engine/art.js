@@ -161,7 +161,7 @@ export const LOOKS = {
           top: 'katakuri', pants: '#1b1820', pantsStripes: '#4a4a5a', shoe: '#2a2a36', boots: true, arm: '#e0a878', glove: '#3a2a20', spikeCuffs: true },
   kaido: { skin: '#b07a52', skinD: '#8a5a3a', hair: '#2a2028', hairL: '#4a3a44', hairStyle: 'short', dreadMane: true, bullHorns: true, jawBeard: true, angryBrows: true, whiskers: true, skullTat: true, buff: 1.5, fit: 1.0,
           top: 'kaido', cloakCol: '#3a3478', cloakLining: '#2a2458', shaggyCloak: true, pants: '#5a6a5a', shoe: '#1b1820', boots: true, arm: '#b07a52', spikeCuffs: true, dragonSleeve: true },
-  luffySnake: { skin: '#f3c08a', skinD: '#dca06a', hair: '#1d1a22', hairL: '#3d3443', hairStyle: 'messy', eyeScar: true, buff: 0.9, steam: true, hakiArms: true, fluffShorts: true, glove: '#1b1820',
+  luffySnake: { skin: '#f3c08a', skinD: '#dca06a', hair: '#1d1a22', hairL: '#3d3443', hairStyle: 'messy', eyeScar: true, buff: 0.9, xScar: true, hakiArms: true, fluffShorts: true, glove: '#1b1820',
           top: 'bare', pants: '#d8342c', shorts: true, shoe: '#1b1820', boots: true, arm: '#1b1820' },
   sabo: { skin: '#f7cc9c', skinD: '#e2ab78', hair: '#f2cf55', hairL: '#ffe58a', hairStyle: 'curly', hat: 'top', scar: true,
           top: 'coat', cloth: '#2f4f8f', clothD: '#223a6c', inner: '#f4f1ea', innerD: '#cfc8b8', cravat: true, pants: '#3a3340', shoe: '#6b4630', boots: true, cuff: '#f4f1ea' },
@@ -519,6 +519,7 @@ export function drawPerson({ who = 'host', expr = 'calm', mouth = 0, blink = fal
   if (L.sideCape) sideCape(x);
   if (L.crackerLegs) crackerLegs(x, L); else drawLegs(x, L);
   drawTorso(x, L);
+  if (L.xScar) { x.strokeStyle = '#b86a50'; x.lineWidth = 12; x.lineCap = 'round'; x.beginPath(); x.moveTo(318, 700); x.lineTo(442, 800); x.moveTo(442, 700); x.lineTo(318, 800); x.stroke(); }   // Luffy's X scar from Marineford
   if (L.crackerBelt) crackerBelt(x);
   // ---- neck ----
   x.beginPath(); x.moveTo(325, 520); x.lineTo(325, 636); x.quadraticCurveTo(380, 660, 435, 636); x.lineTo(435, 520); x.closePath(); fs(x, L.skin, 10);
