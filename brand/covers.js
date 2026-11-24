@@ -1,5 +1,5 @@
 // Video covers, 1080x1920. ?f=mera|gum|quake|ope|string|sheet
-import { drawPerson, mark, sparkle, glow, OL, FONT, BANNER, drawBanner } from '/engine/art.js';
+import { FIG, drawPerson, mark, sparkle, glow, OL, FONT, BANNER, drawBanner } from '/engine/art.js';
 import { drawFruit } from '/engine/fruit.js';
 import { drawGomu } from '/shorts/gum-gum/fruit.js';
 import { drawGura } from '/shorts/quake/fruit.js';
@@ -50,6 +50,8 @@ export const C = {
   kilo:    { rays: ['#e0809a', '#b0405a'], glow: '255,160,190', fruit: f3('kilo'), who: 'valentine', whoExpr: 'grin', lines: [['1 KG OR', 120, '#ffffff'], ['10,000 KG', 150, '#ffd84a']], bottom: 'KILO-KILO FRUIT' },
   rebirth: { rays: ['#ffb24d', '#e8622e'], glow: '255,160,60', fruit: drawFruit, who: 'sabo', whoExpr: 'grin', lines: [['WHAT HAPPENS TO', 96, '#ffffff'], ['YOUR FRUIT WHEN', 110, '#ffffff'], ['YOU DIE?', 160, '#ffd84a']], bottom: 'ACE\'S FRUIT CAME BACK' },
   light:   { rays: ['#fff08a', '#f0c830'], glow: '255,240,150', fruit: f3('light'), who: 'kizaru', whoExpr: 'smug', lines: [['HAVE YOU EVER BEEN', 92, '#ffffff'], ['KICKED AT THE', 110, '#ffffff'], ['SPEED OF LIGHT?', 140, '#ffd84a']], bottom: 'GLINT-GLINT FRUIT' },
+  mochi:   { rays: ['#ffd0e8', '#f08ab8'], glow: '255,220,240', fruit: f3('mochi'), who: 'katakuri', whoExpr: 'smug', lines: [['THE MAN WHO', 110, '#ffffff'], ['SEES THE FUTURE', 120, '#ff5fa2']], bottom: 'MOCHI-MOCHI FRUIT' },
+  azure:   { rays: ['#6aa8e8', '#1f5a9a'], glow: '140,200,255', fruit: f3('azure'), who: 'kaidoHybrid', whoExpr: 'grin', lines: [['THE STRONGEST', 110, '#ffffff'], ['CREATURE ALIVE', 130, '#ffd84a']], bottom: 'FISH-FISH: AZURE DRAGON' },
   clone:   { rays: ['#ffc070', '#f08a2a'], glow: '255,200,120', fruit: f3('clone'), who: 'bonclay', whoExpr: 'grin', lines: [['STEAL ANYONE\'S', 104, '#ffffff'], ['FACE', 170, '#ff5fa2']], bottom: 'CLONE-CLONE FRUIT' },
 };
 function rays(x, a, b) { x.fillStyle = b; x.fillRect(0, 0, 1080, 1920); x.fillStyle = a; for (let i = 0; i < 28; i++) { const t = i / 28 * Math.PI * 2; x.beginPath(); x.moveTo(540, 960); x.arc(540, 960, 2400, t, t + Math.PI / 28); x.closePath(); x.fill(); } }
@@ -58,7 +60,7 @@ function title(x, text, y, size, fill, rot = -0.03) {
   let s = size; while (x.measureText(text).width > 980) { s -= 4; x.font = `${s}px ${FONT}`; }
   x.fillStyle = 'rgba(10,6,25,0.5)'; x.fillText(text, 10, 16); x.lineWidth = s * 0.22; x.strokeStyle = OL; x.strokeText(text, 0, 0); x.fillStyle = fill; x.fillText(text, 0, 0); x.restore();
 }
-function figure(x, who, expr, pose, cx, fy, s, flip) { const im = drawPerson({ who, expr, pose }); x.save(); x.translate(cx, fy); x.scale(flip ? -s : s, s); x.drawImage(im, -500, -1745); x.restore(); return im; }
+function figure(x, who, expr, pose, cx, fy, s, flip) { const im = drawPerson({ who, expr, pose }); x.save(); x.translate(cx, fy); x.scale(flip ? -s : s, s); x.drawImage(im, -FIG.W / 2, -FIG.FEET); x.restore(); return im; }
 function cover(x, k) {
   const c = C[k]; rays(x, c.rays[0], c.rays[1]);
   const g = x.createRadialGradient(540, 960, 50, 540, 960, 900); g.addColorStop(0, 'rgba(255,255,255,0.45)'); g.addColorStop(1, 'rgba(255,255,255,0)'); x.fillStyle = g; x.fillRect(0, 0, 1080, 1920);

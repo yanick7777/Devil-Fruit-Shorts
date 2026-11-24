@@ -1,6 +1,6 @@
 // YouTube channel banner, 2560x1440. Everything that must be read sits in the 1546x423 safe area in the middle;
 // the wider TV/desktop area holds fruits and characters. ?name=...&tag=...&guides=1
-import { drawPerson, mark, sparkle, glow, OL, FONT } from '/engine/art.js';
+import { FIG, drawPerson, mark, sparkle, glow, OL, FONT } from '/engine/art.js';
 import { drawFruit } from '/engine/fruit.js';
 import { drawGomu } from '/shorts/gum-gum/fruit.js';
 import { drawGura } from '/shorts/quake/fruit.js';
@@ -12,7 +12,7 @@ import { C } from '/brand/covers.js';
 const W = 2560, H = 1440, SAFE = [507, 508, 1546, 423];
 function rays(x) { x.fillStyle = '#8d5fd6'; x.fillRect(0, 0, W, H); x.fillStyle = '#a77ee8'; for (let i = 0; i < 40; i++) { const t = i / 40 * Math.PI * 2; x.beginPath(); x.moveTo(W / 2, H / 2); x.arc(W / 2, H / 2, 3200, t, t + Math.PI / 40); x.closePath(); x.fill(); }
   const g = x.createRadialGradient(W / 2, H / 2, 80, W / 2, H / 2, 1200); g.addColorStop(0, 'rgba(255,255,255,0.5)'); g.addColorStop(1, 'rgba(255,255,255,0)'); x.fillStyle = g; x.fillRect(0, 0, W, H); }
-function figure(x, who, expr, pose, cx, fy, s, flip) { const im = drawPerson({ who, expr, pose }); x.save(); x.translate(cx, fy); x.scale(flip ? -s : s, s); x.drawImage(im, -500, -1745); x.restore(); }
+function figure(x, who, expr, pose, cx, fy, s, flip) { const im = drawPerson({ who, expr, pose }); x.save(); x.translate(cx, fy); x.scale(flip ? -s : s, s); x.drawImage(im, -FIG.W / 2, -FIG.FEET); x.restore(); }
 function text(x, t, cx, cy, size, fill, rot = -0.03, maxW = 1100) { x.save(); x.translate(cx, cy); x.rotate(rot); let s = size; x.font = `${s}px ${FONT}`; while (x.measureText(t).width > maxW) { s -= 4; x.font = `${s}px ${FONT}`; }
   x.textAlign = 'center'; x.textBaseline = 'middle'; x.lineJoin = 'round'; x.fillStyle = 'rgba(10,6,25,0.5)'; x.fillText(t, 12, 18); x.lineWidth = s * 0.22; x.strokeStyle = OL; x.strokeText(t, 0, 0); x.fillStyle = fill; x.fillText(t, 0, 0); x.restore(); }
 

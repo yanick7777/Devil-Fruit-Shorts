@@ -245,3 +245,13 @@ You take a bite of a weird lilac fruit… and strings start shooting out of your
 **Title:** Have you ever been kicked at the speed of light? ⚡
 **Description:** Move at light speed, fire lasers from your fingers, make a sword of light and rain down Yasakani no Magatama. Here's Admiral Kizaru's Glint-Glint Fruit and why speed isn't everything. Which fruit next? Comment and follow!
 #onepiece #devilfruit #kizaru #admiral #sabaody #logia #anime #fyp
+
+## 35. Mochi Mochi no Mi (Mochi-Mochi) — `out/mochi.mp4` · cover `brand/cover_mochi.png`
+**Title:** The man who sees the FUTURE 🍡
+**Description:** Turn your body into mochi, punch with mochi fists, trap enemies in sticky mochi and awaken it to turn the whole area into mochi. Here's Charlotte Katakuri's Mochi-Mochi Fruit and his fight with Gear 4 Snakeman Luffy. ⚠️ Whole Cake Island spoilers! Which fruit next? Comment and follow!
+#onepiece #devilfruit #katakuri #bigmom #wholecakeisland #luffy #gear4 #anime #fyp
+
+## 36. Uo Uo no Mi, Model: Seiryu (Fish-Fish: Azure Dragon) — `out/azure.mp4` · cover `brand/cover_azure.png`
+**Title:** The strongest creature ALIVE 🐉
+**Description:** Become a giant blue dragon, fly on clouds, breathe Bolo Breath fire, spin tornadoes and switch to a half-human, half-dragon hybrid form. Here's Kaido's Azure Dragon Fruit and why a "fish" fruit made a dragon. ⚠️ Wano spoilers! Which fruit next? Comment and follow!
+#onepiece #devilfruit #kaido #wano #mythicalzoan #yonko #anime #fyp
